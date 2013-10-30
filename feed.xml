@@ -5,10 +5,70 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2013-08-06T11:35:42Z</updated>
+  <updated>2013-10-30T06:08:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>ブログをWordPressからMiddlemanに移行してGitHub Pagesで運用するようにしてみた</title>
+    <link rel="alternate" href="http://blog.url.com/2013/10/wordpress-to-middleman/"/>
+    <id>http://blog.url.com/2013/10/wordpress-to-middleman/</id>
+    <published>2013-10-30T06:08:00Z</published>
+    <updated>2013-10-30T16:56:18+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;来月で今契約しているレンタルサーバの期限が切れるということもあって、今回Middleman + GitHub Pagesで作りなおしてみました。いわゆる静的サイトジェネレータでブログを静的ファイルにしちゃえば、GitHub Pagesでホスティングできるので固定費も節約できていいかなと。&lt;/p&gt;
+
+&lt;h2&gt;ジェネレータ選び&lt;/h2&gt;
+
+&lt;p&gt;Middlemanに限らず静的サイトジェネレータは他にもいくつかありますが、ジェネレータ選びで重要視したポイントは、なんといってもまずはWordPressからの移行がしやすいこと、そして記事のパーマリンクを移行前と同じ状態にできること。あとは、GitHub Pagesへのデプロイがしやすい機能があればなおよしって感じ。&lt;/p&gt;
+
+&lt;p&gt;Node.js製のものも含めていろいろ触ってみた結果、これらのポイントを満たしていて、かつ今やるならアツそうなジェネレータということで、今回「Middleman」を選びました。といっても、Rubyとの相性がどうとかあるらしいけど、Windowsだと何かとエラるので環境づくりにはかなり苦労しました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://middlemanapp.com/"&gt;Middleman: Hand-crafted frontend development&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;WordPressからの移行準備&lt;/h2&gt;
+
+&lt;p&gt;移行で一番めんどいのが、記事データのマークダウン化。で、調べてみると、WordPressからエクスポートしたXMLファイルから、Middlemanで使えるフォーマットにしたマークダウンファイルにコンバートしてくれるRubyスクリプトを見つけた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/salmansqadeer/wordpress-to-middleman"&gt;salmansqadeer/wordpress-to-middleman - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;「Getting Started」のとおりに準備して、&lt;code&gt;ruby wordpress_to_middleman.rb&lt;/code&gt;を叩けば、記事ごとにマークダウンファイル化してくれる。とはいっても完璧ではないので、もろもろ調整は必要です。&lt;/p&gt;
+
+&lt;h2&gt;middleman-blogでコーディング&lt;/h2&gt;
+
+&lt;p&gt;Middlemanにはブログを作るための環境が簡単に作れる「middleman-blog」というエクステンションが用意されていて、基本的にはこれを使うといい感じ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://middlemanapp.com/blogging/"&gt;Middleman: Blogging&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとは求める環境に応じて&lt;code&gt;config.rb&lt;/code&gt;で設定を書いたり、テンプレートなど必要なファイルを用意する。&lt;/p&gt;
+
+&lt;h2&gt;GitHub Pagesへのホスティング&lt;/h2&gt;
+
+&lt;p&gt;GitHub Pagesへのデプロイ・ホスティング、および独自ドメインの設定まわりは、以下のページが参考になりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://camuro.org/blog/2013/09/renewal.html"&gt;WordPressからmiddlemanに移行してGithub Pagesで運用する方法 - CAMURO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://blog.coiney.com/2013/06/21/host-middleman-blog-on-github/"&gt;middleman-blogをgithubでホストする - Coiney Developer Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;こんな感じで静的サイト化しておけば、他によさそうなジェネレータが出てきたときに、浮気しやすくなっていいかなと。&lt;br&gt;
+あ、あと、今回の移行にともなって、RSSフィードのURLが変わってますので、このブログをRSSで読んでるっていう奇特な方は、URLの変更をお願いします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://re-dzine.net/feed.xml"&gt;http://re-dzine.net/feed.xml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>Emmet LiveStyleで爆速HTML/CSSコーディングの境地へ</title>
     <link rel="alternate" href="http://blog.url.com/2013/08/emmet-livestyle/"/>
@@ -374,43 +434,6 @@ button
 }&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;スッキリしました。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>GistをメーラーのようなUIで管理する「GistBox」がいい感じ</title>
-    <link rel="alternate" href="http://blog.url.com/2013/04/gistbox/"/>
-    <id>http://blog.url.com/2013/04/gistbox/</id>
-    <published>2013-04-05T10:00:11Z</published>
-    <updated>2013-10-29T18:45:31+09:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;自分用のちょっとした技術系のメモを書くときに、最近は&lt;a href="https://gist.github.com/konitter"&gt;Gist&lt;/a&gt;を使っています。そのGistをメーラーのようなUIで管理するツール「&lt;a href="http://www.gistboxapp.com/"&gt;GistBox&lt;/a&gt;」を見つけたので、試してみました。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="/img/2013/04/gistbox.jpg" alt="" title="gistbox" width="590" height="446" /&gt;&lt;/p&gt;
-
-&lt;p&gt;公式サイトは以下から。あ、このツールは無料で使えます。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.gistboxapp.com/"&gt;GistBox - The Beautiful Way to Organize Code Snippets&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上の画面にもある通り、GitHubのアカウントでログインするか、Chromeアプリとしてインストールするかが選べます。&lt;/p&gt;
-
-&lt;p&gt;「GistBox」をタブで必要な時だけ開きたい人は、GitHubアカウントで。「GistBox」を独立したアプリのように扱いたい人は、Chromeアプリで。みたいな。&lt;/p&gt;
-
-&lt;p&gt;色々特長はあるんだけど、個人的に気に入ったのは、&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Gistに好きなラベルを付けて管理できること&lt;/li&gt;
-&lt;li&gt;ショートカットが使えること&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;辺りかな。&lt;/p&gt;
-
-&lt;p&gt;イマドキの見やすいデザインで、個人的には気に入っています。&lt;br&gt;しばらく使ってみようと思ってます。&lt;/p&gt;
-
-&lt;p&gt;Gistの管理にお悩みの方は、使ってみては？&lt;/p&gt;
 </content>
   </entry>
 </feed>
