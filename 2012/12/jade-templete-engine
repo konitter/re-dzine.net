@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>10分でわかるjadeテンプレートエンジン（ver0.27.7版） | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>10分でわかるjadeテンプレートエンジン（ver0.27.7版）</h1>
+			<div class="meta"><time datetime="2012-12-17T19:00:06+09:00">2012-12-17</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p>先日開催した「<a href="http://re-dzine.net/2012/12/osakacss-vol2-jade/" target="_blank">Osaka.css #2</a>」でテーマとして取り上げた「jade」について、本日2012年12月17日時点での最新バージョン[0.27.7]に対応した紹介記事です。</p>
+
+<!--more-->
+
+<p>jadeの本サイトおよびGitHubは以下です。GitHubアカウントページにはリファレンスがあります。</p>
+
+<ul>
+<li><a href="http://jade-lang.com/" target="_blank">Jade - Template Engine</a></li>
+<li><a href="https://github.com/visionmedia/jade" target="_blank">visionmedia/jade · GitHub</a></li>
+</ul>
+
+<p>まずは以下のサンプル集を見てください。</p>
+
+<ul>
+<li><a href="http://cssdeck.com/labs/6fqrkzbmbh/6" target="_blank">jadeサンプル | CSSDeck</a></li>
+</ul>
+
+<p>おわり！</p>
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="pager">
+		<li>Older Entry: <a href="/2012/12/converttoutf8-update/">ConvertToUTF8がアップデートして新規ファイル作成時のエンコードが設定できるように</a></li>
+		<li>Newer Entry: <a href="/2012/12/kuroigamen/">「第1回Webデザイナーの為の黒い画面はお友達勉強会@大阪」に参加しました</a></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

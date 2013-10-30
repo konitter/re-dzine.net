@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Web Creator's Contest Q the 2ndに応募してみた | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>Web Creator's Contest Q the 2ndに応募してみた</h1>
+			<div class="meta"><time datetime="2012-09-03T00:00:00+09:00">2012-09-03</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p>「<a href="http://jsdo.it/event/q" target="_blank">Contest Q</a>」っていうのはリクルートが企画・運営する、WEBクリエイター向けのコンテストイベントで、あるお題にそってjsdo.it上にコードを書き、作品を応募するというもの。今回面白そうなお題があったので応募してみました。</p>
+
+<!--more-->
+
+<p>応募したのが以下で、お題は、「魅力的な画面遷移をつくってください」。</p>
+
+<ul>
+<li><a href="http://jsdo.it/event/q/2nd/vol2">Web Creator&apos;s Contest Q the 2nd - jsdo.it - Share JavaScript, HTML5 and CSS</a></li>
+</ul>
+
+<p>作ったのがこれ。transrateYなんかを使ってCSSオンリーで画面がスライドします。</p>
+
+<script type="text/javascript" src="http://jsdo.it/blogparts/gOkn/js"></script>
+
+<ul>
+<li><a href="http://jsdo.it/_konitter/con-q2">http://jsdo.it/_konitter/con-q2</a></li>
+</ul>
+
+<p>応募するには「<a href="http://biz-iq.jp/" target="_blank">Biz-IQ</a>」という社会人向けの会員制SNSのアカウントが必要で、良い作品を応募した人にはそこを通じて企業からスカウトメールが来るらしいです。リクルート主催とのことで、このコンテストはそこが目的なのでしょう。</p>
+
+<p>まあみなさんも腕試しがてら挑戦してみてはいかがでしょうか？</p>
+
+<p>あ、ぼくが応募したのは転職したいとか、賞品のプレステ3＋torne＋nasneが欲しいとか、Wii＋ドラクエXが欲しいとか、そういうわけじゃないんだからねっ！</p>
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="pager">
+		<li>Older Entry: <a href="/2012/08/pure-css-esp-card-test/">ピュアCSSで動くESPカードテストアプリを作ってみた</a></li>
+		<li>Newer Entry: <a href="/2012/09/github-htmlcss-styleguide/">GitHubのHTML/CSS Styleguideを適当に和訳してみた</a></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

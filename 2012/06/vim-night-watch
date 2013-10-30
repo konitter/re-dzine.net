@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Vimカラースキームを自作してみた- Night Watch | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>Vimカラースキームを自作してみた- Night Watch</h1>
+			<div class="meta"><time datetime="2012-06-18T00:00:00+09:00">2012-06-18</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p>今までVimのカラースキームは、「<a href="http://dengmao.wordpress.com/2007/01/22/vim-color-scheme-wombat/">Wombat</a>」を使ってたのですが、HTMLのタグの括弧部分の色とか、属性の色とか、CSSのスタイルブロックの括弧の色とか気に入らない部分もあったので、その辺を調整しつつそのWombatをベースにオリジナルのカラースキームを作ってみました。</p>
+
+<!--more-->
+
+<p><img src="/img/2012/06/night_watch.gif" alt="Night Watchのプレビュー画面" width="520" height="480" /></p>
+
+<ul>
+<li><a href="https://gist.github.com/2947181.txt">night_watch.vim</a></li>
+</ul>
+
+<p>まだ調整したいと思うところもありつつも、どの部分がどの設定名に当たるかを調べるのが面倒くさすぎて泣けるので、しばらくはこれで使ってみることにします。</p>
+
+<p>ダーク系のスキームが好きなら、先述のWombat以外にも<a href="http://hans.fugal.net/vim/colors/desert.html">desert</a>とか<a href="https://gist.github.com/187578#file_colors%2Fh2u_dark.vim">h2u<em>dark</a>、&lt;a href=&quot;http://www.vim.org/scripts/script.php?script</em>id=2340&quot;&gt;molokai</a>、<a href="https://github.com/chriskempson/tomorrow-theme">tomorrow-theme</a>もオススメです。</p>
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="pager">
+		<li>Older Entry: <a href="/2012/05/how-to-use-pinterest/">「Pinterest」をお気に入りWebサイトのクリップサービスとして使ってみる</a></li>
+		<li>Newer Entry: <a href="/2012/08/over-proxy-github/">Windowsで社内LANからプロキシを超えてGitHubにSSH接続する方法</a></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

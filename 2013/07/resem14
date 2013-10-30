@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>第14回リクリセミナー｢Web制作の未来、あなたの未来｣に参加してきました | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>第14回リクリセミナー｢Web制作の未来、あなたの未来｣に参加してきました</h1>
+			<div class="meta"><time datetime="2013-07-31T18:16:00+09:00">2013-07-31</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p>7/27(土)に行われた<a href="http://recreators.doorkeeper.jp/events/4128">第14回リクリセミナー「Web制作の未来、あなたの未来」</a>に参加してきました。リクリセミナー自体も参加するのはなんだかんだで初めて。のはず。その辺意外とあいまい。</p>
+
+<p><a href="http://recreators.doorkeeper.jp/events/4128"><img src="/img/2013/07/resem14.png" alt="resem14" width="160" height="160" /></a></p>
+
+<p>今回メインセッションとして、こもりまさあきさんからWeb制作の未来のお話、そして今キテるフロントエンドからバックエンドにかかるツール・開発手法の紹介まで150分のまさにメガ盛りメニュー。お腹いっぱい。</p>
+
+<p>昨年12月にこもりさん直々に黒い画面やツール周りについて教えていただいてから、英語の情報しかなくてもその辺の情報を積極的に収集したり、また自分でも実際に動かしてみたりしてきたので、取り立てて新しい情報はありませんでしたが、自分の向いている方向がブレていないことがわかって個人的には大満足でした。</p>
+
+<p>初めてこもりさんのセッションを聞いたりスライドを見たという人にとっては、後半の怒涛のツール紹介は、何がなんだかわからず頭が全然追いつかないような状態だったかもしれません。</p>
+
+<p>大事なのは、紹介されたツールがすべて触れなきゃいけないんだ！というふうに思わないこと。海外を中心にどんどん新しいツールが開発され、今回紹介されたツールも明日には古くなるというような状態です。日々の忙しい中、全部できるようになるなんて簡単なことではありません。</p>
+
+<p>こもりさんのお話の本質は、Web制作におけるあらゆる手法をいかに効率化して、ムダな時間を無くし、プライベートだったり別の仕事だったりに時間を充てることができるかにあります。その部分を見失わずやっていければ、どんな未来が来ようとも柔軟に対応できる（つまり食いっぱぐれない）のではと思います。</p>
+
+<p>細かくは書きませんが、6名の方からのライトニングトークもどれもしっかりしたすばらしい内容でした。スライドも見やすいし、喋りも上手だし、みなさんやはり場慣れしてるだけあります。</p>
+
+<p>少し間が空いてしまうようですが、次回のリクリセミナーも個人的にはかなり気になる感じですので、ぜひ参加したいと思います。
+関係者のみなさん、すばらしい会を本当にありがとうございました。</p>
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="pager">
+		<li>Older Entry: <a href="/2013/07/css-nite-in-osaka-vol35/">CSS Nite in OSAKA, Vol.35 に参加してきました</a></li>
+		<li>Newer Entry: <a href="/2013/08/compile-in-bootstrap3/">Bootstrap3でLESS/JSのコンパイル方法が変更に</a></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

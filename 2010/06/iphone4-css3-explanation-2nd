@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>「iPhone4をCSS3で描いてみた！」の解説(2) | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>「iPhone4をCSS3で描いてみた！」の解説(2)</h1>
+			<div class="meta"><time datetime="2010-06-24T23:08:00+09:00">2010-06-24</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p><a href="http://re-dzine.net/apple/iphone/2010/06/24/iphone4-css3-explanation-1st/">前回「「iPhone4をCSS3で描いてみた！」の解説(1)」</a>の続き。</p>
+
+<p>今回はCSSソースについての説明です。</p>
+
+<!--more-->
+
+<h3>CSSソース</h3>
+
+<p>HTMLソースが書けたら次はマークアップしたHTML要素に対してCSSでスタイルしていくのですが、ぼくの場合やっていることは単純で大きく分けると以下の3つになります。</p>
+
+<ul>
+  <li>positionプロパティとtop/right/bottom/leftで部品を配置する</li>
+  <li>CSS3のborder-radiusで角丸にして形を整える</li>
+  <li>gradientでグラデーションをかけ色を付ける</li>
+</ul>
+
+<p>positionプロパティは普段使うことがあると思いますので問題ないと思います。あとは角丸の仕方とグラデーションのかけ方さえ理解していれば、iPhone4レベルのものは簡単に作れてしまいます。</p>
+
+<p>角丸・グラデーションのやり方は、チートシートや説明してくれているサイトなどを見てもらえれば分かるので、ここでは特に説明しませんが、今回のiPhone4についてはポイントが3つあります。</p>
+
+<p><strong>■ 擬似要素（:before/:after）を使ってボディをつくる</strong></p>
+
+<p>iPhone4のボディ部分（div#iphone4）は3重の層になっています。</p>
+
+<p><img src="/img/2010/06/cap_css3_body.jpg" alt="" title="cap_css3_body" width="440" height="310" class="alignnone size-full wp-image-944" /></p>
+
+<p>ただその数だけdiv要素を作るというのはなんとなくいやだったので、ボディ部分に対して擬似要素（:before/:after）を使って実現してみました。ソースは以下の通り。</p>
+
+<pre><code class="css">#iphone4 {
+  position: relative;
+  left: 3px;
+  z-index: 10;
+  width: 252px;
+  height: 500px;
+  overflow: hidden;
+  border: 2px solid #4b4b4b;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    right top,
+    color-stop(0, rgba(153,153,153,0)),
+    color-stop(1, rgba(200,200,198,0.9))
+  );
+  background: -moz-linear-gradient(
+    left bottom,
+    rgba(153,153,153,0) 0%,
+    rgba(200,200,198,0.9) 100%
+  );
+  -webkit-box-shadow: 3px 3px 3px rgba(50,50,52,0.3);
+  -moz-box-shadow: 3px 3px 3px rgba(50,50,52,0.3);
+  box-shadow: 3px 3px 3px rgba(50,50,52,0.3);
+}
+
+#iphone4:before {
+  content: &amp;quot;&amp;quot;;
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  z-index: -1;
+  background: #000;
+  border: 2px solid #020100;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  border-radius: 32px;
+}
+
+#iphone4:after {
+  content: &amp;quot;&amp;quot;;
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  z-index: -1;
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    right top,
+    color-stop(0, rgba(153,153,153,0)),
+    color-stop(1, rgba(0,0,0,0.9))
+  );
+  background: -moz-linear-gradient(
+    left bottom,
+    rgba(153,153,153,0) 0%,
+    rgba(0,0,0,0.9) 100%
+  );
+  border: 2px solid #3e3e3e;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  border-radius: 32px;
+}
+</code></pre>
+
+<p>擬似要素を使う際に参考にしたのは以下の記事。
+&raquo; <a href="http://nicolasgallagher.com/demo/multiple-backgrounds-and-borders-with-css2/borders.html">Demo: Multiple Borders with CSS 2.1 – Nicolas Gallagher</a></p>
+
+<p>div#iphone4でいちばん外側を、div#iphone4:beforeで内側のスタイルを、div#iphone4:afterでさらに内側のスタイルを定義するようにしました。</p>
+
+<p><strong>■ 角丸を応用して円をつくる</strong></p>
+
+<p>iPhone4のほとんどの部品は、角丸の長方形でできていますが、ホームボタンやiPhone4で新たに追加されたカメラは長方形ではなく&quot;円&quot;です。</p>
+
+<p><img src="/img/2010/06/cap_css3_circle.jpg" alt="" title="cap_css3_circle" width="440" height="310" class="alignnone size-full wp-image-936" /></p>
+
+<p>ここではホームボタンを例に説明します。ホームボタン部分は以下のスタイルになっています。</p>
+
+<pre><code class="css">#homebtn {
+  position: absolute;
+  top: 429px;
+  left: 101px;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #383838;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  border-radius: 24px;
+  background-color: #000;
+}
+</code></pre>
+
+<p>border-radiusで指定するpxは、角丸の半径の長さです。つまり、円を作りたい時は、widthおよびheightの長さ（48px）の半分（24px）をborder-radiusで指定してやればよいのです。</p>
+
+<p><strong>■ borderを応用して三角形をつくる</strong></p>
+
+<p>今回元にしたiPhone4の画像には、イヤースピーカーの上から右斜めに光の移りこんでいる感じになっています。CSSで三角形を描いたことが無かったので、ここの再現が正直いちばん悩んだところです。</p>
+
+<p><img src="/img/2010/06/cap_css3_tri.jpg" alt="" title="cap_css3_tri" width="440" height="310" class="alignnone size-full wp-image-941" /></p>
+
+<p>該当部分のCSSソースは以下のようになっています。</p>
+
+<pre><code class="css">#insetray {
+  position: absolute;
+  top: 7px;
+  right: 6px;
+  width: 0;
+  height: 0;
+  border-top: solid 385px rgba(255,255,255,0.1);
+  border-bottom: 0;
+  border-left: solid 127px transparent;
+  border-right: 0;
+}
+</code></pre>
+
+<p>で、三角形を作るうえで参考にしたのはこの記事です。
+&raquo; <a href="http://css-eblog.com/css-only/only-css-balloon-tooltip.html">画像を一切使わずにCSSだけで吹き出しツールチップを実装する | CSS-EBLOG</a></p>
+
+<p>上の記事を見てもらえれば分かると思いますが、widthとheightを0にしておき、border-topもしくはborder-bottomどちらか底辺にする方をborder-widthで三角形の高さを、border-colorで三角形の色を指定します。つぎに、border-leftとborder-rightにborder-widthで三角形の頂点の位置を、border-colorにtransparent（透明）を指定してやると三角形を作ることができます。</p>
+
+<h3>ブラウザチェック</h3>
+
+<p>以上のようなテクニックを使いつつできあがったら、Chrome/Firefox/Opera/IE8などのブラウザでチェックしてIEの期待の裏切らなさに感動して泣いて終了です。IEでも角丸を再現するためのbehaviorがあるようですが、IEが活躍できる唯一の機会を奪ってはいけません。</p>
+
+<p>&raquo; <a href="http://blog.creamu.com/mt/2010/02/css3iehtc.html">CSS3でIEにも角丸を適用させるhtcファイル | CREAMU</a></p>
+
+<p>あとは折角なのでブログに書いたり、Twitterに流すなどしてみんなに見てもらいます。</p>
+
+<h3>まとめ</h3>
+
+<p>CSSは、webサイトのコーディングとして使うのが本来のカタチなわけで、iPhone4をCSSで描くなんて正直言って誰得なのですが、CSS3の持つ可能性をアピールする上では決して意味のないことだとは思いません。</p>
+
+<p>角丸にしてもグラデーションにしてもテキストやボックスに影をつけるにしても特殊なフォントを使うにしても画像を作らなければならなかったのを、所定のプロパティを書くだけでそれらを画像無しで簡単に実現できてしまうCSS3は、コーダーにとって本当に魅力的です。</p>
+
+<p>みなさんもぜひそのスゴさを体験してみてください。</p>
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="pager">
+		<li>Older Entry: <a href="/2010/06/iphone4-css3-explanation-1st/">「iPhone4をCSS3で描いてみた！」の解説(1)</a></li>
+		<li>Newer Entry: <a href="/2010/06/ios4-update-tips/">iOS4へのアップデートに失敗する時の対処方法</a></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

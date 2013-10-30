@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>ConvertToUTF8がアップデートして新規ファイル作成時のエンコードが設定できるように | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>ConvertToUTF8がアップデートして新規ファイル作成時のエンコードが設定できるように</h1>
+			<div class="meta"><time datetime="2012-12-12T15:03:00+09:00">2012-12-12</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p>以前、Sublime Text 2でShift-JISが扱えるようになるプラグイン「ConvertToUTF8」を<a href="http://re-dzine.net/2012/10/sublime-text-2-shift-jis/" title="Sublime Text 2をShift_JISに対応させるプラグインがあると聞いて" target="_blank">紹介する記事</a>を書きました。この度、「ConvertToUTF8」がアップデートして新規ファイル作成時のエンコードが設定できるようになりました。</p>
+
+<!--more-->
+
+<ul>
+<li><a href="https://github.com/seanliang/ConvertToUTF8" target="_blank">seanliang/ConvertToUTF8 · GitHub</a></li>
+</ul>
+
+<p><a href="http://wbond.net/sublime_packages/package_control" target="_blank">Package Control</a>経由でプラグインをインストール済みの場合は、自動でアップデートされますので、Sublime Text 2の起動時にアップデートした旨の表示が出るはずです。</p>
+
+<p>具体的な設定方法は、以下のとおり。</p>
+
+<ol>
+<li>
+
+「Preferences > Browse Packages」から「ConvertToUTF8」のフォルダを開き、「ConvertToUTF8.sublime-settings」を開く。
+
+<p><img src="/img/2012/12/st2_01.jpg" alt="st2_01" width="269" height="416" /></p>
+
+</li>
+<li>
+
+22行目の<code>"default_encoding_on_create"</code>に新規ファイル作成時にデフォルトで設定したいエンコード名を記入します。「Shift-JIS」なら<code>"Shift_JIS"</code>とします。
+
+<p><img src="/img/2012/12/st2_02.jpg" alt="st2_02" width="520" height="438" /></p>
+
+</li>
+<li>
+
+<code>"Shift_JIS"</code>と設定すると以下のステータスバーに出ていますが、新規ファイル作成時に「Shift-JIS」で開きます。
+
+<p><img src="/img/2012/12/st2_03.jpg" alt="st2_03" width="520" height="456" /></p>
+
+</li>
+</ol>
+
+<p>メインで扱うファイルのエンコードが「Shift-JIS」や「EUC-JP」の方にとっては、うれしいアップデートではないでしょうか？</p>
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="pager">
+		<li>Older Entry: <a href="/2012/12/osakacss-vol2-jade/">Osaka.css (#2) .jade を開催しました</a></li>
+		<li>Newer Entry: <a href="/2012/12/jade-templete-engine/">10分でわかるjadeテンプレートエンジン（ver0.27.7版）</a></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

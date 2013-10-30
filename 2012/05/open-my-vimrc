@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>5月だし現時点での.vimrcを晒してみる | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>5月だし現時点での.vimrcを晒してみる</h1>
+			<div class="meta"><time datetime="2012-05-11T00:00:00+09:00">2012-05-11</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p>5月だしなんか最近寒いし現時点での.vimrcを晒してみようと思います。すごいVimmerさん達のvimrcを参考にしつつ、自分が扱える範囲の設定をできるだけ日本語の説明で記述しています。</p>
+
+<!--more-->
+
+<ul>
+<li><a href="https://github.com/konitter/vim/blob/master/.vimrc">vim/.vimrc at master · konitter/vim · GitHub</a></li>
+</ul>
+
+<p>すごいVimmerさん達のvimrcは以下にまとまっていますので、すごく参考になると思います。</p>
+
+<ul>
+  <li><a href="http://d.hatena.ne.jp/rhysd/20120325/1332686826">Vimmer 達の vimrc - sorry, unimplemented:</a></li>
+</ul>
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="pager">
+		<li>Older Entry: <a href="/2012/05/made-a-task-app-using-jsdoit/">jsdo.itでHTML5のlocalStorageを使ったシンプルなタスク管理アプリを作ってみた</a></li>
+		<li>Newer Entry: <a href="/2012/05/chrome-instant-translate/">英文記事の翻訳に役立つChromeエクステンション「Instant Translate」</a></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

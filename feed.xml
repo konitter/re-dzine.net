@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2013-08-06T11:35:42Z</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>Emmet LiveStyleで爆速HTML/CSSコーディングの境地へ</title>
+    <link rel="alternate" href="http://blog.url.com/2013/08/emmet-livestyle/"/>
+    <id>http://blog.url.com/2013/08/emmet-livestyle/</id>
+    <published>2013-08-06T11:35:42Z</published>
+    <updated>2013-10-28T15:40:47+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;簡単な記述でHTML/CSSが爆速でコーディングできるという神プラグイン「&lt;a href="http://emmet.io/"&gt;Emmet&lt;/a&gt;」。フロントエンドな人ならほとんどの方が使っているんじゃないかと思います。この度そのEmmetから「Emmet LiveStyle」なるものが出ました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://livestyle.emmet.io/"&gt;Emmet LiveStyle — live bi-directional CSS edit of new generation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;簡単に言うと、エディタとブラウザ双方向でCSSがリアルタイムに編集できるプラグインで、現在のところ、Google Chrome、Safari、Sublime Textで動作するとのこと。&lt;/p&gt;
+
+&lt;p&gt;といってもよくわからないと思いますので、まずは以下のスクリーンキャストをご覧ください。一瞬でも「あ、これヤバイわ」って思ったなら試してみる価値は十分にあると思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe width="520" height="390" src="//www.youtube.com/embed/iQLhGbkupS4?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+&lt;p&gt;「Emmet LiveStyle」は以下の手順で簡単に始められます。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Sublime TextのPackage Controlから「LiveStyle」をインストール&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://chrome.google.com/webstore/detail/diebikgmpmeppiilkaijjbdgciafajmg"&gt;Google Chromeの専用エクステンション&lt;/a&gt;をインストール&lt;/li&gt;
+&lt;li&gt;編集したいページを開く&lt;/li&gt;
+&lt;li&gt;Sublime TextでCSSファイルを開く&lt;/li&gt;
+&lt;li&gt;Google ChromeのDevToolsから「LiveStyle」パネルを開く&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;より詳しい使用方法は「&lt;a href="http://livestyle.emmet.io/usage/"&gt;How to use&lt;/a&gt;」のページを参照。&lt;/p&gt;
+
+&lt;p&gt;個人的にもまだガッツリと触れてませんが、これからのHTML/CSSコーディングでは必須のツールとなりそうです。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Bootstrap3でLESS/JSのコンパイル方法が変更に</title>
+    <link rel="alternate" href="http://blog.url.com/2013/08/compile-in-bootstrap3/"/>
+    <id>http://blog.url.com/2013/08/compile-in-bootstrap3/</id>
+    <published>2013-08-02T10:00:16Z</published>
+    <updated>2013-10-29T18:45:31+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;先日7/27に&lt;a href="http://getbootstrap.com/"&gt;Bootstrap 3 RC1&lt;/a&gt;がリリースされました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://getbootstrap.com/"&gt;&lt;img src="/img/2013/08/bs3.png" alt="Bootstrap3" width="640" height="500"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;フラットなデザインになっていたり、モバイルファーストなコードになっていたりと色々と変わっています。詳しくは、&lt;a href="https://github.com/twbs/bootstrap/pull/6342"&gt;公式の情報&lt;/a&gt;等々を見てもらうとして、個人的に興味をそそられたのが、LESS/JSファイルのコンパイル方法がこれまでのバージョン2系から変わっているということです。&lt;/p&gt;
+
+&lt;p&gt;この部分をちゃんと理解しておかないと、これから案件でBootstrap3を使うかもという人はしんどいんじゃないかと思います。&lt;/p&gt;
+
+&lt;p&gt;では何がどう変わったのか。その辺を簡単にまとめます。&lt;/p&gt;
+
+&lt;h2&gt;Bootstrap2系でのコンパイル方法&lt;/h2&gt;
+
+&lt;p&gt;これまでのBootstrap2系では、&lt;a href="http://bower.io/"&gt;Bower&lt;/a&gt;経由などでGitHubからファイル群を落とすとファイルの中に&lt;code&gt;Makefile&lt;/code&gt;が含まれていました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://raw.github.com/twbs/bootstrap/master/Makefile"&gt;bootstrap/Makefile at master&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この&lt;code&gt;Makefile&lt;/code&gt;を使って、&lt;code&gt;make&lt;/code&gt;コマンドを叩くことで、LESS/JSファイルをコンパイルしてきました。以下公式のドキュメント。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/twbs/bootstrap/tree/master#compiling-css-and-javascript"&gt;Compiling CSS and JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;LESSファイルなら、以下のコマンドで&lt;code&gt;recess&lt;/code&gt;というnpmモジュールを使ってのLESSファイルのコンパイル・圧縮版の作成。&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code&gt;$ make bootstrap-css&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;JSファイルなら、以下のコマンドで各種JSファイルの結合・&lt;code&gt;uglifyjs&lt;/code&gt;を使っての圧縮版の作成。といった具合。&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code&gt;$ make bootstrap-js&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;h2&gt;Bootstrap3でのコンパイル方法&lt;/h2&gt;
+
+&lt;p&gt;現在、Bower等でBootstrap3をGitHubから落とすと、これまであった&lt;code&gt;Makefile&lt;/code&gt;はありません。よく見ると代わりに&lt;code&gt;Gruntfile.js&lt;/code&gt;があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://raw.github.com/twbs/bootstrap/3.0.0-wip/Gruntfile.js"&gt;bootstrap/Gruntfile.js at 3.0.0-wip&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;つまりバージョン3では、&lt;code&gt;make&lt;/code&gt;ではなく&lt;a href="http://gruntjs.com/"&gt;Grunt&lt;/a&gt;というNode.jsベースのビルドツールを使ってコンパイルすることになります。以下公式のドキュメント。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/twbs/bootstrap#compiling-css-and-javascript"&gt;Compiling CSS and JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;説明すると長くなるので、Gruntについての詳しくは以下の記事を見ていただくか、ググるなりしてもらえればと。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://kojika17.com/2013/03/grunt.js-memo.html"&gt;Web制作で面倒な作業を自動化するビルドツール、Grunt v0.4 入門｜Web Design KOJIKA17&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;必要な環境を整えたうえで以下のコマンドを叩くだけで、&lt;code&gt;jshint&lt;/code&gt;での構文チェック、&lt;code&gt;qunit&lt;/code&gt;でのテスト、&lt;code&gt;recess&lt;/code&gt;でのLESSファイルのコンパイル・圧縮、JSファイルの結合・&lt;code&gt;uglify&lt;/code&gt;での圧縮が走ります。&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code&gt;$ grunt&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;LESSだけなら&lt;code&gt;$ grunt dist-css&lt;/code&gt;、JSだけなら&lt;code&gt;$ grunt dist-js&lt;/code&gt;、てな感じでこれまで通り個別にタスクを走らせることも可能。当然、&lt;code&gt;$ grunt watch&lt;/code&gt;でファイルの監視もできる。&lt;/p&gt;
+
+&lt;h2&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;今回のコンパイル方法以外にも、ローカルでBootstrapのドキュメントを見るには、&lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;といういわゆる静的サイトジェネレータを使うようになっています。&lt;/p&gt;
+
+&lt;p&gt;もう何がなんだか訳がわからないよママン！っていう方もいらっしゃるかもしれませんが、もうそういう時代なんですよねー（遠い目）。
+でもこの辺のツールが扱えるようになると開発効率は格段に上がりますし何かと幸せになれるかもしれません。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>第14回リクリセミナー｢Web制作の未来、あなたの未来｣に参加してきました</title>
+    <link rel="alternate" href="http://blog.url.com/2013/07/resem14/"/>
+    <id>http://blog.url.com/2013/07/resem14/</id>
+    <published>2013-07-31T09:16:00Z</published>
+    <updated>2013-10-29T18:45:31+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;7/27(土)に行われた&lt;a href="http://recreators.doorkeeper.jp/events/4128"&gt;第14回リクリセミナー「Web制作の未来、あなたの未来」&lt;/a&gt;に参加してきました。リクリセミナー自体も参加するのはなんだかんだで初めて。のはず。その辺意外とあいまい。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://recreators.doorkeeper.jp/events/4128"&gt;&lt;img src="/img/2013/07/resem14.png" alt="resem14" width="160" height="160" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回メインセッションとして、こもりまさあきさんからWeb制作の未来のお話、そして今キテるフロントエンドからバックエンドにかかるツール・開発手法の紹介まで150分のまさにメガ盛りメニュー。お腹いっぱい。&lt;/p&gt;
+
+&lt;p&gt;昨年12月にこもりさん直々に黒い画面やツール周りについて教えていただいてから、英語の情報しかなくてもその辺の情報を積極的に収集したり、また自分でも実際に動かしてみたりしてきたので、取り立てて新しい情報はありませんでしたが、自分の向いている方向がブレていないことがわかって個人的には大満足でした。&lt;/p&gt;
+
+&lt;p&gt;初めてこもりさんのセッションを聞いたりスライドを見たという人にとっては、後半の怒涛のツール紹介は、何がなんだかわからず頭が全然追いつかないような状態だったかもしれません。&lt;/p&gt;
+
+&lt;p&gt;大事なのは、紹介されたツールがすべて触れなきゃいけないんだ！というふうに思わないこと。海外を中心にどんどん新しいツールが開発され、今回紹介されたツールも明日には古くなるというような状態です。日々の忙しい中、全部できるようになるなんて簡単なことではありません。&lt;/p&gt;
+
+&lt;p&gt;こもりさんのお話の本質は、Web制作におけるあらゆる手法をいかに効率化して、ムダな時間を無くし、プライベートだったり別の仕事だったりに時間を充てることができるかにあります。その部分を見失わずやっていければ、どんな未来が来ようとも柔軟に対応できる（つまり食いっぱぐれない）のではと思います。&lt;/p&gt;
+
+&lt;p&gt;細かくは書きませんが、6名の方からのライトニングトークもどれもしっかりしたすばらしい内容でした。スライドも見やすいし、喋りも上手だし、みなさんやはり場慣れしてるだけあります。&lt;/p&gt;
+
+&lt;p&gt;少し間が空いてしまうようですが、次回のリクリセミナーも個人的にはかなり気になる感じですので、ぜひ参加したいと思います。
+関係者のみなさん、すばらしい会を本当にありがとうございました。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>CSS Nite in OSAKA, Vol.35 に参加してきました</title>
+    <link rel="alternate" href="http://blog.url.com/2013/07/css-nite-in-osaka-vol35/"/>
+    <id>http://blog.url.com/2013/07/css-nite-in-osaka-vol35/</id>
+    <published>2013-07-11T14:14:16Z</published>
+    <updated>2013-10-28T16:12:29+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;一昨日7/9(火)は、&lt;a href="http://osaka.cssnite.jp/vol35/"&gt;CSS Nite in OSAKA, Vol.35（復活スペシャル）&lt;/a&gt;に参加してきました。テーマは、「スマホアプリのデザインから プロトタイプ作成まで」。
+実は「CSS Nite」と冠の付いたセミナーに参加するのはこれが初めて。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://osaka.cssnite.jp/vol35/"&gt;&lt;img src="http://osaka.cssnite.jp/vol35/images/banner_cnio35_220.jpg" alt="CSS Nite in OSAKA, Vol.35 復活スペシャル" width="220" height="220" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回スマホアプリがテーマということですが、普段のぼくの業務ではスマホアプリに関わることはまずありません。もしあったとしても、ぼくの広告代理店の発注側という立場としては、アプリのデザインやプロトタイプを作るのは発注先の会社でしょう。&lt;/p&gt;
+
+&lt;p&gt;ではなぜ参加したか。今やこの業界はどこもかしこもアプリ、アプリ、アプリ。この分野では個人的にはもう完全に乗り遅れています。技術的な話は、ググるなり本を買うなりすれば手に入れられるものもあるんでしょうけど、普段アプリを作る人がどういうワークフローでどういう考え方を元に取り組んでいるかがどうもフワフワしててよくわからない。これが知りたかったんです。&lt;/p&gt;
+
+&lt;p&gt;参加した結果。確かに今回聞いたお話は、登壇された秋葉さんご夫妻のやり方かもしれないけれど、なるほどこうやってやってるんだというのが何となくわかって良かったと思いました。&lt;/p&gt;
+
+&lt;p&gt;レスポンシブだ、ワークフローがどうだ、ブラウザでデザインだ。分かってる人は分かってる。でもそうでない人はこれからの時代はこうしなきゃいけないんだ！みたいにねじ曲がって伝わってしまう。そうじゃなくてもっと柔軟に考えようよっていうのが、今回のテーマの根底にはあるように思います。&lt;/p&gt;
+
+&lt;p&gt;秋葉さんご夫妻はお二人とも元々デザイナーということもあって、紙のデザイン（いわゆるカンプ）は大事。それはそれでちゃんと作る。だけど、特にアプリにおいては紙のデザインだけでは伝えられないものがある。それを補うためにプロトタイプを作るのだそう。&lt;/p&gt;
+
+&lt;p&gt;そのプロトタイプは、HTML/CSS/JavaScriptで作る。JavaScriptを使うといってもゴリゴリにプログラムを組むのではなく、基本的にはclassの付け替えだけをさせる。それをトリガーにCSSを駆使して見せたい機能を実現する。&lt;/p&gt;
+
+&lt;p&gt;そうするのは、例えばプロトタイプで作った機能をクライアントに説明する際に、何か意見があってもCSSの値を書き換えるだけでその場で瞬時に見せられるのが良いんだとのこと。色を変えたり、物体を動かしたり。これならぼくにもできそう。デモで実際にその様子をやっていただいてよく分かりました。&lt;/p&gt;
+
+&lt;p&gt;で、そうしたプロトタイプを作る技術や経験が何に生きてくるのか。&lt;a href="http://www.mozilla.jp/firefoxos/"&gt;Firefox OS&lt;/a&gt;や&lt;a href="https://www.tizen.org/ja"&gt;Tizen&lt;/a&gt;などWebベースのOSを搭載したスマートフォンが出てきたときに役立ってくるわけです。そしてその動きはこれから加速していくそう。（ちなみに先日のTizen死亡説はデマ&lt;a href="http://www.gizmodo.jp/2013/07/tizenintel.html"&gt;[参考]&lt;/a&gt;）&lt;/p&gt;
+
+&lt;p&gt;一方デザインにおいてデザイナーは、何らかの操作が成功した場合のデザインは作る。だけど、何かエラーが起きたときのことを考えていないのでは、と。例えば、検索結果が0件だったとき、スマホアプリで言えば、操作中に通信が切れたとき、など。そういうことも含めてデザイナーはデザインしていく必要があるし、デザインできるようにするためには、そういうことに対する普段からの理解が必要になってくる。&lt;/p&gt;
+
+&lt;p&gt;時間の関係上、後半の方がだいぶ駆け足になってしまったのが少し残念ではあったものの、（夫婦だけに）お二人の軽快なやり取りの中で普段のお仕事の風景が目に浮かぶようで、非常にためになる会でした。&lt;/p&gt;
+
+&lt;p&gt;次回の「in Osaka」はレスポンシブ周りがテーマになるそう。こちらもぜひ参加してみたいと思います。&lt;/p&gt;
+
+&lt;p&gt;長くなってきたのでこれくらいで。
+関係者のみなさん、どうもありがとうございました。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Sublime Text 2でStylus + Nibのコードをビルドする</title>
+    <link rel="alternate" href="http://blog.url.com/2013/05/stylus-nib-for-st2/"/>
+    <id>http://blog.url.com/2013/05/stylus-nib-for-st2/</id>
+    <published>2013-05-24T07:55:00Z</published>
+    <updated>2013-10-29T18:45:31+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="http://sass-lang.com/"&gt;Sass&lt;/a&gt;には&lt;a href="http://compass-style.org/"&gt;Compass&lt;/a&gt;というアツいライブラリがありますが、&lt;a href="http://learnboost.github.com/stylus/"&gt;Stylus&lt;/a&gt;にも「&lt;a href="http://visionmedia.github.io/nib/"&gt;nib&lt;/a&gt;」というライブラリがあります。このNibを使ったコードを&lt;a href="http://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt;からビルドする方法です。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;img src="/img/2013/05/nib.jpg" alt="nib" width="590" height="220" /&gt;&lt;/p&gt;
+
+&lt;h2&gt;(1) Stylus + Nibのインストール&lt;/h2&gt;
+
+&lt;p&gt;以下のコマンドでインストールします。要&lt;a href="http://nodejs.org/"&gt;Node.js&lt;/a&gt;(npm)。&lt;br&gt;グローバルインストールしてますが、&lt;code&gt;-g&lt;/code&gt;無しのローカルインストールでもどっちでもお好みな方で。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;$ [sudo] npm install -g stylus nib&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下でバージョン番号が出ればインストール成功。&lt;br&gt;nibにはバージョン番号を出力するコマンドはないです。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;$ stylus -V
+0.31.0&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;(2) packageのインストール&lt;/h2&gt;
+
+&lt;p&gt;次に、Sublime TextからStylusコードをビルドする環境を準備します。 &lt;a href="http://wbond.net/sublime_packages/package_control"&gt;Package Control&lt;/a&gt;から以下のパッケージ名を選んでインストールします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Stylus&lt;br&gt;&lt;a href="https://github.com/billymoon/Stylus"&gt;https://github.com/billymoon/Stylus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;(3) Stylusコードをビルド&lt;/h2&gt;
+
+&lt;p&gt;まずはNib無しのStylusコードをビルドしてみます。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;button
+  border-radius 5px&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;all.styl&lt;/code&gt;というファイル名で適当にこんな感じのコードを書いて、&lt;code&gt;Ctrl + B&lt;/code&gt;するとビルドが走り、エディター下部に同ディレクトリに&lt;code&gt;all.css&lt;/code&gt;というファイル名でコンパイルされたことを示すメッセージが出ます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;all.css&lt;/code&gt;を開いてみると、以下のようになっているはずです。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;button {
+  border-radius: 5px;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もし記述にエラーがあってコンパイルに失敗する場合は、どの行にどんな問題があるかを示すメッセージが出ます。&lt;/p&gt;
+
+&lt;h2&gt;(4) Nibを使ったコードをビルド&lt;/h2&gt;
+
+&lt;p&gt;次にNibを使ったStylusコードをビルドしてみます。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;@import 'nib'
+
+button
+  border-radius 5px&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じにさっきの&lt;code&gt;all.styl&lt;/code&gt;にNibの書式をインポートする記述を冒頭に追記します。&lt;/p&gt;
+
+&lt;p&gt;ただこの状態でビルドしても「nib.stylが見つからない」というようなメッセージが出て意図通りにはなりません。当たり前ですね。&lt;/p&gt;
+
+&lt;p&gt;Nib込みのコードをコンパイルするには、Stylus側にコンパイル時にNibというライブラリを読み込んでねということを伝える必要があります。&lt;/p&gt;
+
+&lt;p&gt;まずは、Stylusのビルドの設定ファイル（&lt;code&gt;Preferences &amp;gt; Browse Packages &amp;gt; Stylus &amp;gt; Stylus.sublime-build&lt;/code&gt;）を開きます。&lt;/p&gt;
+
+&lt;p&gt;ビルドオプションの詳しくは&lt;a href="http://docs.sublimetext.info/en/latest/reference/build_systems.html"&gt;公式のドキュメント&lt;/a&gt;をご確認ください。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;{
+  "cmd": ["stylus", "$file"],
+  "file_regex": ".",
+  "selector": "source.stylus",
+
+  "osx":
+  {
+    "path": "/usr/local/bin:$PATH"
+  },
+
+  "linux":
+  {
+    "path": "/usr/local/bin:$PATH"
+  },
+
+  "windows":
+  {
+    "cmd": ["stylus.cmd", "$file"]
+  },
+
+  "variants": [
+    {
+      "name": "compress",
+      "cmd": ["stylus", "-c", "$file"],
+
+      "windows":
+      {
+        "cmd": ["stylus.cmd", "-c", "$file"]
+      }
+    }
+  ]
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上記の2行目を以下のように変更します。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;{
+  "cmd": ["stylus", "-I", "/example/path/node_modules/nib/lib", "$file"],
+  ...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;-I&lt;/code&gt;はStylusのインクルードオプションで、その次にインストールしたNibの&lt;code&gt;/lib&lt;/code&gt;までのパスを書きます。&lt;/p&gt;
+
+&lt;p&gt;これで保存して、さっきの&lt;code&gt;all.styl&lt;/code&gt;をビルドしてみるとこうなるはずです。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;button {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;プレフィックスを付けてくれてますね。&lt;br&gt;他にも様々なミックスインがありますので、詳しくは公式サイト等をご確認ください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://visionmedia.github.io/nib/"&gt;nib - CSS3 extensions for Stylus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;また、&lt;code&gt;compress&lt;/code&gt;時にもNibを使う場合は以下のようにします。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;...
+  "variants": [
+    {
+      "name": "compress",
+      "cmd": ["stylus", "-c", "-I", "/example/path/node_modules/nib/lib", "$file"],
+      ...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;compress&lt;/code&gt;版をビルドするには、コマンドパレット[&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;]から「&lt;code&gt;Build: compress&lt;/code&gt;」を選びます。&lt;br&gt;いちいち選ぶのが面倒な場合は、適宜キーマップを設定してください。&lt;/p&gt;
+
+&lt;p&gt;上記オプション&lt;code&gt;"name"&lt;/code&gt;の値を&lt;code&gt;"Run"&lt;/code&gt;に変更すると、コマンド[&lt;code&gt;Ctrl + Shift + B&lt;/code&gt;]一発でビルドできます。&lt;br&gt;&lt;code&gt;Tools&lt;/code&gt;メニューの&lt;code&gt;Run&lt;/code&gt;からも実行できます。&lt;/p&gt;
+
+&lt;h2&gt;おまけ（Winユーザー向け）&lt;/h2&gt;
+
+&lt;p&gt;Winの方はここまでの方法ではNib込みのコードはビルドできません。&lt;br&gt;Winの場合は、Win用コマンドを設定している2箇所に同様の記述を書き加えます。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;...
+  "windows":
+  {
+    "cmd": ["stylus.cmd", "-I", "/example/path/node_modules/nib/lib", "$file"]
+    ...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでOKなのですが、もう少しスマートに書くこともできます。&lt;/p&gt;
+
+&lt;p&gt;ビルドそれ自体は、&lt;code&gt;exec&lt;/code&gt;コマンドを使うのですが、&lt;code&gt;"shell"&lt;/code&gt;オプションを&lt;code&gt;true&lt;/code&gt;にすることでcmd.exeやbashなどのシェルコマンドとして実行できるようになります。&lt;/p&gt;
+
+&lt;p&gt;シェルコマンドが実行できる環境があれば、以下のように書けます。&lt;/p&gt;
+
+&lt;pre class="prettyprint"&gt;&lt;code&gt;{
+  "cmd": ["stylus", "-I", "/example/path/node_modules/nib/lib", "$file"],
+  "file_regex": ".",
+  "selector": "source.stylus",
+  "shell": true,
+
+  "osx":
+  {
+    "path": "/usr/local/bin:$PATH"
+  },
+
+  "linux":
+  {
+    "path": "/usr/local/bin:$PATH"
+  },
+
+  "variants": [
+    {
+      "name": "compress",
+      "cmd": ["stylus", "-c", "-I", "/example/path/node_modules/nib/lib", "$file"],
+      "shell": true
+    }
+  ]
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;スッキリしました。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>GistをメーラーのようなUIで管理する「GistBox」がいい感じ</title>
+    <link rel="alternate" href="http://blog.url.com/2013/04/gistbox/"/>
+    <id>http://blog.url.com/2013/04/gistbox/</id>
+    <published>2013-04-05T10:00:11Z</published>
+    <updated>2013-10-29T18:45:31+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;自分用のちょっとした技術系のメモを書くときに、最近は&lt;a href="https://gist.github.com/konitter"&gt;Gist&lt;/a&gt;を使っています。そのGistをメーラーのようなUIで管理するツール「&lt;a href="http://www.gistboxapp.com/"&gt;GistBox&lt;/a&gt;」を見つけたので、試してみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/img/2013/04/gistbox.jpg" alt="" title="gistbox" width="590" height="446" /&gt;&lt;/p&gt;
+
+&lt;p&gt;公式サイトは以下から。あ、このツールは無料で使えます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.gistboxapp.com/"&gt;GistBox - The Beautiful Way to Organize Code Snippets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上の画面にもある通り、GitHubのアカウントでログインするか、Chromeアプリとしてインストールするかが選べます。&lt;/p&gt;
+
+&lt;p&gt;「GistBox」をタブで必要な時だけ開きたい人は、GitHubアカウントで。「GistBox」を独立したアプリのように扱いたい人は、Chromeアプリで。みたいな。&lt;/p&gt;
+
+&lt;p&gt;色々特長はあるんだけど、個人的に気に入ったのは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Gistに好きなラベルを付けて管理できること&lt;/li&gt;
+&lt;li&gt;ショートカットが使えること&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;辺りかな。&lt;/p&gt;
+
+&lt;p&gt;イマドキの見やすいデザインで、個人的には気に入っています。&lt;br&gt;しばらく使ってみようと思ってます。&lt;/p&gt;
+
+&lt;p&gt;Gistの管理にお悩みの方は、使ってみては？&lt;/p&gt;
+</content>
+  </entry>
+</feed>

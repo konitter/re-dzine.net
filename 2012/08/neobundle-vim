@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Vimのプラグイン管理をpathogenからneobundleに移行してハマった話 | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>Vimのプラグイン管理をpathogenからneobundleに移行してハマった話</h1>
+			<div class="meta"><time datetime="2012-08-22T00:00:00+09:00">2012-08-22</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p><a href="http://re-dzine.net/2012/08/over-proxy-github/" title="Windowsで社内LANからプロキシを超えてGitHubにSSH接続する方法">前のエントリー</a>でGitの環境をもろもろ整えたので、Vimのプラグイン管理を<a href="https://github.com/tpope/vim-pathogen" target="_blank">pathogen</a>から<a href="https://github.com/Shougo/neobundle.vim" target="_blank">neobundle</a>に移行しようとしたろころでハマった話です。</p>
+
+<!--more-->
+
+<p>まずは、この辺（<a href="http://c-brains.jp/blog/wsg/11/09/29-142316.php">[vim] plugin の管理に neobundle.vim を使ってみる | バシャログ。</a>）を参考にしつつ、neobundle本体と.vimrcの設定をし、プラグインをインストールするコマンドを実行。</p>
+
+<pre>
+<code class="language-vim">:NeoBundleInstall</code>
+</pre>
+
+<p>すると.vimrcに書いたプラグインをgit cloneするプログラムが走り、インストールできたプラグイン名がずらずらとコマンドラインに表示されるはずなのですが、</p>
+
+<pre>
+<code class="language-vim">[neobundle/install] Installed bundles:
+no new bundles installed</code>
+</pre>
+
+<p>新しくインストールしたプラグインは無いよって出ます。でも、プラグインフォルダを見ると問題なくプラグインがインストールされていました。</p>
+
+<p>色々調べてみるとneobundleのGitHubの<a href="https://github.com/Shougo/neobundle.vim/issues/19" target="_blank">Issue</a>にこんなコメントがありました。</p>
+
+<blockquote>
+<p style="margin-bottom:1em;padding:0 0 0 1em;border-left:4px solid #ECECE5;">
+あと、neobundle#rc() はif has('vim_starting') {} の中と外、どちらに入れるのが望ましいのでしょうか。
+Readmeでは中に、ヘルプでは外に書かれていますよね。ヘルプのほうが新しいと思っていますが...
+</p>
+外のほうが望ましいです。なぜなら、neobundle#rc()はruntimepathをリセットするためです。
+if has('vim_starting')の中に書いていると、runtimepathがリセットできません。
+結果、削除したNeoBundleが読み込まれたまま、ということになってしまいます。
+</blockquote>
+
+<p>この通り if has(&#39;vim_starting&#39;) {} の外に call neobundle#rc() を書くよう.vimrcを編集してみたところ、</p>
+
+<pre>
+<code class="language-vim">[neobundle/install] Installed bundles:
+vimfiler
+vimshell
+vimproc
+…</code>
+</pre>
+
+<p>と期待通りのメッセージが出ました。ヨカッタ！</p>
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="pager">
+		<li>Older Entry: <a href="/2012/08/over-proxy-github/">Windowsで社内LANからプロキシを超えてGitHubにSSH接続する方法</a></li>
+		<li>Newer Entry: <a href="/2012/08/pure-css-esp-card-test/">ピュアCSSで動くESPカードテストアプリを作ってみた</a></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>静的サイトジェネレータ「roots」を触ってみた | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>静的サイトジェネレータ「roots」を触ってみた</h1>
+			<div class="meta"><time datetime="2013-02-28T23:56:47+09:00">2013-02-28</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p>個人的にこういうのを仕事で使う機会はまずないんですけど、小規模な静的サイトをさくっと作る場合に、こういうのが扱えるスキルがあると制作者的には色々とモテるんじゃないかと思います。まあジェネレータにも種類はあるわけですが、今回は「roots」を取り上げます。</p>
+
+<p><img src="/img/2013/02/roots.png" alt="roots" /></p>
+
+<p>roots公式サイトは以下から。</p>
+
+<ul>
+<li><a href="http://roots.cx/">roots | where it all begins</a></li>
+</ul>
+
+<h2>rootsとは？</h2>
+
+<p>rootsの特長を簡単に。公式サイトのを適当に訳しただけやけど。</p>
+
+<ul>
+<li>インストールが超簡単</li>
+<li>クリーンで最小限のテンプレート</li>
+<li><a href="http://jade-lang.com/">Jade</a>, <a href="http://learnboost.github.com/stylus/">Stylus</a>, <a href="http://coffeescript.org/">CoffeeScript</a>が使える</li>
+<li>高速なライブリロードを実装済み</li>
+<li>むちゃくちゃ便利なrootsオリジナルの<a href="http://roots.cx/css">CSSヘルパーライブラリ</a>が使える</li>
+<li>コマンド一発でHerokuにデプロイできる</li>
+<li>コンパイル時にhtml, css, jsをminify</li>
+<li><a href="http://twitter.github.com/bower/">BOWER</a>と<a href="http://requirejs.org/">RequireJS</a>でjsのコンポーネントを管理</li>
+<li>シンプルで分かりやすいプラグインインターフェイスで機能を簡単に拡張できる</li>
+</ul>
+
+<p>上記で挙げた特長に食指が動くなら一度使ってみたら良いかと思います。</p>
+
+<h2>インストール</h2>
+
+<p>以下のコマンドを叩くだけ。環境によっては<code>sudo</code>が要るかも。</p>
+
+<pre class="prettyprint"><code>$ npm install roots -g</code>
+</pre>
+
+<p>rootsをインストールするには、<a href="http://nodejs.org/">Node.js</a>の環境が必要です。<br>Node.jsの環境が無い人はググるなりして入れてください。</p>
+
+<p>インストールできたら以下でバージョン確認。</p>
+
+<pre class="prettyprint"><code>$ roots -v
+1.0.4</code>
+</pre>
+
+<h2>コマンド</h2>
+
+<h3>プロジェクトテンプレートの作成</h3>
+
+<pre class="prettyprint"><code>$ roots new name</code>
+</pre>
+
+<p>カレントディレクトリ内に<code>name</code>というディレクトリ名でプロジェクトのテンプレートを作成します。</p>
+
+<h3>ファイルのコンパイル</h3>
+
+<pre class="prettyprint"><code>$ roots compile</code>
+</pre>
+
+<p>Jade, Stylus, CoffeeScriptのファイルをコンパイルして、html, css, jsをプロジェクトディレクトリ内の<code>public</code>フォルダに出力します。</p>
+
+<h3>ファイルの監視</h3>
+
+<pre class="prettyprint"><code>$ roots watch</code>
+</pre>
+
+<p>ファイルを更新すると自動的にコンパイルし、ローカルサーバーを起動して既定のブラウザーにプロジェクトサイトを開きます。すでにブラウザーで開いている場合は、ライブリロードします。</p>
+
+<h3>rootsをアップデート</h3>
+
+<pre class="prettyprint"><code>$ roots update</code>
+</pre>
+
+<p>rootsの新バージョンをインストールします。</p>
+
+<h3>BOWERでjsのコンポーネントを管理</h3>
+
+<pre class="prettyprint"><code>$ roots js</code>
+</pre>
+
+<p>例えば以下のコマンドを叩くとBOWER経由で<code>jQuery</code>の最新版をインストールします。<br>ダウンロードしたファイルは、<code>assets/js/components</code>にコンポーネント名でディレクトリ作って入れてくれます。</p>
+
+<pre class="prettyprint"><code>$ roots js install jquery</code>
+</pre>
+
+<p>その他のコマンドについては<a href="http://roots.cx/">公式サイト</a>の「client-side js」のセクションを確認するか、ヘルプコマンド<code>$ roots -h</code>でヘルプを見てください。</p>
+
+<h2>開発の流れ</h2>
+
+<h3>(1) プロジェクトテンプレートを作成する</h3>
+
+<pre class="prettyprint"><code>$ mkdir app
+$ cd app
+$ roots new sample</code>
+</pre>
+
+<p>適当に<code>app</code>というフォルダを作って移動し、<code>roots new</code>すると<code>app</code>の中に<code>sample</code>というフォルダでプロジェクトテンプレートが作成されます。</p>
+
+<pre class="prettyprint"><code>sample
+├─ .git
+├─ assets
+│  ├─ css
+│  │  ├─ _settings.styl
+│  │  └─ master.styl
+│  ├─ img
+│  │  └─ noise.png
+│  ├─ js
+│  │  ├─ _helper.coffee
+│  │  ├─ main.coffee
+│  │  ├─ pie.htc
+│  │  └─ require.js
+│  └─ favicon.ico
+├─ views
+│  ├─ _partial.jade
+│  ├─ index.jade
+│  └─ layout.jade
+├─ app.coffee
+└─ readme.md</code>
+</pre>
+
+<p>ファル構成は上記のようになります。</p>
+
+<p>cssは<code>asstes</code>内の<code>.styl</code>ファイル、jsは<code>.coffee</code>ファイル、htmlは、<code>views</code>内の<code>.jade</code>ファイルを触ります。</p>
+
+<h3>(2) ローカルサーバーを起動する</h3>
+
+<p>デフォルトのプロジェクトテンプレートのまま、ローカルサーバーを起動してどんなものが表示されるか確認してみます。</p>
+
+<pre class="prettyprint"><code>$ roots watch
+compilimg... done!
+server started on port 1111</code>
+</pre>
+
+<p>プロジェクトディレクトリで上記コマンドを叩くと、自動的にファイルがコンパイルされ、既定のブラウザーで<code>http://localhost:1111/</code>が開きます。</p>
+
+<p>デフォルトのテンプレートの状態は以下の画面。</p>
+
+<p><img src="/img/2013/02/roots-watch.png" alt="roots watch" /></p>
+
+<p>デフォルトのポート「<code>1111</code>」から別のものに変更したければ、以下のようにします。<br>するとコンパイル後のページが、<code>http://localhost:3000/</code>で開きます。</p>
+
+<pre class="prettyprint"><code>$ port=3000 roots watch
+compilimg... done!
+server started on port 3000</code>
+</pre>
+
+<h3>(3) ファイルを更新してみる</h3>
+
+<p>(2)のローカルサーバーを起動した状態のまま、簡単にhtml部分を更新してみます。<br>html部分の更新は<code>views</code>フォルダ内のJadeで書かれた<code>.jade</code>ファイルを触ります。</p>
+
+<p><code>views</code>フォルダ内の<code>index.jade</code>を開き、一番下に以下のコードを追加して保存します。</p>
+
+<pre class="prettyprint"><code>p こんにちは！こんにちは！</code>
+</pre>
+
+<p>すると自動でコンパイルが走り、ライブリロードで更新した内容が即時ブラウザー上に反映されます。</p>
+
+<p><img src="/img/2013/02/roots-edit.png" alt="roots edit" /></p>
+
+<h3>(4) 静的ファイルを出力する</h3>
+
+<p>(2)の<code>$ roots watch</code>した時点で静的ファイルは出力されているのですが、静的ファイルの出力だけしたい場合は、以下のコマンドを叩きます。</p>
+
+<pre class="prettyprint"><code>$ roots compile
+compilimg...
+minifying & compressing...
+done!</code>
+</pre>
+
+<p>するとファイルのコンパイル・圧縮が行われ、静的ファイルが<code>public</code>フォルダに出力されます。<br><code>public</code>フォルダのファイル構成は以下のようになります。</p>
+
+<pre class="prettyprint"><code>sample
+├─ .git
+├─ assets
+├─ public
+│  ├─ css
+│  │  └─ master.css
+│  ├─ img
+│  │  └─ noise.png
+│  ├─ js
+│  │  ├─ main.js
+│  │  ├─ pie.htc
+│  │  ├─ templete.js
+│  │  └─ require.js
+│  ├─ favicon.ico
+│  └─ index.html
+├─ views
+├─ app.coffee
+└─ readme.md</code>
+</pre>
+
+<h2>まとめ</h2>
+
+<p>以上「roots」の機能を簡単に説明しましたが、DB使うほどでもないようなサイトならこういうジェネレータを使う、というのが海外では浸透してきていて、そして日々新しいジェネレータが開発されています。</p>
+
+<p>「このジェネレータしか扱えません」じゃダメで、どのジェネレータを使うのかは、その時々の状況でより良いものを選べばいいんじゃないでしょうか。</p>
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="pager">
+		<li>Older Entry: <a href="/2013/01/osakacss-vol3-coding/">Osaka.css (#3) .coding を開催しました</a></li>
+		<li>Newer Entry: <a href="/2013/04/gistbox/">GistをメーラーのようなUIで管理する「GistBox」がいい感じ</a></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>
