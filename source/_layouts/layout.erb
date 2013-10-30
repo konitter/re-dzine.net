@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title><%= "#{current_article.title} | " if current_article %><%= data.site.title %></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:image" content="<%= data.site.url %>img/ogp.png">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="<%= data.site.title %>">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="<%= data.site.title %>"></a>
+</header>
+<main role="main">
+<%= yield %>
+</main>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10906036-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>
