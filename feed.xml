@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog Name</title>
-  <subtitle>Blog subtitle</subtitle>
-  <id>http://blog.url.com/</id>
-  <link href="http://blog.url.com/"/>
-  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <title>REFLECTDESIGN</title>
+  <id>http://re-dzine.net/</id>
+  <link href="http://re-dzine.net/"/>
+  <link href="http://re-dzine.net/feed.xml" rel="self"/>
   <updated>2013-10-30T06:08:00Z</updated>
   <author>
-    <name>Blog Author</name>
+    <name>konitter</name>
   </author>
   <entry>
     <title>ブログをWordPressからMiddlemanに移行してGitHub Pagesで運用するようにしてみた</title>
-    <link rel="alternate" href="http://blog.url.com/2013/10/wordpress-to-middleman/"/>
-    <id>http://blog.url.com/2013/10/wordpress-to-middleman/</id>
+    <link rel="alternate" href="http://re-dzine.net/2013/10/wordpress-to-middleman/"/>
+    <id>http://re-dzine.net/2013/10/wordpress-to-middleman/</id>
     <published>2013-10-30T06:08:00Z</published>
     <updated>2013-10-30T16:56:18+09:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>konitter</name>
     </author>
     <content type="html">&lt;p&gt;来月で今契約しているレンタルサーバの期限が切れるということもあって、今回Middleman + GitHub Pagesで作りなおしてみました。いわゆる静的サイトジェネレータでブログを静的ファイルにしちゃえば、GitHub Pagesでホスティングできるので固定費も節約できていいかなと。&lt;/p&gt;
 
@@ -71,12 +70,12 @@
   </entry>
   <entry>
     <title>Emmet LiveStyleで爆速HTML/CSSコーディングの境地へ</title>
-    <link rel="alternate" href="http://blog.url.com/2013/08/emmet-livestyle/"/>
-    <id>http://blog.url.com/2013/08/emmet-livestyle/</id>
+    <link rel="alternate" href="http://re-dzine.net/2013/08/emmet-livestyle/"/>
+    <id>http://re-dzine.net/2013/08/emmet-livestyle/</id>
     <published>2013-08-06T11:35:42Z</published>
     <updated>2013-10-28T15:40:47+09:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>konitter</name>
     </author>
     <content type="html">&lt;p&gt;簡単な記述でHTML/CSSが爆速でコーディングできるという神プラグイン「&lt;a href="http://emmet.io/"&gt;Emmet&lt;/a&gt;」。フロントエンドな人ならほとんどの方が使っているんじゃないかと思います。この度そのEmmetから「Emmet LiveStyle」なるものが出ました。&lt;/p&gt;
 
@@ -107,12 +106,12 @@
   </entry>
   <entry>
     <title>Bootstrap3でLESS/JSのコンパイル方法が変更に</title>
-    <link rel="alternate" href="http://blog.url.com/2013/08/compile-in-bootstrap3/"/>
-    <id>http://blog.url.com/2013/08/compile-in-bootstrap3/</id>
+    <link rel="alternate" href="http://re-dzine.net/2013/08/compile-in-bootstrap3/"/>
+    <id>http://re-dzine.net/2013/08/compile-in-bootstrap3/</id>
     <published>2013-08-02T10:00:16Z</published>
     <updated>2013-10-29T18:45:31+09:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>konitter</name>
     </author>
     <content type="html">&lt;p&gt;先日7/27に&lt;a href="http://getbootstrap.com/"&gt;Bootstrap 3 RC1&lt;/a&gt;がリリースされました。&lt;/p&gt;
 
@@ -188,12 +187,12 @@
   </entry>
   <entry>
     <title>第14回リクリセミナー｢Web制作の未来、あなたの未来｣に参加してきました</title>
-    <link rel="alternate" href="http://blog.url.com/2013/07/resem14/"/>
-    <id>http://blog.url.com/2013/07/resem14/</id>
+    <link rel="alternate" href="http://re-dzine.net/2013/07/resem14/"/>
+    <id>http://re-dzine.net/2013/07/resem14/</id>
     <published>2013-07-31T09:16:00Z</published>
     <updated>2013-10-29T18:45:31+09:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>konitter</name>
     </author>
     <content type="html">&lt;p&gt;7/27(土)に行われた&lt;a href="http://recreators.doorkeeper.jp/events/4128"&gt;第14回リクリセミナー「Web制作の未来、あなたの未来」&lt;/a&gt;に参加してきました。リクリセミナー自体も参加するのはなんだかんだで初めて。のはず。その辺意外とあいまい。&lt;/p&gt;
 
@@ -217,12 +216,12 @@
   </entry>
   <entry>
     <title>CSS Nite in OSAKA, Vol.35 に参加してきました</title>
-    <link rel="alternate" href="http://blog.url.com/2013/07/css-nite-in-osaka-vol35/"/>
-    <id>http://blog.url.com/2013/07/css-nite-in-osaka-vol35/</id>
+    <link rel="alternate" href="http://re-dzine.net/2013/07/css-nite-in-osaka-vol35/"/>
+    <id>http://re-dzine.net/2013/07/css-nite-in-osaka-vol35/</id>
     <published>2013-07-11T14:14:16Z</published>
     <updated>2013-10-28T16:12:29+09:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>konitter</name>
     </author>
     <content type="html">&lt;p&gt;一昨日7/9(火)は、&lt;a href="http://osaka.cssnite.jp/vol35/"&gt;CSS Nite in OSAKA, Vol.35（復活スペシャル）&lt;/a&gt;に参加してきました。テーマは、「スマホアプリのデザインから プロトタイプ作成まで」。
 実は「CSS Nite」と冠の付いたセミナーに参加するのはこれが初めて。&lt;/p&gt;
@@ -257,12 +256,12 @@
   </entry>
   <entry>
     <title>Sublime Text 2でStylus + Nibのコードをビルドする</title>
-    <link rel="alternate" href="http://blog.url.com/2013/05/stylus-nib-for-st2/"/>
-    <id>http://blog.url.com/2013/05/stylus-nib-for-st2/</id>
+    <link rel="alternate" href="http://re-dzine.net/2013/05/stylus-nib-for-st2/"/>
+    <id>http://re-dzine.net/2013/05/stylus-nib-for-st2/</id>
     <published>2013-05-24T07:55:00Z</published>
     <updated>2013-10-29T18:45:31+09:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>konitter</name>
     </author>
     <content type="html">&lt;p&gt;&lt;a href="http://sass-lang.com/"&gt;Sass&lt;/a&gt;には&lt;a href="http://compass-style.org/"&gt;Compass&lt;/a&gt;というアツいライブラリがありますが、&lt;a href="http://learnboost.github.com/stylus/"&gt;Stylus&lt;/a&gt;にも「&lt;a href="http://visionmedia.github.io/nib/"&gt;nib&lt;/a&gt;」というライブラリがあります。このNibを使ったコードを&lt;a href="http://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt;からビルドする方法です。&lt;/p&gt;
 
