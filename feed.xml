@@ -13,7 +13,7 @@
     <link rel="alternate" href="http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/"/>
     <id>http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/</id>
     <published>2013-11-07T01:57:00Z</published>
-    <updated>2013-11-07T09:47:33+09:00</updated>
+    <updated>2013-11-07T12:12:17+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
@@ -27,6 +27,8 @@
 &lt;h2&gt;お題1 「ページネーション」&lt;/h2&gt;
 
 &lt;script src="http://jsdo.it/blogparts/3Kun/js"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href="http://jsdo.it/_konitter/8WT9"&gt;MarkupCafe Tokyo Vol.2 お題3 「財務諸表」 #html5j - jsdo.it&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;このお題は、他の2つと比べても特に人によってマークアップの違いが出やすいUIの一つな気がします。マークアップするうえでのポイントを挙げてみます。&lt;/p&gt;
 
@@ -58,6 +60,8 @@
 
 &lt;script src="http://jsdo.it/blogparts/mjYQ/js"&gt;&lt;/script&gt;
 
+&lt;p&gt;&lt;a href="http://jsdo.it/_konitter/mjYQ"&gt;MarkupCafe Tokyo Vol.2 お題2 「予約フォーム」 #html5j - jsdo.it&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;このお題に限らずですが、フォームのマークアップは、どこまでセマンティックに（マシンリーダブルな形で）表現するかってところで違いが出てくる内容だと思います。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -86,6 +90,8 @@
 &lt;h2&gt;お題3 「財務諸表」&lt;/h2&gt;
 
 &lt;script src="http://jsdo.it/blogparts/8WT9/js"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href="http://jsdo.it/_konitter/8WT9"&gt;MarkupCafe Tokyo Vol.2 お題3 「財務諸表」 #html5j - jsdo.it&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;このお題ならもう見たままコーディングで問題ないはず。当のイベントでは各チーム似たような感じだったのも当然といえば当然。これといったポイントもナシで。&lt;/p&gt;
 
