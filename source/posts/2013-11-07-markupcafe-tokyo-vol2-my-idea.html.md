@@ -12,7 +12,7 @@ tags: article
 ## お題1 「ページネーション」
 
 <script src="http://jsdo.it/blogparts/3Kun/js"></script>
-[MarkupCafe Tokyo Vol.2 お題3 「財務諸表」 #html5j - jsdo.it](http://jsdo.it/_konitter/8WT9)
+[MarkupCafe Tokyo Vol.2 お題1 「ページネーション」 #html5j - jsdo.it](http://jsdo.it/_konitter/3Kun)
 
 このお題は、他の2つと比べても特に人によってマークアップの違いが出やすいUIの一つな気がします。マークアップするうえでのポイントを挙げてみます。
 
