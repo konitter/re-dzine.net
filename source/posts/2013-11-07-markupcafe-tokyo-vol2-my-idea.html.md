@@ -12,6 +12,7 @@ tags: article
 ## お題1 「ページネーション」
 
 <script src="http://jsdo.it/blogparts/3Kun/js"></script>
+[MarkupCafe Tokyo Vol.2 お題3 「財務諸表」 #html5j - jsdo.it](http://jsdo.it/_konitter/8WT9)
 
 このお題は、他の2つと比べても特に人によってマークアップの違いが出やすいUIの一つな気がします。マークアップするうえでのポイントを挙げてみます。
 
@@ -31,6 +32,7 @@ tags: article
 ## お題2 「予約フォーム」
 
 <script src="http://jsdo.it/blogparts/mjYQ/js"></script>
+[MarkupCafe Tokyo Vol.2 お題2 「予約フォーム」 #html5j - jsdo.it](http://jsdo.it/_konitter/mjYQ)
 
 このお題に限らずですが、フォームのマークアップは、どこまでセマンティックに（マシンリーダブルな形で）表現するかってところで違いが出てくる内容だと思います。
 
@@ -49,6 +51,7 @@ tags: article
 ## お題3 「財務諸表」
 
 <script src="http://jsdo.it/blogparts/8WT9/js"></script>
+[MarkupCafe Tokyo Vol.2 お題3 「財務諸表」 #html5j - jsdo.it](http://jsdo.it/_konitter/8WT9)
 
 このお題ならもう見たままコーディングで問題ないはず。当のイベントでは各チーム似たような感じだったのも当然といえば当然。これといったポイントもナシで。
 
