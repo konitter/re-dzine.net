@@ -4,10 +4,98 @@
   <id>http://re-dzine.net/</id>
   <link href="http://re-dzine.net/"/>
   <link href="http://re-dzine.net/feed.xml" rel="self"/>
-  <updated>2013-10-30T06:08:00Z</updated>
+  <updated>2013-11-07T01:57:00Z</updated>
   <author>
     <name>konitter</name>
   </author>
+  <entry>
+    <title>MarkupCafe Tokyo Vol.2のお題について考えてみた</title>
+    <link rel="alternate" href="http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/"/>
+    <id>http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/</id>
+    <published>2013-11-07T01:57:00Z</published>
+    <updated>2013-11-07T09:47:33+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">&lt;p&gt;10/19(土)にて東京で行われたイベント「&lt;a href="http://atnd.org/events/43774"&gt;MarkupCafe Tokyo Vol.2&lt;/a&gt;」で出されたお題について、自分ならどうマークアップするかを考えてみました。&lt;br&gt;
+当日参加された方々のコードは、以下のページから参照できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://u-note.me/note/47486651"&gt;「あなたは、これらを美しくマークアップできるかな？」#Markup CafeTokyo【CodeIQ提供】#html5j | U-NOTE【ユーノート】&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;お題1 「ページネーション」&lt;/h2&gt;
+
+&lt;script src="http://jsdo.it/blogparts/3Kun/js"&gt;&lt;/script&gt;
+
+&lt;p&gt;このお題は、他の2つと比べても特に人によってマークアップの違いが出やすいUIの一つな気がします。マークアップするうえでのポイントを挙げてみます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;UI自体を何の要素でくくるか
+
+&lt;ul&gt;
+&lt;li&gt;上記レポートにもある&lt;code&gt;nav&lt;/code&gt;を使うという意見については、確かにメインコンテンツにより近い「主要な」ナビゲーション（となるケースが多い）とも取れるので、それもアリな気もするけど、まだ自分の中で消化しきれてない&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;リンクの羅列はリストか
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ul&lt;/code&gt;ではなく&lt;code&gt;ol&lt;/code&gt;、というパターンについては1つの長い記事などを複数のページに分けるような場合だと、そのページの順番に意味があるので、それもアリだと思う&lt;/li&gt;
+&lt;li&gt;ただし、ブログのインデックスとかただの記事一覧みたいな場合だと、ページ順にそれほど意味があるとは思えないので、その場合&lt;code&gt;ol&lt;/code&gt;がふさわしいとは思えない&lt;/li&gt;
+&lt;li&gt;あと、「...」で間をとばすような感じのパターンの場合、&lt;code&gt;ol&lt;/code&gt;だとハマらない気がする&lt;/li&gt;
+&lt;li&gt;また、リストではなく&lt;code&gt;span&lt;/code&gt;を並べるってのもありそうだけど、個人的にナシ。単純に好き嫌いの範疇かも。パンくずリストのマークアップみたいな&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;「前へ」「次へ」なリンクを分離するかどうか
+
+&lt;ul&gt;
+&lt;li&gt;ページ番号のリンクと分けて別の要素にするという人もいるようだけど、別の要素を使うこと自体にメリットは感じられない&lt;/li&gt;
+&lt;li&gt;ただ、「次へ」をコード上で最後ではなく「前へ」のすぐ後ろに持ってくるについては、正直言ってわからない。音声読み上げの支援技術ユーザーへの配慮だと思うんだけど、実際そうしてくれた方が嬉しい、とかいう意見があるのかな。あるならそうした方がいいんかも&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;他にも、1ページ目の時の「前へ」と最後のページの時の「次へ」をどうするか、カレントページの番号をどうするか（どんなクラス名を付けるか）などなどありますが、長くなりそうなのでこの辺で。&lt;/p&gt;
+
+&lt;h2&gt;お題2 「予約フォーム」&lt;/h2&gt;
+
+&lt;script src="http://jsdo.it/blogparts/mjYQ/js"&gt;&lt;/script&gt;
+
+&lt;p&gt;このお題に限らずですが、フォームのマークアップは、どこまでセマンティックに（マシンリーダブルな形で）表現するかってところで違いが出てくる内容だと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;フォーム部分のレイアウト
+
+&lt;ul&gt;
+&lt;li&gt;このお題画像の見た目で時間制限がある中では、素直に&lt;code&gt;table&lt;/code&gt;を使うでいい&lt;/li&gt;
+&lt;li&gt;実際の案件でマルチデバイス云々みたいな場合だと、無理ではないけれども&lt;code&gt;table&lt;/code&gt;じゃない方がやりやすいってのはあると思う。状況によりけりで&lt;/li&gt;
+&lt;li&gt;あと、ラベルとフォーム要素は上下に配置した方が視線の移動が少なくなって良い、みたいな話もあるけど、全てのフォームがそうできるわけじゃないので、それも状況によりけりでいいと思う&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;必須のアスタリスク
+
+&lt;ul&gt;
+&lt;li&gt;フォームのデザインにおいて「必須」を表すのにアスタリスク（もしくは米印などのマーク）を使うこと、また必須であることをフォーム要素の後ろで表すのは(・A・)ｲｸﾅｲ!!ので、そもそもお題として相応しいかどうか&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;必須項目の表現方法
+
+&lt;ul&gt;
+&lt;li&gt;音声読み上げのことを考慮すると、アスタリスクだけではダメなので、&lt;code&gt;aria-label&lt;/code&gt;と&lt;code&gt;required&lt;/code&gt;、&lt;code&gt;required&lt;/code&gt;に対応していない環境に配慮して&lt;code&gt;aria-required=&amp;quot;true&amp;quot;&lt;/code&gt;を付けた&lt;/li&gt;
+&lt;li&gt;音声読み上げ周りの最新の情報として要・不要なものがあるかもだけど、その辺の話はよくわからない。ぜひそっち系に詳しい方のマークアップが見てみたい&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（半角英字）みたいな注釈的なものがフォーム要素の上とか下にあった場合、フォーム要素に単位が付いている場合、あと最近では多くなってきているラベルをプレースホルダーとして使うとか、他にもパターンは色々ありますけど、フォームのマークアップというのは経験がものをいう部分だとも言えると思います。&lt;/p&gt;
+
+&lt;h2&gt;お題3 「財務諸表」&lt;/h2&gt;
+
+&lt;script src="http://jsdo.it/blogparts/8WT9/js"&gt;&lt;/script&gt;
+
+&lt;p&gt;このお題ならもう見たままコーディングで問題ないはず。当のイベントでは各チーム似たような感じだったのも当然といえば当然。これといったポイントもナシで。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;table&lt;/code&gt;なんか使わない、&lt;code&gt;table&lt;/code&gt;が許されるのは小学生までだよねって人もいるかもしれないけど、そんなの十分変態だし通報レベルなので注意が必要です。&lt;/p&gt;
+
+&lt;h2&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;ざっと調べたところ、このイベントやお題に対して意見を表明している人がいなさそうなのですが、この辺のマークアップなネタについては一家言ある、という人が自分の周りにはたくさんいるので、そういった方々がどう書くか非常に興味があります。|дﾟ)ﾁﾗｯ&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>ブログをWordPressからMiddlemanに移行してGitHub Pagesで運用するようにしてみた</title>
     <link rel="alternate" href="http://re-dzine.net/2013/10/wordpress-to-middleman/"/>
@@ -252,187 +340,6 @@
 
 &lt;p&gt;長くなってきたのでこれくらいで。
 関係者のみなさん、どうもありがとうございました。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Sublime Text 2でStylus + Nibのコードをビルドする</title>
-    <link rel="alternate" href="http://re-dzine.net/2013/05/stylus-nib-for-st2/"/>
-    <id>http://re-dzine.net/2013/05/stylus-nib-for-st2/</id>
-    <published>2013-05-24T07:55:00Z</published>
-    <updated>2013-10-29T18:45:31+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;&lt;a href="http://sass-lang.com/"&gt;Sass&lt;/a&gt;には&lt;a href="http://compass-style.org/"&gt;Compass&lt;/a&gt;というアツいライブラリがありますが、&lt;a href="http://learnboost.github.com/stylus/"&gt;Stylus&lt;/a&gt;にも「&lt;a href="http://visionmedia.github.io/nib/"&gt;nib&lt;/a&gt;」というライブラリがあります。このNibを使ったコードを&lt;a href="http://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt;からビルドする方法です。&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;&lt;img src="/img/2013/05/nib.jpg" alt="nib" width="590" height="220" /&gt;&lt;/p&gt;
-
-&lt;h2&gt;(1) Stylus + Nibのインストール&lt;/h2&gt;
-
-&lt;p&gt;以下のコマンドでインストールします。要&lt;a href="http://nodejs.org/"&gt;Node.js&lt;/a&gt;(npm)。&lt;br&gt;グローバルインストールしてますが、&lt;code&gt;-g&lt;/code&gt;無しのローカルインストールでもどっちでもお好みな方で。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;$ [sudo] npm install -g stylus nib&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以下でバージョン番号が出ればインストール成功。&lt;br&gt;nibにはバージョン番号を出力するコマンドはないです。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;$ stylus -V
-0.31.0&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;(2) packageのインストール&lt;/h2&gt;
-
-&lt;p&gt;次に、Sublime TextからStylusコードをビルドする環境を準備します。 &lt;a href="http://wbond.net/sublime_packages/package_control"&gt;Package Control&lt;/a&gt;から以下のパッケージ名を選んでインストールします。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Stylus&lt;br&gt;&lt;a href="https://github.com/billymoon/Stylus"&gt;https://github.com/billymoon/Stylus&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;(3) Stylusコードをビルド&lt;/h2&gt;
-
-&lt;p&gt;まずはNib無しのStylusコードをビルドしてみます。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;button
-  border-radius 5px&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;all.styl&lt;/code&gt;というファイル名で適当にこんな感じのコードを書いて、&lt;code&gt;Ctrl + B&lt;/code&gt;するとビルドが走り、エディター下部に同ディレクトリに&lt;code&gt;all.css&lt;/code&gt;というファイル名でコンパイルされたことを示すメッセージが出ます。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;all.css&lt;/code&gt;を開いてみると、以下のようになっているはずです。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;button {
-  border-radius: 5px;
-}&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;もし記述にエラーがあってコンパイルに失敗する場合は、どの行にどんな問題があるかを示すメッセージが出ます。&lt;/p&gt;
-
-&lt;h2&gt;(4) Nibを使ったコードをビルド&lt;/h2&gt;
-
-&lt;p&gt;次にNibを使ったStylusコードをビルドしてみます。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;@import 'nib'
-
-button
-  border-radius 5px&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;こんな感じにさっきの&lt;code&gt;all.styl&lt;/code&gt;にNibの書式をインポートする記述を冒頭に追記します。&lt;/p&gt;
-
-&lt;p&gt;ただこの状態でビルドしても「nib.stylが見つからない」というようなメッセージが出て意図通りにはなりません。当たり前ですね。&lt;/p&gt;
-
-&lt;p&gt;Nib込みのコードをコンパイルするには、Stylus側にコンパイル時にNibというライブラリを読み込んでねということを伝える必要があります。&lt;/p&gt;
-
-&lt;p&gt;まずは、Stylusのビルドの設定ファイル（&lt;code&gt;Preferences &amp;gt; Browse Packages &amp;gt; Stylus &amp;gt; Stylus.sublime-build&lt;/code&gt;）を開きます。&lt;/p&gt;
-
-&lt;p&gt;ビルドオプションの詳しくは&lt;a href="http://docs.sublimetext.info/en/latest/reference/build_systems.html"&gt;公式のドキュメント&lt;/a&gt;をご確認ください。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;{
-  "cmd": ["stylus", "$file"],
-  "file_regex": ".",
-  "selector": "source.stylus",
-
-  "osx":
-  {
-    "path": "/usr/local/bin:$PATH"
-  },
-
-  "linux":
-  {
-    "path": "/usr/local/bin:$PATH"
-  },
-
-  "windows":
-  {
-    "cmd": ["stylus.cmd", "$file"]
-  },
-
-  "variants": [
-    {
-      "name": "compress",
-      "cmd": ["stylus", "-c", "$file"],
-
-      "windows":
-      {
-        "cmd": ["stylus.cmd", "-c", "$file"]
-      }
-    }
-  ]
-}&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;上記の2行目を以下のように変更します。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;{
-  "cmd": ["stylus", "-I", "/example/path/node_modules/nib/lib", "$file"],
-  ...&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;-I&lt;/code&gt;はStylusのインクルードオプションで、その次にインストールしたNibの&lt;code&gt;/lib&lt;/code&gt;までのパスを書きます。&lt;/p&gt;
-
-&lt;p&gt;これで保存して、さっきの&lt;code&gt;all.styl&lt;/code&gt;をビルドしてみるとこうなるはずです。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;button {
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;プレフィックスを付けてくれてますね。&lt;br&gt;他にも様々なミックスインがありますので、詳しくは公式サイト等をご確認ください。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://visionmedia.github.io/nib/"&gt;nib - CSS3 extensions for Stylus&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;また、&lt;code&gt;compress&lt;/code&gt;時にもNibを使う場合は以下のようにします。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;...
-  "variants": [
-    {
-      "name": "compress",
-      "cmd": ["stylus", "-c", "-I", "/example/path/node_modules/nib/lib", "$file"],
-      ...&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;compress&lt;/code&gt;版をビルドするには、コマンドパレット[&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;]から「&lt;code&gt;Build: compress&lt;/code&gt;」を選びます。&lt;br&gt;いちいち選ぶのが面倒な場合は、適宜キーマップを設定してください。&lt;/p&gt;
-
-&lt;p&gt;上記オプション&lt;code&gt;"name"&lt;/code&gt;の値を&lt;code&gt;"Run"&lt;/code&gt;に変更すると、コマンド[&lt;code&gt;Ctrl + Shift + B&lt;/code&gt;]一発でビルドできます。&lt;br&gt;&lt;code&gt;Tools&lt;/code&gt;メニューの&lt;code&gt;Run&lt;/code&gt;からも実行できます。&lt;/p&gt;
-
-&lt;h2&gt;おまけ（Winユーザー向け）&lt;/h2&gt;
-
-&lt;p&gt;Winの方はここまでの方法ではNib込みのコードはビルドできません。&lt;br&gt;Winの場合は、Win用コマンドを設定している2箇所に同様の記述を書き加えます。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;...
-  "windows":
-  {
-    "cmd": ["stylus.cmd", "-I", "/example/path/node_modules/nib/lib", "$file"]
-    ...&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これでOKなのですが、もう少しスマートに書くこともできます。&lt;/p&gt;
-
-&lt;p&gt;ビルドそれ自体は、&lt;code&gt;exec&lt;/code&gt;コマンドを使うのですが、&lt;code&gt;"shell"&lt;/code&gt;オプションを&lt;code&gt;true&lt;/code&gt;にすることでcmd.exeやbashなどのシェルコマンドとして実行できるようになります。&lt;/p&gt;
-
-&lt;p&gt;シェルコマンドが実行できる環境があれば、以下のように書けます。&lt;/p&gt;
-
-&lt;pre class="prettyprint"&gt;&lt;code&gt;{
-  "cmd": ["stylus", "-I", "/example/path/node_modules/nib/lib", "$file"],
-  "file_regex": ".",
-  "selector": "source.stylus",
-  "shell": true,
-
-  "osx":
-  {
-    "path": "/usr/local/bin:$PATH"
-  },
-
-  "linux":
-  {
-    "path": "/usr/local/bin:$PATH"
-  },
-
-  "variants": [
-    {
-      "name": "compress",
-      "cmd": ["stylus", "-c", "-I", "/example/path/node_modules/nib/lib", "$file"],
-      "shell": true
-    }
-  ]
-}&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;スッキリしました。&lt;/p&gt;
 </content>
   </entry>
 </feed>
