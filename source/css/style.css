@@ -1,15 +1,15 @@
-@charset "UTF-8";
+@charset "utf-8";
 
 body {
 	margin: 0;
 	line-height: 1.6;
-	font-size: 94%;
-	font-family: Helvetica,Arial,sans-serif;
-	color: #12252e;
+	font-size: 88%;
+	font-family: Helvetica,Arial,Meiryo,sans-serif;
+	color: #333;
 }
 
 a {
-	color: #0886CE;
+	color: #0886ce;
 	text-decoration: none;
 }
 
@@ -24,6 +24,7 @@ img {
 }
 
 #header {
+	margin-bottom: 3em;
 	padding: 40px 0;
 	background: url(../img/poly.png) no-repeat 50% 20%;
 	-webkit-background-size: cover;
@@ -48,7 +49,7 @@ img {
 
 [role="main"] {
 	display: block;
-	padding: 20px 1.25em;
+	margin: 0 1em 3em 1em;
 }
 
 .posts {
@@ -58,23 +59,24 @@ img {
 }
 
 .posts li {
-	margin-bottom: 2.4em;
+	margin: 3em 0;
 }
 
 .posts a {
 	line-height: 1.3;
 	font-size: 1.2em;
-	color: #12252e;
+	color: #333;
 }
 
 .meta {
-	color: #aba9a4;
-	font-size: .8em;
+	margin-top: 5px;
+	color: #9eabb3;
+	font-size: .9em;
 }
 
 .meta a {
-	border-bottom: 1px dotted #aba9a4;
-	color: #aba9a4;
+	border-bottom: 1px dotted #9eabb3;
+	color: #9eabb3;
 }
 
 .meta a:hover {
@@ -84,10 +86,12 @@ img {
 article h1, h2, h3, h4, h5 {
 	line-height: 1.3;
 	margin: 2.4em 0 .5em;
+	color: #222;
 }
 
 article h1 {
 	margin: 0;
+	font-size: 1.8em;
 }
 
 .entry {
@@ -138,10 +142,26 @@ figcaption {
 	color: #aba9a4;
 }
 
+.entry ul {
+	padding-left: 20px;
+}
+
+.entry ul ul {
+	margin-bottom: 1em;
+}
+
 .pager {
 	overflow: hidden;
 	padding: 0;
 	list-style: none;
+}
+
+.pager a {
+	display: inline-block;
+	line-height: 1;
+	padding: 7px 10px;
+	border: 1px solid #0886ce;
+	border-radius: 4px;
 }
 
 .pager .newer {
@@ -150,6 +170,10 @@ figcaption {
 
 .pager .older {
 	float: left;
+}
+
+.post-pager {
+	padding-left: 20px;
 }
 
 .share ul {
@@ -161,7 +185,7 @@ figcaption {
 	margin-right: 1em;
 }
 
-@media screen and (min-width: 32em) {
+@media screen and (min-width: 481px) {
 	#header {
 		padding: 100px 0;
 	}
@@ -171,17 +195,24 @@ figcaption {
 	}
 
 	[role="main"] {
-		padding: 80px 2.5em;
+		margin-right: 2em;
+		margin-left: 2em;
 	}
 
 	figure {
 		padding-left: 40px;
 	}
+
+	.entry ul {
+		padding-left: 40px;
+	}
 }
 
-@media screen and (min-width: 46em) {
+@media screen and (min-width: 769px) {
 	[role="main"] {
-		width: 640px;
-		margin: 0 auto;
+		width: 80%;
+		max-width: 640px;
+		margin-right: auto;
+		margin-left: auto;
 	}
 }
