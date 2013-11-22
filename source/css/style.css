@@ -178,7 +178,10 @@ figcaption {
 }
 
 .post-pager {
+	margin-bottom: 9em;
+	padding-top: 2em;
 	padding-left: 20px;
+	border-top: 1px dotted #ccc;
 }
 
 .share ul {
