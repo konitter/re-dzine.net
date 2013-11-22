@@ -4,10 +4,41 @@
   <id>http://re-dzine.net/</id>
   <link href="http://re-dzine.net/"/>
   <link href="http://re-dzine.net/feed.xml" rel="self"/>
-  <updated>2013-11-07T01:57:00Z</updated>
+  <updated>2013-11-22T02:29:00Z</updated>
   <author>
     <name>konitter</name>
   </author>
+  <entry>
+    <title>GitHubトレーニングチームから学ぶ GitとGitHubの基礎 に参加してきました</title>
+    <link rel="alternate" href="http://re-dzine.net/2013/11/github-training-at-osaka/"/>
+    <id>http://re-dzine.net/2013/11/github-training-at-osaka/</id>
+    <published>2013-11-22T02:29:00Z</published>
+    <updated>2013-11-22T14:20:47+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">&lt;p&gt;11/21(木)に行われた「&lt;a href="http://connpass.com/event/3965/"&gt;GitHubトレーニングチームから学ぶ GitとGitHubの基礎&lt;/a&gt;」に参加しましたので簡単にレポートします。逐一メモってないので、大体の流れ（うろ覚え）と気になったポイントだけ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="octcat" src="/img/2013/11/octcat.gif" /&gt;&lt;/p&gt;
+
+&lt;p&gt;スピーカーは&lt;a href="http://training.github.com/trainers/"&gt;GitHubトレーニングチーム&lt;/a&gt;のMatthewさん（&lt;a href="https://twitter.com/matthewmccull"&gt;@matthewmccul&lt;/a&gt;）とJohnさん（&lt;a href="https://twitter.com/johndbritton"&gt;@johndbritton&lt;/a&gt;）。外かなり寒いのにお二人とも半袖Tシャツ。あと声が割りと高い。（関係ない&lt;/p&gt;
+
+&lt;p&gt;まずはMatthewさんからGitについてと&lt;code&gt;git init&lt;/code&gt;からファイル作ってコミットしてログを見るっていう基本的な流れを簡単に説明。ちなみにスピーカーからの話は当然英語。で、一言話すごとに部屋の後ろにいる日本人の方が通訳してしゃべってくれるんだけど、gitだとかcommitだとか英単語部分の発音だけがやたらナチュラルでなんかかっこよかったです。（小並感&lt;/p&gt;
+
+&lt;p&gt;そのあとはGitの論理構造の話。構造を買い物に例えて、「ステージング・エリアはショッピングカートのようなもの」だと言っていたのには目から鱗。この例えは今まで聞いた論理構造の説明で一番分かりやすい気がする。&lt;/p&gt;
+
+&lt;p&gt;次にGitHubをブラウザからみんな実際に操作して、練習用のリポジトリから各自のアカウントにフォークして、ファイルを作ってコミットしてプルリクエストする流れ。Git（GitHubも）は複数人でやってこそ面白いってのを痛感。あと、コメント欄とかで使える&lt;a href="http://www.emoji-cheat-sheet.com/"&gt;絵文字&lt;/a&gt;が楽しい。お寿司とかいつ使うねんっていう。&lt;/p&gt;
+
+&lt;p&gt;こんな感じで前半終了。後半はJohnさんからGitHub社の理念についてのお話からスタートし、GitHubが開発したツール「&lt;a href="http://boxen.github.com/"&gt;Boxen&lt;/a&gt;」と「&lt;a href="http://hubot.github.com/"&gt;Hubot&lt;/a&gt;」の説明がありました。中身は、&lt;a href="http://www.publickey1.jp/blog/13/githubdevopsboxenhubotdevops_day_tokyo_2013.html"&gt;Publickeyによる「DevOps Day Tokyo 2013」でJohnさんがセッションした内容のレポート&lt;/a&gt;とほぼ同じなので興味がある方はそっちを読むといいです。&lt;/p&gt;
+
+&lt;p&gt;個人的には、コマンド一つでMacに開発環境が一気に構築できる「Boxen」が気になりました。ChromeやSkypeなどソフトウェアのインストールやOS X自体の環境（例えばDockの設定とか）も含めて一発でできるので、新しくMacを買った時やOSをクリーンインストールしてイチから環境を作る時なんかでは、むちゃくちゃ便利だなと。ってかWindowsェ…。&lt;/p&gt;
+
+&lt;p&gt;レポートは以上です。&lt;br&gt;
+本当の初心者や上級者にとっては物足りなかったかもしれませんが、ぼくみたいな中途半端な知識の人にとってはすごく分かりやすい内容でした。&lt;/p&gt;
+
+&lt;p&gt;ターミナルなど環境的なことも含めてGitのことをもっと勉強したいと思います。あと、できるだけ英語を聞き取ろうとしてみたものの、全然分かりませんでしたので英語もなんとかしたいです。。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>MarkupCafe Tokyo Vol.2のお題について考えてみた</title>
     <link rel="alternate" href="http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/"/>
@@ -306,46 +337,6 @@
 
 &lt;p&gt;少し間が空いてしまうようですが、次回のリクリセミナーも個人的にはかなり気になる感じですので、ぜひ参加したいと思います。
 関係者のみなさん、すばらしい会を本当にありがとうございました。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>CSS Nite in OSAKA, Vol.35 に参加してきました</title>
-    <link rel="alternate" href="http://re-dzine.net/2013/07/css-nite-in-osaka-vol35/"/>
-    <id>http://re-dzine.net/2013/07/css-nite-in-osaka-vol35/</id>
-    <published>2013-07-11T14:14:16Z</published>
-    <updated>2013-10-28T16:12:29+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;一昨日7/9(火)は、&lt;a href="http://osaka.cssnite.jp/vol35/"&gt;CSS Nite in OSAKA, Vol.35（復活スペシャル）&lt;/a&gt;に参加してきました。テーマは、「スマホアプリのデザインから プロトタイプ作成まで」。
-実は「CSS Nite」と冠の付いたセミナーに参加するのはこれが初めて。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://osaka.cssnite.jp/vol35/"&gt;&lt;img src="http://osaka.cssnite.jp/vol35/images/banner_cnio35_220.jpg" alt="CSS Nite in OSAKA, Vol.35 復活スペシャル" width="220" height="220" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今回スマホアプリがテーマということですが、普段のぼくの業務ではスマホアプリに関わることはまずありません。もしあったとしても、ぼくの広告代理店の発注側という立場としては、アプリのデザインやプロトタイプを作るのは発注先の会社でしょう。&lt;/p&gt;
-
-&lt;p&gt;ではなぜ参加したか。今やこの業界はどこもかしこもアプリ、アプリ、アプリ。この分野では個人的にはもう完全に乗り遅れています。技術的な話は、ググるなり本を買うなりすれば手に入れられるものもあるんでしょうけど、普段アプリを作る人がどういうワークフローでどういう考え方を元に取り組んでいるかがどうもフワフワしててよくわからない。これが知りたかったんです。&lt;/p&gt;
-
-&lt;p&gt;参加した結果。確かに今回聞いたお話は、登壇された秋葉さんご夫妻のやり方かもしれないけれど、なるほどこうやってやってるんだというのが何となくわかって良かったと思いました。&lt;/p&gt;
-
-&lt;p&gt;レスポンシブだ、ワークフローがどうだ、ブラウザでデザインだ。分かってる人は分かってる。でもそうでない人はこれからの時代はこうしなきゃいけないんだ！みたいにねじ曲がって伝わってしまう。そうじゃなくてもっと柔軟に考えようよっていうのが、今回のテーマの根底にはあるように思います。&lt;/p&gt;
-
-&lt;p&gt;秋葉さんご夫妻はお二人とも元々デザイナーということもあって、紙のデザイン（いわゆるカンプ）は大事。それはそれでちゃんと作る。だけど、特にアプリにおいては紙のデザインだけでは伝えられないものがある。それを補うためにプロトタイプを作るのだそう。&lt;/p&gt;
-
-&lt;p&gt;そのプロトタイプは、HTML/CSS/JavaScriptで作る。JavaScriptを使うといってもゴリゴリにプログラムを組むのではなく、基本的にはclassの付け替えだけをさせる。それをトリガーにCSSを駆使して見せたい機能を実現する。&lt;/p&gt;
-
-&lt;p&gt;そうするのは、例えばプロトタイプで作った機能をクライアントに説明する際に、何か意見があってもCSSの値を書き換えるだけでその場で瞬時に見せられるのが良いんだとのこと。色を変えたり、物体を動かしたり。これならぼくにもできそう。デモで実際にその様子をやっていただいてよく分かりました。&lt;/p&gt;
-
-&lt;p&gt;で、そうしたプロトタイプを作る技術や経験が何に生きてくるのか。&lt;a href="http://www.mozilla.jp/firefoxos/"&gt;Firefox OS&lt;/a&gt;や&lt;a href="https://www.tizen.org/ja"&gt;Tizen&lt;/a&gt;などWebベースのOSを搭載したスマートフォンが出てきたときに役立ってくるわけです。そしてその動きはこれから加速していくそう。（ちなみに先日のTizen死亡説はデマ&lt;a href="http://www.gizmodo.jp/2013/07/tizenintel.html"&gt;[参考]&lt;/a&gt;）&lt;/p&gt;
-
-&lt;p&gt;一方デザインにおいてデザイナーは、何らかの操作が成功した場合のデザインは作る。だけど、何かエラーが起きたときのことを考えていないのでは、と。例えば、検索結果が0件だったとき、スマホアプリで言えば、操作中に通信が切れたとき、など。そういうことも含めてデザイナーはデザインしていく必要があるし、デザインできるようにするためには、そういうことに対する普段からの理解が必要になってくる。&lt;/p&gt;
-
-&lt;p&gt;時間の関係上、後半の方がだいぶ駆け足になってしまったのが少し残念ではあったものの、（夫婦だけに）お二人の軽快なやり取りの中で普段のお仕事の風景が目に浮かぶようで、非常にためになる会でした。&lt;/p&gt;
-
-&lt;p&gt;次回の「in Osaka」はレスポンシブ周りがテーマになるそう。こちらもぜひ参加してみたいと思います。&lt;/p&gt;
-
-&lt;p&gt;長くなってきたのでこれくらいで。
-関係者のみなさん、どうもありがとうございました。&lt;/p&gt;
 </content>
   </entry>
 </feed>
