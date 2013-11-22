@@ -9,12 +9,13 @@ body {
 }
 
 a {
-	color: #0886ce;
 	text-decoration: none;
+	color: #006f8e;
 }
 
 a:hover {
 	text-decoration: underline;
+	color: #003e50;
 }
 
 img {
@@ -68,6 +69,10 @@ img {
 	color: #333;
 }
 
+.posts a:hover {
+	text-decoration: underline;
+}
+
 .meta {
 	margin-top: 5px;
 	color: #9eabb3;
@@ -77,10 +82,6 @@ img {
 .meta a {
 	border-bottom: 1px dotted #9eabb3;
 	color: #9eabb3;
-}
-
-.meta a:hover {
-	text-decoration: none;
 }
 
 article h1, h2, h3, h4, h5 {
@@ -94,10 +95,6 @@ article h1 {
 	font-size: 1.8em;
 }
 
-.entry {
-	margin: 2.4em 0;
-}
-
 pre {
 	white-space: pre-wrap;
 	word-wrap: break-word;
@@ -109,7 +106,7 @@ pre {
 }
 
 code {
-	font-size: 80%;
+	font-size: 92%;
 	font-family: Consolas,'Liberation Mono',Courier,monospace;
 }
 
@@ -140,6 +137,14 @@ cite {
 
 figcaption {
 	color: #aba9a4;
+}
+
+.entry {
+	margin: 2.4em 0;
+}
+
+.entry a {
+	text-decoration: underline;
 }
 
 .entry ul {
