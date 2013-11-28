@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head>
-	<meta charset="utf-8">
-	<title>「iPhone4をCSS3で描いてみた！」の解説(2) | REFLECTDESIGN</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="author" content="konitter">
-	<meta property="og:title" content="「iPhone4をCSS3で描いてみた！」の解説(2) | REFLECTDESIGN">
-	<meta property="og:site_name" content="REFLECTDESIGN">
-	<meta property="og:description" content="前回「「iPhone4をCSS3で描いてみた！」の解説(1)」の続き。今回はCSSソースについての説明です。CSSソースHTMLソースが書けたら次はマークアップしたHTML要素に対してCSSでスタイルしていくのですが、ぼくの場合やっていることは単純で大きく分けると以下の3つになります。positionプロパティとtop/right/bottom/leftで部品を配置する  CSS3のborder-radiusで角丸にして形を整える  gradientでグラデー [...]">
-	<meta property="og:type" content="article">
-	<meta property="og:url" content="http://re-dzine.net/2010/06/iphone4-css3-explanation-2nd/">
-	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
-	<meta property="fb:admins" content="100000698495270">
-	<meta property="fb:app_id" content="231858050163702">
-	<meta property="article:publisher" content="https://www.facebook.com/konitter">
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-</head>
-<body>
-<header id="header">
-	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
-</header>
-<main role="main">
-	<article>
-		<header>
-			<h1>「iPhone4をCSS3で描いてみた！」の解説(2)</h1>
-			<div class="meta"><time datetime="2010-06-24T23:08:00+09:00">2010-06-24</time> - by <a href="/about/">konitter</a></div>
-		</header>
-		<div class="entry">
-<p><a href="http://re-dzine.net/apple/iphone/2010/06/24/iphone4-css3-explanation-1st/">前回「「iPhone4をCSS3で描いてみた！」の解説(1)」</a>の続き。</p>
+<!DOCTYPE html><html lang="ja" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#"><head><meta charset="utf-8" /><title>「iPhone4をCSS3で描いてみた！」の解説(2) | REFLECTDESIGN</title><meta content="width=device-width,initial-scale=1" name="viewport" /><meta content="「iPhone4をCSS3で描いてみた！」の解説(2) | REFLECTDESIGN" property="og:title" /><meta content="REFLECTDESIGN" property="og:site_name" /><meta content="前回「「iPhone4をCSS3で描いてみた！」の解説(1)」の続き。今回はCSSソースについての説明です。CSSソースHTMLソースが書けたら次はマークアップしたHTML要素に対してCSSでスタイルしていくのですが、ぼくの場合やっていることは単純で大きく分けると以下の3つになります。positionプロパティとtop/right/bottom/leftで部品を配置する  CSS3のborder-radiusで角丸にして形を整える  gradientでグラデー [...]" property="og:description" /><meta content="article" property="og:type" /><meta content="http://re-dzine.net/2010/06/iphone4-css3-explanation-2nd/" property="og:url" /><meta content="http://re-dzine.net/img/ogp.png" property="og:image" /><meta content="100000698495270" property="fb:admins" /><meta content="231858050163702" property="fb:app_id" /><meta content="https://www.facebook.com/konitter" property="article:publisher" /><link href="/css/style.css" rel="stylesheet" /><link href="/feed.xml" rel="alternate" title="REFLECTDESIGN" type="application/rss+xml" /><link href="https://plus.google.com/100193534781993105417/posts" rel="author" /><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /></head><body><header id="header"><a href="/" id="logo"><img alt="REFLECTDESIGN" src="/img/r.png" /></a></header><main role="main"><article><header><h1>「iPhone4をCSS3で描いてみた！」の解説(2)</h1><div class="meta"><time datetime="2010-06-24T23:08:00+09:00">2010-06-24</time> - by <a href="(?-mix:about)">konitter</a></div></header><div class="entry"><p><a href="http://re-dzine.net/apple/iphone/2010/06/24/iphone4-css3-explanation-1st/">前回「「iPhone4をCSS3で描いてみた！」の解説(1)」</a>の続き。</p>
 
 <p>今回はCSSソースについての説明です。</p>
 
@@ -199,29 +168,12 @@
 <p>角丸にしてもグラデーションにしてもテキストやボックスに影をつけるにしても特殊なフォントを使うにしても画像を作らなければならなかったのを、所定のプロパティを書くだけでそれらを画像無しで簡単に実現できてしまうCSS3は、コーダーにとって本当に魅力的です。</p>
 
 <p>みなさんもぜひそのスゴさを体験してみてください。</p>
-		</div>
-	</article>
-	<aside class="share">
-		<ul>
-			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
-			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
-		</ul>
-	</aside>
-	<ul class="post-pager">
-		<li>Older Entry:<div><a href="/2010/06/iphone4-css3-explanation-1st/">「iPhone4をCSS3で描いてみた！」の解説(1)</a></div></li>
-		<li>Newer Entry:<div><a href="/2010/06/ios4-update-tips/">iOS4へのアップデートに失敗する時の対処方法</a></div></li>
-	</ul>
-</main>
-<script>
-var _gaq = _gaq || [];
+</div></article><aside class="share"><ul><li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li><li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li></ul></aside><ul class="post-pager"><li>Older Entry:<div><a href="/2010/06/iphone4-css3-explanation-1st/">「iPhone4をCSS3で描いてみた！」の解説(1)</a></div></li><li>Newer Entry:<div><a href="/2010/06/ios4-update-tips/">iOS4へのアップデートに失敗する時の対処方法</a></div></li></ul></main><script type="text/javascript">var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-10906036-1']);
 _gaq.push(['_trackPageview']);
 _gaq.push(['_trackPageLoadTime']);
 (function() {
-	var ga = document.createElement('script'); ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
-</body>
-</html>
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>
