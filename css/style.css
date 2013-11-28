@@ -169,6 +169,12 @@ figcaption {
 	border-radius: 4px;
 }
 
+.pager a:hover {
+	background: #0886ce;
+	color: #fff;
+	text-decoration: none;
+}
+
 .pager .newer {
 	float: right;
 }
