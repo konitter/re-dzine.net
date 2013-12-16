@@ -71,24 +71,24 @@ Happy Xmas!!</p>
 
 module.exports = (grunt) ->
 
-    grunt.initConfig
-        browser_sync:
-            files:
-                src: [
-                    &#39;index.html&#39;,
-                    &#39;assets/css/*.css&#39;
-                ]
-            options:
-                server:
-                    index: &#39;index.html&#39;
-                ghostMode:
-                    scroll: true
-                    links: true
-                    forms: true
+  grunt.initConfig
+    browser_sync:
+      files:
+        src: [
+          &#39;index.html&#39;,
+          &#39;assets/css/*.css&#39;
+        ]
+      options:
+        server:
+          index: &#39;index.html&#39;
+        ghostMode:
+          scroll: true
+          links: true
+          forms: true
 
-    require(&#39;load-grunt-tasks&#39;)(grunt)
+  require(&#39;load-grunt-tasks&#39;)(grunt)
 
-    grunt.registerTask &#39;default&#39;, [&#39;browser_sync&#39;]
+  grunt.registerTask &#39;default&#39;, [&#39;browser_sync&#39;]
 </code></pre>
 
 <h2>実行</h2>

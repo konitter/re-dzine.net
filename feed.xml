@@ -13,7 +13,7 @@
     <link rel="alternate" href="http://re-dzine.net/2013/12/grunt-browser-sync/"/>
     <id>http://re-dzine.net/2013/12/grunt-browser-sync/</id>
     <published>2013-12-16T02:23:00Z</published>
-    <updated>2013-12-16T15:51:05+09:00</updated>
+    <updated>2013-12-16T16:17:20+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
@@ -59,24 +59,24 @@ Happy Xmas!!&lt;/p&gt;
 
 module.exports = (grunt) -&gt;
 
-    grunt.initConfig
-        browser_sync:
-            files:
-                src: [
-                    &amp;#39;index.html&amp;#39;,
-                    &amp;#39;assets/css/*.css&amp;#39;
-                ]
-            options:
-                server:
-                    index: &amp;#39;index.html&amp;#39;
-                ghostMode:
-                    scroll: true
-                    links: true
-                    forms: true
+  grunt.initConfig
+    browser_sync:
+      files:
+        src: [
+          &amp;#39;index.html&amp;#39;,
+          &amp;#39;assets/css/*.css&amp;#39;
+        ]
+      options:
+        server:
+          index: &amp;#39;index.html&amp;#39;
+        ghostMode:
+          scroll: true
+          links: true
+          forms: true
 
-    require(&amp;#39;load-grunt-tasks&amp;#39;)(grunt)
+  require(&amp;#39;load-grunt-tasks&amp;#39;)(grunt)
 
-    grunt.registerTask &amp;#39;default&amp;#39;, [&amp;#39;browser_sync&amp;#39;]
+  grunt.registerTask &amp;#39;default&amp;#39;, [&amp;#39;browser_sync&amp;#39;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;実行&lt;/h2&gt;
