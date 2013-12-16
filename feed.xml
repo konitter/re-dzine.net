@@ -4,16 +4,127 @@
   <id>http://re-dzine.net/</id>
   <link href="http://re-dzine.net/"/>
   <link href="http://re-dzine.net/feed.xml" rel="self"/>
-  <updated>2013-11-22T02:29:00Z</updated>
+  <updated>2013-12-16T02:23:00Z</updated>
   <author>
     <name>konitter</name>
   </author>
+  <entry>
+    <title>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ</title>
+    <link rel="alternate" href="http://re-dzine.net/2013/12/grunt-browser-sync/"/>
+    <id>http://re-dzine.net/2013/12/grunt-browser-sync/</id>
+    <published>2013-12-16T02:23:00Z</published>
+    <updated>2013-12-16T15:51:05+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">&lt;p&gt;この投稿は&lt;a href="http://qiita.com/advent-calendar/2013/grunt-plugins"&gt;Grunt Plugins Advent Calendar 2013&lt;/a&gt;の24日目の記事です。&lt;br&gt;
+Happy Xmas!!&lt;/p&gt;
+
+&lt;h2&gt;grunt-browser-syncとは&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/shakyShane/grunt-browser-sync"&gt;shakyShane/grunt-browser-sync&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同名のnpmモジュール「&lt;a href="https://github.com/shakyShane/browser-sync"&gt;browser-sync&lt;/a&gt;」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。&lt;/p&gt;
+
+&lt;p&gt;このbrowser-syncには以下のような特徴があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;スクロールの同期&lt;/li&gt;
+&lt;li&gt;フォームの入力操作などの同期&lt;/li&gt;
+&lt;li&gt;リンククリックの同期&lt;/li&gt;
+&lt;li&gt;CSSをバックグラウンドで自動更新&lt;/li&gt;
+&lt;li&gt;HTMLやPHPファイルを監視してライブリロード（エクステンション不要）&lt;/li&gt;
+&lt;li&gt;ビルトインサーバ&lt;/li&gt;
+&lt;li&gt;PHP, Rails, Python, Node, ASP.netのセットアップで使用できるプロキシオプション&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;他にも、プラットフォーム問わず動くという点も良い所で、Win7でも問題なく動作します（確認済み）し、ブラウザにおいてもIEも含めて同期することができます。&lt;/p&gt;
+
+&lt;p&gt;似たようなツールに「&lt;a href="http://html.adobe.com/edge/inspect/"&gt;Adobe Edge Inspect&lt;/a&gt;」や「&lt;a href="http://vanamco.com/ghostlab/"&gt;Ghostlab&lt;/a&gt;」があり、いずれも有償ですが、GUIクライアントじゃないとできませんって方はそちらを試してみるとよいかと。&lt;/p&gt;
+
+&lt;h2&gt;インストール&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm i(install) grunt-browser-sync -D(--save-dev)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これだけ。&lt;/p&gt;
+
+&lt;h2&gt;Gruntfile&lt;/h2&gt;
+
+&lt;p&gt;以下サンプル。その他各種オプションについては、&lt;a href="https://github.com/shakyShane/grunt-browser-sync"&gt;README&lt;/a&gt;を参照。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;#39;use strict&amp;#39;
+
+module.exports = (grunt) -&gt;
+
+    grunt.initConfig
+        browser_sync:
+            files:
+                src: [
+                    &amp;#39;index.html&amp;#39;,
+                    &amp;#39;assets/css/*.css&amp;#39;
+                ]
+            options:
+                server:
+                    index: &amp;#39;index.html&amp;#39;
+                ghostMode:
+                    scroll: true
+                    links: true
+                    forms: true
+
+    require(&amp;#39;load-grunt-tasks&amp;#39;)(grunt)
+
+    grunt.registerTask &amp;#39;default&amp;#39;, [&amp;#39;browser_sync&amp;#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;実行&lt;/h2&gt;
+
+&lt;p&gt;これで&lt;code&gt;grunt&lt;/code&gt;を叩くと規定のブラウザで&lt;code&gt;index.html&lt;/code&gt;が開きます。&lt;br&gt;
+立ち上がったサーバアドレスを他のブラウザで開けば、同ネットワーク内にあるiPhoneやAndroidなどからのアクセスも含めて全ブラウザを同期できるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ grunt
+Running &amp;quot;browser_sync:files&amp;quot; (browser_sync) task
+   info  - socket.io started
+
+OK, Server running at http://192.168.0.3:3001
+Serving files from:  c:\hoge
+
+Load a browser &amp;amp; check back here. If you set up everything correctly, you&amp;#39;ll see
+ a &amp;#39;Browser Connected&amp;#39;  message
+
+Watching the following:
+index.html
+assets/css/all.css
+
+Browser Connected! (Chrome, version: 31.0.1650.63)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここで&lt;code&gt;index.html&lt;/code&gt;を更新してみると、接続しているすべてのブラウザにライブリロードが走ります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;File Changed: c:\hoge\index.html
+Reloading all connected browsers...
+Browser Connected! (IE, version: 8.0)
+Browser Connected! (Firefox, version: 26.0)
+Browser Connected! (Chrome, version: 31.0.1650.63)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;他にも、&lt;code&gt;watchTask&lt;/code&gt;オプションにより&lt;code&gt;grunt-contrib-watch&lt;/code&gt;と組み合わせて、CSSプリなんとかファイルの更新からコンパイルして全ブラウザにバックグラウンドで反映、みたいなこともできちゃいます。&lt;/p&gt;
+
+&lt;h2&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;最近のWeb制作環境では、PCだけでなくモバイルやタブレットなど各種スマートデバイスでの確認が必須になってきていますので、そんなときこれを使えば確認作業が劇的に楽になるはずです。&lt;/p&gt;
+
+&lt;p&gt;発注サイドの人間からは以上です。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>GitHubトレーニングチームから学ぶ GitとGitHubの基礎 に参加してきました</title>
     <link rel="alternate" href="http://re-dzine.net/2013/11/github-training-at-osaka/"/>
     <id>http://re-dzine.net/2013/11/github-training-at-osaka/</id>
     <published>2013-11-22T02:29:00Z</published>
-    <updated>2013-11-22T14:20:47+09:00</updated>
+    <updated>2013-11-28T11:50:06+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
@@ -44,7 +155,7 @@
     <link rel="alternate" href="http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/"/>
     <id>http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/</id>
     <published>2013-11-07T01:57:00Z</published>
-    <updated>2013-11-07T13:53:51+09:00</updated>
+    <updated>2013-11-28T11:50:06+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
@@ -138,7 +249,7 @@
     <link rel="alternate" href="http://re-dzine.net/2013/10/wordpress-to-middleman/"/>
     <id>http://re-dzine.net/2013/10/wordpress-to-middleman/</id>
     <published>2013-10-30T06:08:00Z</published>
-    <updated>2013-10-30T16:56:18+09:00</updated>
+    <updated>2013-11-28T11:50:06+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
@@ -198,7 +309,7 @@
     <link rel="alternate" href="http://re-dzine.net/2013/08/emmet-livestyle/"/>
     <id>http://re-dzine.net/2013/08/emmet-livestyle/</id>
     <published>2013-08-06T11:35:42Z</published>
-    <updated>2013-10-28T15:40:47+09:00</updated>
+    <updated>2013-11-28T11:50:06+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
@@ -234,7 +345,7 @@
     <link rel="alternate" href="http://re-dzine.net/2013/08/compile-in-bootstrap3/"/>
     <id>http://re-dzine.net/2013/08/compile-in-bootstrap3/</id>
     <published>2013-08-02T10:00:16Z</published>
-    <updated>2013-10-29T18:45:31+09:00</updated>
+    <updated>2013-11-28T11:50:06+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
@@ -308,35 +419,6 @@
 
 &lt;p&gt;もう何がなんだか訳がわからないよママン！っていう方もいらっしゃるかもしれませんが、もうそういう時代なんですよねー（遠い目）。
 でもこの辺のツールが扱えるようになると開発効率は格段に上がりますし何かと幸せになれるかもしれません。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>第14回リクリセミナー｢Web制作の未来、あなたの未来｣に参加してきました</title>
-    <link rel="alternate" href="http://re-dzine.net/2013/07/resem14/"/>
-    <id>http://re-dzine.net/2013/07/resem14/</id>
-    <published>2013-07-31T09:16:00Z</published>
-    <updated>2013-10-29T18:45:31+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;7/27(土)に行われた&lt;a href="http://recreators.doorkeeper.jp/events/4128"&gt;第14回リクリセミナー「Web制作の未来、あなたの未来」&lt;/a&gt;に参加してきました。リクリセミナー自体も参加するのはなんだかんだで初めて。のはず。その辺意外とあいまい。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://recreators.doorkeeper.jp/events/4128"&gt;&lt;img src="/img/2013/07/resem14.png" alt="resem14" width="160" height="160" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今回メインセッションとして、こもりまさあきさんからWeb制作の未来のお話、そして今キテるフロントエンドからバックエンドにかかるツール・開発手法の紹介まで150分のまさにメガ盛りメニュー。お腹いっぱい。&lt;/p&gt;
-
-&lt;p&gt;昨年12月にこもりさん直々に黒い画面やツール周りについて教えていただいてから、英語の情報しかなくてもその辺の情報を積極的に収集したり、また自分でも実際に動かしてみたりしてきたので、取り立てて新しい情報はありませんでしたが、自分の向いている方向がブレていないことがわかって個人的には大満足でした。&lt;/p&gt;
-
-&lt;p&gt;初めてこもりさんのセッションを聞いたりスライドを見たという人にとっては、後半の怒涛のツール紹介は、何がなんだかわからず頭が全然追いつかないような状態だったかもしれません。&lt;/p&gt;
-
-&lt;p&gt;大事なのは、紹介されたツールがすべて触れなきゃいけないんだ！というふうに思わないこと。海外を中心にどんどん新しいツールが開発され、今回紹介されたツールも明日には古くなるというような状態です。日々の忙しい中、全部できるようになるなんて簡単なことではありません。&lt;/p&gt;
-
-&lt;p&gt;こもりさんのお話の本質は、Web制作におけるあらゆる手法をいかに効率化して、ムダな時間を無くし、プライベートだったり別の仕事だったりに時間を充てることができるかにあります。その部分を見失わずやっていければ、どんな未来が来ようとも柔軟に対応できる（つまり食いっぱぐれない）のではと思います。&lt;/p&gt;
-
-&lt;p&gt;細かくは書きませんが、6名の方からのライトニングトークもどれもしっかりしたすばらしい内容でした。スライドも見やすいし、喋りも上手だし、みなさんやはり場慣れしてるだけあります。&lt;/p&gt;
-
-&lt;p&gt;少し間が空いてしまうようですが、次回のリクリセミナーも個人的にはかなり気になる感じですので、ぜひ参加したいと思います。
-関係者のみなさん、すばらしい会を本当にありがとうございました。&lt;/p&gt;
 </content>
   </entry>
 </feed>

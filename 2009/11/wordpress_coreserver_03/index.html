@@ -1,4 +1,35 @@
-<!DOCTYPE html><html lang="ja" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#"><head><meta charset="utf-8" /><title>CORESERVERでWordPressを構築する 〜セーフモード対策編〜 | REFLECTDESIGN</title><meta content="width=device-width,initial-scale=1" name="viewport" /><meta content="CORESERVERでWordPressを構築する 〜セーフモード対策編〜 | REFLECTDESIGN" property="og:title" /><meta content="REFLECTDESIGN" property="og:site_name" /><meta content="「CORESERVERでWordPressを構築する 〜インストール編〜」の続き。1. .htaccess の設置対策と言ってもそんな大げさなものではなく、専用の.htaccess にCGIモードで動かしたいPHPファイルを以下のように記述して/wp-admin/ 配下にアップロードするだけです。&lt;Files ~ "^(async-upload|update-core|update|plugins|plugin-install)\.php$"&gt;AddHandler application [...]" property="og:description" /><meta content="article" property="og:type" /><meta content="http://re-dzine.net/2009/11/wordpress_coreserver_03/" property="og:url" /><meta content="http://re-dzine.net/img/ogp.png" property="og:image" /><meta content="100000698495270" property="fb:admins" /><meta content="231858050163702" property="fb:app_id" /><meta content="https://www.facebook.com/konitter" property="article:publisher" /><link href="/css/style.css" rel="stylesheet" /><link href="/feed.xml" rel="alternate" title="REFLECTDESIGN" type="application/rss+xml" /><link href="https://plus.google.com/100193534781993105417/posts" rel="author" /><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /></head><body><header id="header"><a href="/" id="logo"><img alt="REFLECTDESIGN" src="/img/r.png" /></a></header><main role="main"><article><header><h1>CORESERVERでWordPressを構築する 〜セーフモード対策編〜</h1><div class="meta"><time datetime="2009-11-02T00:00:00+09:00">2009-11-02</time> - by <a href="(?-mix:about)">konitter</a></div></header><div class="entry"><p><a href="/2009/10/wordpress_coreserver_02/">「CORESERVERでWordPressを構築する 〜インストール編〜」</a>の続き。</p>
+<!DOCTYPE html>
+<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<meta charset="utf-8">
+	<title>CORESERVERでWordPressを構築する 〜セーフモード対策編〜 | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="author" content="konitter">
+	<meta property="og:title" content="CORESERVERでWordPressを構築する 〜セーフモード対策編〜 | REFLECTDESIGN">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:description" content="「CORESERVERでWordPressを構築する 〜インストール編〜」の続き。1. .htaccess の設置対策と言ってもそんな大げさなものではなく、専用の.htaccess にCGIモードで動かしたいPHPファイルを以下のように記述して/wp-admin/ 配下にアップロードするだけです。&lt;Files ~ "^(async-upload|update-core|update|plugins|plugin-install)\.php$"&gt;AddHandler application [...]">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="http://re-dzine.net/2009/11/wordpress_coreserver_03/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta property="article:publisher" content="https://www.facebook.com/konitter">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+	<article>
+		<header>
+			<h1>CORESERVERでWordPressを構築する 〜セーフモード対策編〜</h1>
+			<div class="meta"><time datetime="2009-11-02T00:00:00+09:00">2009-11-02</time> - by <a href="/about/">konitter</a></div>
+		</header>
+		<div class="entry">
+<p><a href="/2009/10/wordpress_coreserver_02/">「CORESERVERでWordPressを構築する 〜インストール編〜」</a>の続き。</p>
 
 <!--more-->
 
@@ -47,12 +78,29 @@ AddHandler application/x-httpd-phpcgi .php
 <p><strong>3. 最後に</strong></p>
 
 <p>これで、CORESERVERにおけるWordpressの構築は完了です。あとは、ブログのテーマを決めて、プラグインを入れるという作業があります。インストールしたプラグインについては、おいおい書こうと思います。</p>
-</div></article><aside class="share"><ul><li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li><li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li></ul></aside><ul class="post-pager"><li>Older Entry:<div><a href="/2009/10/wordpress_coreserver_01/">CORESERVERでWordPressを構築する 〜サーバ設定編〜</a></div></li><li>Newer Entry:<div><a href="/2010/02/100questions_for_coder/">「HTMLコーダー100の質問」に答えてみた</a></div></li></ul></main><script type="text/javascript">var _gaq = _gaq || [];
+		</div>
+	</article>
+	<aside class="share">
+		<ul>
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+		</ul>
+	</aside>
+	<ul class="post-pager">
+		<li>Older Entry:<div><a href="/2009/10/wordpress_coreserver_01/">CORESERVERでWordPressを構築する 〜サーバ設定編〜</a></div></li>
+		<li>Newer Entry:<div><a href="/2010/02/100questions_for_coder/">「HTMLコーダー100の質問」に答えてみた</a></div></li>
+	</ul>
+</main>
+<script>
+var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-10906036-1']);
 _gaq.push(['_trackPageview']);
 _gaq.push(['_trackPageLoadTime']);
 (function() {
-    var ga = document.createElement('script'); ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();</script></body></html>
+	var ga = document.createElement('script'); ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>
