@@ -7,7 +7,7 @@
 	<meta name="author" content="konitter">
 	<meta property="og:title" content="各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ | REFLECTDESIGN">
 	<meta property="og:site_name" content="REFLECTDESIGN">
-	<meta property="og:description" content="この投稿はGrunt Plugins Advent Calendar 2013の24日目の記事です。Happy Xmas!!grunt-browser-syncとはgrunt-browser-sync同名のnpmモジュール「browser-sync」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。このbrowser-syncには以下のような特徴があります。スクロール [...]">
+	<meta property="og:description" content="この投稿はGrunt Plugins Advent Calendar 2013の24日目の記事です。Happy Xmas!!grunt-browser-syncとは同名のnpmモジュール「browser-sync」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。このbrowser-syncには以下のような特徴があ [...]">
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="http://re-dzine.net/2013/12/grunt-browser-sync/">
 	<meta property="og:image" content="http://re-dzine.net/img/ogp.png">
@@ -35,7 +35,7 @@ Happy Xmas!!</p>
 <h2>grunt-browser-syncとは</h2>
 
 <ul>
-<li><a href="https://github.com/shakyShane/grunt-browser-sync">grunt-browser-sync</a></li>
+<li><a href="https://github.com/shakyShane/grunt-browser-sync">shakyShane&#47;grunt-browser-sync</a></li>
 </ul>
 
 <p>同名のnpmモジュール「<a href="https://github.com/shakyShane/browser-sync">browser-sync</a>」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。</p>
@@ -76,7 +76,7 @@ module.exports = (grunt) ->
       files:
         src: [
           &#39;index.html&#39;,
-          &#39;*.css&#39;
+          &#39;assets&amp;#47;css&amp;#47;*.css&#39;
         ]
       options:
         server:
@@ -108,7 +108,7 @@ Load a browser &amp; check back here. If you set up everything correctly, you&#3
 
 Watching the following:
 index.html
-all.css
+assets&amp;#47;css&amp;#47;all.css
 
 Browser Connected! (Chrome, version: 31.0.1650.63)
 </code></pre>

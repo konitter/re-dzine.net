@@ -13,7 +13,7 @@
     <link rel="alternate" href="http://re-dzine.net/2013/12/grunt-browser-sync/"/>
     <id>http://re-dzine.net/2013/12/grunt-browser-sync/</id>
     <published>2013-12-16T02:23:00Z</published>
-    <updated>2013-12-16T16:54:32+09:00</updated>
+    <updated>2013-12-16T17:16:42+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
@@ -23,7 +23,7 @@ Happy Xmas!!&lt;/p&gt;
 &lt;h2&gt;grunt-browser-syncとは&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/shakyShane/grunt-browser-sync"&gt;grunt-browser-sync&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/shakyShane/grunt-browser-sync"&gt;shakyShane&amp;#47;grunt-browser-sync&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;同名のnpmモジュール「&lt;a href="https://github.com/shakyShane/browser-sync"&gt;browser-sync&lt;/a&gt;」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。&lt;/p&gt;
@@ -64,7 +64,7 @@ module.exports = (grunt) -&gt;
       files:
         src: [
           &amp;#39;index.html&amp;#39;,
-          &amp;#39;*.css&amp;#39;
+          &amp;#39;assets&amp;amp;#47;css&amp;amp;#47;*.css&amp;#39;
         ]
       options:
         server:
@@ -96,7 +96,7 @@ Load a browser &amp;amp; check back here. If you set up everything correctly, yo
 
 Watching the following:
 index.html
-all.css
+assets&amp;amp;#47;css&amp;amp;#47;all.css
 
 Browser Connected! (Chrome, version: 31.0.1650.63)
 &lt;/code&gt;&lt;/pre&gt;
