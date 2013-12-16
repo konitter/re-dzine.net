@@ -13,12 +13,11 @@
     <link rel="alternate" href="http://re-dzine.net/2013/12/grunt-browser-sync/"/>
     <id>http://re-dzine.net/2013/12/grunt-browser-sync/</id>
     <published>2013-12-16T02:23:00Z</published>
-    <updated>2013-12-16T17:16:42+09:00</updated>
+    <updated>2013-12-16T17:45:15+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
-    <content type="html">&lt;p&gt;この投稿は&lt;a href="http://qiita.com/advent-calendar/2013/grunt-plugins"&gt;Grunt Plugins Advent Calendar 2013&lt;/a&gt;の24日目の記事です。&lt;br&gt;
-Happy Xmas!!&lt;/p&gt;
+    <content type="html">&lt;p&gt;この投稿は&lt;a href="http://qiita.com/advent-calendar/2013/grunt-plugins"&gt;Grunt Plugins Advent Calendar 2013&lt;/a&gt;の24日目の記事です。&lt;/p&gt;
 
 &lt;h2&gt;grunt-browser-syncとは&lt;/h2&gt;
 
