@@ -75,6 +75,7 @@ GEM
       mini_portile (~> 0.5.0)
     nokogiri (1.6.0-x86-mingw32)
       mini_portile (~> 0.5.0)
+    ptools (1.2.2)
     ptools (1.2.2-x86-mingw32)
       win32-file (>= 0.5.4)
     rack (1.5.2)
@@ -122,6 +123,7 @@ GEM
       windows-api (>= 0.3.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
