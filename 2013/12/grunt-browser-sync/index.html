@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml"><head><meta charset="utf-8" /><title>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ | REFLECTDESIGN</title><meta content="width=device-width,initial-scale=1" name="viewport" /><meta content="各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ | REFLECTDESIGN" property="og:title" /><meta content="REFLECTDESIGN" property="og:site_name" /><meta content="この投稿はGrunt Plugins Advent Calendar 2013の24日目の記事です。grunt-browser-syncとはshakyShane/grunt-browser-sync同名のnpmモジュー [...]" property="og:description" /><meta content="article" property="og:type" /><meta content="http://re-dzine.net/2013/12/grunt-browser-sync/" property="og:url" /><meta content="http://re-dzine.net/img/ogp.png" property="og:image" /><meta content="100000698495270" property="fb:admins" /><meta content="231858050163702" property="fb:app_id" /><meta content="https://www.facebook.com/konitter" property="article:publisher" /><link href="/css/style.css" rel="stylesheet" /><link href="/feed.xml" rel="alternate" title="REFLECTDESIGN" type="application/rss+xml" /><link href="https://plus.google.com/100193534781993105417/posts" rel="author" /><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /></head><body><header id="header"><a href="/" id="logo"><img alt="REFLECTDESIGN" src="/img/r.png" /></a></header><main role="main"><article><header><h1>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ</h1><div class="meta"><time datetime="2013-12-16T11:23:00+09:00">2013-12-16</time> - by <a href="(?-mix:about)">konitter</a></div></header><div class="entry"><p>この投稿は<a href="http://qiita.com/advent-calendar/2013/grunt-plugins">Grunt Plugins Advent Calendar 2013</a>の24日目の記事です。</p>
+<!DOCTYPE html><html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml"><head><meta charset="utf-8" /><title>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ | REFLECTDESIGN</title><meta content="width=device-width,initial-scale=1" name="viewport" /><meta content="各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ | REFLECTDESIGN" property="og:title" /><meta content="REFLECTDESIGN" property="og:site_name" /><meta content="この投稿はGrunt Plugins Advent Calendar 2013の24日目の記事です。grunt-browser-syncとはshakyShane/grunt-browser-sync同名のnpmモジュール「browser-sync」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手 [...]" property="og:description" /><meta content="article" property="og:type" /><meta content="http://re-dzine.net/2013/12/grunt-browser-sync/" property="og:url" /><meta content="http://re-dzine.net/img/ogp.png" property="og:image" /><meta content="100000698495270" property="fb:admins" /><meta content="231858050163702" property="fb:app_id" /><meta content="https://www.facebook.com/konitter" property="article:publisher" /><link href="/css/style.css" rel="stylesheet" /><link href="/feed.xml" rel="alternate" title="REFLECTDESIGN" type="application/rss+xml" /><link href="https://plus.google.com/100193534781993105417/posts" rel="author" /><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /></head><body><header id="header"><a href="/" id="logo"><img alt="REFLECTDESIGN" src="/img/r.png" /></a></header><main role="main"><article><header><h1>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ</h1><div class="meta"><time datetime="2013-12-16T11:23:00+09:00">2013-12-16</time> - by <a href="(?-mix:about)">konitter</a></div></header><div class="entry"><p>この投稿は<a href="http://qiita.com/advent-calendar/2013/grunt-plugins">Grunt Plugins Advent Calendar 2013</a>の24日目の記事です。</p>
 
 <h2>grunt-browser-syncとは</h2>
 
 <ul>
-<li><a href="https://github.com/shakyShane/grunt-browser-sync">shakyShane&#47;grunt-browser-sync</a></li>
+<li><a href="https://github.com/shakyShane/grunt-browser-sync">shakyShane/grunt-browser-sync</a></li>
 </ul>
 
 <p>同名のnpmモジュール「<a href="https://github.com/shakyShane/browser-sync">browser-sync</a>」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。</p>
@@ -44,7 +44,7 @@ module.exports = (grunt) ->
       files:
         src: [
           &#39;index.html&#39;,
-          &#39;assets&amp;#47;css&amp;#47;*.css&#39;
+          &#39;assets/css/*.css&#39;
         ]
       options:
         server:
@@ -76,7 +76,7 @@ Load a browser &amp; check back here. If you set up everything correctly, you&#3
 
 Watching the following:
 index.html
-assets&amp;#47;css&amp;#47;all.css
+assets/css/all.css
 
 Browser Connected! (Chrome, version: 31.0.1650.63)
 </code></pre>
