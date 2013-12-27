@@ -4,10 +4,89 @@
   <id>http://re-dzine.net/</id>
   <link href="http://re-dzine.net/"/>
   <link href="http://re-dzine.net/feed.xml" rel="self"/>
-  <updated>2013-12-16T02:23:00Z</updated>
+  <updated>2013-12-26T08:20:00Z</updated>
   <author>
     <name>konitter</name>
   </author>
+  <entry>
+    <title>MarkupCafe Osaka Vol.1 に参加してきました</title>
+    <link rel="alternate" href="http://re-dzine.net/2013/12/markupcafe-osaka-vol1/"/>
+    <id>http://re-dzine.net/2013/12/markupcafe-osaka-vol1/</id>
+    <published>2013-12-26T08:20:00Z</published>
+    <updated>2013-12-27T16:02:41+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">&lt;p&gt;先日12/20(金)に開催されたhtml5jマークアップ部主催のイベント「&lt;a href="http://atnd.org/events/45379"&gt;MarkupCafe Osaka Vol.1&lt;/a&gt;」に参加してきましたので簡単にレポートします。&lt;/p&gt;
+
+&lt;p&gt;参加者はいくつかのチームに分かれ、出題されたお題についてチームごとに最適なマークアップを考えます。チーム内で話し合って決めたコードは&lt;a href="http://jsdo.it/"&gt;jsdo.it&lt;/a&gt;に書いてハッシュタグ&lt;a href="http://twitter.com/search?q=%23html5j"&gt;#html5j&lt;/a&gt;を付けてTwitterに投稿、そのコードをプロジェクターで映してみんなでレビュー、という感じ。&lt;/p&gt;
+
+&lt;h2&gt;お題1 「フッター」&lt;/h2&gt;
+
+&lt;p&gt;&lt;img alt="お題1" src="https://pbs.twimg.com/media/Bb6-jhdIYAA71oT.jpg" /&gt;&lt;/p&gt;
+
+&lt;p&gt;1問目は企業サイトで使われるようなイメージのフッター。マークアップするうえでの個人的にポイントだと思うものを3つ挙げてみます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上の「HOME &amp;gt;」
+
+&lt;ul&gt;
+&lt;li&gt;パッと見でパンくずのように見えるから&lt;code&gt;ul&lt;/code&gt;や`&lt;code&gt;ol&lt;/code&gt;でマークアップしがちだけど、出題者の村岡さん（&lt;a href="https://twitter.com/bathtimefish"&gt;@bathtimefish&lt;/a&gt;）によると「これはただのHOMEへのリンク」とのこと&lt;/li&gt;
+&lt;li&gt;他のページではこの部分がどうなるかなどデザイナーに確認しましょうねっていう。エンジニアの勝手な想像でマークアップするの(・A・)ｲｸﾅｲ!!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ロゴマークと会社名（日本語表記と英語表記）
+
+&lt;ul&gt;
+&lt;li&gt;会社名の部分をテキストで書いて配置する人もいるかもしれないけど、個人的にはロゴマークと会社名全体を1枚の画像でいい&lt;/li&gt;
+&lt;li&gt;時間に余裕があってこだわりたい人は、SVG使ったりWebフォント使ったり好きにすればいいかと&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;「お問合せ」の電話番号・メールアドレスおよび、神戸・東京本社の住所
+
+&lt;ul&gt;
+&lt;li&gt;ポイントとなるのは&lt;code&gt;address&lt;/code&gt;要素の使い方。どの範囲をくくるか&lt;/li&gt;
+&lt;li&gt;このデザインでは明示的に「お問合せ：」というテキストがあり、その横に電話番号とメールアドレスが書かれているので、個人的にはその範囲が&lt;code&gt;address&lt;/code&gt;の範囲になると考えた&lt;/li&gt;
+&lt;li&gt;その下の神戸・東京本社の住所まで含めるかどうかは、このページ（ドキュメント）の問い合わせ先となりうるかどうかで決まるはずなので、それはデザイナーやあるいはクライアントであるこの企業に確認が必要な部分だと思う&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記のポイントもふまえて、個人的にマークアップするならこんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="html"&gt;&amp;lt;footer role=&amp;quot;contentinfo&amp;quot;&amp;gt;
+  &amp;lt;div&amp;gt;&amp;lt;a href=&amp;quot;/&amp;quot;&amp;gt;HOME&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;
+    &amp;lt;img src=&amp;quot;logo.png&amp;quot; alt=&amp;quot;株式会社バスタイム商事 Bathtime Bussiness Corp.&amp;quot;&amp;gt;
+    &amp;lt;div&amp;gt;
+      &amp;lt;address&amp;gt;お問合せ：&amp;lt;a href=&amp;quot;tel:012000000000&amp;quot;&amp;gt;0120-0000-0000&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;mailto:information@bathtimeshoji.com&amp;quot;&amp;gt;information[at]bathtimeshoji.com&amp;lt;/a&amp;gt;&amp;lt;/address&amp;gt;
+      神戸本社：兵庫県神戸市◯◯◯◯◯ 11-11-11 ◯◯ビル 11&amp;lt;br&amp;gt;
+      東京本社：東京都渋谷区◯◯◯◯◯ 22-22-22 ◯◯ビル 22
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;&amp;lt;small&amp;gt;copyright (c) bathtimeshoji. All Rights Reserved.&amp;lt;/small&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/footer&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;お題2 「パンくずリスト」&lt;/h2&gt;
+
+&lt;p&gt;&lt;img alt="お題2" src="/img/2013/12/breadcrumb.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;2問目はいわゆるパンくずリスト。定期的に話題になるある意味ネタ化しているUIのひとつで、&lt;a href="http://www.w3.org/html/wg/drafts/html/master/common-idioms.html#rel-up"&gt;HTML5.1 Nightlyのドキュメントのパンくずリストのセクション&lt;/a&gt;を見るとコード例に「→」が使われていたりして、W3Cでも明確な答えが出せていません。&lt;/p&gt;
+
+&lt;p&gt;ただそうなっている理由自体は単純で、パンくずリストが置かれる状況によって、また情報提供者の意図によってどんなマークアップがふさわしいかが異なってくるからです。なので、パンくずリストだけのデザインを見せられてマークアップするのは本来ならそれはとても難しいことのはずです。&lt;/p&gt;
+
+&lt;p&gt;また、そもそもリストかリストでないかという議論もありますが、取り回ししやすさを重視して、個人的には極々シンプルにマークアップしたいところです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="html"&gt;&amp;lt;ul class=&amp;quot;breadcrumb&amp;quot;&amp;gt;
+  &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/&amp;quot;&amp;gt;Markup Cafeトップページ&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/shop/&amp;quot;&amp;gt;店舗情報&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+  &amp;lt;li class=&amp;quot;current&amp;quot;&amp;gt;ドリンク・フード&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;自分のコードを振り返るようなことをあまりしない、あるいは他人のコードや考え方などを普段気にせず制作されているような方は特に、非常に刺激的なイベントだと思います。たまにはこういうのもいいですよ。また是非参加したいです。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ</title>
     <link rel="alternate" href="http://re-dzine.net/2013/12/grunt-browser-sync/"/>
@@ -337,87 +416,6 @@ Browser Connected! (Chrome, version: 31.0.1650.63)
 &lt;p&gt;より詳しい使用方法は「&lt;a href="http://livestyle.emmet.io/usage/"&gt;How to use&lt;/a&gt;」のページを参照。&lt;/p&gt;
 
 &lt;p&gt;個人的にもまだガッツリと触れてませんが、これからのHTML/CSSコーディングでは必須のツールとなりそうです。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Bootstrap3でLESS/JSのコンパイル方法が変更に</title>
-    <link rel="alternate" href="http://re-dzine.net/2013/08/compile-in-bootstrap3/"/>
-    <id>http://re-dzine.net/2013/08/compile-in-bootstrap3/</id>
-    <published>2013-08-02T10:00:16Z</published>
-    <updated>2013-11-28T11:50:06+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;先日7/27に&lt;a href="http://getbootstrap.com/"&gt;Bootstrap 3 RC1&lt;/a&gt;がリリースされました。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://getbootstrap.com/"&gt;&lt;img src="/img/2013/08/bs3.png" alt="Bootstrap3" width="640" height="500"&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;フラットなデザインになっていたり、モバイルファーストなコードになっていたりと色々と変わっています。詳しくは、&lt;a href="https://github.com/twbs/bootstrap/pull/6342"&gt;公式の情報&lt;/a&gt;等々を見てもらうとして、個人的に興味をそそられたのが、LESS/JSファイルのコンパイル方法がこれまでのバージョン2系から変わっているということです。&lt;/p&gt;
-
-&lt;p&gt;この部分をちゃんと理解しておかないと、これから案件でBootstrap3を使うかもという人はしんどいんじゃないかと思います。&lt;/p&gt;
-
-&lt;p&gt;では何がどう変わったのか。その辺を簡単にまとめます。&lt;/p&gt;
-
-&lt;h2&gt;Bootstrap2系でのコンパイル方法&lt;/h2&gt;
-
-&lt;p&gt;これまでのBootstrap2系では、&lt;a href="http://bower.io/"&gt;Bower&lt;/a&gt;経由などでGitHubからファイル群を落とすとファイルの中に&lt;code&gt;Makefile&lt;/code&gt;が含まれていました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://raw.github.com/twbs/bootstrap/master/Makefile"&gt;bootstrap/Makefile at master&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;この&lt;code&gt;Makefile&lt;/code&gt;を使って、&lt;code&gt;make&lt;/code&gt;コマンドを叩くことで、LESS/JSファイルをコンパイルしてきました。以下公式のドキュメント。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/twbs/bootstrap/tree/master#compiling-css-and-javascript"&gt;Compiling CSS and JavaScript&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;LESSファイルなら、以下のコマンドで&lt;code&gt;recess&lt;/code&gt;というnpmモジュールを使ってのLESSファイルのコンパイル・圧縮版の作成。&lt;/p&gt;
-
-&lt;pre&gt;
-&lt;code&gt;$ make bootstrap-css&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;p&gt;JSファイルなら、以下のコマンドで各種JSファイルの結合・&lt;code&gt;uglifyjs&lt;/code&gt;を使っての圧縮版の作成。といった具合。&lt;/p&gt;
-
-&lt;pre&gt;
-&lt;code&gt;$ make bootstrap-js&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;h2&gt;Bootstrap3でのコンパイル方法&lt;/h2&gt;
-
-&lt;p&gt;現在、Bower等でBootstrap3をGitHubから落とすと、これまであった&lt;code&gt;Makefile&lt;/code&gt;はありません。よく見ると代わりに&lt;code&gt;Gruntfile.js&lt;/code&gt;があります。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://raw.github.com/twbs/bootstrap/3.0.0-wip/Gruntfile.js"&gt;bootstrap/Gruntfile.js at 3.0.0-wip&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;つまりバージョン3では、&lt;code&gt;make&lt;/code&gt;ではなく&lt;a href="http://gruntjs.com/"&gt;Grunt&lt;/a&gt;というNode.jsベースのビルドツールを使ってコンパイルすることになります。以下公式のドキュメント。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/twbs/bootstrap#compiling-css-and-javascript"&gt;Compiling CSS and JavaScript&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;説明すると長くなるので、Gruntについての詳しくは以下の記事を見ていただくか、ググるなりしてもらえればと。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://kojika17.com/2013/03/grunt.js-memo.html"&gt;Web制作で面倒な作業を自動化するビルドツール、Grunt v0.4 入門｜Web Design KOJIKA17&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;必要な環境を整えたうえで以下のコマンドを叩くだけで、&lt;code&gt;jshint&lt;/code&gt;での構文チェック、&lt;code&gt;qunit&lt;/code&gt;でのテスト、&lt;code&gt;recess&lt;/code&gt;でのLESSファイルのコンパイル・圧縮、JSファイルの結合・&lt;code&gt;uglify&lt;/code&gt;での圧縮が走ります。&lt;/p&gt;
-
-&lt;pre&gt;
-&lt;code&gt;$ grunt&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;p&gt;LESSだけなら&lt;code&gt;$ grunt dist-css&lt;/code&gt;、JSだけなら&lt;code&gt;$ grunt dist-js&lt;/code&gt;、てな感じでこれまで通り個別にタスクを走らせることも可能。当然、&lt;code&gt;$ grunt watch&lt;/code&gt;でファイルの監視もできる。&lt;/p&gt;
-
-&lt;h2&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;今回のコンパイル方法以外にも、ローカルでBootstrapのドキュメントを見るには、&lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;といういわゆる静的サイトジェネレータを使うようになっています。&lt;/p&gt;
-
-&lt;p&gt;もう何がなんだか訳がわからないよママン！っていう方もいらっしゃるかもしれませんが、もうそういう時代なんですよねー（遠い目）。
-でもこの辺のツールが扱えるようになると開発効率は格段に上がりますし何かと幸せになれるかもしれません。&lt;/p&gt;
 </content>
   </entry>
 </feed>
