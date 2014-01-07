@@ -263,7 +263,7 @@ Browser Connected! (Chrome, version: 31.0.1650.63)
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;ul&lt;/code&gt;ではなく&lt;code&gt;ol&lt;/code&gt;、というパターンについては1つの長い記事などを複数のページに分けるような場合だと、そのページの順番に意味があるので、それもアリだと思う&lt;/li&gt;
 &lt;li&gt;ただし、ブログのインデックスとかただの記事一覧みたいな場合だと、ページ順にそれほど意味があるとは思えないので、その場合&lt;code&gt;ol&lt;/code&gt;がふさわしいとは思えない&lt;/li&gt;
-&lt;li&gt;あと、「...」で間をとばすような感じのパターンの場合、&lt;code&gt;ol&lt;/code&gt;だとハマらない気がする&lt;/li&gt;
+&lt;li&gt;あと、「&amp;hellip;」で間をとばすような感じのパターンの場合、&lt;code&gt;ol&lt;/code&gt;だとハマらない気がする&lt;/li&gt;
 &lt;li&gt;また、リストではなく&lt;code&gt;span&lt;/code&gt;を並べるってのもありそうだけど、個人的にナシ。単純に好き嫌いの範疇かも。パンくずリストのマークアップみたいな&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;「前へ」「次へ」なリンクを分離するかどうか
