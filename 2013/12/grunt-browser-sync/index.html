@@ -1,41 +1,5 @@
-<!DOCTYPE html><html lang="ja"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"><meta charset="utf-8"><title>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ | REFLECTDESIGN</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:site_name" content="REFLECTDESIGN"><meta property="og:title" content="各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ | REFLECTDESIGN"><meta property="og:type" content="article"><meta property="og:url" content="http://re-dzine.net/2013/12/grunt-browser-sync/"><meta property="og:image" content="http://re-dzine.net/img/ogp.png"><meta property="og:description" content="この投稿はGrunt Plugins Advent Calendar 2013の24日目の記事です。grunt-browser-syncとはshakyShane/grunt-browser-sync同名のnpmモジュール「browser-sync」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手 [...]"><meta property="og:locale" content="ja_JP"><meta property="fb:admins" content="100000698495270"><meta property="fb:app_id" content="231858050163702"><meta property="article:publisher" content="https://www.facebook.com/konitter"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN"><link rel="author" href="https://plus.google.com/100193534781993105417/posts"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><header id="header"><a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a></header><main role="main"><article><header><h1>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ</h1><div class="meta"><time datetime="2013-12-16T11:23:00+09:00">2013-12-16</time> - by <a href="/about/">konitter</a></div></header><div class="entry"><p>この投稿は<a href="http://qiita.com/advent-calendar/2013/grunt-plugins">Grunt Plugins Advent Calendar 2013</a>の24日目の記事です。</p>
-
-<h2>grunt-browser-syncとは</h2>
-
-<ul>
-<li><a href="https://github.com/shakyShane/grunt-browser-sync">shakyShane/grunt-browser-sync</a></li>
-</ul>
-
-<p>同名のnpmモジュール「<a href="https://github.com/shakyShane/browser-sync">browser-sync</a>」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。</p>
-
-<p>このbrowser-syncには以下のような特徴があります。</p>
-
-<ul>
-<li>スクロールの同期</li>
-<li>フォームの入力操作などの同期</li>
-<li>リンククリックの同期</li>
-<li>CSSをバックグラウンドで自動更新</li>
-<li>HTMLやPHPファイルを監視してライブリロード（エクステンション不要）</li>
-<li>ビルトインサーバ</li>
-<li>PHP, Rails, Python, Node, ASP.netのセットアップで使用できるプロキシオプション</li>
-</ul>
-
-<p>他にも、プラットフォーム問わず動くという点も良い所で、Win7でも問題なく動作します（確認済み）し、ブラウザにおいてもIEも含めて同期することができます。</p>
-
-<p>似たようなツールに「<a href="http://html.adobe.com/edge/inspect/">Adobe Edge Inspect</a>」や「<a href="http://vanamco.com/ghostlab/">Ghostlab</a>」があり、いずれも有償ですが、GUIクライアントじゃないとできませんって方はそちらを試してみるとよいかと。</p>
-
-<h2>インストール</h2>
-
-<pre><code>$ npm i(install) grunt-browser-sync -D(--save-dev)
-</code></pre>
-
-<p>これだけ。</p>
-
-<h2>Gruntfile</h2>
-
-<p>以下サンプル。その他各種オプションについては、<a href="https://github.com/shakyShane/grunt-browser-sync">README</a>を参照。</p>
-
-<pre><code>&#39;use strict&#39;
+<!DOCTYPE html><html lang="ja"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"><meta charset="utf-8"><title>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ | REFLECTDESIGN</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:site_name" content="REFLECTDESIGN"><meta property="og:title" content="各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ | REFLECTDESIGN"><meta property="og:type" content="article"><meta property="og:url" content="http://re-dzine.net/2013/12/grunt-browser-sync/"><meta property="og:image" content="http://re-dzine.net/img/ogp.png"><meta property="og:description" content="この投稿はGrunt Plugins Advent Calendar 2013の24日目の記事です。grunt-browser-syncとはshakyShane/grunt-browser-sync同名のnpmモジュール「browser-sync」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手 [...]"><meta property="og:locale" content="ja_JP"><meta property="fb:admins" content="100000698495270"><meta property="fb:app_id" content="231858050163702"><meta property="article:publisher" content="https://www.facebook.com/konitter"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/rss+xml" href="/feed.xml" title="REFLECTDESIGN"><link rel="author" href="https://plus.google.com/100193534781993105417/posts"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></head><body><header id="header"><a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a></header><main role="main"><article><header><h1> 各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ </h1><div class="meta"><time datetime="2013-12-16T11:23:00+09:00">2013-12-16</time> - by <a href="/about/">konitter</a></div></header><div class="entry"><p>この投稿は<a href="//qiita.com/advent-calendar/2013/grunt-plugins">Grunt Plugins Advent Calendar 2013</a>の24日目の記事です。</p><h2>grunt-browser-syncとは</h2><ul><li><a href="https://github.com/shakyShane/grunt-browser-sync">shakyShane/grunt-browser-sync</a></li></ul><p>同名のnpmモジュール「<a href="https://github.com/shakyShane/browser-sync">browser-sync</a>」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。</p><p>このbrowser-syncには以下のような特徴があります。</p><ul><li>スクロールの同期</li><li>フォームの入力操作などの同期</li><li>リンククリックの同期</li><li>CSSをバックグラウンドで自動更新</li><li>HTMLやPHPファイルを監視してライブリロード（エクステンション不要）</li><li>ビルトインサーバ</li><li>PHP, Rails, Python, Node, ASP.netのセットアップで使用できるプロキシオプション</li></ul><p>他にも、プラットフォーム問わず動くという点も良い所で、Win7でも問題なく動作します（確認済み）し、ブラウザにおいてもIEも含めて同期することができます。</p><p>似たようなツールに「<a href="//html.adobe.com/edge/inspect/">Adobe Edge Inspect</a>」や「<a href="//vanamco.com/ghostlab/">Ghostlab</a>」があり、いずれも有償ですが、GUIクライアントじゃないとできませんって方はそちらを試してみるとよいかと。</p><h2>インストール</h2><pre><code>$ npm i(install) grunt-browser-sync -D(--save-dev)
+</code></pre><p>これだけ。</p><h2>Gruntfile</h2><p>以下サンプル。その他各種オプションについては、<a href="https://github.com/shakyShane/grunt-browser-sync">README</a>を参照。</p><pre><code>&#39;use strict&#39;
 
 module.exports = (grunt) ->
 
@@ -57,14 +21,7 @@ module.exports = (grunt) ->
   require(&#39;load-grunt-tasks&#39;)(grunt)
 
   grunt.registerTask &#39;default&#39;, [&#39;browser_sync&#39;]
-</code></pre>
-
-<h2>実行</h2>
-
-<p>これで<code>grunt</code>を叩くと規定のブラウザで<code>index.html</code>が開きます。<br>
-立ち上がったサーバアドレスを他のブラウザで開けば、同ネットワーク内にあるiPhoneやAndroidなどからのアクセスも含めて全ブラウザを同期できるようになります。</p>
-
-<pre><code>$ grunt
+</code></pre><h2>実行</h2><p>これで<code>grunt</code>を叩くと規定のブラウザで<code>index.html</code>が開きます。<br> 立ち上がったサーバアドレスを他のブラウザで開けば、同ネットワーク内にあるiPhoneやAndroidなどからのアクセスも含めて全ブラウザを同期できるようになります。</p><pre><code>$ grunt
 Running &quot;browser_sync:files&quot; (browser_sync) task
    info  - socket.io started
 
@@ -79,30 +36,22 @@ index.html
 assets/css/all.css
 
 Browser Connected! (Chrome, version: 31.0.1650.63)
-</code></pre>
-
-<p>ここで<code>index.html</code>を更新してみると、接続しているすべてのブラウザにライブリロードが走ります。</p>
-
-<pre><code>File Changed: c:\hoge\index.html
+</code></pre><p>ここで<code>index.html</code>を更新してみると、接続しているすべてのブラウザにライブリロードが走ります。</p><pre><code>File Changed: c:\hoge\index.html
 Reloading all connected browsers...
 Browser Connected! (IE, version: 8.0)
 Browser Connected! (Firefox, version: 26.0)
 Browser Connected! (Chrome, version: 31.0.1650.63)
-</code></pre>
-
-<p>他にも、<code>watchTask</code>オプションにより<code>grunt-contrib-watch</code>と組み合わせて、CSSプリなんとかファイルの更新からコンパイルして全ブラウザにバックグラウンドで反映、みたいなこともできちゃいます。</p>
-
-<h2>まとめ</h2>
-
-<p>最近のWeb制作環境では、PCだけでなくモバイルやタブレットなど各種スマートデバイスでの確認が必須になってきていますので、そんなときこれを使えば確認作業が劇的に楽になるはずです。</p>
-
-<p>発注サイドの人間からは以上です。</p>
-</div></article><aside class="share"><ul><li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script type="text/javascript">(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li><li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></script></li></ul></aside><ul class="post-pager"><li>Older Entry:<div><a href="/2013/11/github-training-at-osaka/">GitHubトレーニングチームから学ぶ GitとGitHubの基礎 に参加してきました</a></div></li><li>Newer Entry:<div><a href="/2013/12/markupcafe-osaka-vol1/">MarkupCafe Osaka Vol.1 に参加してきました</a></div></li></ul></main><script type="text/javascript">var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-10906036-1']);
-_gaq.push(['_trackPageview']);
-_gaq.push(['_trackPageLoadTime']);
-(function() {
-    var ga = document.createElement('script'); ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();</script></body></html>
+</code></pre><p>他にも、<code>watchTask</code>オプションにより<code>grunt-contrib-watch</code>と組み合わせて、CSSプリなんとかファイルの更新からコンパイルして全ブラウザにバックグラウンドで反映、みたいなこともできちゃいます。</p><h2>まとめ</h2><p>最近のWeb制作環境では、PCだけでなくモバイルやタブレットなど各種スマートデバイスでの確認が必須になってきていますので、そんなときこれを使えば確認作業が劇的に楽になるはずです。</p><p>発注サイドの人間からは以上です。</p></div></article><aside class="share"><ul><li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>
+        (function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));
+      </script></li><li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></script></li></ul></aside><ul class="post-pager"><li> Older Entry: <div><a href="/2013/11/github-training-at-osaka/">GitHubトレーニングチームから学ぶ GitとGitHubの基礎 に参加してきました</a></div></li><li> Newer Entry: <div><a href="/2013/12/markupcafe-osaka-vol1/">MarkupCafe Osaka Vol.1 に参加してきました</a></div></li></ul></main><script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-10906036-1']);
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
+      (function() {
+          var ga = document.createElement('script'); ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script></body></html>
