@@ -3,7 +3,8 @@ source 'http://rubygems.org'
 gem 'middleman', '~> 3.1.6'
 gem 'middleman-blog', '~> 3.3.0'
 gem 'middleman-deploy', '~> 0.1.3'
-# gem "middleman-livereload", "~> 3.1.0"
+gem 'middleman-minify-html'
+# gem 'middleman-livereload', '~> 3.1.0'
 
 gem 'slim'
 gem 'nokogiri'
