@@ -4,10 +4,104 @@
   <id>http://re-dzine.net/</id>
   <link href="http://re-dzine.net/"/>
   <link href="http://re-dzine.net/feed.xml" rel="self"/>
-  <updated>2013-12-26T08:20:00Z</updated>
+  <updated>2014-01-08T10:20:00Z</updated>
   <author>
     <name>konitter</name>
   </author>
+  <entry>
+    <title>Middlemanで作ったブログのテンプレートエンジンをERBからSlimに</title>
+    <link rel="alternate" href="http://re-dzine.net/2014/01/middleman-slim/"/>
+    <id>http://re-dzine.net/2014/01/middleman-slim/</id>
+    <published>2014-01-08T10:20:00Z</published>
+    <updated>2014-01-09T12:05:52+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">&lt;p&gt;今どき生の HTML を書いてるようじゃモテないって聞いたので、昨年10月末に &lt;a href="http://middlemanapp.com/"&gt;Middleman&lt;/a&gt; で作ったこのブログのテンプレートエンジンをデフォルトの ERB から &lt;a href="https://github.com/slim-template/slim"&gt;Slim&lt;/a&gt; に変更しました。&lt;/p&gt;
+
+&lt;h2&gt;HamlとSlim&lt;/h2&gt;
+
+&lt;p&gt;Middleman では Slim だけでなく &lt;a href="https://github.com/haml/haml"&gt;Haml&lt;/a&gt; も使えます。Haml は Middleman に標準で装備されているので、ファイルの拡張子を&lt;code&gt;hoge.html.haml&lt;/code&gt;にするだけですぐに使いはじめることができます。が、HTML要素の頭に&lt;code&gt;%&lt;/code&gt;を書くっていう記法が気持ち悪かったのと、Slim だと属性をカッコで囲まなくてよく、さらに簡潔に書けるので今回は Slim を採用。&lt;/p&gt;
+
+&lt;p&gt;Haml と Slim の簡単な比較は、それぞれの Github か以下のページから確認できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://tech-sketch.jp/2013/07/haml-slim-middleman.html"&gt;HamlとSlimをMiddleman上で比較する - Tech-Sketch&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;MiddlemanでSlimを使う&lt;/h2&gt;
+
+&lt;p&gt;Middleman のプロジェクトを新規に作る場合は、&lt;a href="https://github.com/yterajima/middleman-slim"&gt;middleman-slim&lt;/a&gt; という最初からテンプレートファイルが Slim になっているエクステンションを使うといいです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="bash"&gt;$ gem install middleman
+$ gem install middleman-slim
+$ middleman init PROJECT_NAME --template slim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;今回の僕のように途中から Slim に変更する場合は、Slim を利用するために gem をインストールする必要があります。とはいえ方法は簡単で、以下の一行をMiddlemanプロジェクトのルートにある&lt;code&gt;Gemfile&lt;/code&gt;に追加して&lt;code&gt;bundle install&lt;/code&gt;。簡単。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="gemfile"&gt;gem &amp;quot;slim&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは各テンプレートファイルの拡張子を&lt;code&gt;hoge.html.slim&lt;/code&gt;に変更して、記法に従って書くだけ。以下のような HTML から Slim に変換してくれるサイトもあるので、めんどくさい人はどうぞ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://html2slim.herokuapp.com/"&gt;Html2Slim | Convert HTML Snippets to Slim&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;オプションを設定してSlimの出力結果を制御する&lt;/h2&gt;
+
+&lt;p&gt;何の設定もなしにデフォルトだと以下のような HTML が出力されます。（head内の一部を抜粋）&lt;br&gt;
+コードは圧縮、属性の順番がソートされ、さらに閉じタグのないものは XHTML な感じに。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="html"&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;&amp;lt;title&amp;gt;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;lt;/title&amp;gt;&amp;lt;meta content=&amp;quot;width=device-width,initial-scale=1&amp;quot; name=&amp;quot;viewport&amp;quot; /&amp;gt;&amp;lt;meta content=&amp;quot;REFLECTDESIGN&amp;quot; property=&amp;quot;og:site_name&amp;quot; /&amp;gt;&amp;lt;meta content=&amp;quot;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;quot; property=&amp;quot;og:title&amp;quot; /&amp;gt;&amp;lt;meta content=&amp;quot;article&amp;quot; property=&amp;quot;og:type&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;個人的には嘔吐感が半端なかったので、以下の設定を&lt;code&gt;config.rb&lt;/code&gt;に加えてやります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="ruby"&gt;set :slim, { :pretty =&amp;gt; true, :sort_attrs =&amp;gt; false, :format =&amp;gt; :html5 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;するとこんな風に。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="html"&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;lt;/title&amp;gt;
+&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,initial-scale=1&amp;quot;&amp;gt;
+&amp;lt;meta property=&amp;quot;og:site_name&amp;quot; content=&amp;quot;REFLECTDESIGN&amp;quot;&amp;gt;
+&amp;lt;meta property=&amp;quot;og:title&amp;quot; content=&amp;quot;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;quot;&amp;gt;
+&amp;lt;meta property=&amp;quot;og:type&amp;quot; content=&amp;quot;article&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;その他のオプションについては &lt;a href="https://github.com/slim-template/slim#available-options"&gt;Github の Available options&lt;/a&gt; を参照してください。&lt;/p&gt;
+
+&lt;h2&gt;ビルド時にHTMLをMinifyする&lt;/h2&gt;
+
+&lt;p&gt;上記のオプションでHTMLコードは見やすくなったものの、&lt;code&gt;middleman build&lt;/code&gt;するときにはHTMLファイルを Minify したくなりました。そんなときは、&lt;a href="https://github.com/middleman/middleman-minify-html"&gt;Middleman-Minify-HTML&lt;/a&gt; を使います。&lt;/p&gt;
+
+&lt;p&gt;使い方は&lt;code&gt;Gemfile&lt;/code&gt;に以下の一行を追加して&lt;code&gt;bundle install&lt;/code&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="gemfile"&gt;gem &amp;#39;middleman-minify-html&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そしてビルド時の設定として以下を&lt;code&gt;config.rb&lt;/code&gt;を追加する。デフォルトでは、&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;などのクオート記号を削除、各HTML要素間にスペースを入れるようになっていたので、以下のオプションを追加。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="ruby"&gt;configure :build do
+  activate :minify_html, :remove_quotes =&amp;gt; false, :remove_intertag_spaces =&amp;gt; true
+  ...
+  ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そもそもこの middleman-minify-html は HTML の Minify に htmlcompressor を使っているので、&lt;a href="https://github.com/paolochiodi/htmlcompressor"&gt;htmlcompressor の Github&lt;/a&gt; に書いてあるオプションを適宜設定すればそれが適用できます。&lt;/p&gt;
+
+&lt;p&gt;出力結果はこのページのソースでも見てもらえればと。&lt;br&gt;
+このブログのソースコードは以下にアップしてるので良かったら参考まで。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/konitter/konitter.github.io"&gt;konitter/konitter.github.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>MarkupCafe Osaka Vol.1 に参加してきました</title>
     <link rel="alternate" href="http://re-dzine.net/2013/12/markupcafe-osaka-vol1/"/>
@@ -380,42 +474,6 @@ Browser Connected! (Chrome, version: 31.0.1650.63)
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://re-dzine.net/feed.xml"&gt;http://re-dzine.net/feed.xml&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Emmet LiveStyleで爆速HTML/CSSコーディングの境地へ</title>
-    <link rel="alternate" href="http://re-dzine.net/2013/08/emmet-livestyle/"/>
-    <id>http://re-dzine.net/2013/08/emmet-livestyle/</id>
-    <published>2013-08-06T11:35:42Z</published>
-    <updated>2013-11-28T11:50:06+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;簡単な記述でHTML/CSSが爆速でコーディングできるという神プラグイン「&lt;a href="http://emmet.io/"&gt;Emmet&lt;/a&gt;」。フロントエンドな人ならほとんどの方が使っているんじゃないかと思います。この度そのEmmetから「Emmet LiveStyle」なるものが出ました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://livestyle.emmet.io/"&gt;Emmet LiveStyle — live bi-directional CSS edit of new generation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;簡単に言うと、エディタとブラウザ双方向でCSSがリアルタイムに編集できるプラグインで、現在のところ、Google Chrome、Safari、Sublime Textで動作するとのこと。&lt;/p&gt;
-
-&lt;p&gt;といってもよくわからないと思いますので、まずは以下のスクリーンキャストをご覧ください。一瞬でも「あ、これヤバイわ」って思ったなら試してみる価値は十分にあると思います。&lt;/p&gt;
-
-&lt;p&gt;&lt;iframe width="520" height="390" src="//www.youtube.com/embed/iQLhGbkupS4?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-&lt;p&gt;「Emmet LiveStyle」は以下の手順で簡単に始められます。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Sublime TextのPackage Controlから「LiveStyle」をインストール&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://chrome.google.com/webstore/detail/diebikgmpmeppiilkaijjbdgciafajmg"&gt;Google Chromeの専用エクステンション&lt;/a&gt;をインストール&lt;/li&gt;
-&lt;li&gt;編集したいページを開く&lt;/li&gt;
-&lt;li&gt;Sublime TextでCSSファイルを開く&lt;/li&gt;
-&lt;li&gt;Google ChromeのDevToolsから「LiveStyle」パネルを開く&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;より詳しい使用方法は「&lt;a href="http://livestyle.emmet.io/usage/"&gt;How to use&lt;/a&gt;」のページを参照。&lt;/p&gt;
-
-&lt;p&gt;個人的にもまだガッツリと触れてませんが、これからのHTML/CSSコーディングでは必須のツールとなりそうです。&lt;/p&gt;
 </content>
   </entry>
 </feed>
