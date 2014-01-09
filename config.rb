@@ -34,15 +34,25 @@ set :markdown, :fenced_code_blocks => true, :smartypants => true, :tables => tru
 # LiveReload
 # activate :livereload
 
-# Deploy setting
-activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.branch = 'master'
+# Development setting (middleman server)
+configure :development do
+  activate :google_analytics do |ga|
+    ga.tracking_id = false
+  end
 end
 
 # Build setting
 configure :build do
-  activate :minify_html, :remove_quotes => false, :remove_intertag_spaces => true
+  activate :google_analytics do |ga|
+    ga.tracking_id = 'UA-10906036-1'
+  end
+  activate :minify_html, :remove_quotes => false, :remove_intertag_spaces => true, :remove_script_attributes => true
   activate :minify_css, :ignore => /^\/demo/
   # activate :minify_javascript
+end
+
+# Deploy setting
+activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.branch = 'master'
 end
