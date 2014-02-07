@@ -4,10 +4,124 @@
   <id>http://re-dzine.net/</id>
   <link href="http://re-dzine.net/"/>
   <link href="http://re-dzine.net/feed.xml" rel="self"/>
-  <updated>2014-01-08T10:20:00Z</updated>
+  <updated>2014-02-07T02:56:00Z</updated>
   <author>
     <name>konitter</name>
   </author>
+  <entry>
+    <title>Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門</title>
+    <link rel="alternate" href="http://re-dzine.net/2014/02/getting-started-with-gulp/"/>
+    <id>http://re-dzine.net/2014/02/getting-started-with-gulp/</id>
+    <published>2014-02-07T02:56:00Z</published>
+    <updated>2014-02-07T12:03:00+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">&lt;p&gt;みなさんご存知「&lt;a href="http://gruntjs.com/"&gt;Grunt&lt;/a&gt;」は、WEB制作者の間でも以前に比べるとだいぶ浸透してきているようで、実際に案件で使用しているという方も増えてきています。そんな中、ここ最近海外のエンジニアの中でGruntに変わって使われだしている新たなビルドシステム「&lt;a href="http://gulpjs.com/"&gt;gulp&lt;/a&gt;」をご紹介します。&lt;/p&gt;
+
+&lt;h2&gt;Grunt vs gulp&lt;/h2&gt;
+
+&lt;p&gt;Gruntは、設定ファイル&lt;code&gt;Gruntfile&lt;/code&gt;がJSON形式で書けるという側面から一見わかりやすく見えますが、実案件で使用する場合、10〜20個のプラグインを使うということもザラにあります。そうなると&lt;code&gt;Gruntfile&lt;/code&gt;の記述量がどんどん増えていき、どのタスクがどのタスクと繋がっていて、結果どうなるかが非常に分かりにくくなるという欠点があります。&lt;/p&gt;
+
+&lt;p&gt;また、複数のタスクを使った一連の流れにおいて、個々のタスクを実行するたびにファイルの読み込みと書き込みが発生するため、非常に無駄の多い仕様になっています。このため、タスクおよびそのタスクの対象となるファイルが多くなると、タスクが完全に終了するまでに時間がかかってしまうということがあります。&lt;/p&gt;
+
+&lt;p&gt;一方gulpは、ベースになっているNode.jsプログラムに基づいた書き方で設定ファイル&lt;code&gt;gulpfile&lt;/code&gt;が定義でき、どのファイルに対してどんな処理をするのかが一目瞭然となります（くわしくは後ほど）。プログラムライクで難しそうに見えますが、一度体験してみるとその良さに気付くことでしょう。&lt;/p&gt;
+
+&lt;p&gt;さらに、個々のタスクは非同期に実行され、ファイルの扱いにおいても&lt;a href="http://nodejs.org/api/stream.html"&gt;Node.jsのStreamというAPI&lt;/a&gt;を使うことで中間ファイルを生成することなくやりとりできるので、非常に高速にタスクを実行することができます。Streamについてのくわしくはここでは割愛しますが、gulpの開発者たちも勧める「&lt;a href="https://github.com/substack/stream-handbook"&gt;substack/stream-handbook&lt;/a&gt;」を読むとより理解が深まるはずです。&lt;/p&gt;
+
+&lt;h2&gt;Gruntfile vs gulpfile&lt;/h2&gt;
+
+&lt;p&gt;では実際にGruntとgulpそれぞれの設定ファイルの違いを見てみます。ここでは、&lt;a href="https://github.com/twbs/bootstrap-sass"&gt;twbs/bootstrap-sass&lt;/a&gt;の40個あるSCSSファイルの監視 → CSSファイルへのコンパイル → autoprefixerによるベンダープレフィックスの付与、という一連の流れを例にしてみます。&lt;/p&gt;
+
+&lt;h3&gt;Gruntfile.js&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class="js"&gt;grunt.initConfig({
+  sass: {
+    dist: {
+      files: [{
+        cwd: &amp;#39;sass&amp;#39;,
+        src: &amp;#39;bootstrap.scss&amp;#39;,
+        dest: &amp;#39;.tmp/&amp;#39;,
+        expand: true,
+        ext: &amp;#39;.css&amp;#39;
+      }]
+    }
+  },
+  autoprefixer: {
+    options: [&amp;#39;last 1 version&amp;#39;],
+    dist: {
+      files: [{
+        expand: true,
+        cwd: &amp;#39;.tmp/&amp;#39;,
+        src: &amp;#39;bootstrap.css&amp;#39;,
+        dest: &amp;#39;dist/css&amp;#39;
+      }]
+    }
+  },
+  watch: {
+    styles: {
+      files: [&amp;#39;sass/{,*/}*.scss&amp;#39;],
+      tasks: [&amp;#39;sass:dist&amp;#39;, &amp;#39;autoprefixer:dist&amp;#39;]
+    }
+  }
+});
+grunt.registerTask(&amp;#39;default&amp;#39;, [&amp;#39;sass&amp;#39;, &amp;#39;watch&amp;#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Gruntはプラグインごとに読み込み元のファイルと出力先のファイルを設定する必要があるため、非常に冗長です。これと同じ処理をgulpでやるとどうなるでしょうか？&lt;/p&gt;
+
+&lt;h3&gt;gulpfile.js&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class="js"&gt;gulp.task(&amp;#39;sass&amp;#39;, function () {
+  gulp.src(&amp;#39;sass/bootstrap.scss&amp;#39;)
+    .pipe(sass())
+    .pipe(autoprefixer(&amp;#39;last 1 version&amp;#39;))
+    .pipe(gulp.dest(&amp;#39;dist/css&amp;#39;));
+});
+gulp.task(&amp;#39;default&amp;#39;, [&amp;#39;sass&amp;#39;], function() {
+  gulp.watch(&amp;#39;sass/**/*.scss&amp;#39;, [&amp;#39;sass&amp;#39;]);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これだけ。特に2行目から5行目を見るとわかりますが、&lt;code&gt;gulp.src()&lt;/code&gt;で読み込んだファイルを&lt;code&gt;.pipe()&lt;/code&gt;を使って繋いだタスクで処理します。&lt;code&gt;sass()&lt;/code&gt;でコンパイルして&lt;code&gt;autoprefixer()&lt;/code&gt;でプレフィックス付けて、&lt;code&gt;gulp.dest()&lt;/code&gt;で出力。流れがわかりやすいですね。&lt;/p&gt;
+
+&lt;p&gt;実際にこのGruntとgulpのタスクをMacbook Air（11-inch, Mid 2012）で実行したところ、以下のようになりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="Grunt" src="/img/2014/02/grunt.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="gulp" src="/img/2014/02/gulp.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;結果的にはgulpの方が若干早かったのですが、この実行時間にはGruntとgulp本体やそれぞれのプラグインの読み込み・起動時間が含まれているわけですし、プラグイン内部のプログラムおよび使っているモジュールも異なるので、単純に比較できるものではありません。同じ構成であってもプラグインの組み合わせやタスクの内容によってはGruntよりもgulpの方が時間がかかることもあるのです。&lt;/p&gt;
+
+&lt;h2&gt;gulpを使ってみる&lt;/h2&gt;
+
+&lt;p&gt;使い方はいたって簡単です。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;npm install -g gulp&lt;/code&gt;でgulpをグローバルにインストール。&lt;/li&gt;
+&lt;li&gt;プロジェクトディレクトリに&lt;code&gt;package.json&lt;/code&gt;を用意。なければ&lt;code&gt;npm init&lt;/code&gt;で対話的に作成。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;npm install --save-dev gulp gulp-hoge&lt;/code&gt;でgulpとプラグインをローカルに入れる。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gulpfile.js&lt;/code&gt;を作ってプロジェクトのルートに置く。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gulp [task name]&lt;/code&gt;で実行。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;gulpのプラグインはnpmやGitHubで検索してもよいですし、プラグインのまとめページ&lt;a href="http://gratimax.github.io/search-gulp-plugins/"&gt;gulp plugins&lt;/a&gt;（記事の執筆時点では257個）から探すこともできます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gulpfile.js&lt;/code&gt;の書き方などについては、&lt;a href="https://github.com/gulpjs/gulp/blob/master/docs/README.md"&gt;gulpのドキュメントページ&lt;/a&gt;を一通り読んだうえで、あとは各プラグインのREADMEを参考にタスクを設定すれば期待通りに動くはずです。&lt;/p&gt;
+
+&lt;h2&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;ここまで言っといてなんですが結局のところ好みの問題なので、Gruntとgulpどっちがいいかを述べることは簡単ではありません。また、複数のエンジニアが案件に携わるような環境だと急にGruntからgulpに乗り換えるということが難しい場合もあると思います。&lt;/p&gt;
+
+&lt;p&gt;また、実行速度の違いに関しては、GitHubで公開されている&lt;a href="https://github.com/gruntjs/grunt-docs/blob/master/Roadmap.md"&gt;Gruntの次期バージョンv0.5のロードマップ&lt;/a&gt;を見ると、それこそgulpのように複数のタスクをつなげてデータのやり取りができるようになるみたいですので、将来的には変わらなくなるのかもしれません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// load a set of tasks to be run in parallel
+grunt.registerTask(&amp;#39;name&amp;#39;, [&amp;#39;jshint&amp;#39;, &amp;#39;concat&amp;#39;], { parallel:true });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とにかく大事なのは、なんのためにビルドツールを使うのかということです。そこを忘れずにいれば、Gruntもgulpもどちらも便利なツールであることには違いありませんので、クオリティーの高い制作を行うことができるでしょう。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Middlemanで作ったブログのテンプレートエンジンをERBからSlimに</title>
     <link rel="alternate" href="http://re-dzine.net/2014/01/middleman-slim/"/>
@@ -414,66 +528,6 @@ Browser Connected! (Chrome, version: 31.0.1650.63)
 &lt;h2&gt;まとめ&lt;/h2&gt;
 
 &lt;p&gt;ざっと調べたところ、このイベントやお題に対して意見を表明している人がいなさそうなのですが、この辺のマークアップなネタについては一家言ある、という人が自分の周りにはたくさんいるので、そういった方々がどう書くか非常に興味があります。|дﾟ)ﾁﾗｯ&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>ブログをWordPressからMiddlemanに移行してGitHub Pagesで運用するようにしてみた</title>
-    <link rel="alternate" href="http://re-dzine.net/2013/10/wordpress-to-middleman/"/>
-    <id>http://re-dzine.net/2013/10/wordpress-to-middleman/</id>
-    <published>2013-10-30T06:08:00Z</published>
-    <updated>2013-11-28T11:50:06+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;来月で今契約しているレンタルサーバの期限が切れるということもあって、今回Middleman + GitHub Pagesで作りなおしてみました。いわゆる静的サイトジェネレータでブログを静的ファイルにしちゃえば、GitHub Pagesでホスティングできるので固定費も節約できていいかなと。&lt;/p&gt;
-
-&lt;h2&gt;ジェネレータ選び&lt;/h2&gt;
-
-&lt;p&gt;Middlemanに限らず静的サイトジェネレータは他にもいくつかありますが、ジェネレータ選びで重要視したポイントは、なんといってもまずはWordPressからの移行がしやすいこと、そして記事のパーマリンクを移行前と同じ状態にできること。あとは、GitHub Pagesへのデプロイがしやすい機能があればなおよしって感じ。&lt;/p&gt;
-
-&lt;p&gt;Node.js製のものも含めていろいろ触ってみた結果、これらのポイントを満たしていて、かつ今やるならアツそうなジェネレータということで、今回「Middleman」を選びました。といっても、Rubyとの相性がどうとかあるらしいけど、Windowsだと何かとエラるので環境づくりにはかなり苦労しました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://middlemanapp.com/"&gt;Middleman: Hand-crafted frontend development&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;WordPressからの移行準備&lt;/h2&gt;
-
-&lt;p&gt;移行で一番めんどいのが、記事データのマークダウン化。で、調べてみると、WordPressからエクスポートしたXMLファイルから、Middlemanで使えるフォーマットにしたマークダウンファイルにコンバートしてくれるRubyスクリプトを見つけた。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/salmansqadeer/wordpress-to-middleman"&gt;salmansqadeer/wordpress-to-middleman - GitHub&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;「Getting Started」のとおりに準備して、&lt;code&gt;ruby wordpress_to_middleman.rb&lt;/code&gt;を叩けば、記事ごとにマークダウンファイル化してくれる。とはいっても完璧ではないので、もろもろ調整は必要です。&lt;/p&gt;
-
-&lt;h2&gt;middleman-blogでコーディング&lt;/h2&gt;
-
-&lt;p&gt;Middlemanにはブログを作るための環境が簡単に作れる「middleman-blog」というエクステンションが用意されていて、基本的にはこれを使うといい感じ。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://middlemanapp.com/blogging/"&gt;Middleman: Blogging&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;あとは求める環境に応じて&lt;code&gt;config.rb&lt;/code&gt;で設定を書いたり、テンプレートなど必要なファイルを用意する。&lt;/p&gt;
-
-&lt;h2&gt;GitHub Pagesへのホスティング&lt;/h2&gt;
-
-&lt;p&gt;GitHub Pagesへのデプロイ・ホスティング、および独自ドメインの設定まわりは、以下のページが参考になりました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://camuro.org/blog/2013/09/renewal.html"&gt;WordPressからmiddlemanに移行してGithub Pagesで運用する方法 - CAMURO&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://blog.coiney.com/2013/06/21/host-middleman-blog-on-github/"&gt;middleman-blogをgithubでホストする - Coiney Developer Blog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;こんな感じで静的サイト化しておけば、他によさそうなジェネレータが出てきたときに、浮気しやすくなっていいかなと。&lt;br&gt;
-あ、あと、今回の移行にともなって、RSSフィードのURLが変わってますので、このブログをRSSで読んでるっていう奇特な方は、URLの変更をお願いします。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://re-dzine.net/feed.xml"&gt;http://re-dzine.net/feed.xml&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>
