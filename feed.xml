@@ -4,10 +4,126 @@
   <id>http://re-dzine.net/</id>
   <link href="http://re-dzine.net/"/>
   <link href="http://re-dzine.net/feed.xml" rel="self"/>
-  <updated>2014-02-07T02:56:00Z</updated>
+  <updated>2014-02-13T02:00:00Z</updated>
   <author>
     <name>konitter</name>
   </author>
+  <entry>
+    <title>Emmetの次期バージョンv1.1(Beta)の新機能がスゴい</title>
+    <link rel="alternate" href="http://re-dzine.net/2014/02/emmet-beta-v1-1/"/>
+    <id>http://re-dzine.net/2014/02/emmet-beta-v1-1/</id>
+    <published>2014-02-13T02:00:00Z</published>
+    <updated>2014-02-13T11:09:15+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="http://emmet.io/"&gt;Emmet&lt;/a&gt;といえば、HTMLやCSSが爆速で書けるようになるWeb制作者なら誰もが知っているであろうアレですが、現在次期バージョンとしてv1.1の開発が進められています。そのことは、昨年の12月23日に&lt;a href="http://emmet.io/blog/beta-v1-1/"&gt;Emmet公式ブログで発表&lt;/a&gt;されたものの、あまり話題になっていないようなのでここで簡単にご紹介します。&lt;/p&gt;
+
+&lt;h2&gt;インストール方法&lt;/h2&gt;
+
+&lt;p&gt;v1.1(Beta)は現状&lt;a href="http://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt;でのみ試すことができます。なお、現時点ではまだ正式なリリース版ではありませんので、ご利用はあくまでも自己責任でお願いします。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;すでにEmmetを入れているなら別の場所にバックアップを取ったうえでPackage ControlからEmmetを削除。&lt;/li&gt;
+&lt;li&gt;一旦Sublime Textを終了しておく。&lt;/li&gt;
+&lt;li&gt;ターミナルからSublime Textの&lt;code&gt;Packages&lt;/code&gt;フォルダに移動して&lt;a href="https://github.com/sergeche/emmet-sublime/"&gt;プラグインのレポジトリ&lt;/a&gt;を&lt;code&gt;git clone&lt;/code&gt;し、v1.1のブランチに&lt;code&gt;git checkout v1.1&lt;/code&gt;で切り替える。そういうのが難しい人は&lt;a href="https://github.com/sergeche/emmet-sublime/archive/v1.1.zip"&gt;ここからダウンロード&lt;/a&gt;して解凍したものを置く。&lt;/li&gt;
+&lt;li&gt;Sublime Textを起動。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;v1.1の新機能（11個）&lt;/h2&gt;
+
+&lt;h3&gt;1. Can I Useデータベースのサポート&lt;/h3&gt;
+
+&lt;p&gt;ベンダープレフィックスが必要なCSSのプロパティおよびその値の展開には、CSSやHTML5などの各ブラウザ対応状況が確認できるWebサービス「&lt;a href="http://caniuse.com/"&gt;Can I Use&lt;/a&gt;」のデータベースを用いて行われます。&lt;br&gt;
+デフォルトでは全ブラウザの2つ前までを範囲としますが、&lt;code&gt;caniuse.era&lt;/code&gt;と&lt;code&gt;caniuse.vendors&lt;/code&gt;の設定で微調整することができるようです。くわしくはこの&lt;a href="https://github.com/emmetio/emmet/blob/umd/lib/assets/caniuse.js#L19"&gt;モジュールヘッダー&lt;/a&gt;を参照。&lt;/p&gt;
+
+&lt;h3&gt;2. LESSとSCSSのフルサポート&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="http://docs.emmet.io/actions/toggle-comment/"&gt;Toggle Comment&lt;/a&gt;、&lt;a href="http://docs.emmet.io/actions/update-image-size/"&gt;Update Image Size&lt;/a&gt;、&lt;a href="http://docs.emmet.io/actions/select-item/"&gt;Select Item&lt;/a&gt;などのアクションがLESSとSCSS（SASSは除く）のファイルで動くようになります。&lt;/p&gt;
+
+&lt;h3&gt;3. SlimとJadeの構文をサポート&lt;/h3&gt;
+
+&lt;p&gt;Emmetの&lt;a href="http://docs.emmet.io/filters/"&gt;Filters&lt;/a&gt;の機能がアップデートされ、HTMLを&lt;a href="https://github.com/slim-template/slim"&gt;Slim&lt;/a&gt;および&lt;a href="https://github.com/visionmedia/jade"&gt;Jade&lt;/a&gt;の構文で展開できるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="html"&gt;p.title&amp;gt;a[/hoge/]|slim
+↓
+p.title
+  a href=&amp;quot;/hoge/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;4. CSS Gradientジェネレータのアップデート&lt;/h3&gt;
+
+&lt;p&gt;W3C構文の仕様やCan I Useデータベースなど複数の定義をサポートします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="css"&gt;lg(red, black)
+↓
+background-image: -webkit-linear-gradient(red, black);
+background-image: -o-linear-gradient(red, black);
+background-image: linear-gradient(red, black);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;5. Boolean型属性&lt;/h3&gt;
+
+&lt;p&gt;属性名の後ろにドットを書くことで、同じ名前と値を持つ属性を短く書けるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="html"&gt;inp[type=radio][checked.]
+↓
+&amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;&amp;quot; id=&amp;quot;&amp;quot; checked&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;6. 暗黙の属性値&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;img&lt;/code&gt;要素の&lt;code&gt;src&lt;/code&gt;属性などHTML要素において値が必須な属性は、その属性名を省略できるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="html"&gt;img[src=image.png]
+↓
+img[image.png]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;7. デフォルトの属性&lt;/h3&gt;
+
+&lt;p&gt;属性が必須でない要素も暗黙の属性値によって値を展開できるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="html"&gt;script → &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;
+↓
+script[jquery.js] → &amp;lt;script src=&amp;quot;jquery.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;8. 新アクション「Update Tag」&lt;/h3&gt;
+
+&lt;p&gt;新たに追加されるアクション「Update Tag」を使うことで、すでに記述（展開）済みのHTML要素をEmmetの機能で更新できるようになります。更新したい要素にカーソルを置き以下のコマンドを叩くと、「Enter Abbreviation:」というダイアログがエディタのウィンドウ下に開くので、追加したい属性や値を書いてEnterします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="html"&gt;&amp;lt;header&amp;gt;|&amp;lt;/header&amp;gt;
+↓
+[shift]+[ctrl]+[u] → .global → Enter
+↓
+&amp;lt;header class=&amp;quot;global&amp;quot;&amp;gt;&amp;lt;/header&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;9. アクション名「Match Tag Pair」を「Balance」に変更&lt;/h3&gt;
+
+&lt;p&gt;v1でも実装されている&lt;a href="http://docs.emmet.io/actions/match-pair/"&gt;Match Tag Pair&lt;/a&gt;のアクション名が「Balance」に変更され、またCSSでもそのアクションが動くようになります。&lt;/p&gt;
+
+&lt;h3&gt;10. CSSをシングルラインで展開できるオプションを追加&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;syntaxProfiles.json&lt;/code&gt;（Sublime Textなら&lt;code&gt;Emmet.sublime-settings&lt;/code&gt;）にて&lt;code&gt;&amp;quot;css&amp;quot;: &amp;quot;css_line&amp;quot;&lt;/code&gt;を設定するとCSSのプロパティがシングルラインで展開されるようになります。くわしくは&lt;a href="http://docs.emmet.io/customization/syntax-profiles/"&gt;こちらのドキュメント&lt;/a&gt;を参照。&lt;/p&gt;
+
+&lt;h3&gt;11. RGBaカラーのシンタックスを追加&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;color&lt;/code&gt;プロパティなどでのカラーコードの展開において、後ろに&lt;code&gt;.N&lt;/code&gt;を付けることで、CSS3のRGBaで開きます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="css"&gt;c#dca.7
+↓
+color: rgba(221, 204, 170, 0.7);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;公式ブログの該当エントリーには他にも、EmmetはそもそもNode.JSに準拠した書き方がされているので、npm packageとして提供される日も近いとのことです。実際、Emmetの開発版と思われるブランチが&lt;a href="https://github.com/emmetio/emmet/blob/umd/Gruntfile.js"&gt;Gruntでビルドできるように&lt;/a&gt;なっています。&lt;/p&gt;
+
+&lt;p&gt;具体的なリリース日は未定ですが、その動向には注視していきたいです。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門</title>
     <link rel="alternate" href="http://re-dzine.net/2014/02/getting-started-with-gulp/"/>
@@ -434,100 +550,6 @@ Browser Connected! (Chrome, version: 31.0.1650.63)
 本当の初心者や上級者にとっては物足りなかったかもしれませんが、ぼくみたいな中途半端な知識の人にとってはすごく分かりやすい内容でした。&lt;/p&gt;
 
 &lt;p&gt;ターミナルなど環境的なことも含めてGitのことをもっと勉強したいと思います。あと、できるだけ英語を聞き取ろうとしてみたものの、全然分かりませんでしたので英語もなんとかしたいです。。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>MarkupCafe Tokyo Vol.2のお題について考えてみた</title>
-    <link rel="alternate" href="http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/"/>
-    <id>http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/</id>
-    <published>2013-11-07T01:57:00Z</published>
-    <updated>2013-11-28T11:50:06+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;10/19(土)にて東京で行われたイベント「&lt;a href="http://atnd.org/events/43774"&gt;MarkupCafe Tokyo Vol.2&lt;/a&gt;」で出されたお題について、自分ならどうマークアップするかを考えてみました。&lt;br&gt;
-当日参加された方々のコードは、以下のページから参照できます。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://u-note.me/note/47486651"&gt;「あなたは、これらを美しくマークアップできるかな？」#Markup CafeTokyo【CodeIQ提供】#html5j | U-NOTE【ユーノート】&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;お題1 「ページネーション」&lt;/h2&gt;
-
-&lt;script src="http://jsdo.it/blogparts/3Kun/js"&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;a href="http://jsdo.it/_konitter/3Kun"&gt;MarkupCafe Tokyo Vol.2 お題1 「ページネーション」 #html5j - jsdo.it&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;このお題は、他の2つと比べても特に人によってマークアップの違いが出やすいUIの一つな気がします。マークアップするうえでのポイントを挙げてみます。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;UI自体を何の要素でくくるか
-
-&lt;ul&gt;
-&lt;li&gt;上記レポートにもある&lt;code&gt;nav&lt;/code&gt;を使うという意見については、確かにメインコンテンツにより近い「主要な」ナビゲーション（となるケースが多い）とも取れるので、それもアリな気もするけど、まだ自分の中で消化しきれてない&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;リンクの羅列はリストか
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ul&lt;/code&gt;ではなく&lt;code&gt;ol&lt;/code&gt;、というパターンについては1つの長い記事などを複数のページに分けるような場合だと、そのページの順番に意味があるので、それもアリだと思う&lt;/li&gt;
-&lt;li&gt;ただし、ブログのインデックスとかただの記事一覧みたいな場合だと、ページ順にそれほど意味があるとは思えないので、その場合&lt;code&gt;ol&lt;/code&gt;がふさわしいとは思えない&lt;/li&gt;
-&lt;li&gt;あと、「&amp;hellip;」で間をとばすような感じのパターンの場合、&lt;code&gt;ol&lt;/code&gt;だとハマらない気がする&lt;/li&gt;
-&lt;li&gt;また、リストではなく&lt;code&gt;span&lt;/code&gt;を並べるってのもありそうだけど、個人的にナシ。単純に好き嫌いの範疇かも。パンくずリストのマークアップみたいな&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;「前へ」「次へ」なリンクを分離するかどうか
-
-&lt;ul&gt;
-&lt;li&gt;ページ番号のリンクと分けて別の要素にするという人もいるようだけど、別の要素を使うこと自体にメリットは感じられない&lt;/li&gt;
-&lt;li&gt;ただ、「次へ」をコード上で最後ではなく「前へ」のすぐ後ろに持ってくるについては、正直言ってわからない。音声読み上げの支援技術ユーザーへの配慮だと思うんだけど、実際そうしてくれた方が嬉しい、とかいう意見があるのかな。あるならそうした方がいいんかも&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;他にも、1ページ目の時の「前へ」と最後のページの時の「次へ」をどうするか、カレントページの番号をどうするか（どんなクラス名を付けるか）などなどありますが、長くなりそうなのでこの辺で。&lt;/p&gt;
-
-&lt;h2&gt;お題2 「予約フォーム」&lt;/h2&gt;
-
-&lt;script src="http://jsdo.it/blogparts/mjYQ/js"&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;a href="http://jsdo.it/_konitter/mjYQ"&gt;MarkupCafe Tokyo Vol.2 お題2 「予約フォーム」 #html5j - jsdo.it&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;このお題に限らずですが、フォームのマークアップは、どこまでセマンティックに（マシンリーダブルな形で）表現するかってところで違いが出てくる内容だと思います。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;フォーム部分のレイアウト
-
-&lt;ul&gt;
-&lt;li&gt;このお題画像の見た目で時間制限がある中では、素直に&lt;code&gt;table&lt;/code&gt;を使うでいい&lt;/li&gt;
-&lt;li&gt;実際の案件でマルチデバイス云々みたいな場合だと、無理ではないけれども&lt;code&gt;table&lt;/code&gt;じゃない方がやりやすいってのはあると思う。状況によりけりで&lt;/li&gt;
-&lt;li&gt;あと、ラベルとフォーム要素は上下に配置した方が視線の移動が少なくなって良い、みたいな話もあるけど、全てのフォームがそうできるわけじゃないので、それも状況によりけりでいいと思う&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;必須のアスタリスク
-
-&lt;ul&gt;
-&lt;li&gt;フォームのデザインにおいて「必須」を表すのにアスタリスク（もしくは米印などのマーク）を使うこと、また必須であることをフォーム要素の後ろで表すのは(・A・)ｲｸﾅｲ!!ので、そもそもお題として相応しいかどうか&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;必須項目の表現方法
-
-&lt;ul&gt;
-&lt;li&gt;音声読み上げのことを考慮すると、アスタリスクだけではダメなので、&lt;code&gt;aria-label&lt;/code&gt;と&lt;code&gt;required&lt;/code&gt;、&lt;code&gt;required&lt;/code&gt;に対応していない環境に配慮して&lt;code&gt;aria-required=&amp;quot;true&amp;quot;&lt;/code&gt;を付けた&lt;/li&gt;
-&lt;li&gt;音声読み上げ周りの最新の情報として要・不要なものがあるかもだけど、その辺の話はよくわからない。ぜひそっち系に詳しい方のマークアップが見てみたい&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;（半角英字）みたいな注釈的なものがフォーム要素の上とか下にあった場合、フォーム要素に単位が付いている場合、あと最近では多くなってきているラベルをプレースホルダーとして使うとか、他にもパターンは色々ありますけど、フォームのマークアップというのは経験がものをいう部分だとも言えると思います。&lt;/p&gt;
-
-&lt;h2&gt;お題3 「財務諸表」&lt;/h2&gt;
-
-&lt;script src="http://jsdo.it/blogparts/8WT9/js"&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;a href="http://jsdo.it/_konitter/8WT9"&gt;MarkupCafe Tokyo Vol.2 お題3 「財務諸表」 #html5j - jsdo.it&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;このお題ならもう見たままコーディングで問題ないはず。当のイベントでは各チーム似たような感じだったのも当然といえば当然。これといったポイントもナシで。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;table&lt;/code&gt;なんか使わない、&lt;code&gt;table&lt;/code&gt;が許されるのは小学生までだよねって人もいるかもしれないけど、そんなの十分変態だし通報レベルなので注意が必要です。&lt;/p&gt;
-
-&lt;h2&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;ざっと調べたところ、このイベントやお題に対して意見を表明している人がいなさそうなのですが、この辺のマークアップなネタについては一家言ある、という人が自分の周りにはたくさんいるので、そういった方々がどう書くか非常に興味があります。|дﾟ)ﾁﾗｯ&lt;/p&gt;
 </content>
   </entry>
 </feed>
