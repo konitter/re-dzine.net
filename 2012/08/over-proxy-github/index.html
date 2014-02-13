@@ -12,10 +12,13 @@ fatal: The remote end hung up unexpectedly</code>
 <code class="language-sh">$git config --global http.proxy http://proxy.server.com:port</code>
 </pre><p>次に~/.ssh/configを開き、本エントリーの上で記述した設定に以下のプロキシサーバーの設定を追記します。コマンド内のconnect.exeはC:/Program Files/Git/binの配下にあるはず。</p><pre>
 <code class="language-sh">ProxyCommand connect.exe -H proxy.server.com:port %h %p</code>
-</pre><p>これでもう一度$ssh -T git@github.comしたところ、無事に接続できました！一応仕事してる体なので無表情なのですが、心のなかでは飛び上がるほど嬉しかったです。</p><p>これで色々GitHubを弄りまくってモテたいと思います。みなさま何卒よろしくお願い申し上げます。</p></div></article><aside class="share"><ul><li><div class="fb-like" data-send="false" data-layout="button_count" data-width="auto" data-show-faces="false"></div><div id="fb-root"></div><script>
+</pre><p>これでもう一度$ssh -T git@github.comしたところ、無事に接続できました！一応仕事してる体なので無表情なのですが、心のなかでは飛び上がるほど嬉しかったです。</p><p>これで色々GitHubを弄りまくってモテたいと思います。みなさま何卒よろしくお願い申し上げます。</p></div></article><aside class="share"><ul><li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>
         (function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=231858050163702";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));
       </script></li><li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></script></li></ul></aside><ul class="post-pager"><li> Older Entry: <div><a href="/2012/06/vim-night-watch/">Vimカラースキームを自作してみた- Night Watch</a></div></li><li> Newer Entry: <div><a href="/2012/08/neobundle-vim/">Vimのプラグイン管理をpathogenからneobundleに移行してハマった話</a></div></li></ul></main><script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');
+      </script></li></ul></aside><aside><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>
+    | (adsbygoogle = window.adsbygoogle || []).push({});
+  </script></aside><ul class="post-pager"><li> Older Entry: <div><a href="/2012/06/vim-night-watch/">Vimカラースキームを自作してみた- Night Watch</a></div></li><li> Newer Entry: <div><a href="/2012/08/neobundle-vim/">Vimのプラグイン管理をpathogenからneobundleに移行してハマった話</a></div></li></ul></main><script>
       var _gaq = _gaq || [];
       _gaq.push(["_setAccount", "UA-10906036-1"]);
       _gaq.push(["_trackPageview"]);
