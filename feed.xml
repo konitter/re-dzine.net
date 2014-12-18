@@ -10,8 +10,8 @@
   </author>
   <entry>
     <title>Sublime Text 3 Settings</title>
-    <link rel="alternate" href="http://re-dzine.net/2014/12/st3-settings.html"/>
-    <id>http://re-dzine.net/2014/12/st3-settings.html</id>
+    <link rel="alternate" href="http://re-dzine.net/2014/12/st3-settings/"/>
+    <id>http://re-dzine.net/2014/12/st3-settings/</id>
     <published>2014-12-18T06:28:00Z</published>
     <updated>2014-12-18T16:10:29+09:00</updated>
     <author>
@@ -38,8 +38,8 @@
   </entry>
   <entry>
     <title>Sublime Text 3 Settings</title>
-    <link rel="alternate" href="http://re-dzine.net/2014/12/st3-settings.html"/>
-    <id>http://re-dzine.net/2014/12/st3-settings.html</id>
+    <link rel="alternate" href="http://re-dzine.net/2014/12/st3-settings/"/>
+    <id>http://re-dzine.net/2014/12/st3-settings/</id>
     <published>2014-12-18T06:28:00Z</published>
     <updated>2014-12-18T16:09:07+09:00</updated>
     <author>
@@ -65,11 +65,11 @@
 </content>
   </entry>
   <entry>
-    <title>Sublime Text 3 Settings &amp;amp; Tips</title>
+    <title>Sublime Text 3 Settings</title>
     <link rel="alternate" href="http://re-dzine.net/2014/12/st3-settings/"/>
     <id>http://re-dzine.net/2014/12/st3-settings/</id>
     <published>2014-12-18T06:28:00Z</published>
-    <updated>2014-12-18T17:51:06+09:00</updated>
+    <updated>2014-12-18T18:05:00+09:00</updated>
     <author>
       <name>konitter</name>
     </author>
@@ -89,7 +89,7 @@
 
 &lt;h2&gt;Package Control&lt;/h2&gt;
 
-&lt;p&gt;3でもPackage Controlは必須なのでまず最初にインストールします。インストールの仕方は2のときと同じですが、&lt;code&gt;View &amp;gt; Show Console&lt;/code&gt;か&lt;code&gt;ctrl+`&lt;/code&gt;で開くコンソールに貼り付けるコードが2とは違います。詳しくは&lt;a href="https://sublime.wbond.net/installation#Simple"&gt;Installation - Package Control&lt;/a&gt;を見てもらえればわかるかと。&lt;/p&gt;
+&lt;p&gt;3でもPackage Controlは必須なのでまず最初にインストールします。インストールの仕方は2のときと同じですが、コンソールに貼り付けるコードが2とは違います。詳しくは&lt;a href="https://sublime.wbond.net/installation#Simple"&gt;Installation - Package Control&lt;/a&gt;を見てもらえればわかるかと。&lt;/p&gt;
 
 &lt;h2&gt;Theme &amp;amp; Color Scheme&lt;/h2&gt;
 
