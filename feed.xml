@@ -4,10 +4,142 @@
   <id>http://re-dzine.net/</id>
   <link href="http://re-dzine.net/"/>
   <link href="http://re-dzine.net/feed.xml" rel="self"/>
-  <updated>2014-10-17T05:29:00Z</updated>
+  <updated>2014-12-18T06:28:00Z</updated>
   <author>
     <name>konitter</name>
   </author>
+  <entry>
+    <title>Sublime Text 3 Settings</title>
+    <link rel="alternate" href="http://re-dzine.net/2014/12/st3-settings.html"/>
+    <id>http://re-dzine.net/2014/12/st3-settings.html</id>
+    <published>2014-12-18T06:28:00Z</published>
+    <updated>2014-12-18T16:10:29+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">この記事は [Sublime Text Advent Calendar 2014](http://www.adventar.org/calendars/407) 18日目の記事です。
+
+1ヵ月くらい前にSublime Text 2から3に乗り換えました。それにあたって設定やプラグイン周りを色々と見直したので、そんなことを簡単にまとめたいと思います。
+
+## プラグインの移行
+
+2から3に移行する場合に一番気になるのが、今まで使ってたプラグインが3でも使えるかどうか。じゃあプラグインのGitHubとかを見て、3に対応してるかどうか1つずつ確認するのは非常にめんどいわけです。
+
+でも世の中には便利なものを作ってくれる人がいまして。「[Can I Switch To Sublime Text 3?](http://www.caniswitchtosublimetext3.com/)」というそのまんまなツールで、インストールしているパッケージが書かれたファイル``Package Control.sublime-settings``の中身を画面内のテキストエリアにコピペして「Can I Switch?」のボタンを押すだけで、プラグインが3に対応してるかを判定してくれます。
+
+![Can I Switch To Sublime Text 3?の判定結果](/img/2014/12/st3_01.png)
+
+全部のプラグインが3に対応していれば、「YES!」と出ます。もし対応していないプラグインがあれば明示してくれるので、それが絶対に必要なものかどうかを検討してみると良いと思います。だいたいはほとんど使ってないものだったり、3に対応した代わりのプラグインが他にあったりします。
+
+## Package Control
+
+3でもPackage Controlは必要なのでまず最初にインストールします。インストールの仕方は2のときと同じですが、&lt;code&gt;ctrl+`&lt;/code&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Sublime Text 3 Settings</title>
+    <link rel="alternate" href="http://re-dzine.net/2014/12/st3-settings.html"/>
+    <id>http://re-dzine.net/2014/12/st3-settings.html</id>
+    <published>2014-12-18T06:28:00Z</published>
+    <updated>2014-12-18T16:09:07+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">この記事は [Sublime Text Advent Calendar 2014](http://www.adventar.org/calendars/407) 18日目の記事です。
+
+1ヵ月くらい前にSublime Text 2から3に乗り換えました。それにあたって設定やプラグイン周りを色々と見直したので、そんなことを簡単にまとめたいと思います。
+
+## プラグインの移行
+
+2から3に移行する場合に一番気になるのが、今まで使ってたプラグインが3でも使えるかどうか。じゃあプラグインのGitHubとかを見て、3に対応してるかどうか1つずつ確認するのは非常にめんどいわけです。
+
+でも世の中には便利なものを作ってくれる人がいまして。「[Can I Switch To Sublime Text 3?](http://www.caniswitchtosublimetext3.com/)」というそのまんまなツールで、インストールしているパッケージが書かれたファイル``Package Control.sublime-settings``の中身を画面内のテキストエリアにコピペして「Can I Switch?」のボタンを押すだけで、プラグインが3に対応してるかを判定してくれます。
+
+![Can I Switch To Sublime Text 3?の判定結果](/img/2014/12/st3_01.png)
+
+全部のプラグインが3に対応していれば、「YES!」と出ます。もし対応していないプラグインがあれば明示してくれるので、それが絶対に必要なものかどうかを検討してみると良いと思います。だいたいはほとんど使ってないものだったり、3に対応した代わりのプラグインが他にあったりします。
+
+## Package Control
+
+3でもPackage Controlは必要なのでまず最初にインストールします。インストールの仕方は2のときと同じですが、``ctrl+```
+</content>
+  </entry>
+  <entry>
+    <title>Sublime Text 3 Settings &amp;amp; Tips</title>
+    <link rel="alternate" href="http://re-dzine.net/2014/12/st3-settings/"/>
+    <id>http://re-dzine.net/2014/12/st3-settings/</id>
+    <published>2014-12-18T06:28:00Z</published>
+    <updated>2014-12-18T17:51:06+09:00</updated>
+    <author>
+      <name>konitter</name>
+    </author>
+    <content type="html">&lt;p&gt;この記事は &lt;a href="http://www.adventar.org/calendars/407"&gt;Sublime Text Advent Calendar 2014&lt;/a&gt; 18日目の記事です。&lt;/p&gt;
+
+&lt;p&gt;1ヵ月くらい前にSublime Text 2から3に乗り換えました。それにあたって設定やパッケージ周りを色々と見直したので、そんなことを簡単にまとめたいと思います。&lt;/p&gt;
+
+&lt;h2&gt;Preparation&lt;/h2&gt;
+
+&lt;p&gt;2から3に移行する場合に一番気になるのが、今まで使ってたパッケージが3でも使えるかどうか。じゃあパッケージのGitHubとかを見て、3に対応してるかどうか1つずつ確認するのは非常にめんどいわけです。&lt;/p&gt;
+
+&lt;p&gt;でも世の中には便利なものを作ってくれる人がいまして。「&lt;a href="http://www.caniswitchtosublimetext3.com/"&gt;Can I Switch To Sublime Text 3?&lt;/a&gt;」というそのまんまなツールで、&lt;code&gt;Package Control.sublime-settings&lt;/code&gt;の中身を画面にコピペして「Can I Switch?」のボタンを押すだけで、パッケージが3に対応してるかを判定してくれます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="Can I Switch To Sublime Text 3?の判定結果" src="/img/2014/12/st3_01.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;全部のパッケージが3に対応していれば、「YES!」と出ます。もし対応していないパッケージがあれば明示してくれるので、それが絶対に必要なものかどうかを検討してみると良いと思います。だいたいはほとんど使ってないものだったり、3に対応した代わりのパッケージが他にあったりします。&lt;/p&gt;
+
+&lt;h2&gt;Package Control&lt;/h2&gt;
+
+&lt;p&gt;3でもPackage Controlは必須なのでまず最初にインストールします。インストールの仕方は2のときと同じですが、&lt;code&gt;View &amp;gt; Show Console&lt;/code&gt;か&lt;code&gt;ctrl+`&lt;/code&gt;で開くコンソールに貼り付けるコードが2とは違います。詳しくは&lt;a href="https://sublime.wbond.net/installation#Simple"&gt;Installation - Package Control&lt;/a&gt;を見てもらえればわかるかと。&lt;/p&gt;
+
+&lt;h2&gt;Theme &amp;amp; Color Scheme&lt;/h2&gt;
+
+&lt;p&gt;Package Controlがインストールできたら、テーマを変えたくなるのがSublimer（Sublime Textユーザーのこと）（勝手に決めた）というものです。せっかく3に移行するなら、2とは別のテーマにしてみるのもいいんじゃないでしょうか？今使っているのは、&lt;a href="https://github.com/thinkpixellab/flatland"&gt;Flatland&lt;/a&gt;のDarkなテーマに&lt;a href="https://github.com/jonschlinkert/sublime-monokai-extended"&gt;Monokai Extended&lt;/a&gt;なカラースキームです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt="Sublime Text 3でHTMLを表示した画面" src="/img/2014/12/st3_02.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;他にどんなテーマがあるかは、&lt;a href="https://sublime.wbond.net/browse/labels/theme"&gt;Package Controlのサイトのthemeラベルのページ&lt;/a&gt;や、Scotchの&lt;a href="http://scotch.io/bar-talk/the-best-sublime-text-3-themes-of-2014"&gt;The Best Sublime Text 3 Themes of 2014&lt;/a&gt;とかで。&lt;/p&gt;
+
+&lt;h2&gt;Personalisation&lt;/h2&gt;
+
+&lt;p&gt;現状、カスタマイズした設定やキーマップ、各種パッケージの設定周りは、&lt;a href="https://github.com/konitter/sublime-settings"&gt;GitHubにアップ&lt;/a&gt;しています（みんなも設定ファイルを共有しよう！）。その中でも個人的に地味に便利だと思っているキーマップをご紹介します。&lt;/p&gt;
+
+&lt;h3&gt;Only Package Control of command&lt;/h3&gt;
+
+&lt;p&gt;なんだかんだでPackage Control絡みのコマンドは使う機会が多いと思います。ぼくは以下のキーマップを設定して&lt;code&gt;Super+Alt+p&lt;/code&gt;でPackage Controlのコマンドだけを呼び出せるようにしています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ &amp;quot;keys&amp;quot;: [&amp;quot;super+alt+p&amp;quot;], &amp;quot;command&amp;quot;: &amp;quot;show_overlay&amp;quot;, &amp;quot;args&amp;quot;: {&amp;quot;overlay&amp;quot;: &amp;quot;command_palette&amp;quot;, &amp;quot;text&amp;quot;: &amp;quot;Package Control: &amp;quot;} }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img alt="Sublime Text 3でHTMLを表示した画面" src="/img/2014/12/st3_03.png" /&gt;&lt;/p&gt;
+
+&lt;p&gt;↑こんな風に。&lt;/p&gt;
+
+&lt;h3&gt;Re-indent the whole file with a single key&lt;/h3&gt;
+
+&lt;p&gt;ファイルや選択範囲のインデントを一発で整形できるコマンド「Re-indent」は、デフォルトではキーマップが設定されていません。コマンドパレットから都度呼び出してもいいんですが、以下の設定で&lt;code&gt;F10&lt;/code&gt;で実行できるようにしています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ &amp;quot;keys&amp;quot;: [&amp;quot;f10&amp;quot;], &amp;quot;command&amp;quot;: &amp;quot;reindent&amp;quot;, &amp;quot;args&amp;quot;: {&amp;quot;single_line&amp;quot;: false}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Package Syncing&lt;/h2&gt;
+
+&lt;p&gt;ぼくは仕事ではWindows/家ではMacなのですが、複数の環境でSublime Textを同じセッティングで使いたいときはあると思います。そんなときパッケージのフォルダごとごっそりコピペしてしまいがちですが、それは非常に危険です。&lt;a href="https://sublime.wbond.net/docs/syncing"&gt;Package ControlのSyncingというページ&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;To properly sync your installed packages across different machines, you actually do not want to sync the whole Packages/ and Installed Packages/ folders. The reason for this is that some packages have different versions for different operating systems. By syncing the actual package contents across operating systems, you will possibly run into broken packages.&lt;/p&gt;
+
+&lt;p&gt;The proper solution is to install Package Control on all machines and then to sync only the Packages/User/ folder. This folder contains the Package Control.sublime-settings file, which includes a list of all installed packages. If this file is copied to another machine, the next time Sublime Text is started, Package Control will install the correct version of any missing packages.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;超要約すると、「パッケージによってはOSごとに異なるバージョンが存在しているものがあってうまく実行されない場合があるので&lt;code&gt;Packages/&lt;/code&gt;や&lt;code&gt;Installed Packages/&lt;/code&gt;ごと同期するのは辞めようぜ。一番いいのは、すべてのマシンにPackage Controlをインストールして&lt;code&gt;Packages/User/&lt;/code&gt;のみを同期することなんだ。そのフォルダ内の&lt;code&gt;Package Control.sublime-settings&lt;/code&gt;に書かれたパッケージでインストールされていないものがあれば、Sublime Textを起動したときに自動的にインストールされるんだぜ。」です。&lt;/p&gt;
+
+&lt;p&gt;この機能を使えば、新しいPCなどにSublime Textを改めてセッティングするときにはとっても便利なわけです。&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;長くなってきたのでこの辺で。続く18日目は&lt;a href="https://twitter.com/kasshy"&gt;@kasshyさん&lt;/a&gt;です。よろしくお願いしまーす！&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>【告知】『Web制作者のためのCSS設計の教科書』出版記念イベントを11/8に大阪で開催します</title>
     <link rel="alternate" href="http://re-dzine.net/2014/10/textbook-of-css-design/"/>
@@ -264,289 +396,6 @@ grunt.registerTask(&amp;#39;name&amp;#39;, [&amp;#39;jshint&amp;#39;, &amp;#39;c
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;とにかく大事なのは、なんのためにビルドツールを使うのかということです。そこを忘れずにいれば、Gruntもgulpもどちらも便利なツールであることには違いありませんので、クオリティーの高い制作を行うことができるでしょう。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Middlemanで作ったブログのテンプレートエンジンをERBからSlimに</title>
-    <link rel="alternate" href="http://re-dzine.net/2014/01/middleman-slim/"/>
-    <id>http://re-dzine.net/2014/01/middleman-slim/</id>
-    <published>2014-01-08T10:20:00Z</published>
-    <updated>2014-01-09T12:05:52+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;今どき生の HTML を書いてるようじゃモテないって聞いたので、昨年10月末に &lt;a href="http://middlemanapp.com/"&gt;Middleman&lt;/a&gt; で作ったこのブログのテンプレートエンジンをデフォルトの ERB から &lt;a href="https://github.com/slim-template/slim"&gt;Slim&lt;/a&gt; に変更しました。&lt;/p&gt;
-
-&lt;h2&gt;HamlとSlim&lt;/h2&gt;
-
-&lt;p&gt;Middleman では Slim だけでなく &lt;a href="https://github.com/haml/haml"&gt;Haml&lt;/a&gt; も使えます。Haml は Middleman に標準で装備されているので、ファイルの拡張子を&lt;code&gt;hoge.html.haml&lt;/code&gt;にするだけですぐに使いはじめることができます。が、HTML要素の頭に&lt;code&gt;%&lt;/code&gt;を書くっていう記法が気持ち悪かったのと、Slim だと属性をカッコで囲まなくてよく、さらに簡潔に書けるので今回は Slim を採用。&lt;/p&gt;
-
-&lt;p&gt;Haml と Slim の簡単な比較は、それぞれの Github か以下のページから確認できます。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://tech-sketch.jp/2013/07/haml-slim-middleman.html"&gt;HamlとSlimをMiddleman上で比較する - Tech-Sketch&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;MiddlemanでSlimを使う&lt;/h2&gt;
-
-&lt;p&gt;Middleman のプロジェクトを新規に作る場合は、&lt;a href="https://github.com/yterajima/middleman-slim"&gt;middleman-slim&lt;/a&gt; という最初からテンプレートファイルが Slim になっているエクステンションを使うといいです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="bash"&gt;$ gem install middleman
-$ gem install middleman-slim
-$ middleman init PROJECT_NAME --template slim
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;今回の僕のように途中から Slim に変更する場合は、Slim を利用するために gem をインストールする必要があります。とはいえ方法は簡単で、以下の一行をMiddlemanプロジェクトのルートにある&lt;code&gt;Gemfile&lt;/code&gt;に追加して&lt;code&gt;bundle install&lt;/code&gt;。簡単。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="gemfile"&gt;gem &amp;quot;slim&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あとは各テンプレートファイルの拡張子を&lt;code&gt;hoge.html.slim&lt;/code&gt;に変更して、記法に従って書くだけ。以下のような HTML から Slim に変換してくれるサイトもあるので、めんどくさい人はどうぞ。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://html2slim.herokuapp.com/"&gt;Html2Slim | Convert HTML Snippets to Slim&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;オプションを設定してSlimの出力結果を制御する&lt;/h2&gt;
-
-&lt;p&gt;何の設定もなしにデフォルトだと以下のような HTML が出力されます。（head内の一部を抜粋）&lt;br&gt;
-コードは圧縮、属性の順番がソートされ、さらに閉じタグのないものは XHTML な感じに。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="html"&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;&amp;lt;title&amp;gt;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;lt;/title&amp;gt;&amp;lt;meta content=&amp;quot;width=device-width,initial-scale=1&amp;quot; name=&amp;quot;viewport&amp;quot; /&amp;gt;&amp;lt;meta content=&amp;quot;REFLECTDESIGN&amp;quot; property=&amp;quot;og:site_name&amp;quot; /&amp;gt;&amp;lt;meta content=&amp;quot;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;quot; property=&amp;quot;og:title&amp;quot; /&amp;gt;&amp;lt;meta content=&amp;quot;article&amp;quot; property=&amp;quot;og:type&amp;quot; /&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;個人的には嘔吐感が半端なかったので、以下の設定を&lt;code&gt;config.rb&lt;/code&gt;に加えてやります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="ruby"&gt;set :slim, { :pretty =&amp;gt; true, :sort_attrs =&amp;gt; false, :format =&amp;gt; :html5 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;するとこんな風に。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="html"&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
-&amp;lt;title&amp;gt;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;lt;/title&amp;gt;
-&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,initial-scale=1&amp;quot;&amp;gt;
-&amp;lt;meta property=&amp;quot;og:site_name&amp;quot; content=&amp;quot;REFLECTDESIGN&amp;quot;&amp;gt;
-&amp;lt;meta property=&amp;quot;og:title&amp;quot; content=&amp;quot;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;quot;&amp;gt;
-&amp;lt;meta property=&amp;quot;og:type&amp;quot; content=&amp;quot;article&amp;quot;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;その他のオプションについては &lt;a href="https://github.com/slim-template/slim#available-options"&gt;Github の Available options&lt;/a&gt; を参照してください。&lt;/p&gt;
-
-&lt;h2&gt;ビルド時にHTMLをMinifyする&lt;/h2&gt;
-
-&lt;p&gt;上記のオプションでHTMLコードは見やすくなったものの、&lt;code&gt;middleman build&lt;/code&gt;するときにはHTMLファイルを Minify したくなりました。そんなときは、&lt;a href="https://github.com/middleman/middleman-minify-html"&gt;Middleman-Minify-HTML&lt;/a&gt; を使います。&lt;/p&gt;
-
-&lt;p&gt;使い方は&lt;code&gt;Gemfile&lt;/code&gt;に以下の一行を追加して&lt;code&gt;bundle install&lt;/code&gt;。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="gemfile"&gt;gem &amp;#39;middleman-minify-html&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;そしてビルド時の設定として以下を&lt;code&gt;config.rb&lt;/code&gt;を追加する。デフォルトでは、&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;などのクオート記号を削除、各HTML要素間にスペースを入れるようになっていたので、以下のオプションを追加。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="ruby"&gt;configure :build do
-  activate :minify_html, :remove_quotes =&amp;gt; false, :remove_intertag_spaces =&amp;gt; true
-  ...
-  ...
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;そもそもこの middleman-minify-html は HTML の Minify に htmlcompressor を使っているので、&lt;a href="https://github.com/paolochiodi/htmlcompressor"&gt;htmlcompressor の Github&lt;/a&gt; に書いてあるオプションを適宜設定すればそれが適用できます。&lt;/p&gt;
-
-&lt;p&gt;出力結果はこのページのソースでも見てもらえればと。&lt;br&gt;
-このブログのソースコードは以下にアップしてるので良かったら参考まで。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/konitter/konitter.github.io"&gt;konitter/konitter.github.io&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>MarkupCafe Osaka Vol.1 に参加してきました</title>
-    <link rel="alternate" href="http://re-dzine.net/2013/12/markupcafe-osaka-vol1/"/>
-    <id>http://re-dzine.net/2013/12/markupcafe-osaka-vol1/</id>
-    <published>2013-12-26T08:20:00Z</published>
-    <updated>2013-12-27T16:02:41+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;先日12/20(金)に開催されたhtml5jマークアップ部主催のイベント「&lt;a href="http://atnd.org/events/45379"&gt;MarkupCafe Osaka Vol.1&lt;/a&gt;」に参加してきましたので簡単にレポートします。&lt;/p&gt;
-
-&lt;p&gt;参加者はいくつかのチームに分かれ、出題されたお題についてチームごとに最適なマークアップを考えます。チーム内で話し合って決めたコードは&lt;a href="http://jsdo.it/"&gt;jsdo.it&lt;/a&gt;に書いてハッシュタグ&lt;a href="http://twitter.com/search?q=%23html5j"&gt;#html5j&lt;/a&gt;を付けてTwitterに投稿、そのコードをプロジェクターで映してみんなでレビュー、という感じ。&lt;/p&gt;
-
-&lt;h2&gt;お題1 「フッター」&lt;/h2&gt;
-
-&lt;p&gt;&lt;img alt="お題1" src="https://pbs.twimg.com/media/Bb6-jhdIYAA71oT.jpg" /&gt;&lt;/p&gt;
-
-&lt;p&gt;1問目は企業サイトで使われるようなイメージのフッター。マークアップするうえでの個人的にポイントだと思うものを3つ挙げてみます。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上の「HOME &amp;gt;」
-
-&lt;ul&gt;
-&lt;li&gt;パッと見でパンくずのように見えるから&lt;code&gt;ul&lt;/code&gt;や`&lt;code&gt;ol&lt;/code&gt;でマークアップしがちだけど、出題者の村岡さん（&lt;a href="https://twitter.com/bathtimefish"&gt;@bathtimefish&lt;/a&gt;）によると「これはただのHOMEへのリンク」とのこと&lt;/li&gt;
-&lt;li&gt;他のページではこの部分がどうなるかなどデザイナーに確認しましょうねっていう。エンジニアの勝手な想像でマークアップするの(・A・)ｲｸﾅｲ!!&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;ロゴマークと会社名（日本語表記と英語表記）
-
-&lt;ul&gt;
-&lt;li&gt;会社名の部分をテキストで書いて配置する人もいるかもしれないけど、個人的にはロゴマークと会社名全体を1枚の画像でいい&lt;/li&gt;
-&lt;li&gt;時間に余裕があってこだわりたい人は、SVG使ったりWebフォント使ったり好きにすればいいかと&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;「お問合せ」の電話番号・メールアドレスおよび、神戸・東京本社の住所
-
-&lt;ul&gt;
-&lt;li&gt;ポイントとなるのは&lt;code&gt;address&lt;/code&gt;要素の使い方。どの範囲をくくるか&lt;/li&gt;
-&lt;li&gt;このデザインでは明示的に「お問合せ：」というテキストがあり、その横に電話番号とメールアドレスが書かれているので、個人的にはその範囲が&lt;code&gt;address&lt;/code&gt;の範囲になると考えた&lt;/li&gt;
-&lt;li&gt;その下の神戸・東京本社の住所まで含めるかどうかは、このページ（ドキュメント）の問い合わせ先となりうるかどうかで決まるはずなので、それはデザイナーやあるいはクライアントであるこの企業に確認が必要な部分だと思う&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上記のポイントもふまえて、個人的にマークアップするならこんな感じ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="html"&gt;&amp;lt;footer role=&amp;quot;contentinfo&amp;quot;&amp;gt;
-  &amp;lt;div&amp;gt;&amp;lt;a href=&amp;quot;/&amp;quot;&amp;gt;HOME&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
-  &amp;lt;div&amp;gt;
-    &amp;lt;img src=&amp;quot;logo.png&amp;quot; alt=&amp;quot;株式会社バスタイム商事 Bathtime Bussiness Corp.&amp;quot;&amp;gt;
-    &amp;lt;div&amp;gt;
-      &amp;lt;address&amp;gt;お問合せ：&amp;lt;a href=&amp;quot;tel:012000000000&amp;quot;&amp;gt;0120-0000-0000&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;mailto:information@bathtimeshoji.com&amp;quot;&amp;gt;information[at]bathtimeshoji.com&amp;lt;/a&amp;gt;&amp;lt;/address&amp;gt;
-      神戸本社：兵庫県神戸市◯◯◯◯◯ 11-11-11 ◯◯ビル 11&amp;lt;br&amp;gt;
-      東京本社：東京都渋谷区◯◯◯◯◯ 22-22-22 ◯◯ビル 22
-    &amp;lt;/div&amp;gt;
-  &amp;lt;/div&amp;gt;
-  &amp;lt;div&amp;gt;&amp;lt;small&amp;gt;copyright (c) bathtimeshoji. All Rights Reserved.&amp;lt;/small&amp;gt;&amp;lt;/div&amp;gt;
-&amp;lt;/footer&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;お題2 「パンくずリスト」&lt;/h2&gt;
-
-&lt;p&gt;&lt;img alt="お題2" src="/img/2013/12/breadcrumb.png" /&gt;&lt;/p&gt;
-
-&lt;p&gt;2問目はいわゆるパンくずリスト。定期的に話題になるある意味ネタ化しているUIのひとつで、&lt;a href="http://www.w3.org/html/wg/drafts/html/master/common-idioms.html#rel-up"&gt;HTML5.1 Nightlyのドキュメントのパンくずリストのセクション&lt;/a&gt;を見るとコード例に「→」が使われていたりして、W3Cでも明確な答えが出せていません。&lt;/p&gt;
-
-&lt;p&gt;ただそうなっている理由自体は単純で、パンくずリストが置かれる状況によって、また情報提供者の意図によってどんなマークアップがふさわしいかが異なってくるからです。なので、パンくずリストだけのデザインを見せられてマークアップするのは本来ならそれはとても難しいことのはずです。&lt;/p&gt;
-
-&lt;p&gt;また、そもそもリストかリストでないかという議論もありますが、取り回ししやすさを重視して、個人的には極々シンプルにマークアップしたいところです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="html"&gt;&amp;lt;ul class=&amp;quot;breadcrumb&amp;quot;&amp;gt;
-  &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/&amp;quot;&amp;gt;Markup Cafeトップページ&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-  &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/shop/&amp;quot;&amp;gt;店舗情報&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-  &amp;lt;li class=&amp;quot;current&amp;quot;&amp;gt;ドリンク・フード&amp;lt;/li&amp;gt;
-&amp;lt;/ul&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;自分のコードを振り返るようなことをあまりしない、あるいは他人のコードや考え方などを普段気にせず制作されているような方は特に、非常に刺激的なイベントだと思います。たまにはこういうのもいいですよ。また是非参加したいです。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ</title>
-    <link rel="alternate" href="http://re-dzine.net/2013/12/grunt-browser-sync/"/>
-    <id>http://re-dzine.net/2013/12/grunt-browser-sync/</id>
-    <published>2013-12-16T02:23:00Z</published>
-    <updated>2013-12-17T09:49:48+09:00</updated>
-    <author>
-      <name>konitter</name>
-    </author>
-    <content type="html">&lt;p&gt;この投稿は&lt;a href="http://qiita.com/advent-calendar/2013/grunt-plugins"&gt;Grunt Plugins Advent Calendar 2013&lt;/a&gt;の24日目の記事です。&lt;/p&gt;
-
-&lt;h2&gt;grunt-browser-syncとは&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/shakyShane/grunt-browser-sync"&gt;shakyShane/grunt-browser-sync&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;同名のnpmモジュール「&lt;a href="https://github.com/shakyShane/browser-sync"&gt;browser-sync&lt;/a&gt;」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。&lt;/p&gt;
-
-&lt;p&gt;このbrowser-syncには以下のような特徴があります。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;スクロールの同期&lt;/li&gt;
-&lt;li&gt;フォームの入力操作などの同期&lt;/li&gt;
-&lt;li&gt;リンククリックの同期&lt;/li&gt;
-&lt;li&gt;CSSをバックグラウンドで自動更新&lt;/li&gt;
-&lt;li&gt;HTMLやPHPファイルを監視してライブリロード（エクステンション不要）&lt;/li&gt;
-&lt;li&gt;ビルトインサーバ&lt;/li&gt;
-&lt;li&gt;PHP, Rails, Python, Node, ASP.netのセットアップで使用できるプロキシオプション&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;他にも、プラットフォーム問わず動くという点も良い所で、Win7でも問題なく動作します（確認済み）し、ブラウザにおいてもIEも含めて同期することができます。&lt;/p&gt;
-
-&lt;p&gt;似たようなツールに「&lt;a href="http://html.adobe.com/edge/inspect/"&gt;Adobe Edge Inspect&lt;/a&gt;」や「&lt;a href="http://vanamco.com/ghostlab/"&gt;Ghostlab&lt;/a&gt;」があり、いずれも有償ですが、GUIクライアントじゃないとできませんって方はそちらを試してみるとよいかと。&lt;/p&gt;
-
-&lt;h2&gt;インストール&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;$ npm i(install) grunt-browser-sync -D(--save-dev)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これだけ。&lt;/p&gt;
-
-&lt;h2&gt;Gruntfile&lt;/h2&gt;
-
-&lt;p&gt;以下サンプル。その他各種オプションについては、&lt;a href="https://github.com/shakyShane/grunt-browser-sync"&gt;README&lt;/a&gt;を参照。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;#39;use strict&amp;#39;
-
-module.exports = (grunt) -&gt;
-
-  grunt.initConfig
-    browser_sync:
-      files:
-        src: [
-          &amp;#39;index.html&amp;#39;,
-          &amp;#39;assets/css/*.css&amp;#39;
-        ]
-      options:
-        server:
-          index: &amp;#39;index.html&amp;#39;
-        ghostMode:
-          scroll: true
-          links: true
-          forms: true
-
-  require(&amp;#39;load-grunt-tasks&amp;#39;)(grunt)
-
-  grunt.registerTask &amp;#39;default&amp;#39;, [&amp;#39;browser_sync&amp;#39;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;実行&lt;/h2&gt;
-
-&lt;p&gt;これで&lt;code&gt;grunt&lt;/code&gt;を叩くと規定のブラウザで&lt;code&gt;index.html&lt;/code&gt;が開きます。&lt;br&gt;
-立ち上がったサーバアドレスを他のブラウザで開けば、同ネットワーク内にあるiPhoneやAndroidなどからのアクセスも含めて全ブラウザを同期できるようになります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ grunt
-Running &amp;quot;browser_sync:files&amp;quot; (browser_sync) task
-   info  - socket.io started
-
-OK, Server running at http://192.168.0.3:3001
-Serving files from:  c:\hoge
-
-Load a browser &amp;amp; check back here. If you set up everything correctly, you&amp;#39;ll see
- a &amp;#39;Browser Connected&amp;#39;  message
-
-Watching the following:
-index.html
-assets/css/all.css
-
-Browser Connected! (Chrome, version: 31.0.1650.63)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ここで&lt;code&gt;index.html&lt;/code&gt;を更新してみると、接続しているすべてのブラウザにライブリロードが走ります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;File Changed: c:\hoge\index.html
-Reloading all connected browsers...
-Browser Connected! (IE, version: 8.0)
-Browser Connected! (Firefox, version: 26.0)
-Browser Connected! (Chrome, version: 31.0.1650.63)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;他にも、&lt;code&gt;watchTask&lt;/code&gt;オプションにより&lt;code&gt;grunt-contrib-watch&lt;/code&gt;と組み合わせて、CSSプリなんとかファイルの更新からコンパイルして全ブラウザにバックグラウンドで反映、みたいなこともできちゃいます。&lt;/p&gt;
-
-&lt;h2&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;最近のWeb制作環境では、PCだけでなくモバイルやタブレットなど各種スマートデバイスでの確認が必須になってきていますので、そんなときこれを使えば確認作業が劇的に楽になるはずです。&lt;/p&gt;
-
-&lt;p&gt;発注サイドの人間からは以上です。&lt;/p&gt;
 </content>
   </entry>
 </feed>

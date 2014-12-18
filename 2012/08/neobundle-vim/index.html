@@ -3,7 +3,7 @@
 </pre><p>すると.vimrcに書いたプラグインをgit cloneするプログラムが走り、インストールできたプラグイン名がずらずらとコマンドラインに表示されるはずなのですが、</p><pre>
 <code class="language-vim">[neobundle/install] Installed bundles:
 no new bundles installed</code>
-</pre><p>新しくインストールしたプラグインは無いよって出ます。でも、プラグインフォルダを見ると問題なくプラグインがインストールされていました。</p><p>色々調べてみるとneobundleのGitHubの<a href="https://github.com/Shougo/neobundle.vim/issues/19" target="_blank">Issue</a>にこんなコメントがありました。</p><blockquote><p style="margin-bottom:1em;padding:0 0 0 1em;border-left:4px solid #ECECE5;"> あと、neobundle#rc() はif has(&lsquo;vim_starting&rsquo;) {} の中と外、どちらに入れるのが望ましいのでしょうか。 Readmeでは中に、ヘルプでは外に書かれていますよね。ヘルプのほうが新しいと思っていますが&hellip; </p> 外のほうが望ましいです。なぜなら、neobundle#rc()はruntimepathをリセットするためです。 if has(&lsquo;vim_starting&rsquo;)の中に書いていると、runtimepathがリセットできません。 結果、削除したNeoBundleが読み込まれたまま、ということになってしまいます。 </blockquote><p>この通り if has(&lsquo;vim_starting&rsquo;) {} の外に call neobundle#rc() を書くよう.vimrcを編集してみたところ、</p><pre>
+</pre><p>新しくインストールしたプラグインは無いよって出ます。でも、プラグインフォルダを見ると問題なくプラグインがインストールされていました。</p><p>色々調べてみるとneobundleのGitHubの<a href="https://github.com/Shougo/neobundle.vim/issues/19" target="_blank">Issue</a>にこんなコメントがありました。</p><blockquote><p style="margin-bottom:1em;padding:0 0 0 1em;border-left:4px solid #ECECE5;"> あと、neobundle#rc() はif has(&lsquo;vim_starting&rsquo;) {} の中と外、どちらに入れるのが望ましいのでしょうか。 Readmeでは中に、ヘルプでは外に書かれていますよね。ヘルプのほうが新しいと思っていますが&hellip; </p> 外のほうが望ましいです。なぜなら、neobundle#rc()はruntimepathをリセットするためです。 if has('vim_starting&rsquo;)の中に書いていると、runtimepathがリセットできません。 結果、削除したNeoBundleが読み込まれたまま、ということになってしまいます。 </blockquote><p>この通り if has(&#39;vim_starting&rsquo;) {} の外に call neobundle#rc() を書くよう.vimrcを編集してみたところ、</p><pre>
 <code class="language-vim">[neobundle/install] Installed bundles:
 vimfiler
 vimshell
