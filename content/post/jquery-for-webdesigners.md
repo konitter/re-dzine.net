@@ -1,7 +1,6 @@
 ---
 title: 分かりやすすぎる！高津戸壮さん著「WebデザイナーのためのjQuery入門」を読了しました
 date: 2012-02-10
-tags: article,
 ---
 先月購入したピクセルグリッドの高津戸壮さん著の「<a href="http://www.amazon.co.jp/gp/product/4774148563/ref=as_li_ss_tl?ie=UTF8&tag=konitter-22&linkCode=as2&camp=247&creative=7399&creativeASIN=4774148563">WebデザイナーのためのjQuery入門</a>」をようやく読了しました。
 

@@ -1,7 +1,6 @@
 ---
 title: Sublime Text 2でjQuery用のスニペットを自作するときの注意点
 date: 2012-10-26
-tags: article,
 ---
 色々慣れるためにも最近仕事でもSublime Text 2（以下ST2）を使ってるのですが、ST2には便利なスニペット機能がデフォルトで備わっています。所定の書式に従って書いたスニペットを所定の場所に保存するだけで、自動で読み込んでくれます。
 
@@ -18,10 +17,10 @@ jQuery絡みのスニペットを作る場合には注意点があります。�
 
 ```javascript
 ;(function(window, $) {
-    var document = window.document;
-    $(document).ready(function() {
-        // 処理
-    });
+	var document = window.document;
+	$(document).ready(function() {
+		// 処理
+	});
 }(this, jQuery));
 ```
 
@@ -29,17 +28,17 @@ jQuery絡みのスニペットを作る場合には注意点があります。�
 
 <pre class="prettyprint">
 <code>&lt;snippet&gt;
-    &lt;content&gt;&lt;![CDATA[
+	&lt;content&gt;&lt;![CDATA[
 ;(function(window, $) {
-    var document = window.document;
-    $(document).ready(function() {
-        ${0}
-    });
+	var document = window.document;
+	$(document).ready(function() {
+		${0}
+	});
 }(this, jQuery));
 ]]&gt;&lt;/content&gt;
-    &lt;tabTrigger&gt;ready..&lt;/tabTrigger&gt;
-    &lt;scope&gt;source.js&lt;/scope&gt;
-    &lt;description&gt;document ready - jQuery&lt;/description&gt;
+	&lt;tabTrigger&gt;ready..&lt;/tabTrigger&gt;
+	&lt;scope&gt;source.js&lt;/scope&gt;
+	&lt;description&gt;document ready - jQuery&lt;/description&gt;
 &lt;/snippet&gt;</code>
 </pre>
 
@@ -51,17 +50,17 @@ jQuery絡みのスニペットを作る場合には注意点があります。�
 
 <pre class="prettyprint">
 <code>&lt;snippet&gt;
-    &lt;content&gt;&lt;![CDATA[
+	&lt;content&gt;&lt;![CDATA[
 ;(function(window, \$) {
-    var document = window.document;
-    \$(document).ready(function() {
-        ${0}
-    });
+	var document = window.document;
+	\$(document).ready(function() {
+		${0}
+	});
 }(this, jQuery));
 ]]&gt;&lt;/content&gt;
-    &lt;tabTrigger&gt;ready..&lt;/tabTrigger&gt;
-    &lt;scope&gt;source.js&lt;/scope&gt;
-    &lt;description&gt;document ready - jQuery&lt;/description&gt;
+	&lt;tabTrigger&gt;ready..&lt;/tabTrigger&gt;
+	&lt;scope&gt;source.js&lt;/scope&gt;
+	&lt;description&gt;document ready - jQuery&lt;/description&gt;
 &lt;/snippet&gt;</code>
 </pre>
 

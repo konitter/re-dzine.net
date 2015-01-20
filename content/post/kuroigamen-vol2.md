@@ -1,7 +1,6 @@
 ---
 title: 「第2回Webデザイナーの為の黒い画面はお友達勉強会@大阪」に参加しました
 date: 2013-01-21
-tags: conference, 
 ---
 1/19(金)に開催された「<a href="http://www.zusaar.com/event/489012" target="_blank">第2回Webデザイナーの為の黒い画面はお友達勉強会@大阪</a>」に参加してきましたので簡単に感想を。昨年12月に参加した第1回（<a href="http://re-dzine.net/2012/12/kuroigamen/" target="_blank">レポートはこちら</a>）に続く第2回です。
 

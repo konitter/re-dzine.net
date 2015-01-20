@@ -1,7 +1,6 @@
 ---
 title: ConvertToUTF8がアップデートして新規ファイル作成時のエンコードが設定できるように
 date: 2012-12-12
-tags: article,
 ---
 以前、Sublime Text 2でShift-JISが扱えるようになるプラグイン「ConvertToUTF8」を<a href="http://re-dzine.net/2012/10/sublime-text-2-shift-jis/" title="Sublime Text 2をShift_JISに対応させるプラグインがあると聞いて" target="_blank">紹介する記事</a>を書きました。この度、「ConvertToUTF8」がアップデートして新規ファイル作成時のエンコードが設定できるようになりました。
 

@@ -1,7 +1,6 @@
 ---
 title: デザイン丸パクリ疑惑のiOS6のiPad用時計アプリをCSSのみで作ってみた
 date: 2012-09-25
-tags: article, css3, jsdoit, 
 ---
 Appleがスイス連邦鉄道の鉄道時計のデザインを丸パクリしたと話題になっているiOS6から追加されたiPad用時計アプリを「乗るしかない、このビッグウェーブに！」ということで、CSSのみでデザインしCSSのみで動くように作ってみました。
 
@@ -27,16 +26,16 @@ Appleがスイス連邦鉄道の鉄道時計のデザインを丸パクリした
 <pre>
 <code class="language-css">/* 9分 */
 #minute9 {
-  top: 86px;
-  right: 40px;
-  -webkit-transform: rotate(-36deg);
+	top: 86px;
+	right: 40px;
+	-webkit-transform: rotate(-36deg);
 }
 
 /* 21分 */
 #minute21 {
-  bottom: 86px;
-  right: 40px;
-  -webkit-transform: rotate(36deg);
+	bottom: 86px;
+	right: 40px;
+	-webkit-transform: rotate(36deg);
 }</code>
 </pre>
 
@@ -50,10 +49,10 @@ Appleがスイス連邦鉄道の鉄道時計のデザインを丸パクリした
 <pre>
 <code class="language-css">/* 長針 */
 #minute-hand {
-  ...
-  ...
-  -webkit-transform-origin: 165px 8px;
-  ...
+	...
+	...
+	-webkit-transform-origin: 165px 8px;
+	...
 }</code>
 </pre>
 
@@ -63,25 +62,25 @@ Appleがスイス連邦鉄道の鉄道時計のデザインを丸パクリした
 <pre>
 <code class="language-css">/* 秒針 */
 #second-hand {
-  ...
-  -webkit-animation: rotate 60s linear infinite;
+	...
+	-webkit-animation: rotate 60s linear infinite;
 }
 
 /* 長針 */
 #minute-hand {
-  ...
-  -webkit-animation: rotate 3600s linear infinite;
+	...
+	-webkit-animation: rotate 3600s linear infinite;
 }
 
 /* 短針 */
 #hour-hand {
-  ...
-  -webkit-animation: rotate 43200s linear infinite;
+	...
+	-webkit-animation: rotate 43200s linear infinite;
 }
 
 @-webkit-keyframes rotate {
-    0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+		0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
 }</code></pre>
 
 ただし、これだけだと水平方向を0度として、つまり秒針・長針・短針ともに"9"を指した状態から回転し始めるだけですので、時計としては意味を成しません。

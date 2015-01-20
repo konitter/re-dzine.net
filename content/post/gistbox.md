@@ -1,7 +1,6 @@
 ---
 title: GistをメーラーのようなUIで管理する「GistBox」がいい感じ
 date: 2013-04-05
-tags: review
 ---
 <p>自分用のちょっとした技術系のメモを書くときに、最近は<a href="https://gist.github.com/konitter">Gist</a>を使っています。そのGistをメーラーのようなUIで管理するツール「<a href="http://www.gistboxapp.com/">GistBox</a>」を見つけたので、試してみました。</p>
 

@@ -1,7 +1,6 @@
 ---
 title: Web Creator's Contest Q the 2ndに応募してみた
 date: 2012-09-03
-tags: article, css3,
 ---
 「<a href="http://jsdo.it/event/q" target="_blank">Contest Q</a>」っていうのはリクルートが企画・運営する、WEBクリエイター向けのコンテストイベントで、あるお題にそってjsdo.it上にコードを書き、作品を応募するというもの。今回面白そうなお題があったので応募してみました。
 

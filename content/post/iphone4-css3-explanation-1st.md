@@ -1,7 +1,6 @@
 ---
 title: 「iPhone4をCSS3で描いてみた！」の解説(1)
 date: 2010-06-24
-tags: article,
 ---
 先日のエントリー「<a href="http://re-dzine.net/apple/iphone/2010/06/17/css3-iphone4/">iPhone4をCSS3で描いてみた！</a>」が思いのほか反響があったので、解説記事を書いてみました。自分もCSS3でなにかを描きたい！という人に少しでも参考になれば嬉しいです。
 
@@ -51,32 +50,32 @@ CSSで何を描くのかを決めます。大好きなアニメのキャラク�
 ちなみにdemoのiPhone4は以下のHTMLソースからできています。
 
 <pre><code>&lt;div id=&quot;wrapper&quot;&gt;
-  &lt;div id=&quot;sleepbtn&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;silentswitch&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;volumeplus&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;volumeminus&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;iphone4&quot;&gt;
-    &lt;div id=&quot;insetray&quot;&gt;&lt;/div&gt;
-    &lt;div id=&quot;camera&quot;&gt;
-      &lt;div id=&quot;lens&quot;&gt;
-        &lt;div id=&quot;lensInr&quot;&gt;&lt;/div&gt;
-        &lt;div id=&quot;ray1&quot;&gt;&lt;/div&gt;
-        &lt;div id=&quot;ray2&quot;&gt;&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;earspeaker&quot;&gt;
-      &lt;div id=&quot;earspeakerInr&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;screen&quot;&gt;&lt;/div&gt;
-    &lt;div id=&quot;homebtn&quot;&gt;
-      &lt;div id=&quot;homebtnInr&quot;&gt;
-        &lt;div id=&quot;homebtnMark&quot;&gt;&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;balckline1&quot;&gt;&lt;/div&gt;
-    &lt;div id=&quot;balckline2&quot;&gt;&lt;/div&gt;
-    &lt;div id=&quot;balckline3&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
+	&lt;div id=&quot;sleepbtn&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;silentswitch&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;volumeplus&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;volumeminus&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;iphone4&quot;&gt;
+		&lt;div id=&quot;insetray&quot;&gt;&lt;/div&gt;
+		&lt;div id=&quot;camera&quot;&gt;
+			&lt;div id=&quot;lens&quot;&gt;
+				&lt;div id=&quot;lensInr&quot;&gt;&lt;/div&gt;
+				&lt;div id=&quot;ray1&quot;&gt;&lt;/div&gt;
+				&lt;div id=&quot;ray2&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div id=&quot;earspeaker&quot;&gt;
+			&lt;div id=&quot;earspeakerInr&quot;&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div id=&quot;screen&quot;&gt;&lt;/div&gt;
+		&lt;div id=&quot;homebtn&quot;&gt;
+			&lt;div id=&quot;homebtnInr&quot;&gt;
+				&lt;div id=&quot;homebtnMark&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div id=&quot;balckline1&quot;&gt;&lt;/div&gt;
+		&lt;div id=&quot;balckline2&quot;&gt;&lt;/div&gt;
+		&lt;div id=&quot;balckline3&quot;&gt;&lt;/div&gt;
+	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
 ちょっと長くなってきたので、続きは以下へ。

@@ -1,7 +1,6 @@
 ---
 title: Vimのプラグイン管理をpathogenからneobundleに移行してハマった話
 date: 2012-08-22
-tags: article, vim,
 ---
 <a href="http://re-dzine.net/2012/08/over-proxy-github/" title="Windowsで社内LANからプロキシを超えてGitHubにSSH接続する方法">前のエントリー</a>でGitの環境をもろもろ整えたので、Vimのプラグイン管理を<a href="https://github.com/tpope/vim-pathogen" target="_blank">pathogen</a>から<a href="https://github.com/Shougo/neobundle.vim" target="_blank">neobundle</a>に移行しようとしたろころでハマった話です。
 

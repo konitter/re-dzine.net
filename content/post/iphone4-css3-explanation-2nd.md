@@ -1,7 +1,6 @@
 ---
 title: 「iPhone4をCSS3で描いてみた！」の解説(2)
 date: 2010-06-24
-tags: article,
 ---
 <a href="http://re-dzine.net/apple/iphone/2010/06/24/iphone4-css3-explanation-1st/">前回「「iPhone4をCSS3で描いてみた！」の解説(1)」</a>の続き。
 
@@ -14,9 +13,9 @@ tags: article,
 HTMLソースが書けたら次はマークアップしたHTML要素に対してCSSでスタイルしていくのですが、ぼくの場合やっていることは単純で大きく分けると以下の3つになります。
 
 <ul>
-  <li>positionプロパティとtop/right/bottom/leftで部品を配置する</li>
-  <li>CSS3のborder-radiusで角丸にして形を整える</li>
-  <li>gradientでグラデーションをかけ色を付ける</li>
+	<li>positionプロパティとtop/right/bottom/leftで部品を配置する</li>
+	<li>CSS3のborder-radiusで角丸にして形を整える</li>
+	<li>gradientでグラデーションをかけ色を付ける</li>
 </ul>
 
 positionプロパティは普段使うことがあると思いますので問題ないと思います。あとは角丸の仕方とグラデーションのかけ方さえ理解していれば、iPhone4レベルのものは簡単に作れてしまいます。
@@ -33,74 +32,74 @@ iPhone4のボディ部分（div#iphone4）は3重の層になっています。
 
 ```css
 #iphone4 {
-  position: relative;
-  left: 3px;
-  z-index: 10;
-  width: 252px;
-  height: 500px;
-  overflow: hidden;
-  border: 2px solid #4b4b4b;
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
-  border-radius: 35px;
-  background: -webkit-gradient(
-    linear,
-    left bottom,
-    right top,
-    color-stop(0, rgba(153,153,153,0)),
-    color-stop(1, rgba(200,200,198,0.9))
-  );
-  background: -moz-linear-gradient(
-    left bottom,
-    rgba(153,153,153,0) 0%,
-    rgba(200,200,198,0.9) 100%
-  );
-  -webkit-box-shadow: 3px 3px 3px rgba(50,50,52,0.3);
-  -moz-box-shadow: 3px 3px 3px rgba(50,50,52,0.3);
-  box-shadow: 3px 3px 3px rgba(50,50,52,0.3);
+	position: relative;
+	left: 3px;
+	z-index: 10;
+	width: 252px;
+	height: 500px;
+	overflow: hidden;
+	border: 2px solid #4b4b4b;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	background: -webkit-gradient(
+		linear,
+		left bottom,
+		right top,
+		color-stop(0, rgba(153,153,153,0)),
+		color-stop(1, rgba(200,200,198,0.9))
+	);
+	background: -moz-linear-gradient(
+		left bottom,
+		rgba(153,153,153,0) 0%,
+		rgba(200,200,198,0.9) 100%
+	);
+	-webkit-box-shadow: 3px 3px 3px rgba(50,50,52,0.3);
+	-moz-box-shadow: 3px 3px 3px rgba(50,50,52,0.3);
+	box-shadow: 3px 3px 3px rgba(50,50,52,0.3);
 }
 
 #iphone4:before {
-  content: &quot;&quot;;
-  display: block;
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  right: 3px;
-  bottom: 3px;
-  z-index: -1;
-  background: #000;
-  border: 2px solid #020100;
-  -webkit-border-radius: 32px;
-  -moz-border-radius: 32px;
-  border-radius: 32px;
+	content: &quot;&quot;;
+	display: block;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	right: 3px;
+	bottom: 3px;
+	z-index: -1;
+	background: #000;
+	border: 2px solid #020100;
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	border-radius: 32px;
 }
 
 #iphone4:after {
-  content: &quot;&quot;;
-  display: block;
-  position: absolute;
-  top: 4px;
-  left: 3px;
-  right: 3px;
-  bottom: 3px;
-  z-index: -1;
-  background: -webkit-gradient(
-    linear,
-    left bottom,
-    right top,
-    color-stop(0, rgba(153,153,153,0)),
-    color-stop(1, rgba(0,0,0,0.9))
-  );
-  background: -moz-linear-gradient(
-    left bottom,
-    rgba(153,153,153,0) 0%,
-    rgba(0,0,0,0.9) 100%
-  );
-  border: 2px solid #3e3e3e;
-  -webkit-border-radius: 32px;
-  -moz-border-radius: 32px;
-  border-radius: 32px;
+	content: &quot;&quot;;
+	display: block;
+	position: absolute;
+	top: 4px;
+	left: 3px;
+	right: 3px;
+	bottom: 3px;
+	z-index: -1;
+	background: -webkit-gradient(
+		linear,
+		left bottom,
+		right top,
+		color-stop(0, rgba(153,153,153,0)),
+		color-stop(1, rgba(0,0,0,0.9))
+	);
+	background: -moz-linear-gradient(
+		left bottom,
+		rgba(153,153,153,0) 0%,
+		rgba(0,0,0,0.9) 100%
+	);
+	border: 2px solid #3e3e3e;
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	border-radius: 32px;
 }
 ```
 
@@ -119,16 +118,16 @@ iPhone4のほとんどの部品は、角丸の長方形でできていますが�
 
 ```css
 #homebtn {
-  position: absolute;
-  top: 429px;
-  left: 101px;
-  width: 48px;
-  height: 48px;
-  border: 2px solid #383838;
-  -webkit-border-radius: 24px;
-  -moz-border-radius: 24px;
-  border-radius: 24px;
-  background-color: #000;
+	position: absolute;
+	top: 429px;
+	left: 101px;
+	width: 48px;
+	height: 48px;
+	border: 2px solid #383838;
+	-webkit-border-radius: 24px;
+	-moz-border-radius: 24px;
+	border-radius: 24px;
+	background-color: #000;
 }
 ```
 
@@ -144,15 +143,15 @@ border-radiusで指定するpxは、角丸の半径の長さです。つまり�
 
 ```css
 #insetray {
-  position: absolute;
-  top: 7px;
-  right: 6px;
-  width: 0;
-  height: 0;
-  border-top: solid 385px rgba(255,255,255,0.1);
-  border-bottom: 0;
-  border-left: solid 127px transparent;
-  border-right: 0;
+	position: absolute;
+	top: 7px;
+	right: 6px;
+	width: 0;
+	height: 0;
+	border-top: solid 385px rgba(255,255,255,0.1);
+	border-bottom: 0;
+	border-left: solid 127px transparent;
+	border-right: 0;
 }
 ```
 

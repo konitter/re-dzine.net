@@ -1,7 +1,6 @@
 ---
 title: Sublime Text 2をShift_JISに対応させるプラグインがあると聞いて
 date: 2012-10-05
-tags: article,
 ---
 今エンジニア界隈で話題になっているエディター「<a href="http://www.sublimetext.com/" target="_blank">Sublime Text 2</a>」。プラグインの豊富さは、まだまだVimやEmacsなどには劣りますが、それらエディターのように細かい設定やプラグインをインストールしなくても、ある程度の環境が最初から揃っているなど導入コストが低い点が優れていると言われています。
 

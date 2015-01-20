@@ -1,7 +1,6 @@
 ---
 title: 各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ
 date: 2013-12-16
-tags: article
 ---
 
 この投稿は[Grunt Plugins Advent Calendar 2013](http://qiita.com/advent-calendar/2013/grunt-plugins)の24日目の記事です。
@@ -43,24 +42,24 @@ $ npm i(install) grunt-browser-sync -D(--save-dev)
 
 module.exports = (grunt) ->
 
-  grunt.initConfig
-    browser_sync:
-      files:
-        src: [
-          'index.html',
-          'assets/css/*.css'
-        ]
-      options:
-        server:
-          index: 'index.html'
-        ghostMode:
-          scroll: true
-          links: true
-          forms: true
+	grunt.initConfig
+		browser_sync:
+			files:
+				src: [
+					'index.html',
+					'assets/css/*.css'
+				]
+			options:
+				server:
+					index: 'index.html'
+				ghostMode:
+					scroll: true
+					links: true
+					forms: true
 
-  require('load-grunt-tasks')(grunt)
+	require('load-grunt-tasks')(grunt)
 
-  grunt.registerTask 'default', ['browser_sync']
+	grunt.registerTask 'default', ['browser_sync']
 ```
 
 ## 実行
@@ -71,7 +70,7 @@ module.exports = (grunt) ->
 ```
 $ grunt
 Running "browser_sync:files" (browser_sync) task
-   info  - socket.io started
+	 info  - socket.io started
 
 OK, Server running at http://192.168.0.3:3001
 Serving files from:  c:\hoge

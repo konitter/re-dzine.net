@@ -1,7 +1,6 @@
 ---
 title: Middlemanで作ったブログのテンプレートエンジンをERBからSlimに
 date: 2014-01-08
-tags: article
 ---
 
 今どき生の HTML を書いてるようじゃモテないって聞いたので、昨年10月末に [Middleman](http://middlemanapp.com/) で作ったこのブログのテンプレートエンジンをデフォルトの ERB から [Slim](https://github.com/slim-template/slim) に変更しました。

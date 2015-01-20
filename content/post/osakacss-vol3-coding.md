@@ -1,7 +1,6 @@
 ---
 title: Osaka.css (#3) .coding を開催しました
 date: 2013-01-30
-tags: conference,
 ---
 先週の土曜1/26にOsaka.cssを「#3 .coding」と題して開催しましたので、簡単に報告したいと思います。
 

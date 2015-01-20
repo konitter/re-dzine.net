@@ -1,7 +1,6 @@
 ---
 title: Bootstrap3でLESS/JSのコンパイル方法が変更に
 date: 2013-08-02
-tags: review
 ---
 <p>先日7/27に<a href="http://getbootstrap.com/">Bootstrap 3 RC1</a>がリリースされました。</p>
 

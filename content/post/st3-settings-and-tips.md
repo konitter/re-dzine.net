@@ -1,7 +1,6 @@
 ---
 title: Sublime Text 3 Settings and Tips
 date: 2014-12-18
-tags: article
 ogimage: 2014/12/st3_01.png
 ---
 

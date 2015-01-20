@@ -1,7 +1,6 @@
 ---
 title: Osaka.css (#2) .jade を開催しました
 date: 2012-12-11
-tags: conference,
 ---
 先週の土曜12/8にOsaka.cssを「#2 .jade」と題して開催しましたので、簡単に報告したいと思います。
 

@@ -1,7 +1,6 @@
 ---
 title: iPhone4をCSS3で描いてみた！
 date: 2010-06-17
-tags: article,
 ---
 CSSだけで描かれたものとして最近では、Twitterの<a href="http://www.subcide.com/experiments/fail-whale/">クジラ</a>や<a href="http://shopdd.blog51.fc2.com/blog-entry-932.html">ドラえもん</a>がありますが、一昨日予約開始となったiPhone4をCSS3でやってみました。
 

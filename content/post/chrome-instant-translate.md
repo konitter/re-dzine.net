@@ -1,7 +1,6 @@
 ---
 title: 英文記事の翻訳に役立つChromeエクステンション「Instant Translate」
 date: 2012-05-15
-tags: article, chrome, extension,
 ---
 英文記事を読んだり、翻訳してブログ記事を書く時なんかに役立つGoogle Chromeのエクステンション（拡張機能）「Instant Translate」をご紹介します。先日の「<a href="/2012/05/google-htmlcss-style-guide/">「Google HTML/CSS Style Guide」を適当に和訳してみた</a>」の記事を作成するときにも大活躍しました。
 

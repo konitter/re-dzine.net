@@ -1,7 +1,6 @@
 ---
 title: jsdo.itでHTML5のlocalStorageを使ったシンプルなタスク管理アプリを作ってみた
 date: 2012-05-10
-tags: app, article, html5, jsdo-it, localstorage,
 ---
 カヤックが提供するオンラインエディターサービス「<a href="http://jsdo.it">jsdo.it</a>」上にHTML5のlocalStorageを使ったシンプルなタスク管理アプリを作ってみました。
 

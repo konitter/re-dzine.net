@@ -1,7 +1,6 @@
 ---
 title: おおさかちょこのみ会2に参加した！
 date: 2010-07-06
-tags: report,
 ---
 @<a href="http://twitter.com/5509">5509</a>さん、@<a href="http://twitter.com/vanillate">vanillate</a>さん主催のTwitterでつながったweb系な人たちによるゆる〜い飲み会「おおさかちょこのみ会」に参加してきました。ちなみに今回は第2回目で1回目も参加しました。
 

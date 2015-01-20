@@ -1,7 +1,6 @@
 ---
 title: MarkupCafe Osaka Vol.1 に参加してきました
 date: 2013-12-26
-tags: report
 ---
 
 先日12/20(金)に開催されたhtml5jマークアップ部主催のイベント「[MarkupCafe Osaka Vol.1](http://atnd.org/events/45379)」に参加してきましたので簡単にレポートします。
@@ -29,16 +28,16 @@ tags: report
 
 ```html
 <footer role="contentinfo">
-  <div><a href="/">HOME</a></div>
-  <div>
-    <img src="logo.png" alt="株式会社バスタイム商事 Bathtime Bussiness Corp.">
-    <div>
-      <address>お問合せ：<a href="tel:012000000000">0120-0000-0000</a> <a href="mailto:information@bathtimeshoji.com">information[at]bathtimeshoji.com</a></address>
-      神戸本社：兵庫県神戸市◯◯◯◯◯ 11-11-11 ◯◯ビル 11<br>
-      東京本社：東京都渋谷区◯◯◯◯◯ 22-22-22 ◯◯ビル 22
-  	</div>
-  </div>
-  <div><small>copyright (c) bathtimeshoji. All Rights Reserved.</small></div>
+	<div><a href="/">HOME</a></div>
+	<div>
+		<img src="logo.png" alt="株式会社バスタイム商事 Bathtime Bussiness Corp.">
+		<div>
+			<address>お問合せ：<a href="tel:012000000000">0120-0000-0000</a> <a href="mailto:information@bathtimeshoji.com">information[at]bathtimeshoji.com</a></address>
+			神戸本社：兵庫県神戸市◯◯◯◯◯ 11-11-11 ◯◯ビル 11<br>
+			東京本社：東京都渋谷区◯◯◯◯◯ 22-22-22 ◯◯ビル 22
+		</div>
+	</div>
+	<div><small>copyright (c) bathtimeshoji. All Rights Reserved.</small></div>
 </footer>
 ```
 
@@ -54,9 +53,9 @@ tags: report
 
 ```html
 <ul class="breadcrumb">
-  <li><a href="/">Markup Cafeトップページ</a></li>
-  <li><a href="/shop/">店舗情報</a></li>
-  <li class="current">ドリンク・フード</li>
+	<li><a href="/">Markup Cafeトップページ</a></li>
+	<li><a href="/shop/">店舗情報</a></li>
+	<li class="current">ドリンク・フード</li>
 </ul>
 ```
 

@@ -1,7 +1,6 @@
 ---
 title: 「関西でWebアクセシビリティを考える会」に参加してきました
 date: 2011-10-28
-tags: article, 
 ---
 10/22(土)に十三の水交ビルで開催された坂本邦夫さん(<a href="http://twitter.com/Kunio_Sakamoto">@Kunio_Sakamoto</a>)主催の勉強会「<a href="http://atnd.org/events/20616">関西でWebアクセシビリティを考える会</a>」に参加してきました。
 

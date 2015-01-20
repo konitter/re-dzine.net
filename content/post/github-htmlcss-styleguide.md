@@ -1,7 +1,6 @@
 ---
 title: GitHubのHTML/CSS Styleguideを適当に和訳してみた
 date: 2012-09-11
-tags: article, css, github, html, styleguide,
 ---
 今年の5月に書いた記事『<a href="http://re-dzine.net/2012/05/google-htmlcss-style-guide/">「Google HTML/CSS Style Guide」を適当に和訳してみた</a>』がかなり反響があったわけですが、和訳シリーズ第2弾として、GitHubが公開しているHTMLとCSSのスタイルガイドを簡単に和訳してみたいと思います。
 
@@ -40,24 +39,24 @@ tags: article, css, github, html, styleguide,
 
 ```html
 <table summary="This is a chart of invoices for 2011.">
-  <thead>
-    <tr>
-      <th scope="col">Table header 1</th>
-      <th scope="col">Table header 2</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-      <td>Table footer 1</td>
-      <td>Table footer 2</td>
-    </tr>
-  </tfoot>
-  <tbody>
-    <tr>
-      <td>Table data 1</td>
-      <td>Table data 2</td>
-    </tr>
-  </tbody>
+	<thead>
+		<tr>
+			<th scope="col">Table header 1</th>
+			<th scope="col">Table header 2</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td>Table footer 1</td>
+			<td>Table footer 2</td>
+		</tr>
+	</tfoot>
+	<tbody>
+		<tr>
+			<td>Table data 1</td>
+			<td>Table data 2</td>
+		</tr>
+	</tbody>
 </table>
 ```
 
@@ -76,9 +75,9 @@ tags: article, css, github, html, styleguide,
 ```css
 // This is a good example!
 .styleguide-format {
-  border: 1px solid #0f0;
-  color: #000;
-  background: rgba(0,0,0,0.5);
+	border: 1px solid #0f0;
+	color: #000;
+	background: rgba(0,0,0,0.5);
 }
 ```
 
@@ -107,8 +106,8 @@ styles
 │   ├── issues.scss
 │   ├── profile.scss
 └── shared
-    ├── forms.scss
-    └── markdown.scss
+		├── forms.scss
+		└── markdown.scss
 ```
 
 必要なファイルには<a href="https://github.com/sstephenson/sprockets" target="_blank">Sprockets</a>を使う。<br />
@@ -139,22 +138,22 @@ styles
 
 ```html
 <ul class="category-list">
-  <li class="item">Category 1</li>
-  <li class="item">Category 2</li>
-  <li class="item">Category 3</li>
+	<li class="item">Category 1</li>
+	<li class="item">Category 2</li>
+	<li class="item">Category 3</li>
 </ul>
 ```
 
 ```css
 ul.category-list { // element + class namespace
 
-  &>li { // direct descendant selector > for list items
-    list-style-type: disc;
-  }
+	&>li { // direct descendant selector > for list items
+		list-style-type: disc;
+	}
 
-  a { // minimal specificity for all links
-    color: #ff0000;
-  }
+	a { // minimal specificity for all links
+		color: #ff0000;
+	}
 }
 ```
 
@@ -179,15 +178,15 @@ ul.category-list { // element + class namespace
 
 ```html
 <div class="notifications">
-  <ul class="navigation">
-    <li><a href="#">Notifications</a></li>
-    <li><a href="#">Messages</a></li>
-  </ul>
-  <div class="notifications-listing">
-    <a href="#">dragon commented on Issue #551</a>
-    <a href="#">mojombo commented on Issue #91</a>
-    <a href="#">defunkt uploaded a new file to defunkt/resque</a>
-  </div>
+	<ul class="navigation">
+		<li><a href="#">Notifications</a></li>
+		<li><a href="#">Messages</a></li>
+	</ul>
+	<div class="notifications-listing">
+		<a href="#">dragon commented on Issue #551</a>
+		<a href="#">mojombo commented on Issue #91</a>
+		<a href="#">defunkt uploaded a new file to defunkt/resque</a>
+	</div>
 </div>
 ```
 
@@ -197,18 +196,18 @@ ul.category-list { // element + class namespace
 //
 // Styleguide 4.5.1
 .notifications {
-  ul.navigation {
-    float: left;
-    width: 200px;
-    background: #eee;
-  }
+	ul.navigation {
+		float: left;
+		width: 200px;
+		background: #eee;
+	}
 
-  .notification-listing {
-    &>a {
-      display: block;
-      font-weight: bold;
-    }
-  }
+	.notification-listing {
+		&>a {
+			display: block;
+			font-weight: bold;
+		}
+	}
 }
 ```
 
@@ -216,17 +215,17 @@ ul.category-list { // element + class namespace
 
 ```html
 <div class="notifications-experimental">
-  <h2>New hot notifications!</h2>
-  <ul class="navigation">
-    <li><a href="#">Important</a></li>
-    <li><a href="#">@mentions</a></li>
-    <li><a href="#">Everything</a></li>
-  </ul>
-  <ul class="notifications-listing">
-    <a href="#">dragon commented on Issue #551</a>
-    <a href="#">mojombo commented on Issue #91</a>
-    <a href="#">defunkt uploaded a new file to defunkt/resque</a>
-  </ul>
+	<h2>New hot notifications!</h2>
+	<ul class="navigation">
+		<li><a href="#">Important</a></li>
+		<li><a href="#">@mentions</a></li>
+		<li><a href="#">Everything</a></li>
+	</ul>
+	<ul class="notifications-listing">
+		<a href="#">dragon commented on Issue #551</a>
+		<a href="#">mojombo commented on Issue #91</a>
+		<a href="#">defunkt uploaded a new file to defunkt/resque</a>
+	</ul>
 </div>
 ```
 
@@ -235,18 +234,18 @@ ul.category-list { // element + class namespace
 //
 // Styleguide 4.5.2
 .notifications-experimental {
-  ul.navigation {
-    float: right;
-    width: 250px;
-  }
+	ul.navigation {
+		float: right;
+		width: 250px;
+	}
 
-  .notification-listing {
-    &>a {
-      float: right;
-      color: #ff0000;
+	.notification-listing {
+		&>a {
+			float: right;
+			color: #ff0000;
 
-    }
-  }
+		}
+	}
 }
 ```
 

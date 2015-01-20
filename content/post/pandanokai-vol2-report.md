@@ -1,7 +1,6 @@
 ---
 title: 入門者・初心者向けのWEB技術勉強会「パンダの会」その弐に登壇してきた
 date: 2010-11-22
-tags: conference,
 ---
 先日、スピーカーやるよってことで<a href="/conference/2010/11/10/pandanokai-vol2/">エントリー</a>を書きましたが、11/20の土曜日にその勉強会「<a href="http://pandanokai.net/event/evt2/index.html">パンダの会</a>」その弐（主催：<a href="http://twitter.com/3panda">@3panda</a>）が開かれ、登壇してきたので、その感想とか。
 

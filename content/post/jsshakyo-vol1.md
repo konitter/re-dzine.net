@@ -1,7 +1,6 @@
 ---
 title: 「JavaScript写経」写経壱に参加してきた
 date: 2011-03-28
-tags: conference,
 ---
 遅くなりましたが、3/12に開かれた<a href="http://twitter.com/3panda">@3panda</a>さん主催の「JavaScriptを写経する会」という勉強会の第1回に参加してきましたので、その感想とか。
 

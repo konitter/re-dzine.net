@@ -1,7 +1,6 @@
 ---
 title: 【告知】『Web制作者のためのCSS設計の教科書』出版記念イベントを11/8に大阪で開催します
 date: 2014-10-17
-tags: article
 ogimage: 2014/10/peatix.png
 ---
 

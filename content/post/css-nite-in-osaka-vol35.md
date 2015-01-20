@@ -1,7 +1,6 @@
 ---
 title: CSS Nite in OSAKA, Vol.35 に参加してきました
 date: 2013-07-11
-tags: conference
 ---
 <p>一昨日7/9(火)は、<a href="http://osaka.cssnite.jp/vol35/">CSS Nite in OSAKA, Vol.35（復活スペシャル）</a>に参加してきました。テーマは、「スマホアプリのデザインから プロトタイプ作成まで」。
 実は「CSS Nite」と冠の付いたセミナーに参加するのはこれが初めて。</p>

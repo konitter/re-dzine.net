@@ -1,12 +1,11 @@
 ---
 title: 「Google HTML/CSS Style Guide」を適当に和訳してみた
 date: 2012-05-09
-tags: article, css, google, html, html5,
 ---
 4/24に公開された「Google HTML/CSS Style Guide」が面白そうだったので適当に訳してみました。長いので各項の細かい説明は省いてます。より詳細に知りたい方は、原文を読んでみてください。
 <!--more-->
 <ul>
-  <li><a href="http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml">Google HTML/CSS Style Guide</a></li>
+	<li><a href="http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml">Google HTML/CSS Style Guide</a></li>
 </ul>
 
 <div style="border:solid #ddd;border-width:2px 0;">
@@ -30,8 +29,8 @@ tags: article, css, google, html, html5,
 <p>半角スペース2つ分でインデントする。<br />
 タブを使ったり、タブとスペースを混在させるのはNG。</p>
 <pre><code class="language-html">&lt;ul&gt;
-  &lt;li&gt;Fantastic
-  &lt;li&gt;Great
+	&lt;li&gt;Fantastic
+	&lt;li&gt;Great
 &lt;/ul&gt;</code></pre>
 
 <h3>大文字/小文字</h3>
@@ -68,8 +67,8 @@ tags: article, css, google, html, html5,
 
 &lt;!-- TODO: remove optional tags --&gt;
 &lt;ul&gt;
-  &lt;li&gt;Apples&lt;/li&gt;
-  &lt;li&gt;Oranges&lt;/li&gt;
+	&lt;li&gt;Apples&lt;/li&gt;
+	&lt;li&gt;Oranges&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
 
@@ -124,9 +123,9 @@ tags: article, css, google, html, html5,
 &lt;link rel=&quot;stylesheet&quot; href=&quot;print.css&quot; media=&quot;print&quot;&gt;
 &lt;h1 style=&quot;font-size: 1em;&quot;&gt;HTML sucks&lt;/h1&gt;
 &lt;p&gt;I’ve read about this on a few sites but now I’m sure:
-  &lt;u&gt;HTML is stupid!!1&lt;/u&gt;
+	&lt;u&gt;HTML is stupid!!1&lt;/u&gt;
 &lt;center&gt;I can’t believe there’s no way to control the styling of
-  my website without doing everything all over again!&lt;/center&gt;
+	my website without doing everything all over again!&lt;/center&gt;
 
 &lt;!-- OK --&gt;
 &lt;!DOCTYPE html&gt;
@@ -134,8 +133,8 @@ tags: article, css, google, html, html5,
 &lt;link rel=&quot;stylesheet&quot; href=&quot;default.css&quot;&gt;
 &lt;h1&gt;My first CSS-only redesign&lt;/h1&gt;
 &lt;p&gt;I’ve read about this on a few sites but today I’m actually
-  doing it: separating concerns and avoiding anything in the HTML of
-  my website that is presentational.
+	doing it: separating concerns and avoiding anything in the HTML of
+	my website that is presentational.
 &lt;p&gt;It’s awesome!</code></pre>
 
 <h3>実体参照</h3>
@@ -155,12 +154,12 @@ The currency symbol for the Euro is “€”.</code></pre>
 <pre><code class="language-html">&lt;!-- NG --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Spending money, spending bytes&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;Sic.&lt;/p&gt;
-  &lt;/body&gt;
+	&lt;head&gt;
+		&lt;title&gt;Spending money, spending bytes&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Sic.&lt;/p&gt;
+	&lt;/body&gt;
 &lt;/html&gt;
 
 &lt;!-- OK --&gt;
@@ -188,24 +187,24 @@ HTML5ではデフォルトの言語として解釈されるため。</p>
 <p>ブロック要素・リスト要素・テーブル要素は改行してから記述し、それらの子要素にはインデントを入れる。<br />
 横並びリストなど改行による空白が問題になる場合は、li要素をすべて一行で書いてもOK。</p>
 <pre><code class="language-html">&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;
+	&lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Moe
-  &lt;li&gt;Larry
-  &lt;li&gt;Curly
+	&lt;li&gt;Moe
+	&lt;li&gt;Larry
+	&lt;li&gt;Curly
 &lt;/ul&gt;
 
 &lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th scope=&quot;col&quot;&gt;Income
-      &lt;th scope=&quot;col&quot;&gt;Taxes
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;$ 5.00
-      &lt;td&gt;$ 4.50
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th scope=&quot;col&quot;&gt;Income
+			&lt;th scope=&quot;col&quot;&gt;Taxes
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;$ 5.00
+			&lt;td&gt;$ 4.50
 &lt;/table&gt;</code></pre>
 
 <h2>CSSスタイルルール</h2>
@@ -332,62 +331,62 @@ text-align: center;</code></pre>
 <h3>ブロック単位のインデント</h3>
 <p>その階層がわかるようにブロック単位でコードをインデントする。</p>
 <pre><code class="language-css">@media screen, projection {
-  html {
-    background: #fff;
-    color: #444;
-  }
+	html {
+		background: #fff;
+		color: #444;
+	}
 }</code></pre>
 
 <h3>プロパティの終端</h3>
 <p>すべてのプロパティの終端はセミコロンを書くこと。</p>
 <pre><code class="language-css">/* NG */
 .test {
-  display: block;
-  height: 100px
+	display: block;
+	height: 100px
 }
 
 /* OK */
 .test {
-  display: block;
-  height: 100px;
+	display: block;
+	height: 100px;
 }</code></pre>
 
 <h3>プロパティ名の終端</h3>
 <p>すべてのプロパティ名の終端にはコロンの後にスペースを入れること。</p>
 <pre><code class="language-css">/* NG */
 h3 {
-  font-weight:bold;
+	font-weight:bold;
 }
 
 /* OK */
 h3 {
-  font-weight: bold;
+	font-weight: bold;
 }</code></pre>
 
 <h3>セレクタとプロパティの分離</h3>
 <p>別々のセレクタとプロパティは改行して書くこと。</p>
 <pre><code class="language-css">/* NG */
 a:focus, a:active {
-  position: relative; top: 1px;
+	position: relative; top: 1px;
 }
 
 /* OK */
 h1,
 h2,
 h3 {
-  font-weight: normal;
-  line-height: 1.2;
+	font-weight: normal;
+	line-height: 1.2;
 }</code></pre>
 
 <h3>CSSルールの分離</h3>
 <p>別々のCSSルールは改行して一行間を空けて書く。</p>
 <pre><code class="language-css">html {
-  background: #fff;
+	background: #fff;
 }
 
 body {
-  margin: auto;
-  width: 50%;
+	margin: auto;
+	width: 50%;
 }</code></pre>
 
 <h2>CSSメタルール</h2>

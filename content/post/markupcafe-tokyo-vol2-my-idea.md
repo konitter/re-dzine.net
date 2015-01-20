@@ -1,7 +1,6 @@
 ---
 title: MarkupCafe Tokyo Vol.2のお題について考えてみた
 date: 2013-11-07
-tags: article
 ---
 
 10/19(土)にて東京で行われたイベント「[MarkupCafe Tokyo Vol.2](http://atnd.org/events/43774)」で出されたお題について、自分ならどうマークアップするかを考えてみました。<br>

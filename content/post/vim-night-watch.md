@@ -1,7 +1,6 @@
 ---
 title: Vimカラースキームを自作してみた- Night Watch
 date: 2012-06-18
-tags: article, vim,
 ---
 今までVimのカラースキームは、「<a href="http://dengmao.wordpress.com/2007/01/22/vim-color-scheme-wombat/">Wombat</a>」を使ってたのですが、HTMLのタグの括弧部分の色とか、属性の色とか、CSSのスタイルブロックの括弧の色とか気に入らない部分もあったので、その辺を調整しつつそのWombatをベースにオリジナルのカラースキームを作ってみました。
 

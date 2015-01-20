@@ -1,7 +1,6 @@
 ---
 title: CSSで円形のプログレスバーを再現してみる
 date: 2012-12-09
-tags: article, 
 ---
 これは、<a href="http://www.adventar.org/calendars/2" target="_blank">CSS Programming Advent Calendar 2012</a>の9日目の記事です。
 Advent Calendar初参加です。ていうか今日までの他の方の作品がスゴすぎて出すのもおこがましいんですけど、表題のようなものを作ってみました。

@@ -1,7 +1,6 @@
 ---
 title: Sublime Text 2でStylus + Nibのコードをビルドする
 date: 2013-05-24
-tags: article
 ---
 <p><a href="http://sass-lang.com/">Sass</a>には<a href="http://compass-style.org/">Compass</a>というアツいライブラリがありますが、<a href="http://learnboost.github.com/stylus/">Stylus</a>にも「<a href="http://visionmedia.github.io/nib/">nib</a>」というライブラリがあります。このNibを使ったコードを<a href="http://www.sublimetext.com/">Sublime Text</a>からビルドする方法です。</p>
 
@@ -33,14 +32,14 @@ tags: article
 <p>まずはNib無しのStylusコードをビルドしてみます。</p>
 
 <pre class="prettyprint"><code>button
-  border-radius 5px</code></pre>
+	border-radius 5px</code></pre>
 
 <p><code>all.styl</code>というファイル名で適当にこんな感じのコードを書いて、<code>Ctrl + B</code>するとビルドが走り、エディター下部に同ディレクトリに<code>all.css</code>というファイル名でコンパイルされたことを示すメッセージが出ます。</p>
 
 <p><code>all.css</code>を開いてみると、以下のようになっているはずです。</p>
 
 <pre class="prettyprint"><code>button {
-  border-radius: 5px;
+	border-radius: 5px;
 }</code></pre>
 
 <p>もし記述にエラーがあってコンパイルに失敗する場合は、どの行にどんな問題があるかを示すメッセージが出ます。</p>
@@ -52,7 +51,7 @@ tags: article
 <pre class="prettyprint"><code>@import 'nib'
 
 button
-  border-radius 5px</code></pre>
+	border-radius 5px</code></pre>
 
 <p>こんな感じにさっきの<code>all.styl</code>にNibの書式をインポートする記述を冒頭に追記します。</p>
 
@@ -65,51 +64,51 @@ button
 <p>ビルドオプションの詳しくは<a href="http://docs.sublimetext.info/en/latest/reference/build_systems.html">公式のドキュメント</a>をご確認ください。</p>
 
 <pre class="prettyprint"><code>{
-  "cmd": ["stylus", "$file"],
-  "file_regex": ".",
-  "selector": "source.stylus",
+	"cmd": ["stylus", "$file"],
+	"file_regex": ".",
+	"selector": "source.stylus",
 
-  "osx":
-  {
-    "path": "/usr/local/bin:$PATH"
-  },
+	"osx":
+	{
+		"path": "/usr/local/bin:$PATH"
+	},
 
-  "linux":
-  {
-    "path": "/usr/local/bin:$PATH"
-  },
+	"linux":
+	{
+		"path": "/usr/local/bin:$PATH"
+	},
 
-  "windows":
-  {
-    "cmd": ["stylus.cmd", "$file"]
-  },
+	"windows":
+	{
+		"cmd": ["stylus.cmd", "$file"]
+	},
 
-  "variants": [
-    {
-      "name": "compress",
-      "cmd": ["stylus", "-c", "$file"],
+	"variants": [
+		{
+			"name": "compress",
+			"cmd": ["stylus", "-c", "$file"],
 
-      "windows":
-      {
-        "cmd": ["stylus.cmd", "-c", "$file"]
-      }
-    }
-  ]
+			"windows":
+			{
+				"cmd": ["stylus.cmd", "-c", "$file"]
+			}
+		}
+	]
 }</code></pre>
 
 <p>上記の2行目を以下のように変更します。</p>
 
 <pre class="prettyprint"><code>{
-  "cmd": ["stylus", "-I", "/example/path/node_modules/nib/lib", "$file"],
-  ...</code></pre>
+	"cmd": ["stylus", "-I", "/example/path/node_modules/nib/lib", "$file"],
+	...</code></pre>
 
 <p><code>-I</code>はStylusのインクルードオプションで、その次にインストールしたNibの<code>/lib</code>までのパスを書きます。</p>
 
 <p>これで保存して、さっきの<code>all.styl</code>をビルドしてみるとこうなるはずです。</p>
 
 <pre class="prettyprint"><code>button {
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }</code></pre>
 
 <p>プレフィックスを付けてくれてますね。<br>他にも様々なミックスインがありますので、詳しくは公式サイト等をご確認ください。</p>
@@ -121,11 +120,11 @@ button
 <p>また、<code>compress</code>時にもNibを使う場合は以下のようにします。</p>
 
 <pre class="prettyprint"><code>...
-  "variants": [
-    {
-      "name": "compress",
-      "cmd": ["stylus", "-c", "-I", "/example/path/node_modules/nib/lib", "$file"],
-      ...</code></pre>
+	"variants": [
+		{
+			"name": "compress",
+			"cmd": ["stylus", "-c", "-I", "/example/path/node_modules/nib/lib", "$file"],
+			...</code></pre>
 
 <p><code>compress</code>版をビルドするには、コマンドパレット[<code>Ctrl + Shift + P</code>]から「<code>Build: compress</code>」を選びます。<br>いちいち選ぶのが面倒な場合は、適宜キーマップを設定してください。</p>
 
@@ -136,10 +135,10 @@ button
 <p>Winの方はここまでの方法ではNib込みのコードはビルドできません。<br>Winの場合は、Win用コマンドを設定している2箇所に同様の記述を書き加えます。</p>
 
 <pre class="prettyprint"><code>...
-  "windows":
-  {
-    "cmd": ["stylus.cmd", "-I", "/example/path/node_modules/nib/lib", "$file"]
-    ...</code></pre>
+	"windows":
+	{
+		"cmd": ["stylus.cmd", "-I", "/example/path/node_modules/nib/lib", "$file"]
+		...</code></pre>
 
 <p>これでOKなのですが、もう少しスマートに書くこともできます。</p>
 
@@ -148,28 +147,28 @@ button
 <p>シェルコマンドが実行できる環境があれば、以下のように書けます。</p>
 
 <pre class="prettyprint"><code>{
-  "cmd": ["stylus", "-I", "/example/path/node_modules/nib/lib", "$file"],
-  "file_regex": ".",
-  "selector": "source.stylus",
-  "shell": true,
+	"cmd": ["stylus", "-I", "/example/path/node_modules/nib/lib", "$file"],
+	"file_regex": ".",
+	"selector": "source.stylus",
+	"shell": true,
 
-  "osx":
-  {
-    "path": "/usr/local/bin:$PATH"
-  },
+	"osx":
+	{
+		"path": "/usr/local/bin:$PATH"
+	},
 
-  "linux":
-  {
-    "path": "/usr/local/bin:$PATH"
-  },
+	"linux":
+	{
+		"path": "/usr/local/bin:$PATH"
+	},
 
-  "variants": [
-    {
-      "name": "compress",
-      "cmd": ["stylus", "-c", "-I", "/example/path/node_modules/nib/lib", "$file"],
-      "shell": true
-    }
-  ]
+	"variants": [
+		{
+			"name": "compress",
+			"cmd": ["stylus", "-c", "-I", "/example/path/node_modules/nib/lib", "$file"],
+			"shell": true
+		}
+	]
 }</code></pre>
 
 <p>スッキリしました。</p>

@@ -1,7 +1,6 @@
 ---
 title: Emmet LiveStyleで爆速HTML/CSSコーディングの境地へ
 date: 2013-08-06
-tags: review
 ---
 
 <p>簡単な記述でHTML/CSSが爆速でコーディングできるという神プラグイン「<a href="http://emmet.io/">Emmet</a>」。フロントエンドな人ならほとんどの方が使っているんじゃないかと思います。この度そのEmmetから「Emmet LiveStyle」なるものが出ました。</p>

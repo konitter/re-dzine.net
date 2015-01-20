@@ -1,7 +1,6 @@
 ---
 title: ブログをWordPressからMiddlemanに移行してGitHub Pagesで運用するようにしてみた
 date: 2013-10-30
-tags: article
 ---
 
 来月で今契約しているレンタルサーバの期限が切れるということもあって、今回Middleman + GitHub Pagesで作りなおしてみました。いわゆる静的サイトジェネレータでブログを静的ファイルにしちゃえば、GitHub Pagesでホスティングできるので固定費も節約できていいかなと。

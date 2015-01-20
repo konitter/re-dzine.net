@@ -1,7 +1,6 @@
 ---
 title: Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門
 date: 2014-02-07
-tags: article
 ---
 
 みなさんご存知「[Grunt](http://gruntjs.com/)」は、WEB制作者の間でも以前に比べるとだいぶ浸透してきているようで、実際に案件で使用しているという方も増えてきています。そんな中、ここ最近海外のエンジニアの中でGruntに変わって使われだしている新たなビルドシステム「[gulp](http://gulpjs.com/)」をご紹介します。
@@ -24,34 +23,34 @@ Gruntは、設定ファイル``Gruntfile``がJSON形式で書けるという側�
 
 ```js
 grunt.initConfig({
-  sass: {
-    dist: {
-      files: [{
-        cwd: 'sass',
-        src: 'bootstrap.scss',
-        dest: '.tmp/',
-        expand: true,
-        ext: '.css'
-      }]
-    }
-  },
-  autoprefixer: {
-    options: ['last 1 version'],
-    dist: {
-      files: [{
-        expand: true,
-        cwd: '.tmp/',
-        src: 'bootstrap.css',
-        dest: 'dist/css'
-      }]
-    }
-  },
-  watch: {
-    styles: {
-      files: ['sass/{,*/}*.scss'],
-      tasks: ['sass:dist', 'autoprefixer:dist']
-    }
-  }
+	sass: {
+		dist: {
+			files: [{
+				cwd: 'sass',
+				src: 'bootstrap.scss',
+				dest: '.tmp/',
+				expand: true,
+				ext: '.css'
+			}]
+		}
+	},
+	autoprefixer: {
+		options: ['last 1 version'],
+		dist: {
+			files: [{
+				expand: true,
+				cwd: '.tmp/',
+				src: 'bootstrap.css',
+				dest: 'dist/css'
+			}]
+		}
+	},
+	watch: {
+		styles: {
+			files: ['sass/{,*/}*.scss'],
+			tasks: ['sass:dist', 'autoprefixer:dist']
+		}
+	}
 });
 grunt.registerTask('default', ['sass', 'watch']);
 ```
@@ -62,13 +61,13 @@ Gruntはプラグインごとに読み込み元のファイルと出力先のフ
 
 ```js
 gulp.task('sass', function () {
-  gulp.src('sass/bootstrap.scss')
-    .pipe(sass())
-    .pipe(autoprefixer('last 1 version'))
-    .pipe(gulp.dest('dist/css'));
+	gulp.src('sass/bootstrap.scss')
+		.pipe(sass())
+		.pipe(autoprefixer('last 1 version'))
+		.pipe(gulp.dest('dist/css'));
 });
 gulp.task('default', ['sass'], function() {
-  gulp.watch('sass/**/*.scss', ['sass']);
+	gulp.watch('sass/**/*.scss', ['sass']);
 });
 ```
 

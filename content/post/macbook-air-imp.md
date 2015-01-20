@@ -1,7 +1,6 @@
 ---
 title: 新型MacBook Air (11inch) 初Macを触ってみた感想いろいろ
 date: 2010-11-16
-tags: review,
 ---
 先週<a href="/apple/macbook-air/2010/11/11/macbook-air-open/">開封レポート</a>を書きましたが、Windowsユーザーが初めてMacを触ってみた感想をだらだら書きます。
 
