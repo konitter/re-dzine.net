@@ -1,6 +1,7 @@
 baseurl = "http://re-dzine.net"
 title = "REFLECTDESIGN"
 languageCode = "ja-JP"
+MetaDataFormat = "yaml"
 
 contentdir = "content"
 layoutdir = "layouts"
