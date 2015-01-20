@@ -1,0 +1,17 @@
+baseurl = "http://re-dzine.net"
+title = "REFLECTDESIGN"
+languageCode = "ja-JP"
+
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+
+[params]
+	author = "konitter"
+	facebook = true
+	twitter = true
+	analytics = true
+
+[permalinks]
+	post = "/:year/:month/:filename/"
+	page = "/:filename/"
