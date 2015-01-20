@@ -5,7 +5,8 @@ require 'lib/helpers'
 helpers Helpers
 
 activate :blog do |blog|
-  blog.permalink = ":year/:month/:title.html"
+  # blog.permalink = ":year/:month/:title.html"
+  blog.permalink = ":year/:month/:title/index.html"
   blog.sources = "posts/:year-:month-:day-:title.html"
   blog.layout = "_layouts/post"
   blog.default_extension = ".md"

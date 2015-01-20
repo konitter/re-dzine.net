@@ -12,4 +12,4 @@ gem 'nokogiri'
 gem 'redcarpet'
 gem 'launchy'
 gem 'builder', '~> 3.0'
-gem 'wdm', '~> 0.1.0'  # Windows
+gem 'wdm', '~> 0.1.0', :platforms => [:mswin, :mingw]
