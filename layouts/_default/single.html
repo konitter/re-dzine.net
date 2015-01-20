@@ -1,0 +1,17 @@
+{{ partial "header.html" . }}
+<article>
+	<header>
+		<h1>{{ .Title }}</h1>
+		<div class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time> - by <a href="/about/">{{ .Site.Params.author }}</a></div>
+	</header>
+	<div class="entry">
+		{{ .Content }}
+	</div>
+</article>
+{{ partial "_social.html" . }}
+{{ partial "_adsense.html" . }}
+<ul class="post-pager">
+	{{ if .Prev }}<li>Older Entry: <div><a href="{{ .Prev.RelPermalink }}">{{ .Prev.Title }}</a></div></li>{{ end }}
+	{{ if .Next }}<li>Newer Entry: <div><a href="{{ .Next.RelPermalink }}">{{ .Next.Title }}</a></div></li>{{ end }}
+</ul>
+{{ partial "footer.html" . }}

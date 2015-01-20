@@ -1,0 +1,12 @@
+{{ partial "header.html" . }}
+<article>
+	<header>
+		<h1>{{ .Title }}</h1>
+	</header>
+	<div class="entry">
+		{{ .Content }}
+	</div>
+</article>
+{{ partial "_social.html" . }}
+{{ partial "_adsense.html" . }}
+{{ partial "footer.html" . }}
