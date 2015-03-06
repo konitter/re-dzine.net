@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# {{ if .IsPage }}article{{ else }}website{{ end }}: http://ogp.me/ns/{{ if .IsPage }}article{{ else }}website{{ end }}#">
 	<meta charset="utf-8">
 	<title>{{ if .IsPage }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
