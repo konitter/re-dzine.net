@@ -2,6 +2,7 @@
 date: 2015-03-05T14:54:44+09:00
 notoc: true
 title: gulpあるいはビルドツールとnpm run-scriptとの関係性
+description: Gulp is awesome, but do we really need it?という記事を読んだ。元々Gruntを使っててgulpに移行して&rdquo;holly grail&rdquo;とまで思ってたけど、npm run-scriptにタスクまとめたらたったの9行で済んだよ！というお話。
 ---
 
 [Gulp is awesome, but do we really need it?](http://gon.to/2015/02/26/gulp-is-awesome-but-do-we-really-need-it/)という記事を読んだ。元々Gruntを使っててgulpに移行して"holly grail"とまで思ってたけど、npm run-scriptにタスクまとめたらたったの9行で済んだよ！というお話。
