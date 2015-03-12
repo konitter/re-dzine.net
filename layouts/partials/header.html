@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# {{ if .IsPage }}article{{ else }}website{{ end }}: http://ogp.me/ns/{{ if .IsPage }}article{{ else }}website{{ end }}#">
+<head>
 	<meta charset="utf-8">
 	<title>{{ if .IsPage }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	{{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="{{ .Title }}">
 	<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 	<meta property="og:site_name" content="{{ .Site.Title }}">
+	<meta property="og:url" content="{{ .Permalink }}">
 	<meta property="og:image" content="{{ .Site.BaseUrl }}/img/{{ if isset .Params "ogimage" }}{{ .Params.ogimage }}{{ else }}ogp.png{{ end }}">
 	<meta property="fb:admins" content="100000698495270">
 	<meta property="fb:app_id" content="231858050163702">
 	<meta name="twitter:site" content="@{{ .Site.Params.author }}">
 	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="{{ .Permalink }}">
+	<meta name="twitter:title" content="{{ .Title }}">
+	<meta name="twitter:image" content="{{ .Site.BaseUrl }}/img/{{ if isset .Params "ogimage" }}{{ .Params.ogimage }}{{ else }}ogp.png{{ end }}">
+	<link rel="canonical" href="{{ .Permalink }}">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
 	<link rel="stylesheet" href="/css/style.min.css">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="{{ .Site.Title }}">
