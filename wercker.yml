@@ -13,5 +13,5 @@ deploy:
   steps:
     - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
-        domain: re-dzine.net
+        # domain: re-dzine.net
         basedir: public
