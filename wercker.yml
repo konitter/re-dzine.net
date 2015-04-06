@@ -3,7 +3,7 @@ box: wercker/rvm
 build:
   steps:
     - arjen/hugo-build:
-        version: 0.12
+        version: 0.13
         flags: --buildDrafts=true
     - script:
         name: Copy RSSfeed to feed.xml
