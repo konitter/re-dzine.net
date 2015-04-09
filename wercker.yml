@@ -15,6 +15,6 @@ deploy:
     - hijonathan/gh-pages@0.2.3:
         token: $GIT_TOKEN
         basedir: public
-        # domain: re-dzine.net
+        domain: re-dzine.net
         repo: konitter/konitter.github.io
         branch: master
