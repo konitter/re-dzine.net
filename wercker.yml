@@ -11,7 +11,10 @@ build:
 
 deploy:
   steps:
-    - lukevivier/gh-pages@0.2.1:
+  steps:
+    - hijonathan/gh-pages@0.2.3:
         token: $GIT_TOKEN
-        domain: re-dzine.net
         basedir: public
+        # domain: re-dzine.net
+        repo: konitter/konitter.github.io
+        branch: master
