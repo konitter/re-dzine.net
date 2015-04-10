@@ -16,5 +16,3 @@ deploy:
         token: $GIT_TOKEN
         basedir: public
         domain: re-dzine.net
-        repo: konitter/konitter.github.io
-        branch: master
