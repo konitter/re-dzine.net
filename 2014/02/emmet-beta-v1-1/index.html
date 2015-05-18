@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Emmetの次期バージョンv1.1(Beta)の新機能がスゴい | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="Emmetの次期バージョンv1.1(Beta)の新機能がスゴい">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2014/02/emmet-beta-v1-1/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2014/02/emmet-beta-v1-1/">
+	<meta name="twitter:title" content="Emmetの次期バージョンv1.1(Beta)の新機能がスゴい">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2014/02/emmet-beta-v1-1/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>Emmetの次期バージョンv1.1(Beta)の新機能がスゴい</h1>
+		<div class="meta"><time datetime="2014-02-13">2014-02-13</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		
+
+<p><a href="http://emmet.io/">Emmet</a>といえば、HTMLやCSSが爆速で書けるようになるWeb制作者なら誰もが知っているであろうアレですが、現在次期バージョンとしてv1.1の開発が進められています。そのことは、昨年の12月23日に<a href="http://emmet.io/blog/beta-v1-1/">Emmet公式ブログで発表</a>されたものの、あまり話題になっていないようなのでここで簡単にご紹介します。</p>
+
+<h2 id="インストール方法:32366be83ada20bf3768f3ddc7d7da6f">インストール方法</h2>
+
+<p>v1.1(Beta)は現状<a href="http://www.sublimetext.com/">Sublime Text</a>でのみ試すことができます。なお、現時点ではまだ正式なリリース版ではありませんので、ご利用はあくまでも自己責任でお願いします。</p>
+
+<ol>
+<li>すでにEmmetを入れているなら別の場所にバックアップを取ったうえでPackage ControlからEmmetを削除。</li>
+<li>一旦Sublime Textを終了しておく。</li>
+<li>ターミナルからSublime Textの<code>Packages</code>フォルダに移動して<a href="https://github.com/sergeche/emmet-sublime/">プラグインのレポジトリ</a>を<code>git clone</code>し、v1.1のブランチに<code>git checkout v1.1</code>で切り替える。そういうのが難しい人は<a href="https://github.com/sergeche/emmet-sublime/archive/v1.1.zip">ここからダウンロード</a>して解凍したものを置く。</li>
+<li>Sublime Textを起動。</li>
+</ol>
+
+<h2 id="v1-1の新機能-11個:32366be83ada20bf3768f3ddc7d7da6f">v1.1の新機能（11個）</h2>
+
+<h3 id="1-can-i-useデータベースのサポート:32366be83ada20bf3768f3ddc7d7da6f">1. Can I Useデータベースのサポート</h3>
+
+<p>ベンダープレフィックスが必要なCSSのプロパティおよびその値の展開には、CSSやHTML5などの各ブラウザ対応状況が確認できるWebサービス「<a href="http://caniuse.com/">Can I Use</a>」のデータベースを用いて行われます。<br>
+デフォルトでは全ブラウザの2つ前までを範囲としますが、<code>caniuse.era</code>と<code>caniuse.vendors</code>の設定で微調整することができるようです。くわしくはこの<a href="https://github.com/emmetio/emmet/blob/umd/lib/assets/caniuse.js#L19">モジュールヘッダー</a>を参照。</p>
+
+<h3 id="2-lessとscssのフルサポート:32366be83ada20bf3768f3ddc7d7da6f">2. LESSとSCSSのフルサポート</h3>
+
+<p><a href="http://docs.emmet.io/actions/toggle-comment/">Toggle Comment</a>、<a href="http://docs.emmet.io/actions/update-image-size/">Update Image Size</a>、<a href="http://docs.emmet.io/actions/select-item/">Select Item</a>などのアクションがLESSとSCSS（SASSは除く）のファイルで動くようになります。</p>
+
+<h3 id="3-slimとjadeの構文をサポート:32366be83ada20bf3768f3ddc7d7da6f">3. SlimとJadeの構文をサポート</h3>
+
+<p>Emmetの<a href="http://docs.emmet.io/filters/">Filters</a>の機能がアップデートされ、HTMLを<a href="https://github.com/slim-template/slim">Slim</a>および<a href="https://github.com/visionmedia/jade">Jade</a>の構文で展開できるようになります。</p>
+
+<pre><code class="language-html">p.title&gt;a[/hoge/]|slim
+↓
+p.title
+  a href=&quot;/hoge/&quot;
+</code></pre>
+
+<h3 id="4-css-gradientジェネレータのアップデート:32366be83ada20bf3768f3ddc7d7da6f">4. CSS Gradientジェネレータのアップデート</h3>
+
+<p>W3C構文の仕様やCan I Useデータベースなど複数の定義をサポートします。</p>
+
+<pre><code class="language-css">lg(red, black)
+↓
+background-image: -webkit-linear-gradient(red, black);
+background-image: -o-linear-gradient(red, black);
+background-image: linear-gradient(red, black);
+</code></pre>
+
+<h3 id="5-boolean型属性:32366be83ada20bf3768f3ddc7d7da6f">5. Boolean型属性</h3>
+
+<p>属性名の後ろにドットを書くことで、同じ名前と値を持つ属性を短く書けるようになります。</p>
+
+<pre><code class="language-html">inp[type=radio][checked.]
+↓
+&lt;input type=&quot;radio&quot; name=&quot;&quot; id=&quot;&quot; checked&gt;
+</code></pre>
+
+<h3 id="6-暗黙の属性値:32366be83ada20bf3768f3ddc7d7da6f">6. 暗黙の属性値</h3>
+
+<p><code>img</code>要素の<code>src</code>属性などHTML要素において値が必須な属性は、その属性名を省略できるようになります。</p>
+
+<pre><code class="language-html">img[src=image.png]
+↓
+img[image.png]
+</code></pre>
+
+<h3 id="7-デフォルトの属性:32366be83ada20bf3768f3ddc7d7da6f">7. デフォルトの属性</h3>
+
+<p>属性が必須でない要素も暗黙の属性値によって値を展開できるようになります。</p>
+
+<pre><code class="language-html">script → &lt;script&gt;&lt;/script&gt;
+↓
+script[jquery.js] → &lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h3 id="8-新アクション-update-tag:32366be83ada20bf3768f3ddc7d7da6f">8. 新アクション「Update Tag」</h3>
+
+<p>新たに追加されるアクション「Update Tag」を使うことで、すでに記述（展開）済みのHTML要素をEmmetの機能で更新できるようになります。更新したい要素にカーソルを置き以下のコマンドを叩くと、「Enter Abbreviation:」というダイアログがエディタのウィンドウ下に開くので、追加したい属性や値を書いてEnterします。</p>
+
+<pre><code class="language-html">&lt;header&gt;|&lt;/header&gt;
+↓
+[shift]+[ctrl]+[u] → .global → Enter
+↓
+&lt;header class=&quot;global&quot;&gt;&lt;/header&gt;
+</code></pre>
+
+<h3 id="9-アクション名-match-tag-pair-を-balance-に変更:32366be83ada20bf3768f3ddc7d7da6f">9. アクション名「Match Tag Pair」を「Balance」に変更</h3>
+
+<p>v1でも実装されている<a href="http://docs.emmet.io/actions/match-pair/">Match Tag Pair</a>のアクション名が「Balance」に変更され、またCSSでもそのアクションが動くようになります。</p>
+
+<h3 id="10-cssをシングルラインで展開できるオプションを追加:32366be83ada20bf3768f3ddc7d7da6f">10. CSSをシングルラインで展開できるオプションを追加</h3>
+
+<p><code>syntaxProfiles.json</code>（Sublime Textなら<code>Emmet.sublime-settings</code>）にて<code>&quot;css&quot;: &quot;css_line&quot;</code>を設定するとCSSのプロパティがシングルラインで展開されるようになります。くわしくは<a href="http://docs.emmet.io/customization/syntax-profiles/">こちらのドキュメント</a>を参照。</p>
+
+<h3 id="11-rgbaカラーのシンタックスを追加:32366be83ada20bf3768f3ddc7d7da6f">11. RGBaカラーのシンタックスを追加</h3>
+
+<p><code>color</code>プロパティなどでのカラーコードの展開において、後ろに<code>.N</code>を付けることで、CSS3のRGBaで開きます。</p>
+
+<pre><code class="language-css">c#dca.7
+↓
+color: rgba(221, 204, 170, 0.7);
+</code></pre>
+
+<h2 id="まとめ:32366be83ada20bf3768f3ddc7d7da6f">まとめ</h2>
+
+<p>公式ブログの該当エントリーには他にも、EmmetはそもそもNode.JSに準拠した書き方がされているので、npm packageとして提供される日も近いとのことです。実際、Emmetの開発版と思われるブランチが<a href="https://github.com/emmetio/emmet/blob/umd/Gruntfile.js">Gruntでビルドできるように</a>なっています。</p>
+
+<p>具体的なリリース日は未定ですが、その動向には注視していきたいです。</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2014/10/textbook-of-css-design/">【告知】『Web制作者のためのCSS設計の教科書』出版記念イベントを11/8に大阪で開催します</a></div></li>
+	<li>Newer Entry: <div><a href="/2014/02/getting-started-with-gulp/">Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

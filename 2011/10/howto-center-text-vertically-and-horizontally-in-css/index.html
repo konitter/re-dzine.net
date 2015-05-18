@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>CSSで幅や行数が一定でないテキストを上下左右中央に配置する方法 | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="CSSで幅や行数が一定でないテキストを上下左右中央に配置する方法">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2011/10/howto-center-text-vertically-and-horizontally-in-css/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2011/10/howto-center-text-vertically-and-horizontally-in-css/">
+	<meta name="twitter:title" content="CSSで幅や行数が一定でないテキストを上下左右中央に配置する方法">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2011/10/howto-center-text-vertically-and-horizontally-in-css/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>CSSで幅や行数が一定でないテキストを上下左右中央に配置する方法</h1>
+		<div class="meta"><time datetime="2011-10-17">2011-10-17</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		<p>横浜にある株式会社シーブレインというWEB制作会社の制作スタッフが運営するブログ「<a href="http://c-brains.jp/blog/wsg/">バシャログ。</a>」の「<a href="http://c-brains.jp/blog/wsg/11/10/13-200523.php">cssで縦方向中央に配置する方法（5つのケース）</a>」というエントリーの応用編として、そこにもう1つケースを足してみます。</p>
+
+<p>テキストの幅や行数が決まらないけど、常にボックス内で上下左右中央に配置したいというケースです。まあ、そんな場面あんまないと思うけど。</p>
+
+<p><style>
+.sample_box {
+width: 400px;
+margin: 1.8em 0;
+padding: 1.2em 1.5em;
+border: 1px solid #ECECE5;
+background: white;
+-webki-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+.sample_box p {
+margin: 0;
+}
+.sample {
+display: table-cell;
+width: 400px;
+height: 150px;
+vertical-align: middle;
+text-align: center;
+}
+.sample p {
+display: inline-block;
+text-align: left;
+}
+</style></p>
+
+<h2>HTML</h2>
+<pre><code>&lt;div class=&quot;sample&quot;&gt;
+    &lt;p&gt;行数が決まらない場合は&lt;br /&gt;
+    こうなります。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+<h2>CSS</h2>
+
+<pre><code class="language-css">.sample {
+    display: table-cell;
+    width: 400px;
+    height: 150px;
+    vertical-align: middle;
+    text-align: center;
+}
+.sample p {
+    display: inline-block;
+    text-align: left;
+}
+</code></pre>
+
+<p><h2>Sample</h2>
+<div class="sample_box">
+<div class="sample">
+<p>行数が決まらない場合は<br />
+こうなります。</p>
+</div>
+</div></p>
+
+<p>テキストが4行になっても、
+<div class="sample_box">
+<div class="sample">
+<p>行数が決まらない場合は<br />
+こうなります。<br />
+4行になっても、100人乗っても<br />
+だいじょうぶです。</p>
+</div>
+</div></p>
+
+<p>p要素を囲っているボックスを display:table-cell で表のセル要素にしてやると、vertical-align:middle が有効になるので、中のp要素が縦方向の中央に配置されます。</p>
+
+<p>さらに .sample で、text-align:center を指定し、p要素で display:inline-block と text-align:left を指定してやると、テキストが左右中央に配置されます。</p>
+
+<p>中のテキストの1行分がボックスの幅を超えてしまうと、p要素がボックスの幅いっぱいに広がって左右中央のようには見えないので、p要素に max-width でいくつかの値を指定しておくとよいと思います。</p>
+
+<p>ちなみにIE6/7では、display:table-cell が無視されますので、意図する通りにはなりません。<br />
+その場合については、ここでは割愛します。挑戦したい方はどうぞ。</p>
+
+<p>みなさんはこういう場合、どうコーディングしますか？</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2011/10/transition-to-a-command-in-insert-mode-vim/">Vimで挿入モードへの移行コマンドを「-」から「;」に変更する方法</a></div></li>
+	<li>Newer Entry: <div><a href="/2011/10/emember-odd-and-even/">リストのコーディングとかで使う奇数・偶数を表す英単語odd・evenを簡単に覚える方法</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

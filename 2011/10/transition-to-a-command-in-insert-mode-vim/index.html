@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Vimで挿入モードへの移行コマンドを「-」から「;」に変更する方法 | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="Vimで挿入モードへの移行コマンドを「-」から「;」に変更する方法">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2011/10/transition-to-a-command-in-insert-mode-vim/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2011/10/transition-to-a-command-in-insert-mode-vim/">
+	<meta name="twitter:title" content="Vimで挿入モードへの移行コマンドを「-」から「;」に変更する方法">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2011/10/transition-to-a-command-in-insert-mode-vim/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>Vimで挿入モードへの移行コマンドを「-」から「;」に変更する方法</h1>
+		<div class="meta"><time datetime="2011-10-21">2011-10-21</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		<p>大したことないようで意外と便利だと分かる設定。</p>
+
+<p>あ、その前に、最近（といっても数ヶ月前ですが）、エディターを「Vim」に変えました。とくに理由があるわけではないんですけど、なんかこういうコマンドラインエディター使ってるとモテるって聞いたので。</p>
+
+<p>で、表題の件、以下の設定を設定ファイル（vimrcとか）に書くだけ。</p>
+
+<pre><code class="language-vim">noremap ; :
+noremap : ;
+</code></pre>
+
+<p>だって、移動コマンド（h/j/k/l）から見ると「;」の方が近いし。</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2011/10/acckansai01/">「関西でWebアクセシビリティを考える会」に参加してきました</a></div></li>
+	<li>Newer Entry: <div><a href="/2011/10/howto-center-text-vertically-and-horizontally-in-css/">CSSで幅や行数が一定でないテキストを上下左右中央に配置する方法</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

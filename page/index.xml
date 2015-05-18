@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on REFLECTDESIGN</title>
+    <link>http://re-dzine.net/page/</link>
+    <description>Recent content in Pages on REFLECTDESIGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <atom:link href="http://re-dzine.net/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>http://re-dzine.net/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/about/</guid>
+      <description>
+
+&lt;h2 id=&#34;profile:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Profile&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;name: Haruki Konishi&lt;/li&gt;
+&lt;li&gt;handle: konitter&lt;/li&gt;
+&lt;li&gt;job: Web director&lt;/li&gt;
+&lt;li&gt;house: Osaka&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://facebook.com/konitter&#34;&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/konitter&#34;&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>gulpあるいはビルドツールとnpm run-scriptとの関係性 | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="description" content="Gulp is awesome, but do we really need it?という記事を読んだ。元々Gruntを使っててgulpに移行して&amp;rdquo;holly grail&amp;rdquo;とまで思ってたけど、npm run-scriptにタスクまとめたらたったの9行で済んだよ！というお話。">
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="gulpあるいはビルドツールとnpm run-scriptとの関係性">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2015/03/relationship-with-gulp-and-npm-run-script/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2015/03/relationship-with-gulp-and-npm-run-script/">
+	<meta name="twitter:title" content="gulpあるいはビルドツールとnpm run-scriptとの関係性">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2015/03/relationship-with-gulp-and-npm-run-script/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>gulpあるいはビルドツールとnpm run-scriptとの関係性</h1>
+		<div class="meta"><time datetime="2015-03-05">2015-03-05</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		<p><a href="http://gon.to/2015/02/26/gulp-is-awesome-but-do-we-really-need-it/">Gulp is awesome, but do we really need it?</a>という記事を読んだ。元々Gruntを使っててgulpに移行して&rdquo;holly grail&rdquo;とまで思ってたけど、npm run-scriptにタスクまとめたらたったの9行で済んだよ！というお話。</p>
+
+<p>コメント欄でかのTJ Holowaychuk氏から&rdquo;pretty lame&rdquo;だと突っ込まれているが、感想としては僕もそれに近い。自分一人しかいないのならやりやすいようにやればいい。が、チームとして複数人で開発するならこの方法は避けたほうがいいだろう。</p>
+
+<p>現時点では、タスクはすべてgulpなどのビルドツールに1つまとめて、それを実行するコマンドはnpm run-scriptに集約する手法が現実的だと考えていて、言いたいことは<a href="http://qiita.com/Jxck_/items/efaff21b977ddc782971">Jxck氏のQiitaの記事</a>にすべて書かれている。</p>
+
+<p>Kyo Nagashima氏の<a href="http://hail2u.net/blog/webdesign/wrapping-task-runner-with-npm-run-script.html">タスク・ランナーをnpm run-scriptでラップ</a>という記事に書かれているように、ビルドツールを通すほどでもないような小さなタスクは、nodeスクリプトとして書いてnpm run-scriptから<code>--</code>で引数を付けて実行するのも悪くない。ように見えるが、npmのバージョンが2以上に限られるのと（それほど大きな問題ではないけど）、タスクがばらけるのが個人的にはスッキリしない。</p>
+
+<p>変にあいまいな部分を残すよりも、タスクはビルドツールに集約するとルールとして決めたほうが通りが良さそうに思う。関係者のスキルにばらつきがあるのならなおさらだ。</p>
+
+<p>&hellip;とまあこんなチラ裏みたいなことを書いてみた。</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	
+	<li>Newer Entry: <div><a href="/2015/01/hugo/">MiddlemanからHugoへ移行した</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

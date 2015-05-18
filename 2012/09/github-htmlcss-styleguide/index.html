@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>GitHubのHTML/CSS Styleguideを適当に和訳してみた | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="GitHubのHTML/CSS Styleguideを適当に和訳してみた">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2012/09/github-htmlcss-styleguide/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2012/09/github-htmlcss-styleguide/">
+	<meta name="twitter:title" content="GitHubのHTML/CSS Styleguideを適当に和訳してみた">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2012/09/github-htmlcss-styleguide/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>GitHubのHTML/CSS Styleguideを適当に和訳してみた</h1>
+		<div class="meta"><time datetime="2012-09-11">2012-09-11</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		<p>今年の5月に書いた記事『<a href="http://re-dzine.net/2012/05/google-htmlcss-style-guide/">「Google HTML/CSS Style Guide」を適当に和訳してみた</a>』がかなり反響があったわけですが、和訳シリーズ第2弾として、GitHubが公開しているHTMLとCSSのスタイルガイドを簡単に和訳してみたいと思います。</p>
+
+<p>原文はこちら。</p>
+
+<ul>
+<li><a href="https://github.com/styleguide/html" target="_blank">HTML · Styleguide</a></li>
+<li><a href="https://github.com/styleguide/css" target="_blank">CSS · Styleguide</a></li>
+</ul>
+
+<h2>HTMLスタイルガイド</h2>
+
+<h3>ドキュメントタイプ</h3>
+ブラウザが標準モードで動作するようドキュメントタイプを書かなければならない。<br />
+クセのあるモード（訳者注：おそらく互換モードのこと）は避けるべき。
+
+シンプルに書くために`HTML5`を使う。覚えやすいし。
+
+<pre>
+<code>&lt;!DOCTYPE html&gt;</code>
+</pre>
+
+<h3>HTMLガイドライン</h3>
+* 段落テキストには`<p>`を使うこと。連続した`<br/>`は決して使わない。
+* リスト形式には`<ul>`、`<ol>`や`<dl>`を使う。`<div>`や`<p>`を組み合わせて使うようなことはしない。
+* テキストが付随するすべてのフォーム要素には`<label>`を使うべき。ラジオボタンやチェックボックスは特に。
+* 属性を囲む引用符は省略可能だが、可読性のために属性は引用符で囲むこと。
+
+```html
+<p class="line note" data-attribute="106">This is my paragraph of special text.</p>
+```
+
+* `<thead>`、`<tfoot>`、`<tbody>`と`<th>`（`scope`属性も）を適宜使用すること。
+
+```html
+<table summary="This is a chart of invoices for 2011.">
+	<thead>
+		<tr>
+			<th scope="col">Table header 1</th>
+			<th scope="col">Table header 2</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td>Table footer 1</td>
+			<td>Table footer 2</td>
+		</tr>
+	</tfoot>
+	<tbody>
+		<tr>
+			<td>Table data 1</td>
+			<td>Table data 2</td>
+		</tr>
+	</tbody>
+</table>
+```
+
+<h2>CSSスタイルガイド</h2>
+<p>GitHubのCSSスタイルガイドへようこそ。これを読む前に、詳細度、<a href="http://sass-lang.com/" target="_blank">SCSS</a>構文、<a href="https://github.com/kneath/kss" target="_blank">KSS</a>のドキュメントについて、概要を理解しておく必要があります。</p>
+
+<h3>コーディングスタイル</h3>
+
+<ul>
+<li>インデントはスペース2つ分のソフトタブを使う。</li>
+<li>プロパティ宣言の<code>:</code>の後ろにはスペースを入れる。</li>
+<li>ルール宣言の<code>{</code>の前にはスペースを入れる。</li>
+<li>rgbaを使用しない限り、16進数のカラーコードを使う。</li>
+<li><code>/* */</code>の代わりに、コメントには<code>//</code>を使う。（SCSSの構文）</li>
+<li><a href="https://github.com/kneath/kss" target="_blank">KSS</a>のドキュメントに従う。</li>
+</ul>
+
+<pre><code class="language-css">// This is a good example!
+.styleguide-format {
+	border: 1px solid #0f0;
+	color: #000;
+	background: rgba(0,0,0,0.5);
+}
+</code></pre>
+
+<h3>SCSSスタイル</h3>
+
+<ul>
+<li>複数のファイルで使用される<code>$variable</code>や<code>@mixin</code>は、<code>globals/</code>ディレクトリに置くこと。その他は、使用しているファイルの先頭に書くこと。</li>
+<li>大ざっぱに言うと、3つより深くネストしない。それより深いネストを見つけた場合は、ルールを見直すことを考える。</li>
+</ul>
+
+<h3>ファイル構成</h3>
+
+<p>基本的にCSSファイルの構成はこれに従うこと。</p>
+
+<pre><code class="language-css">styles
+├── components
+│   ├── comments.scss
+│   └── listings.scss
+├── globals
+│   ├── browser_helpers.scss
+│   ├── responsive_helpers.scss
+│   ├── variables.scss
+├── plugins
+│   ├── jquery.fancybox-1.3.4.css
+│   └── reset.scss
+├── sections
+│   ├── issues.scss
+│   ├── profile.scss
+└── shared
+		├── forms.scss
+		└── markdown.scss
+</code></pre>
+
+<p>必要なファイルには<a href="https://github.com/sstephenson/sprockets" target="_blank">Sprockets</a>を使う。<br />
+ただし、特定のSCSSファイルはヘルパーが必要なため、（<code>globals/</code>ディレクトリ内の）スタイルを生成しないSCSSファイルを明示的にimportする必要がある。</p>
+
+<pre><code class="language-css">//= require_tree ./plugins
+//= require my_awesome_styles
+
+@import &quot;../globals/basic&quot;;
+
+.rule { ... }
+</code></pre>
+
+<h3>px vs. em</h3>
+`font-size`プロパティには、`px`を使う。なぜなら、テキストを絶対的にコントロールできるから。<br />
+さらに、`line-height`は単位なしが良い。親要素のパーセンテージ値を継承しないためである。単位なしの場合、値は`font-size`の乗数に基づく。
+
+<h3>class vs. id</h3>
+ページ内に1度だけ出現する要素にはidを使い、そうでない場合はclassを使う。どちらか迷うなら、classを使う。
+
+<ul>
+<li>良いidの例: header, footer, modal popups</li>
+<li>悪いidの例: navigation, item listings, item view pages</li>
+</ul>
+
+コンポーネントをスタイルする場合は、要素＋class名で設定する（idよりも好ましい）。さらに、中身の要素は直系の子孫セレクタを用い、できるだけ詳細度が少なくなるようにする。
+
+```html
+<ul class="category-list">
+	<li class="item">Category 1</li>
+	<li class="item">Category 2</li>
+	<li class="item">Category 3</li>
+</ul>
+```
+
+```css
+ul.category-list { // element + class namespace
+
+	&>li { // direct descendant selector > for list items
+		list-style-type: disc;
+	}
+
+	a { // minimal specificity for all links
+		color: #ff0000;
+	}
+}
+```
+
+<h3>CSSの詳細度に関するガイドライン</h3>
+
+<ul>
+<li>idセレクタ（<code>#selector</code>）を使う場合は、同時に複数のルールを適用していないか確認すること。<code>#header .search #quicksearch { ... }</code>のようなルール宣言はしない。</li>
+<li>特定の用途のために既存の要素を修正する際は、特定のclass名を加える。<code>.listings-layout.bigger</code>ではなく、<code>.listings-layout.listings-bigger</code>とし、将来的にコードを<code>ack/grep</code>するときのことを考える。</li>
+<li><code>disabled</code>、<code>mousedown</code>、<code>danger</code>、<code>hover</code>、<code>selected</code>、<code>active</code>などは常にclass名であるべき。（<code>button.classy.selected</code>は良い例。）</li>
+</ul>
+
+<p><h3>実験的な機能について（スタッフに向けて）</h3>
+実験的な機能を公開する場合は、次のことを常に念頭に置いて行うこと。</p>
+
+<ul>
+<li>新機能のスタイルが既存の機能のスタイルに影響を与えないか。</li>
+<li>うまくいかなくなった場合は、実験的な機能のCSSを削除する。</li>
+<li>新機能を公開する際は、古い機能のCSSを削除する。</li>
+</ul>
+
+<p>ベータ版や実験的な機能を開発する際は、<code>-experimental</code>（意味:実験的な）をclass名の後ろに付けて、既存のルールと分ける。</p>
+
+<p>ある機能のこんなコードがあったとして、</p>
+
+<pre><code class="language-html">&lt;div class=&quot;notifications&quot;&gt;
+	&lt;ul class=&quot;navigation&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Notifications&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Messages&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class=&quot;notifications-listing&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;dragon commented on Issue #551&lt;/a&gt;
+		&lt;a href=&quot;#&quot;&gt;mojombo commented on Issue #91&lt;/a&gt;
+		&lt;a href=&quot;#&quot;&gt;defunkt uploaded a new file to defunkt/resque&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-css">// Deprecated: Exisitng notifications + messages design. To be removed when
+// notifications-next ships.
+//
+// Styleguide 4.5.1
+.notifications {
+	ul.navigation {
+		float: left;
+		width: 200px;
+		background: #eee;
+	}
+
+	.notification-listing {
+		&amp;&gt;a {
+			display: block;
+			font-weight: bold;
+		}
+	}
+}
+</code></pre>
+
+<p>新機能を作るならこうする。</p>
+
+<pre><code class="language-html">&lt;div class=&quot;notifications-experimental&quot;&gt;
+	&lt;h2&gt;New hot notifications!&lt;/h2&gt;
+	&lt;ul class=&quot;navigation&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Important&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;@mentions&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Everything&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;ul class=&quot;notifications-listing&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;dragon commented on Issue #551&lt;/a&gt;
+		&lt;a href=&quot;#&quot;&gt;mojombo commented on Issue #91&lt;/a&gt;
+		&lt;a href=&quot;#&quot;&gt;defunkt uploaded a new file to defunkt/resque&lt;/a&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-css">// Experimental: Notifications, the new hotness version.
+//
+// Styleguide 4.5.2
+.notifications-experimental {
+	ul.navigation {
+		float: right;
+		width: 250px;
+	}
+
+	.notification-listing {
+		&amp;&gt;a {
+			float: right;
+			color: #ff0000;
+
+		}
+	}
+}
+</code></pre>
+
+<p>もちろん新機能を公開する際は、class名を変更する（<code>-experimental</code>を削除する）のを忘れないこと。</p>
+
+<p>Googleのスタイルガイドに比べて、細かいことは書かずに、基本的なことをさらっとって感じですね。どちらかと言うと運用面での決まり、という側面が強いです。</p>
+
+<p>全然関係ないですが、Markdownで書いてGitHubに上げれば原文のようなスタイルの文書を簡単に作ることができるので、ガイドラインとGitHubの親和性は非常に高いなあって思いました。</p>
+
+<p>それに至った「歴史」みたいなのもガイドラインの大事な要素の一つだったりするので、みなさんもガイドラインをお持ちであれば、GitHubで公開するのも面白いと思います。</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2012/09/ios6ipadcss/">デザイン丸パクリ疑惑のiOS6のiPad用時計アプリをCSSのみで作ってみた</a></div></li>
+	<li>Newer Entry: <div><a href="/2012/09/contest-q-the-2nd/">Web Creator&#39;s Contest Q the 2ndに応募してみた</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

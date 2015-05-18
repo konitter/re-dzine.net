@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="Middlemanで作ったブログのテンプレートエンジンをERBからSlimに">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2014/01/middleman-slim/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2014/01/middleman-slim/">
+	<meta name="twitter:title" content="Middlemanで作ったブログのテンプレートエンジンをERBからSlimに">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2014/01/middleman-slim/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>Middlemanで作ったブログのテンプレートエンジンをERBからSlimに</h1>
+		<div class="meta"><time datetime="2014-01-08">2014-01-08</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		
+
+<p>今どき生の HTML を書いてるようじゃモテないって聞いたので、昨年10月末に <a href="http://middlemanapp.com/">Middleman</a> で作ったこのブログのテンプレートエンジンをデフォルトの ERB から <a href="https://github.com/slim-template/slim">Slim</a> に変更しました。</p>
+
+<h2 id="hamlとslim:42ed37bd0a77cdc609dfe66bdfd04f46">HamlとSlim</h2>
+
+<p>Middleman では Slim だけでなく <a href="https://github.com/haml/haml">Haml</a> も使えます。Haml は Middleman に標準で装備されているので、ファイルの拡張子を<code>hoge.html.haml</code>にするだけですぐに使いはじめることができます。が、HTML要素の頭に<code>%</code>を書くっていう記法が気持ち悪かったのと、Slim だと属性をカッコで囲まなくてよく、さらに簡潔に書けるので今回は Slim を採用。</p>
+
+<p>Haml と Slim の簡単な比較は、それぞれの Github か以下のページから確認できます。</p>
+
+<ul>
+<li><a href="http://tech-sketch.jp/2013/07/haml-slim-middleman.html">HamlとSlimをMiddleman上で比較する - Tech-Sketch</a></li>
+</ul>
+
+<h2 id="middlemanでslimを使う:42ed37bd0a77cdc609dfe66bdfd04f46">MiddlemanでSlimを使う</h2>
+
+<p>Middleman のプロジェクトを新規に作る場合は、<a href="https://github.com/yterajima/middleman-slim">middleman-slim</a> という最初からテンプレートファイルが Slim になっているエクステンションを使うといいです。</p>
+
+<pre><code class="language-bash">$ gem install middleman
+$ gem install middleman-slim
+$ middleman init PROJECT_NAME --template slim
+</code></pre>
+
+<p>今回の僕のように途中から Slim に変更する場合は、Slim を利用するために gem をインストールする必要があります。とはいえ方法は簡単で、以下の一行をMiddlemanプロジェクトのルートにある<code>Gemfile</code>に追加して<code>bundle install</code>。簡単。</p>
+
+<pre><code class="language-gemfile">gem &quot;slim&quot;
+</code></pre>
+
+<p>あとは各テンプレートファイルの拡張子を<code>hoge.html.slim</code>に変更して、記法に従って書くだけ。以下のような HTML から Slim に変換してくれるサイトもあるので、めんどくさい人はどうぞ。</p>
+
+<ul>
+<li><a href="http://html2slim.herokuapp.com/">Html2Slim | Convert HTML Snippets to Slim</a></li>
+</ul>
+
+<h2 id="オプションを設定してslimの出力結果を制御する:42ed37bd0a77cdc609dfe66bdfd04f46">オプションを設定してSlimの出力結果を制御する</h2>
+
+<p>何の設定もなしにデフォルトだと以下のような HTML が出力されます。（head内の一部を抜粋）<br>
+コードは圧縮、属性の順番がソートされ、さらに閉じタグのないものは XHTML な感じに。</p>
+
+<pre><code class="language-html">&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;title&gt;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&lt;/title&gt;&lt;meta content=&quot;width=device-width,initial-scale=1&quot; name=&quot;viewport&quot; /&gt;&lt;meta content=&quot;REFLECTDESIGN&quot; property=&quot;og:site_name&quot; /&gt;&lt;meta content=&quot;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&quot; property=&quot;og:title&quot; /&gt;&lt;meta content=&quot;article&quot; property=&quot;og:type&quot; /&gt;
+</code></pre>
+
+<p>個人的には嘔吐感が半端なかったので、以下の設定を<code>config.rb</code>に加えてやります。</p>
+
+<pre><code class="language-ruby">set :slim, { :pretty =&gt; true, :sort_attrs =&gt; false, :format =&gt; :html5 }
+</code></pre>
+
+<p>するとこんな風に。</p>
+
+<pre><code class="language-html">&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&lt;/title&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;meta property=&quot;og:site_name&quot; content=&quot;REFLECTDESIGN&quot;&gt;
+&lt;meta property=&quot;og:title&quot; content=&quot;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&quot;&gt;
+&lt;meta property=&quot;og:type&quot; content=&quot;article&quot;&gt;
+</code></pre>
+
+<p>その他のオプションについては <a href="https://github.com/slim-template/slim#available-options">Github の Available options</a> を参照してください。</p>
+
+<h2 id="ビルド時にhtmlをminifyする:42ed37bd0a77cdc609dfe66bdfd04f46">ビルド時にHTMLをMinifyする</h2>
+
+<p>上記のオプションでHTMLコードは見やすくなったものの、<code>middleman build</code>するときにはHTMLファイルを Minify したくなりました。そんなときは、<a href="https://github.com/middleman/middleman-minify-html">Middleman-Minify-HTML</a> を使います。</p>
+
+<p>使い方は<code>Gemfile</code>に以下の一行を追加して<code>bundle install</code>。</p>
+
+<pre><code class="language-gemfile">gem 'middleman-minify-html'
+</code></pre>
+
+<p>そしてビルド時の設定として以下を<code>config.rb</code>を追加する。デフォルトでは、<code>&quot;&quot;</code>などのクオート記号を削除、各HTML要素間にスペースを入れるようになっていたので、以下のオプションを追加。</p>
+
+<pre><code class="language-ruby">configure :build do
+  activate :minify_html, :remove_quotes =&gt; false, :remove_intertag_spaces =&gt; true
+  ...
+  ...
+end
+</code></pre>
+
+<p>そもそもこの middleman-minify-html は HTML の Minify に htmlcompressor を使っているので、<a href="https://github.com/paolochiodi/htmlcompressor">htmlcompressor の Github</a> に書いてあるオプションを適宜設定すればそれが適用できます。</p>
+
+<p>出力結果はこのページのソースでも見てもらえればと。<br>
+このブログのソースコードは以下にアップしてるので良かったら参考まで。</p>
+
+<ul>
+<li><a href="https://github.com/konitter/konitter.github.io">konitter/konitter.github.io</a></li>
+</ul>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2014/02/getting-started-with-gulp/">Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門</a></div></li>
+	<li>Newer Entry: <div><a href="/2013/12/markupcafe-osaka-vol1/">MarkupCafe Osaka Vol.1 に参加してきました</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

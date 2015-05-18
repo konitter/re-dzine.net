@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>「Firefox 16」のコマンドラインを使ってみた。これは色々と捗る、のか？！ | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="「Firefox 16」のコマンドラインを使ってみた。これは色々と捗る、のか？！">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2012/10/firefox-16-command-line/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2012/10/firefox-16-command-line/">
+	<meta name="twitter:title" content="「Firefox 16」のコマンドラインを使ってみた。これは色々と捗る、のか？！">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2012/10/firefox-16-command-line/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>「Firefox 16」のコマンドラインを使ってみた。これは色々と捗る、のか？！</h1>
+		<div class="meta"><time datetime="2012-10-12">2012-10-12</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		<p>10月10日（日本時間）にFirefoxの最新版「<a href="http://www.mozilla.jp/firefox/" target="_blank">Firefox 16</a>」が公開されました。前バージョンからの変更点の詳細は、各種ニュースサイトなどに譲るとして、我々開発者に関係するポイントして今回新たに「開発者ツールバー」が搭載されました。</p>
+
+<p><img src="/img/2012/10/ff16_01.jpg" alt="ff16_01" width="520" height="93" /></p>
+
+<p>↑ 「開発者ツールバー」には、各種開発ツールに簡単にアクセスできるボタンおよびコマンドラインインターフェイス（以下、コマンドライン）が備わっています。で、そのコマンドラインが面白いというか微妙というか、そんな感じでしたので、簡単にご紹介します。</p>
+
+<h2>ツールバーを起動する</h2>
+
+<p>「開発者ツールバー」は、Firefoxボタンの「Web 開発」メニューから呼び出せます。下記図にもある通り、「Shift+F2」のショートカットでも起動できます。</p>
+
+<p><img src="/img/2012/10/ff16_02.jpg" alt="ff16_02" width="520" height="468" /></p>
+
+<h2>使えるコマンドを見てみる</h2>
+
+<p>「開発者ツールバー」が起動できたら、まずどんなコマンドが使えるのかを確認します。コマンドライン（ツールバー左側の入力欄）に以下のコマンドを打って、エンターします。</p>
+
+<pre class="prettyprint"><code>help</code></pre>
+
+<p>すると、以下のようなコマンドの一覧が出てきます。</p>
+
+<p><img src="/img/2012/10/ff16_03.jpg" alt="ff16_03" width="520" height="448" /></p>
+
+<p>さらに、一覧内の「&raquo; help addon」などの部分をクリックすると、そのコマンドがセットされるので、コマンドラインにカーソルを持って行ってエンターを押すとそれぞれのコマンドのヘルプを見ることができます。以下は、「<code>help addon</code>」したところ。</p>
+
+<p><img src="/img/2012/10/ff16_04.jpg" alt="ff16_04" width="520" height="316" /></p>
+
+<p>とにかくコマンドラインを使いこなすには、この辺のヘルプに一通り目を通しておく必要があると思います。</p>
+
+<h2>覚えとくと便利（かもしれない）コマンド</h2>
+
+<h3>ページの表示サイズを変更して見る</h3>
+
+<pre class="prettyprint"><code>resize to 320 480</code></pre>
+
+<p>Firefox15から実装されている「レスポンシブデザインビュー」が起動し、320x480のサイズで今開いているページを表示します。</p>
+
+<p><img src="/img/2012/10/ff16_05.jpg" alt="ff16_05" width="520" height="380" /></p>
+
+<h3>cookieの一覧を見る</h3>
+
+<pre class="prettyprint"><code>cookie list</code></pre>
+
+<p>開いているページで保存されるcookieの一覧を表示します。「アクション」からcookieを編集したり削除したりできます。以下は、Firefoxのページ。</p>
+
+<p><img src="/img/2012/10/ff16_06.jpg" alt="ff16_06" width="520" height="211" /></p>
+
+<h3>スクリーンショットを撮る</h3>
+
+<pre class="prettyprint"><code>screenshot button 0 false .button</code></pre>
+
+<p>Firefoxがファイルダウンロード時にデフォルトで保存する場所に、「button.png」というファイル名でdelayタイム無しで<code>.button</code>というノードのスクリーンショットを撮って保存します。</p>
+
+<p><img src="/img/2012/10/ff16_07.jpg" alt="ff16_07" width="520" height="278" /></p>
+
+<h3>その他コマンド</h3>
+
+<p>その他のコマンドについては以下のページに説明があります。（英語）</p>
+
+<ul>
+<li><a href="https://hacks.mozilla.org/2012/08/new-firefox-command-line-helps-you-develop-faster/">New Firefox Command Line helps you develop faster ✩ Mozilla Hacks – the Web developer blog</a></li>
+</ul>
+
+<h2>まとめ</h2>
+
+<p>このコマンドライン、確かに面白いUIだと思いますが、現状操作できることがそれほど多くないので、開発するのに捗るツールとなるかと言えばまだまだだと思います。</p>
+
+<p>個人的にはVimやEmacsなどのコマンドラインエディターのように、ブラウザにおけるすべての操作がコマンドで行えるようになると、それはそれで面白い気がします。</p>
+
+<p>みなさんも一度触ってみてはいかがでしょうか？</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2012/10/osakacss-vol1-discussion/">Osaka.css (#1) .discussion を開催しました</a></div></li>
+	<li>Newer Entry: <div><a href="/2012/10/sublime-text-2-shift-jis/">Sublime Text 2をShift_JISに対応させるプラグインがあると聞いて</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

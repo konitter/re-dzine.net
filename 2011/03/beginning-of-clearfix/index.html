@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>意外とみんな知らないclearfixの始まりについて調べてみた | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="意外とみんな知らないclearfixの始まりについて調べてみた">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2011/03/beginning-of-clearfix/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2011/03/beginning-of-clearfix/">
+	<meta name="twitter:title" content="意外とみんな知らないclearfixの始まりについて調べてみた">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2011/03/beginning-of-clearfix/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>意外とみんな知らないclearfixの始まりについて調べてみた</h1>
+		<div class="meta"><time datetime="2011-03-09">2011-03-09</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		<p>floatを解除するためのCSSのテクニック通称「clearfix」。これまでも記法や考え方などについて数々の議論がおこなわれてきましたし、それらのclearfixに関するエントリーはググればたくさん出てきます。</p>
+
+<p>なぜ今clearfixなのかというと、つい先日Web系の知り合い数人と「clearfix飲み会」というのをやったのですが、その中で「clearfixってだれが考えたんだっけ？」という話題が出て、誰も知らなかったという出来事がありました。</p>
+
+<p>個人的にもすごく気になったので、ちょっと調べてみました。間違いがあったら指摘してください。</p>
+
+<p>まず、clearfixを最初に考案したのは、オーストラリア人のWebデベロッパー、Tony Aslett（<a href="http://twitter.com/#!/taslett">@taslett</a>）という人です。（『現場のプロから学ぶ XHTML+CSS』という本にもこのことが載ってるみたいです。）</p>
+
+<p>彼が運営するCSSに関するフォーラムサイト「CSS Creator」に記事があります。以下のページによると最初に作ったものの日付として、2004年5月8日と書かれています。約7年前ですね。</p>
+
+<p>&raquo; <a href="http://csscreator.com/attributes/containedfloat.php">Contained Floats, enclosing floats with pure CSS known as the clearfix technique | CSS Creator</a></p>
+
+<p>まずfloatの解除にafter擬似要素を使えばいいと考えた発想がすごいですね。そして、たったひとりの人が考えた手法がここまで広まるというのも、すごいというか奇跡のように感じます。</p>
+
+<p>「clearfix」という言葉については、エントリーのタイトルに含まれているだけで、現在良く見るようなclass名としての「clearfix」という言葉は見当たりません。</p>
+
+<p>このTonyの記事を紹介し、かつclass名として「clearfix」を使っている記事があります。これをKuro氏により和訳されたものが下のページになります。</p>
+
+<p>&raquo; <a href="http://www.positioniseverything.net/easyclearing.html">Clearing a float container without source markup</a>
+&raquo; <a href="http://www.kuroduction.com/doc/translation/position_is_everything/easyclearing.html">構造のマークアップなしでフロートをクリアする方法</a></p>
+
+<p>Firefoxではcontentプロパティにピリオドがいる話、WinやMacのIEについての対応など、なぜ「clearfix」というものがこういう書き方なのか分からないで使っているという方はぜひ一度読んでみてください。</p>
+
+<p>そのうえで、7年前の記法をいつまでも使うのではなく、その時代時代にあった書き方だったり、そもそも必要なのかということをコーディングに携わる者一人一人が考え、アップデートしていく、それが「clearfix」を考案したTony Aslettに対する恩返しになるんじゃないでしょうか。</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2011/03/for-rollover-effects/">こんな時だからこそロールオーバー効果について今一度考えてみる</a></div></li>
+	<li>Newer Entry: <div><a href="/2010/11/pandanokai-vol2-report/">入門者・初心者向けのWEB技術勉強会「パンダの会」その弐に登壇してきた</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

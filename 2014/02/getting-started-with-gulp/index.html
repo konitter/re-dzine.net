@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門 | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2014/02/getting-started-with-gulp/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2014/02/getting-started-with-gulp/">
+	<meta name="twitter:title" content="Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2014/02/getting-started-with-gulp/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門</h1>
+		<div class="meta"><time datetime="2014-02-07">2014-02-07</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		
+
+<p>みなさんご存知「<a href="http://gruntjs.com/">Grunt</a>」は、WEB制作者の間でも以前に比べるとだいぶ浸透してきているようで、実際に案件で使用しているという方も増えてきています。そんな中、ここ最近海外のエンジニアの中でGruntに変わって使われだしている新たなビルドシステム「<a href="http://gulpjs.com/">gulp</a>」をご紹介します。</p>
+
+<h2 id="grunt-vs-gulp:c5fb98860366ad02a1b3697e1356801a">Grunt vs gulp</h2>
+
+<p>Gruntは、設定ファイル<code>Gruntfile</code>がJSON形式で書けるという側面から一見わかりやすく見えますが、実案件で使用する場合、10〜20個のプラグインを使うということもザラにあります。そうなると<code>Gruntfile</code>の記述量がどんどん増えていき、どのタスクがどのタスクと繋がっていて、結果どうなるかが非常に分かりにくくなるという欠点があります。</p>
+
+<p>また、複数のタスクを使った一連の流れにおいて、個々のタスクを実行するたびにファイルの読み込みと書き込みが発生するため、非常に無駄の多い仕様になっています。このため、タスクおよびそのタスクの対象となるファイルが多くなると、タスクが完全に終了するまでに時間がかかってしまうということがあります。</p>
+
+<p>一方gulpは、ベースになっているNode.jsプログラムに基づいた書き方で設定ファイル<code>gulpfile</code>が定義でき、どのファイルに対してどんな処理をするのかが一目瞭然となります（くわしくは後ほど）。プログラムライクで難しそうに見えますが、一度体験してみるとその良さに気付くことでしょう。</p>
+
+<p>さらに、個々のタスクは非同期に実行され、ファイルの扱いにおいても<a href="http://nodejs.org/api/stream.html">Node.jsのStreamというAPI</a>を使うことで中間ファイルを生成することなくやりとりできるので、非常に高速にタスクを実行することができます。Streamについてのくわしくはここでは割愛しますが、gulpの開発者たちも勧める「<a href="https://github.com/substack/stream-handbook">substack/stream-handbook</a>」を読むとより理解が深まるはずです。</p>
+
+<h2 id="gruntfile-vs-gulpfile:c5fb98860366ad02a1b3697e1356801a">Gruntfile vs gulpfile</h2>
+
+<p>では実際にGruntとgulpそれぞれの設定ファイルの違いを見てみます。ここでは、<a href="https://github.com/twbs/bootstrap-sass">twbs/bootstrap-sass</a>の40個あるSCSSファイルの監視 → CSSファイルへのコンパイル → autoprefixerによるベンダープレフィックスの付与、という一連の流れを例にしてみます。</p>
+
+<h3 id="gruntfile-js:c5fb98860366ad02a1b3697e1356801a">Gruntfile.js</h3>
+
+<pre><code class="language-js">grunt.initConfig({
+	sass: {
+		dist: {
+			files: [{
+				cwd: 'sass',
+				src: 'bootstrap.scss',
+				dest: '.tmp/',
+				expand: true,
+				ext: '.css'
+			}]
+		}
+	},
+	autoprefixer: {
+		options: ['last 1 version'],
+		dist: {
+			files: [{
+				expand: true,
+				cwd: '.tmp/',
+				src: 'bootstrap.css',
+				dest: 'dist/css'
+			}]
+		}
+	},
+	watch: {
+		styles: {
+			files: ['sass/{,*/}*.scss'],
+			tasks: ['sass:dist', 'autoprefixer:dist']
+		}
+	}
+});
+grunt.registerTask('default', ['sass', 'watch']);
+</code></pre>
+
+<p>Gruntはプラグインごとに読み込み元のファイルと出力先のファイルを設定する必要があるため、非常に冗長です。これと同じ処理をgulpでやるとどうなるでしょうか？</p>
+
+<h3 id="gulpfile-js:c5fb98860366ad02a1b3697e1356801a">gulpfile.js</h3>
+
+<pre><code class="language-js">gulp.task('sass', function () {
+	gulp.src('sass/bootstrap.scss')
+		.pipe(sass())
+		.pipe(autoprefixer('last 1 version'))
+		.pipe(gulp.dest('dist/css'));
+});
+gulp.task('default', ['sass'], function() {
+	gulp.watch('sass/**/*.scss', ['sass']);
+});
+</code></pre>
+
+<p>これだけ。特に2行目から5行目を見るとわかりますが、<code>gulp.src()</code>で読み込んだファイルを<code>.pipe()</code>を使って繋いだタスクで処理します。<code>sass()</code>でコンパイルして<code>autoprefixer()</code>でプレフィックス付けて、<code>gulp.dest()</code>で出力。流れがわかりやすいですね。</p>
+
+<p>実際にこのGruntとgulpのタスクをMacbook Air（11-inch, Mid 2012）で実行したところ、以下のようになりました。</p>
+
+<p><img src="/img/2014/02/grunt.png" alt="Grunt" />
+</p>
+
+<p><img src="/img/2014/02/gulp.png" alt="gulp" />
+</p>
+
+<p>結果的にはgulpの方が若干早かったのですが、この実行時間にはGruntとgulp本体やそれぞれのプラグインの読み込み・起動時間が含まれているわけですし、プラグイン内部のプログラムおよび使っているモジュールも異なるので、単純に比較できるものではありません。同じ構成であってもプラグインの組み合わせやタスクの内容によってはGruntよりもgulpの方が時間がかかることもあるのです。</p>
+
+<h2 id="gulpを使ってみる:c5fb98860366ad02a1b3697e1356801a">gulpを使ってみる</h2>
+
+<p>使い方はいたって簡単です。</p>
+
+<ol>
+<li><code>npm install -g gulp</code>でgulpをグローバルにインストール。</li>
+<li>プロジェクトディレクトリに<code>package.json</code>を用意。なければ<code>npm init</code>で対話的に作成。</li>
+<li><code>npm install --save-dev gulp gulp-hoge</code>でgulpとプラグインをローカルに入れる。</li>
+<li><code>gulpfile.js</code>を作ってプロジェクトのルートに置く。</li>
+<li><code>gulp [task name]</code>で実行。</li>
+</ol>
+
+<p>gulpのプラグインはnpmやGitHubで検索してもよいですし、プラグインのまとめページ<a href="http://gratimax.github.io/search-gulp-plugins/">gulp plugins</a>（記事の執筆時点では257個）から探すこともできます。</p>
+
+<p><code>gulpfile.js</code>の書き方などについては、<a href="https://github.com/gulpjs/gulp/blob/master/docs/README.md">gulpのドキュメントページ</a>を一通り読んだうえで、あとは各プラグインのREADMEを参考にタスクを設定すれば期待通りに動くはずです。</p>
+
+<h2 id="まとめ:c5fb98860366ad02a1b3697e1356801a">まとめ</h2>
+
+<p>ここまで言っといてなんですが結局のところ好みの問題なので、Gruntとgulpどっちがいいかを述べることは簡単ではありません。また、複数のエンジニアが案件に携わるような環境だと急にGruntからgulpに乗り換えるということが難しい場合もあると思います。</p>
+
+<p>また、実行速度の違いに関しては、GitHubで公開されている<a href="https://github.com/gruntjs/grunt-docs/blob/master/Roadmap.md">Gruntの次期バージョンv0.5のロードマップ</a>を見ると、それこそgulpのように複数のタスクをつなげてデータのやり取りができるようになるみたいですので、将来的には変わらなくなるのかもしれません。</p>
+
+<pre><code>// load a set of tasks to be run in parallel
+grunt.registerTask('name', ['jshint', 'concat'], { parallel:true });
+</code></pre>
+
+<p>とにかく大事なのは、なんのためにビルドツールを使うのかということです。そこを忘れずにいれば、Gruntもgulpもどちらも便利なツールであることには違いありませんので、クオリティーの高い制作を行うことができるでしょう。</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2014/02/emmet-beta-v1-1/">Emmetの次期バージョンv1.1(Beta)の新機能がスゴい</a></div></li>
+	<li>Newer Entry: <div><a href="/2014/01/middleman-slim/">Middlemanで作ったブログのテンプレートエンジンをERBからSlimに</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

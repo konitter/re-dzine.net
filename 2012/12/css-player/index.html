@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>CSSで円形のプログレスバーを再現してみる | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="CSSで円形のプログレスバーを再現してみる">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2012/12/css-player/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2012/12/css-player/">
+	<meta name="twitter:title" content="CSSで円形のプログレスバーを再現してみる">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2012/12/css-player/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>CSSで円形のプログレスバーを再現してみる</h1>
+		<div class="meta"><time datetime="2012-12-09">2012-12-09</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		<p>これは、<a href="http://www.adventar.org/calendars/2" target="_blank">CSS Programming Advent Calendar 2012</a>の9日目の記事です。
+Advent Calendar初参加です。ていうか今日までの他の方の作品がスゴすぎて出すのもおこがましいんですけど、表題のようなものを作ってみました。</p>
+
+<script type="text/javascript" src="http://jsdo.it/blogparts/fnnH/js?width=465&height=650&view=readme"></script>
+
+<p>以下の環境で動作を確認しました。</p>
+
+<ul>
+  <li>Mac: Lion Chrome(23.0.1271.95)</li>
+  <li>Win: Windows7 Chrome(23.0.1271.95 m)</li>
+</ul>
+
+<p>動くのはプログレスバーの部分だけで、他のボタンなどは動きません。。</p>
+
+<p>仕組みを簡単に説明すると、</p>
+
+<ul>
+  <li>オレンジ色の円の上に白い半円を重なるように左半分に置き、それを360度回転させる</li>
+  <li>ただし、その半円が180度回転するまでオレンジ色の円の左半分が見えないように別の白い半円をかぶせて隠す</li>
+  <li>最初の白い半円が180度回転したところで、さっきの別の白い半円をベースと同じオレンジ色に塗り替え、回転している白い半円が右半分に出ないようにベースの右側に移動させて隠す</li>
+</ul>
+
+<p>はい、全然スマートじゃないやり方ですね。でもこのやり方しか思いつきませんでした。
+もっと精進します。</p>
+
+<p>明日10日目は、<a href="http://webdelog.info/" target="_blank">WebDelog</a>の<a href="https://twitter.com/turusuke" target="_blank">@turusuke</a>さんです。
+よろしくお願いします！！</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2012/12/osakacss-vol2-jade/">Osaka.css (#2) .jade を開催しました</a></div></li>
+	<li>Newer Entry: <div><a href="/2012/10/jquery-snippets-for-sublime-text-2/">Sublime Text 2でjQuery用のスニペットを自作するときの注意点</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

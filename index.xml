@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>REFLECTDESIGN</title>
+    <link>http://re-dzine.net/</link>
+    <description>Recent content on REFLECTDESIGN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Thu, 05 Mar 2015 14:54:44 +0900</lastBuildDate>
+    <atom:link href="http://re-dzine.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>gulpあるいはビルドツールとnpm run-scriptとの関係性</title>
+      <link>http://re-dzine.net/2015/03/relationship-with-gulp-and-npm-run-script/</link>
+      <pubDate>Thu, 05 Mar 2015 14:54:44 +0900</pubDate>
+      
+      <guid>http://re-dzine.net/2015/03/relationship-with-gulp-and-npm-run-script/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://gon.to/2015/02/26/gulp-is-awesome-but-do-we-really-need-it/&#34;&gt;Gulp is awesome, but do we really need it?&lt;/a&gt;という記事を読んだ。元々Gruntを使っててgulpに移行して&amp;rdquo;holly grail&amp;rdquo;とまで思ってたけど、npm run-scriptにタスクまとめたらたったの9行で済んだよ！というお話。&lt;/p&gt;
+
+&lt;p&gt;コメント欄でかのTJ Holowaychuk氏から&amp;rdquo;pretty lame&amp;rdquo;だと突っ込まれているが、感想としては僕もそれに近い。自分一人しかいないのならやりやすいようにやればいい。が、チームとして複数人で開発するならこの方法は避けたほうがいいだろう。&lt;/p&gt;
+
+&lt;p&gt;現時点では、タスクはすべてgulpなどのビルドツールに1つまとめて、それを実行するコマンドはnpm run-scriptに集約する手法が現実的だと考えていて、言いたいことは&lt;a href=&#34;http://qiita.com/Jxck_/items/efaff21b977ddc782971&#34;&gt;Jxck氏のQiitaの記事&lt;/a&gt;にすべて書かれている。&lt;/p&gt;
+
+&lt;p&gt;Kyo Nagashima氏の&lt;a href=&#34;http://hail2u.net/blog/webdesign/wrapping-task-runner-with-npm-run-script.html&#34;&gt;タスク・ランナーをnpm run-scriptでラップ&lt;/a&gt;という記事に書かれているように、ビルドツールを通すほどでもないような小さなタスクは、nodeスクリプトとして書いてnpm run-scriptから&lt;code&gt;--&lt;/code&gt;で引数を付けて実行するのも悪くない。ように見えるが、npmのバージョンが2以上に限られるのと（それほど大きな問題ではないけど）、タスクがばらけるのが個人的にはスッキリしない。&lt;/p&gt;
+
+&lt;p&gt;変にあいまいな部分を残すよりも、タスクはビルドツールに集約するとルールとして決めたほうが通りが良さそうに思う。関係者のスキルにばらつきがあるのならなおさらだ。&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;とまあこんなチラ裏みたいなことを書いてみた。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MiddlemanからHugoへ移行した</title>
+      <link>http://re-dzine.net/2015/01/hugo/</link>
+      <pubDate>Wed, 21 Jan 2015 09:20:25 +0900</pubDate>
+      
+      <guid>http://re-dzine.net/2015/01/hugo/</guid>
+      <description>
+
+&lt;p&gt;Middlemanが許されるのは小学生までらしいので、Golang製のジェネレータ「&lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;」に乗り換えた。&lt;a href=&#34;http://deeeet.com/writing/2014/12/25/hugo/&#34;&gt;OctopressからHugoへ移行したという記事&lt;/a&gt;を見たのがきっかけ。もともとMiddlemanのビルドの遅さとRuby（と各種モジュール）のバージョン管理がウザくて仕方なかったし、&lt;a href=&#34;http://t32k.me/mol/log/frontend-weekly/&#34;&gt;Frontend Weekly Vol.0&lt;/a&gt;っていう鬼ヤバいメールマガジンでも紹介されてたし（宣伝）っていうので。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://re-dzine.net/img/2015/01/hugo.png&#34; alt=&#34;Hugo&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;ビルド速い:32ab7241d48fcc174c877413a917f8cf&#34;&gt;ビルド速い&lt;/h2&gt;
+
+&lt;p&gt;まあ速い遅いって言っても全部で60数記事くらいしかないので、偉そうには言えないんだけど、Hugoでビルドしたら0.1秒もかからない。一瞬。コーヒーを一口飲む間もない。一度体感してしまうとRuby製はもとよりNodeJS製のものには戻れない感ある。それくらい速い。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ time hugo
+0 draft content
+0 future content
+66 pages created
+0 tags created
+0 categories created
+in 85 ms
+hugo  0.19s user 0.06s system 173% cpu 0.143 total
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;インストール:32ab7241d48fcc174c877413a917f8cf&#34;&gt;インストール&lt;/h2&gt;
+
+&lt;p&gt;Goの環境があるなら&lt;code&gt;go get&lt;/code&gt;すればいいし、無くてもMacなら&lt;code&gt;brew install hugo&lt;/code&gt;でOK。Winなら&lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;ここから&lt;/a&gt;バイナリをダウンロードして適当なディレクトリにファイルを置いて環境変数のPATHを通すだけ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ go get -v github.com/spf13/hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gohugo.io/overview/introduction&#34;&gt;公式のドキュメント&lt;/a&gt;が割と充実してる。機能の使う使わない関係なくまずは頭からざっと目を通すとよさげ。とはいえ、細かいところでどうしたらいいかわかんないところは出てくるので、デザインテーマも合わせて見るとよい。以下で&lt;code&gt;git clone&lt;/code&gt;して実際にテーマを当てて動かしてみるとわかるはず。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone --recursive https://github.com/spf13/hugoThemes themes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;移行方法:32ab7241d48fcc174c877413a917f8cf&#34;&gt;移行方法&lt;/h2&gt;
+
+&lt;p&gt;Middlemanでは記事をマークダウンで書いていたので、基本的にそのままファイルを持ってくれば動く。2年前に&lt;a href=&#34;http://re-dzine.net/2013/10/wordpress-to-middleman/&#34;&gt;WordPressからMiddlemanへ移行したときの記事&lt;/a&gt;でも書いたけど、一度記事をマークダウン化しておけばジェネレータの乗り換えも簡単に済ませられる。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;layouts&lt;/code&gt;配下に置くテンプレートもファイルやディレクトリ構成などは決まりがあるのでそこを把握する必要があるが、これもちゃんとドキュメントに書いてあるので読めばよい。テンプレートの記法もSlim, Haml, Erb, Jade, Mustache, Handlebarsなどといったテンプレートエンジンを触った経験があればすぐに理解できるはずだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;ビルドとデプロイを自動化:32ab7241d48fcc174c877413a917f8cf&#34;&gt;ビルドとデプロイを自動化&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;hugo&lt;/code&gt;でビルドして&lt;code&gt;public&lt;/code&gt;ディレクトリ内のファイルをGitHubにpushしてもいいんだけど、今回&lt;a href=&#34;http://wercker.com/&#34;&gt;wercker&lt;/a&gt;というサービスを使ってビルドとデプロイを自動化するようにした。その場合の方法も公式のドキュメントに書いてある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gohugo.io/tutorials/automated-deployments/&#34;&gt;Automated deployments with Wercker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ソースファイルをGitHubのmasterにpushしたらwerckerがそれを検知してhugoでビルドし、ファイルをgh-pagesブランチにデプロイしてくれる。超楽。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:32ab7241d48fcc174c877413a917f8cf&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;歴史のあるジェネレータに比べると機能面や拡張性でいえばまだまだ。テンプレートもHTMLなものに加えてHamlっぽく書ける&lt;a href=&#34;https://github.com/eknkc/amber&#34;&gt;Amber&lt;/a&gt;というのも使える。が、それほど旨味はない。&lt;a href=&#34;https://github.com/spf13/hugo/blob/master/docs/content/meta/roadmap.md&#34;&gt;ロードマップ&lt;/a&gt;を見る限りこれからに期待というところではあるが、シンプルなブログや静的サイト程度であれば今のままでも十分。今さらMiddlemanやJekyllとかにするくらいならHugoオススメです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/konitter/re-dzine.net&#34;&gt;konitter/re-dzine.net&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 3 Settings and Tips</title>
+      <link>http://re-dzine.net/2014/12/st3-settings-and-tips/</link>
+      <pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2014/12/st3-settings-and-tips/</guid>
+      <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://www.adventar.org/calendars/407&#34;&gt;Sublime Text Advent Calendar 2014&lt;/a&gt; 18日目の記事です。&lt;/p&gt;
+
+&lt;p&gt;1ヵ月くらい前にSublime Text 2から3に乗り換えました。それにあたって設定やパッケージ周りを色々と見直したので、そんなことを簡単にまとめたいと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;preparation:e090d139c3eb54bd77fb92abb7dfce02&#34;&gt;Preparation&lt;/h2&gt;
+
+&lt;p&gt;2から3に移行する場合に一番気になるのが、今まで使ってたパッケージが3でも使えるかどうか。じゃあパッケージのGitHubとかを見て、3に対応してるかどうか1つずつ確認するのは非常にめんどいわけです。&lt;/p&gt;
+
+&lt;p&gt;でも世の中には便利なものを作ってくれる人がいまして。「&lt;a href=&#34;http://www.caniswitchtosublimetext3.com/&#34;&gt;Can I Switch To Sublime Text 3?&lt;/a&gt;」というそのまんまなツールで、&lt;code&gt;Package Control.sublime-settings&lt;/code&gt;の中身を画面にコピペして「Can I Switch?」のボタンを押すだけで、パッケージが3に対応してるかを判定してくれます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://re-dzine.net/img/2014/12/st3_01.png&#34; alt=&#34;Can I Switch To Sublime Text 3?の判定結果&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;全部のパッケージが3に対応していれば、「YES!」と出ます。もし対応していないパッケージがあれば明示してくれるので、それが絶対に必要なものかどうかを検討してみると良いと思います。だいたいはほとんど使ってないものだったり、3に対応した代わりのパッケージが他にあったりします。&lt;/p&gt;
+
+&lt;h2 id=&#34;package-control:e090d139c3eb54bd77fb92abb7dfce02&#34;&gt;Package Control&lt;/h2&gt;
+
+&lt;p&gt;3でもPackage Controlは必須なのでまず最初にインストールします。インストールの仕方は2のときと同じですが、コンソールに貼り付けるコードが2とは異なります。詳しくは&lt;a href=&#34;https://sublime.wbond.net/installation#Simple&#34;&gt;Installation - Package Control&lt;/a&gt;を見てもらえればわかるかと。&lt;/p&gt;
+
+&lt;h2 id=&#34;theme-color-scheme:e090d139c3eb54bd77fb92abb7dfce02&#34;&gt;Theme &amp;amp; Color Scheme&lt;/h2&gt;
+
+&lt;p&gt;Package Controlがインストールできたら、テーマを変えたくなるのがSublimer（Sublime Textユーザーのこと）（勝手に決めた）というものです。せっかく3に移行するなら、2とは別のテーマにしてみるのもいいんじゃないでしょうか？今使っているのは、&lt;a href=&#34;https://github.com/thinkpixellab/flatland&#34;&gt;Flatland&lt;/a&gt;のDarkなテーマに&lt;a href=&#34;https://github.com/jonschlinkert/sublime-monokai-extended&#34;&gt;Monokai Extended&lt;/a&gt;なカラースキームです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://re-dzine.net/img/2014/12/st3_02.png&#34; alt=&#34;Sublime Text 3でHTMLを表示した画面&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;他にどんなテーマがあるかは、&lt;a href=&#34;https://sublime.wbond.net/browse/labels/theme&#34;&gt;Package Controlのサイトのthemeラベルのページ&lt;/a&gt;や、Scotchの&lt;a href=&#34;http://scotch.io/bar-talk/the-best-sublime-text-3-themes-of-2014&#34;&gt;The Best Sublime Text 3 Themes of 2014&lt;/a&gt;とかで。&lt;/p&gt;
+
+&lt;h2 id=&#34;personalisation:e090d139c3eb54bd77fb92abb7dfce02&#34;&gt;Personalisation&lt;/h2&gt;
+
+&lt;p&gt;現状、カスタマイズした設定やキーマップ、各種パッケージの設定周りは、&lt;a href=&#34;https://github.com/konitter/sublime-settings&#34;&gt;GitHubにアップ&lt;/a&gt;しています（みんなも設定ファイルを共有しよう！）。その中でも個人的に地味に便利だと思っているキーマップをご紹介します。&lt;/p&gt;
+
+&lt;h3 id=&#34;only-package-control-of-command:e090d139c3eb54bd77fb92abb7dfce02&#34;&gt;Only Package Control of command&lt;/h3&gt;
+
+&lt;p&gt;なんだかんだでPackage Control絡みのコマンドは使う機会が多いと思います。ぼくは以下のキーマップを設定して&lt;code&gt;Super+Alt+p&lt;/code&gt;でPackage Controlのコマンドだけを呼び出せるようにしています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ &amp;quot;keys&amp;quot;: [&amp;quot;super+alt+p&amp;quot;], &amp;quot;command&amp;quot;: &amp;quot;show_overlay&amp;quot;, &amp;quot;args&amp;quot;: {&amp;quot;overlay&amp;quot;: &amp;quot;command_palette&amp;quot;, &amp;quot;text&amp;quot;: &amp;quot;Package Control: &amp;quot;} }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://re-dzine.net/img/2014/12/st3_03.png&#34; alt=&#34;Sublime Text 3でHTMLを表示した画面&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;↑こんな風に。&lt;/p&gt;
+
+&lt;h3 id=&#34;re-indent-the-whole-file-with-a-single-key:e090d139c3eb54bd77fb92abb7dfce02&#34;&gt;Re-indent the whole file with a single key&lt;/h3&gt;
+
+&lt;p&gt;ファイルや選択範囲のインデントを一発で整形できるコマンド「Re-indent」は、デフォルトではキーマップが設定されていません。コマンドパレットから都度呼び出してもいいんですが、以下の設定で&lt;code&gt;F10&lt;/code&gt;で実行できるようにしています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ &amp;quot;keys&amp;quot;: [&amp;quot;f10&amp;quot;], &amp;quot;command&amp;quot;: &amp;quot;reindent&amp;quot;, &amp;quot;args&amp;quot;: {&amp;quot;single_line&amp;quot;: false}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;package-syncing:e090d139c3eb54bd77fb92abb7dfce02&#34;&gt;Package Syncing&lt;/h2&gt;
+
+&lt;p&gt;ぼくは仕事ではWindows/家ではMacなのですが、複数の環境でSublime Textを同じセッティングで使いたいときはあると思います。そんなときパッケージのフォルダごとごっそりコピペしてしまいがちですが、それは非常に危険です。&lt;a href=&#34;https://sublime.wbond.net/docs/syncing&#34;&gt;Package ControlのSyncingというページ&lt;/a&gt;には以下のように書かれています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;To properly sync your installed packages across different machines, you actually do not want to sync the whole Packages/ and Installed Packages/ folders. The reason for this is that some packages have different versions for different operating systems. By syncing the actual package contents across operating systems, you will possibly run into broken packages.&lt;/p&gt;
+
+&lt;p&gt;The proper solution is to install Package Control on all machines and then to sync only the Packages/User/ folder. This folder contains the Package Control.sublime-settings file, which includes a list of all installed packages. If this file is copied to another machine, the next time Sublime Text is started, Package Control will install the correct version of any missing packages.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;超要約すると、「パッケージによってはOSごとに異なるバージョンが存在しているものがあってうまく実行されない場合があるので&lt;code&gt;Packages/&lt;/code&gt;や&lt;code&gt;Installed Packages/&lt;/code&gt;ごと同期するのは辞めようぜ。一番いいのは、すべてのマシンにPackage Controlをインストールして&lt;code&gt;Packages/User/&lt;/code&gt;のみを同期することなんだ。そのフォルダ内の&lt;code&gt;Package Control.sublime-settings&lt;/code&gt;に書かれたパッケージでインストールされていないものがあれば、Sublime Textを起動したときに自動的にインストールされるんだぜ。」です。&lt;/p&gt;
+
+&lt;p&gt;この機能を使えば、新しいPCなどにSublime Textを改めてセッティングするときにはとっても便利なわけです。&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:e090d139c3eb54bd77fb92abb7dfce02&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;長くなってきたのでこの辺で。続く19日目は&lt;a href=&#34;https://twitter.com/kasshy&#34;&gt;@kasshyさん&lt;/a&gt;です。よろしくお願いしまーす！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>【告知】『Web制作者のためのCSS設計の教科書』出版記念イベントを11/8に大阪で開催します</title>
+      <link>http://re-dzine.net/2014/10/textbook-of-css-design/</link>
+      <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2014/10/textbook-of-css-design/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://peatix.com/event/55901/&#34;&gt;&lt;img src=&#34;http://re-dzine.net/img/2014/10/peatix.png&#34; alt=&#34;&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;sup&gt;11&lt;/sup&gt;&amp;frasl;&lt;sub&gt;8&lt;/sub&gt;(土)に株式会社サイバーエージェントの谷拓樹さん（&lt;a href=&#34;http://twitter.com/hiloki&#34;&gt;@hiloki&lt;/a&gt;）が執筆された『Web制作者のためのCSS設計の教科書』という書籍の出版記念イベントを開催します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://peatix.com/event/55901/&#34;&gt;『Web制作者のためのCSS設計の教科書』出版記念イベント | Peatix&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;元々は少し前に東京で行われたCSS設計に関するイベントに対して、自分がFacebook上で「CSSオジサンをやったら面白いんじゃないか（&lt;a href=&#34;https://atnd.org/events/55138&#34;&gt;JSオジサン&lt;/a&gt;のオマージュ的なノリで）」みたいなことを言ったら、執筆者の谷さんや今回ゲストで登壇いただく斉藤さん（&lt;a href=&#34;https://twitter.com/cssradar&#34;&gt;@cssradar&lt;/a&gt;）さんに捕捉され、気付けばあれよあれよという間にこんな大きなイベントを主催することとなりました。&lt;/p&gt;
+
+&lt;p&gt;で、セッション内容など詳しくは告知ページを見てもらえたらと思いますが、例え書籍を持っていなくても参加可能で、CSSの設計に少しでも興味があるような人であれば十分に楽しめる・学べる構成になっています。&lt;/p&gt;
+
+&lt;p&gt;今回谷さんに加えて、谷さんが書籍執筆の際にレビューの協力をされたという株式会社リッチメディアの斉藤祐也さん、そして本書の中でも紹介されているCSS解析ツール「&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;」の開発者でもある石本光司さん（&lt;a href=&#34;http://twitter.com/t32k/&#34;&gt;@t32k&lt;/a&gt;）さんにも登壇いただきます。&lt;/p&gt;
+
+&lt;p&gt;谷さんからはこれからのWeb制作に必須となってきているメンテナブル（修正しやすい）なCSS設計のテクニックや考え方を、斉藤さんからはCSSコードレビューのアプローチと手法、石本さんからはCSS解析ツールやエンジニアのキャリアパスについてのお話まで、盛りだくさんな内容です。&lt;/p&gt;
+
+&lt;p&gt;本編終了後にはビアバッシュ形式のアフターパーティーをご用意していますので、CSSに限らずフロントエンドの技術的なことやキャリア設計などなど直接講師陣達とお話することができます。はっきり言って、こんな豪華な講師陣が大阪でそろうことは早々ないと思います。ぜひ、この機会にご参加ください！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Emmetの次期バージョンv1.1(Beta)の新機能がスゴい</title>
+      <link>http://re-dzine.net/2014/02/emmet-beta-v1-1/</link>
+      <pubDate>Thu, 13 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2014/02/emmet-beta-v1-1/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://emmet.io/&#34;&gt;Emmet&lt;/a&gt;といえば、HTMLやCSSが爆速で書けるようになるWeb制作者なら誰もが知っているであろうアレですが、現在次期バージョンとしてv1.1の開発が進められています。そのことは、昨年の12月23日に&lt;a href=&#34;http://emmet.io/blog/beta-v1-1/&#34;&gt;Emmet公式ブログで発表&lt;/a&gt;されたものの、あまり話題になっていないようなのでここで簡単にご紹介します。&lt;/p&gt;
+
+&lt;h2 id=&#34;インストール方法:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;インストール方法&lt;/h2&gt;
+
+&lt;p&gt;v1.1(Beta)は現状&lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt;でのみ試すことができます。なお、現時点ではまだ正式なリリース版ではありませんので、ご利用はあくまでも自己責任でお願いします。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;すでにEmmetを入れているなら別の場所にバックアップを取ったうえでPackage ControlからEmmetを削除。&lt;/li&gt;
+&lt;li&gt;一旦Sublime Textを終了しておく。&lt;/li&gt;
+&lt;li&gt;ターミナルからSublime Textの&lt;code&gt;Packages&lt;/code&gt;フォルダに移動して&lt;a href=&#34;https://github.com/sergeche/emmet-sublime/&#34;&gt;プラグインのレポジトリ&lt;/a&gt;を&lt;code&gt;git clone&lt;/code&gt;し、v1.1のブランチに&lt;code&gt;git checkout v1.1&lt;/code&gt;で切り替える。そういうのが難しい人は&lt;a href=&#34;https://github.com/sergeche/emmet-sublime/archive/v1.1.zip&#34;&gt;ここからダウンロード&lt;/a&gt;して解凍したものを置く。&lt;/li&gt;
+&lt;li&gt;Sublime Textを起動。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;v1-1の新機能-11個:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;v1.1の新機能（11個）&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-can-i-useデータベースのサポート:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;1. Can I Useデータベースのサポート&lt;/h3&gt;
+
+&lt;p&gt;ベンダープレフィックスが必要なCSSのプロパティおよびその値の展開には、CSSやHTML5などの各ブラウザ対応状況が確認できるWebサービス「&lt;a href=&#34;http://caniuse.com/&#34;&gt;Can I Use&lt;/a&gt;」のデータベースを用いて行われます。&lt;br&gt;
+デフォルトでは全ブラウザの2つ前までを範囲としますが、&lt;code&gt;caniuse.era&lt;/code&gt;と&lt;code&gt;caniuse.vendors&lt;/code&gt;の設定で微調整することができるようです。くわしくはこの&lt;a href=&#34;https://github.com/emmetio/emmet/blob/umd/lib/assets/caniuse.js#L19&#34;&gt;モジュールヘッダー&lt;/a&gt;を参照。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-lessとscssのフルサポート:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;2. LESSとSCSSのフルサポート&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docs.emmet.io/actions/toggle-comment/&#34;&gt;Toggle Comment&lt;/a&gt;、&lt;a href=&#34;http://docs.emmet.io/actions/update-image-size/&#34;&gt;Update Image Size&lt;/a&gt;、&lt;a href=&#34;http://docs.emmet.io/actions/select-item/&#34;&gt;Select Item&lt;/a&gt;などのアクションがLESSとSCSS（SASSは除く）のファイルで動くようになります。&lt;/p&gt;
+
+&lt;h3 id=&#34;3-slimとjadeの構文をサポート:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;3. SlimとJadeの構文をサポート&lt;/h3&gt;
+
+&lt;p&gt;Emmetの&lt;a href=&#34;http://docs.emmet.io/filters/&#34;&gt;Filters&lt;/a&gt;の機能がアップデートされ、HTMLを&lt;a href=&#34;https://github.com/slim-template/slim&#34;&gt;Slim&lt;/a&gt;および&lt;a href=&#34;https://github.com/visionmedia/jade&#34;&gt;Jade&lt;/a&gt;の構文で展開できるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;p.title&amp;gt;a[/hoge/]|slim
+↓
+p.title
+  a href=&amp;quot;/hoge/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;4-css-gradientジェネレータのアップデート:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;4. CSS Gradientジェネレータのアップデート&lt;/h3&gt;
+
+&lt;p&gt;W3C構文の仕様やCan I Useデータベースなど複数の定義をサポートします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;lg(red, black)
+↓
+background-image: -webkit-linear-gradient(red, black);
+background-image: -o-linear-gradient(red, black);
+background-image: linear-gradient(red, black);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;5-boolean型属性:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;5. Boolean型属性&lt;/h3&gt;
+
+&lt;p&gt;属性名の後ろにドットを書くことで、同じ名前と値を持つ属性を短く書けるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;inp[type=radio][checked.]
+↓
+&amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;&amp;quot; id=&amp;quot;&amp;quot; checked&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;6-暗黙の属性値:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;6. 暗黙の属性値&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;img&lt;/code&gt;要素の&lt;code&gt;src&lt;/code&gt;属性などHTML要素において値が必須な属性は、その属性名を省略できるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;img[src=image.png]
+↓
+img[image.png]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;7-デフォルトの属性:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;7. デフォルトの属性&lt;/h3&gt;
+
+&lt;p&gt;属性が必須でない要素も暗黙の属性値によって値を展開できるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;script → &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;
+↓
+script[jquery.js] → &amp;lt;script src=&amp;quot;jquery.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;8-新アクション-update-tag:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;8. 新アクション「Update Tag」&lt;/h3&gt;
+
+&lt;p&gt;新たに追加されるアクション「Update Tag」を使うことで、すでに記述（展開）済みのHTML要素をEmmetの機能で更新できるようになります。更新したい要素にカーソルを置き以下のコマンドを叩くと、「Enter Abbreviation:」というダイアログがエディタのウィンドウ下に開くので、追加したい属性や値を書いてEnterします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;header&amp;gt;|&amp;lt;/header&amp;gt;
+↓
+[shift]+[ctrl]+[u] → .global → Enter
+↓
+&amp;lt;header class=&amp;quot;global&amp;quot;&amp;gt;&amp;lt;/header&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;9-アクション名-match-tag-pair-を-balance-に変更:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;9. アクション名「Match Tag Pair」を「Balance」に変更&lt;/h3&gt;
+
+&lt;p&gt;v1でも実装されている&lt;a href=&#34;http://docs.emmet.io/actions/match-pair/&#34;&gt;Match Tag Pair&lt;/a&gt;のアクション名が「Balance」に変更され、またCSSでもそのアクションが動くようになります。&lt;/p&gt;
+
+&lt;h3 id=&#34;10-cssをシングルラインで展開できるオプションを追加:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;10. CSSをシングルラインで展開できるオプションを追加&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;syntaxProfiles.json&lt;/code&gt;（Sublime Textなら&lt;code&gt;Emmet.sublime-settings&lt;/code&gt;）にて&lt;code&gt;&amp;quot;css&amp;quot;: &amp;quot;css_line&amp;quot;&lt;/code&gt;を設定するとCSSのプロパティがシングルラインで展開されるようになります。くわしくは&lt;a href=&#34;http://docs.emmet.io/customization/syntax-profiles/&#34;&gt;こちらのドキュメント&lt;/a&gt;を参照。&lt;/p&gt;
+
+&lt;h3 id=&#34;11-rgbaカラーのシンタックスを追加:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;11. RGBaカラーのシンタックスを追加&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;color&lt;/code&gt;プロパティなどでのカラーコードの展開において、後ろに&lt;code&gt;.N&lt;/code&gt;を付けることで、CSS3のRGBaで開きます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;c#dca.7
+↓
+color: rgba(221, 204, 170, 0.7);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;まとめ:32366be83ada20bf3768f3ddc7d7da6f&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;公式ブログの該当エントリーには他にも、EmmetはそもそもNode.JSに準拠した書き方がされているので、npm packageとして提供される日も近いとのことです。実際、Emmetの開発版と思われるブランチが&lt;a href=&#34;https://github.com/emmetio/emmet/blob/umd/Gruntfile.js&#34;&gt;Gruntでビルドできるように&lt;/a&gt;なっています。&lt;/p&gt;
+
+&lt;p&gt;具体的なリリース日は未定ですが、その動向には注視していきたいです。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gruntに置き換わるか？新生ビルドシステム「gulp」v3.5.2入門</title>
+      <link>http://re-dzine.net/2014/02/getting-started-with-gulp/</link>
+      <pubDate>Fri, 07 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2014/02/getting-started-with-gulp/</guid>
+      <description>
+
+&lt;p&gt;みなさんご存知「&lt;a href=&#34;http://gruntjs.com/&#34;&gt;Grunt&lt;/a&gt;」は、WEB制作者の間でも以前に比べるとだいぶ浸透してきているようで、実際に案件で使用しているという方も増えてきています。そんな中、ここ最近海外のエンジニアの中でGruntに変わって使われだしている新たなビルドシステム「&lt;a href=&#34;http://gulpjs.com/&#34;&gt;gulp&lt;/a&gt;」をご紹介します。&lt;/p&gt;
+
+&lt;h2 id=&#34;grunt-vs-gulp:c5fb98860366ad02a1b3697e1356801a&#34;&gt;Grunt vs gulp&lt;/h2&gt;
+
+&lt;p&gt;Gruntは、設定ファイル&lt;code&gt;Gruntfile&lt;/code&gt;がJSON形式で書けるという側面から一見わかりやすく見えますが、実案件で使用する場合、10〜20個のプラグインを使うということもザラにあります。そうなると&lt;code&gt;Gruntfile&lt;/code&gt;の記述量がどんどん増えていき、どのタスクがどのタスクと繋がっていて、結果どうなるかが非常に分かりにくくなるという欠点があります。&lt;/p&gt;
+
+&lt;p&gt;また、複数のタスクを使った一連の流れにおいて、個々のタスクを実行するたびにファイルの読み込みと書き込みが発生するため、非常に無駄の多い仕様になっています。このため、タスクおよびそのタスクの対象となるファイルが多くなると、タスクが完全に終了するまでに時間がかかってしまうということがあります。&lt;/p&gt;
+
+&lt;p&gt;一方gulpは、ベースになっているNode.jsプログラムに基づいた書き方で設定ファイル&lt;code&gt;gulpfile&lt;/code&gt;が定義でき、どのファイルに対してどんな処理をするのかが一目瞭然となります（くわしくは後ほど）。プログラムライクで難しそうに見えますが、一度体験してみるとその良さに気付くことでしょう。&lt;/p&gt;
+
+&lt;p&gt;さらに、個々のタスクは非同期に実行され、ファイルの扱いにおいても&lt;a href=&#34;http://nodejs.org/api/stream.html&#34;&gt;Node.jsのStreamというAPI&lt;/a&gt;を使うことで中間ファイルを生成することなくやりとりできるので、非常に高速にタスクを実行することができます。Streamについてのくわしくはここでは割愛しますが、gulpの開発者たちも勧める「&lt;a href=&#34;https://github.com/substack/stream-handbook&#34;&gt;substack/stream-handbook&lt;/a&gt;」を読むとより理解が深まるはずです。&lt;/p&gt;
+
+&lt;h2 id=&#34;gruntfile-vs-gulpfile:c5fb98860366ad02a1b3697e1356801a&#34;&gt;Gruntfile vs gulpfile&lt;/h2&gt;
+
+&lt;p&gt;では実際にGruntとgulpそれぞれの設定ファイルの違いを見てみます。ここでは、&lt;a href=&#34;https://github.com/twbs/bootstrap-sass&#34;&gt;twbs/bootstrap-sass&lt;/a&gt;の40個あるSCSSファイルの監視 → CSSファイルへのコンパイル → autoprefixerによるベンダープレフィックスの付与、という一連の流れを例にしてみます。&lt;/p&gt;
+
+&lt;h3 id=&#34;gruntfile-js:c5fb98860366ad02a1b3697e1356801a&#34;&gt;Gruntfile.js&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;grunt.initConfig({
+	sass: {
+		dist: {
+			files: [{
+				cwd: &#39;sass&#39;,
+				src: &#39;bootstrap.scss&#39;,
+				dest: &#39;.tmp/&#39;,
+				expand: true,
+				ext: &#39;.css&#39;
+			}]
+		}
+	},
+	autoprefixer: {
+		options: [&#39;last 1 version&#39;],
+		dist: {
+			files: [{
+				expand: true,
+				cwd: &#39;.tmp/&#39;,
+				src: &#39;bootstrap.css&#39;,
+				dest: &#39;dist/css&#39;
+			}]
+		}
+	},
+	watch: {
+		styles: {
+			files: [&#39;sass/{,*/}*.scss&#39;],
+			tasks: [&#39;sass:dist&#39;, &#39;autoprefixer:dist&#39;]
+		}
+	}
+});
+grunt.registerTask(&#39;default&#39;, [&#39;sass&#39;, &#39;watch&#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Gruntはプラグインごとに読み込み元のファイルと出力先のファイルを設定する必要があるため、非常に冗長です。これと同じ処理をgulpでやるとどうなるでしょうか？&lt;/p&gt;
+
+&lt;h3 id=&#34;gulpfile-js:c5fb98860366ad02a1b3697e1356801a&#34;&gt;gulpfile.js&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;gulp.task(&#39;sass&#39;, function () {
+	gulp.src(&#39;sass/bootstrap.scss&#39;)
+		.pipe(sass())
+		.pipe(autoprefixer(&#39;last 1 version&#39;))
+		.pipe(gulp.dest(&#39;dist/css&#39;));
+});
+gulp.task(&#39;default&#39;, [&#39;sass&#39;], function() {
+	gulp.watch(&#39;sass/**/*.scss&#39;, [&#39;sass&#39;]);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これだけ。特に2行目から5行目を見るとわかりますが、&lt;code&gt;gulp.src()&lt;/code&gt;で読み込んだファイルを&lt;code&gt;.pipe()&lt;/code&gt;を使って繋いだタスクで処理します。&lt;code&gt;sass()&lt;/code&gt;でコンパイルして&lt;code&gt;autoprefixer()&lt;/code&gt;でプレフィックス付けて、&lt;code&gt;gulp.dest()&lt;/code&gt;で出力。流れがわかりやすいですね。&lt;/p&gt;
+
+&lt;p&gt;実際にこのGruntとgulpのタスクをMacbook Air（11-inch, Mid 2012）で実行したところ、以下のようになりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://re-dzine.net/img/2014/02/grunt.png&#34; alt=&#34;Grunt&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://re-dzine.net/img/2014/02/gulp.png&#34; alt=&#34;gulp&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;結果的にはgulpの方が若干早かったのですが、この実行時間にはGruntとgulp本体やそれぞれのプラグインの読み込み・起動時間が含まれているわけですし、プラグイン内部のプログラムおよび使っているモジュールも異なるので、単純に比較できるものではありません。同じ構成であってもプラグインの組み合わせやタスクの内容によってはGruntよりもgulpの方が時間がかかることもあるのです。&lt;/p&gt;
+
+&lt;h2 id=&#34;gulpを使ってみる:c5fb98860366ad02a1b3697e1356801a&#34;&gt;gulpを使ってみる&lt;/h2&gt;
+
+&lt;p&gt;使い方はいたって簡単です。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;npm install -g gulp&lt;/code&gt;でgulpをグローバルにインストール。&lt;/li&gt;
+&lt;li&gt;プロジェクトディレクトリに&lt;code&gt;package.json&lt;/code&gt;を用意。なければ&lt;code&gt;npm init&lt;/code&gt;で対話的に作成。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;npm install --save-dev gulp gulp-hoge&lt;/code&gt;でgulpとプラグインをローカルに入れる。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gulpfile.js&lt;/code&gt;を作ってプロジェクトのルートに置く。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gulp [task name]&lt;/code&gt;で実行。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;gulpのプラグインはnpmやGitHubで検索してもよいですし、プラグインのまとめページ&lt;a href=&#34;http://gratimax.github.io/search-gulp-plugins/&#34;&gt;gulp plugins&lt;/a&gt;（記事の執筆時点では257個）から探すこともできます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gulpfile.js&lt;/code&gt;の書き方などについては、&lt;a href=&#34;https://github.com/gulpjs/gulp/blob/master/docs/README.md&#34;&gt;gulpのドキュメントページ&lt;/a&gt;を一通り読んだうえで、あとは各プラグインのREADMEを参考にタスクを設定すれば期待通りに動くはずです。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:c5fb98860366ad02a1b3697e1356801a&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;ここまで言っといてなんですが結局のところ好みの問題なので、Gruntとgulpどっちがいいかを述べることは簡単ではありません。また、複数のエンジニアが案件に携わるような環境だと急にGruntからgulpに乗り換えるということが難しい場合もあると思います。&lt;/p&gt;
+
+&lt;p&gt;また、実行速度の違いに関しては、GitHubで公開されている&lt;a href=&#34;https://github.com/gruntjs/grunt-docs/blob/master/Roadmap.md&#34;&gt;Gruntの次期バージョンv0.5のロードマップ&lt;/a&gt;を見ると、それこそgulpのように複数のタスクをつなげてデータのやり取りができるようになるみたいですので、将来的には変わらなくなるのかもしれません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// load a set of tasks to be run in parallel
+grunt.registerTask(&#39;name&#39;, [&#39;jshint&#39;, &#39;concat&#39;], { parallel:true });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とにかく大事なのは、なんのためにビルドツールを使うのかということです。そこを忘れずにいれば、Gruntもgulpもどちらも便利なツールであることには違いありませんので、クオリティーの高い制作を行うことができるでしょう。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Middlemanで作ったブログのテンプレートエンジンをERBからSlimに</title>
+      <link>http://re-dzine.net/2014/01/middleman-slim/</link>
+      <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2014/01/middleman-slim/</guid>
+      <description>
+
+&lt;p&gt;今どき生の HTML を書いてるようじゃモテないって聞いたので、昨年10月末に &lt;a href=&#34;http://middlemanapp.com/&#34;&gt;Middleman&lt;/a&gt; で作ったこのブログのテンプレートエンジンをデフォルトの ERB から &lt;a href=&#34;https://github.com/slim-template/slim&#34;&gt;Slim&lt;/a&gt; に変更しました。&lt;/p&gt;
+
+&lt;h2 id=&#34;hamlとslim:42ed37bd0a77cdc609dfe66bdfd04f46&#34;&gt;HamlとSlim&lt;/h2&gt;
+
+&lt;p&gt;Middleman では Slim だけでなく &lt;a href=&#34;https://github.com/haml/haml&#34;&gt;Haml&lt;/a&gt; も使えます。Haml は Middleman に標準で装備されているので、ファイルの拡張子を&lt;code&gt;hoge.html.haml&lt;/code&gt;にするだけですぐに使いはじめることができます。が、HTML要素の頭に&lt;code&gt;%&lt;/code&gt;を書くっていう記法が気持ち悪かったのと、Slim だと属性をカッコで囲まなくてよく、さらに簡潔に書けるので今回は Slim を採用。&lt;/p&gt;
+
+&lt;p&gt;Haml と Slim の簡単な比較は、それぞれの Github か以下のページから確認できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tech-sketch.jp/2013/07/haml-slim-middleman.html&#34;&gt;HamlとSlimをMiddleman上で比較する - Tech-Sketch&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;middlemanでslimを使う:42ed37bd0a77cdc609dfe66bdfd04f46&#34;&gt;MiddlemanでSlimを使う&lt;/h2&gt;
+
+&lt;p&gt;Middleman のプロジェクトを新規に作る場合は、&lt;a href=&#34;https://github.com/yterajima/middleman-slim&#34;&gt;middleman-slim&lt;/a&gt; という最初からテンプレートファイルが Slim になっているエクステンションを使うといいです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ gem install middleman
+$ gem install middleman-slim
+$ middleman init PROJECT_NAME --template slim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;今回の僕のように途中から Slim に変更する場合は、Slim を利用するために gem をインストールする必要があります。とはいえ方法は簡単で、以下の一行をMiddlemanプロジェクトのルートにある&lt;code&gt;Gemfile&lt;/code&gt;に追加して&lt;code&gt;bundle install&lt;/code&gt;。簡単。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-gemfile&#34;&gt;gem &amp;quot;slim&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは各テンプレートファイルの拡張子を&lt;code&gt;hoge.html.slim&lt;/code&gt;に変更して、記法に従って書くだけ。以下のような HTML から Slim に変換してくれるサイトもあるので、めんどくさい人はどうぞ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://html2slim.herokuapp.com/&#34;&gt;Html2Slim | Convert HTML Snippets to Slim&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;オプションを設定してslimの出力結果を制御する:42ed37bd0a77cdc609dfe66bdfd04f46&#34;&gt;オプションを設定してSlimの出力結果を制御する&lt;/h2&gt;
+
+&lt;p&gt;何の設定もなしにデフォルトだと以下のような HTML が出力されます。（head内の一部を抜粋）&lt;br&gt;
+コードは圧縮、属性の順番がソートされ、さらに閉じタグのないものは XHTML な感じに。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;&amp;lt;title&amp;gt;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;lt;/title&amp;gt;&amp;lt;meta content=&amp;quot;width=device-width,initial-scale=1&amp;quot; name=&amp;quot;viewport&amp;quot; /&amp;gt;&amp;lt;meta content=&amp;quot;REFLECTDESIGN&amp;quot; property=&amp;quot;og:site_name&amp;quot; /&amp;gt;&amp;lt;meta content=&amp;quot;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;quot; property=&amp;quot;og:title&amp;quot; /&amp;gt;&amp;lt;meta content=&amp;quot;article&amp;quot; property=&amp;quot;og:type&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;個人的には嘔吐感が半端なかったので、以下の設定を&lt;code&gt;config.rb&lt;/code&gt;に加えてやります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;set :slim, { :pretty =&amp;gt; true, :sort_attrs =&amp;gt; false, :format =&amp;gt; :html5 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;するとこんな風に。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;lt;/title&amp;gt;
+&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,initial-scale=1&amp;quot;&amp;gt;
+&amp;lt;meta property=&amp;quot;og:site_name&amp;quot; content=&amp;quot;REFLECTDESIGN&amp;quot;&amp;gt;
+&amp;lt;meta property=&amp;quot;og:title&amp;quot; content=&amp;quot;Middlemanで作ったブログのテンプレートエンジンをERBからSlimに | REFLECTDESIGN&amp;quot;&amp;gt;
+&amp;lt;meta property=&amp;quot;og:type&amp;quot; content=&amp;quot;article&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;その他のオプションについては &lt;a href=&#34;https://github.com/slim-template/slim#available-options&#34;&gt;Github の Available options&lt;/a&gt; を参照してください。&lt;/p&gt;
+
+&lt;h2 id=&#34;ビルド時にhtmlをminifyする:42ed37bd0a77cdc609dfe66bdfd04f46&#34;&gt;ビルド時にHTMLをMinifyする&lt;/h2&gt;
+
+&lt;p&gt;上記のオプションでHTMLコードは見やすくなったものの、&lt;code&gt;middleman build&lt;/code&gt;するときにはHTMLファイルを Minify したくなりました。そんなときは、&lt;a href=&#34;https://github.com/middleman/middleman-minify-html&#34;&gt;Middleman-Minify-HTML&lt;/a&gt; を使います。&lt;/p&gt;
+
+&lt;p&gt;使い方は&lt;code&gt;Gemfile&lt;/code&gt;に以下の一行を追加して&lt;code&gt;bundle install&lt;/code&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-gemfile&#34;&gt;gem &#39;middleman-minify-html&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そしてビルド時の設定として以下を&lt;code&gt;config.rb&lt;/code&gt;を追加する。デフォルトでは、&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;などのクオート記号を削除、各HTML要素間にスペースを入れるようになっていたので、以下のオプションを追加。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;configure :build do
+  activate :minify_html, :remove_quotes =&amp;gt; false, :remove_intertag_spaces =&amp;gt; true
+  ...
+  ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そもそもこの middleman-minify-html は HTML の Minify に htmlcompressor を使っているので、&lt;a href=&#34;https://github.com/paolochiodi/htmlcompressor&#34;&gt;htmlcompressor の Github&lt;/a&gt; に書いてあるオプションを適宜設定すればそれが適用できます。&lt;/p&gt;
+
+&lt;p&gt;出力結果はこのページのソースでも見てもらえればと。&lt;br&gt;
+このブログのソースコードは以下にアップしてるので良かったら参考まで。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/konitter/konitter.github.io&#34;&gt;konitter/konitter.github.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MarkupCafe Osaka Vol.1 に参加してきました</title>
+      <link>http://re-dzine.net/2013/12/markupcafe-osaka-vol1/</link>
+      <pubDate>Thu, 26 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2013/12/markupcafe-osaka-vol1/</guid>
+      <description>
+
+&lt;p&gt;先日12/20(金)に開催されたhtml5jマークアップ部主催のイベント「&lt;a href=&#34;http://atnd.org/events/45379&#34;&gt;MarkupCafe Osaka Vol.1&lt;/a&gt;」に参加してきましたので簡単にレポートします。&lt;/p&gt;
+
+&lt;p&gt;参加者はいくつかのチームに分かれ、出題されたお題についてチームごとに最適なマークアップを考えます。チーム内で話し合って決めたコードは&lt;a href=&#34;http://jsdo.it/&#34;&gt;jsdo.it&lt;/a&gt;に書いてハッシュタグ&lt;a href=&#34;http://twitter.com/search?q=%23html5j&#34;&gt;#html5j&lt;/a&gt;を付けてTwitterに投稿、そのコードをプロジェクターで映してみんなでレビュー、という感じ。&lt;/p&gt;
+
+&lt;h2 id=&#34;お題1-フッター:8c9c21563b0a6279dd3a266547e9ae84&#34;&gt;お題1 「フッター」&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pbs.twimg.com/media/Bb6-jhdIYAA71oT.jpg&#34; alt=&#34;お題1&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;1問目は企業サイトで使われるようなイメージのフッター。マークアップするうえでの個人的にポイントだと思うものを3つ挙げてみます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上の「HOME &amp;gt;」
+
+&lt;ul&gt;
+&lt;li&gt;パッと見でパンくずのように見えるから&lt;code&gt;ul&lt;/code&gt;や`&lt;code&gt;ol&lt;/code&gt;でマークアップしがちだけど、出題者の村岡さん（&lt;a href=&#34;https://twitter.com/bathtimefish&#34;&gt;@bathtimefish&lt;/a&gt;）によると「これはただのHOMEへのリンク」とのこと&lt;/li&gt;
+&lt;li&gt;他のページではこの部分がどうなるかなどデザイナーに確認しましょうねっていう。エンジニアの勝手な想像でマークアップするの(・A・)ｲｸﾅｲ!!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ロゴマークと会社名（日本語表記と英語表記）
+
+&lt;ul&gt;
+&lt;li&gt;会社名の部分をテキストで書いて配置する人もいるかもしれないけど、個人的にはロゴマークと会社名全体を1枚の画像でいい&lt;/li&gt;
+&lt;li&gt;時間に余裕があってこだわりたい人は、SVG使ったりWebフォント使ったり好きにすればいいかと&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;「お問合せ」の電話番号・メールアドレスおよび、神戸・東京本社の住所
+
+&lt;ul&gt;
+&lt;li&gt;ポイントとなるのは&lt;code&gt;address&lt;/code&gt;要素の使い方。どの範囲をくくるか&lt;/li&gt;
+&lt;li&gt;このデザインでは明示的に「お問合せ：」というテキストがあり、その横に電話番号とメールアドレスが書かれているので、個人的にはその範囲が&lt;code&gt;address&lt;/code&gt;の範囲になると考えた&lt;/li&gt;
+&lt;li&gt;その下の神戸・東京本社の住所まで含めるかどうかは、このページ（ドキュメント）の問い合わせ先となりうるかどうかで決まるはずなので、それはデザイナーやあるいはクライアントであるこの企業に確認が必要な部分だと思う&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記のポイントもふまえて、個人的にマークアップするならこんな感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;footer role=&amp;quot;contentinfo&amp;quot;&amp;gt;
+	&amp;lt;div&amp;gt;&amp;lt;a href=&amp;quot;/&amp;quot;&amp;gt;HOME&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div&amp;gt;
+		&amp;lt;img src=&amp;quot;logo.png&amp;quot; alt=&amp;quot;株式会社バスタイム商事 Bathtime Bussiness Corp.&amp;quot;&amp;gt;
+		&amp;lt;div&amp;gt;
+			&amp;lt;address&amp;gt;お問合せ：&amp;lt;a href=&amp;quot;tel:012000000000&amp;quot;&amp;gt;0120-0000-0000&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;quot;mailto:information@bathtimeshoji.com&amp;quot;&amp;gt;information[at]bathtimeshoji.com&amp;lt;/a&amp;gt;&amp;lt;/address&amp;gt;
+			神戸本社：兵庫県神戸市◯◯◯◯◯ 11-11-11 ◯◯ビル 11&amp;lt;br&amp;gt;
+			東京本社：東京都渋谷区◯◯◯◯◯ 22-22-22 ◯◯ビル 22
+		&amp;lt;/div&amp;gt;
+	&amp;lt;/div&amp;gt;
+	&amp;lt;div&amp;gt;&amp;lt;small&amp;gt;copyright (c) bathtimeshoji. All Rights Reserved.&amp;lt;/small&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/footer&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;お題2-パンくずリスト:8c9c21563b0a6279dd3a266547e9ae84&#34;&gt;お題2 「パンくずリスト」&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://re-dzine.net/img/2013/12/breadcrumb.png&#34; alt=&#34;お題2&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;2問目はいわゆるパンくずリスト。定期的に話題になるある意味ネタ化しているUIのひとつで、&lt;a href=&#34;http://www.w3.org/html/wg/drafts/html/master/common-idioms.html#rel-up&#34;&gt;HTML5.1 Nightlyのドキュメントのパンくずリストのセクション&lt;/a&gt;を見るとコード例に「→」が使われていたりして、W3Cでも明確な答えが出せていません。&lt;/p&gt;
+
+&lt;p&gt;ただそうなっている理由自体は単純で、パンくずリストが置かれる状況によって、また情報提供者の意図によってどんなマークアップがふさわしいかが異なってくるからです。なので、パンくずリストだけのデザインを見せられてマークアップするのは本来ならそれはとても難しいことのはずです。&lt;/p&gt;
+
+&lt;p&gt;また、そもそもリストかリストでないかという議論もありますが、取り回ししやすさを重視して、個人的には極々シンプルにマークアップしたいところです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;ul class=&amp;quot;breadcrumb&amp;quot;&amp;gt;
+	&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/&amp;quot;&amp;gt;Markup Cafeトップページ&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+	&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/shop/&amp;quot;&amp;gt;店舗情報&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+	&amp;lt;li class=&amp;quot;current&amp;quot;&amp;gt;ドリンク・フード&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;まとめ:8c9c21563b0a6279dd3a266547e9ae84&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;自分のコードを振り返るようなことをあまりしない、あるいは他人のコードや考え方などを普段気にせず制作されているような方は特に、非常に刺激的なイベントだと思います。たまにはこういうのもいいですよ。また是非参加したいです。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>各種ブラウザを同期して手軽に複数環境での確認ができるようになるgrunt-browser-syncについて紹介するよ</title>
+      <link>http://re-dzine.net/2013/12/grunt-browser-sync/</link>
+      <pubDate>Mon, 16 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2013/12/grunt-browser-sync/</guid>
+      <description>
+
+&lt;p&gt;この投稿は&lt;a href=&#34;http://qiita.com/advent-calendar/2013/grunt-plugins&#34;&gt;Grunt Plugins Advent Calendar 2013&lt;/a&gt;の24日目の記事です。&lt;/p&gt;
+
+&lt;h2 id=&#34;grunt-browser-syncとは:96a570374bf145f63375a31c469c98b5&#34;&gt;grunt-browser-syncとは&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/shakyShane/grunt-browser-sync&#34;&gt;shakyShane/grunt-browser-sync&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同名のnpmモジュール「&lt;a href=&#34;https://github.com/shakyShane/browser-sync&#34;&gt;browser-sync&lt;/a&gt;」のGruntプラグインで、PC・モバイル・タブレットなど各種デバイスのブラウザを同期して、複数環境での確認およびテスト開発を超絶手軽にしてくれます。&lt;/p&gt;
+
+&lt;p&gt;このbrowser-syncには以下のような特徴があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;スクロールの同期&lt;/li&gt;
+&lt;li&gt;フォームの入力操作などの同期&lt;/li&gt;
+&lt;li&gt;リンククリックの同期&lt;/li&gt;
+&lt;li&gt;CSSをバックグラウンドで自動更新&lt;/li&gt;
+&lt;li&gt;HTMLやPHPファイルを監視してライブリロード（エクステンション不要）&lt;/li&gt;
+&lt;li&gt;ビルトインサーバ&lt;/li&gt;
+&lt;li&gt;PHP, Rails, Python, Node, ASP.netのセットアップで使用できるプロキシオプション&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;他にも、プラットフォーム問わず動くという点も良い所で、Win7でも問題なく動作します（確認済み）し、ブラウザにおいてもIEも含めて同期することができます。&lt;/p&gt;
+
+&lt;p&gt;似たようなツールに「&lt;a href=&#34;http://html.adobe.com/edge/inspect/&#34;&gt;Adobe Edge Inspect&lt;/a&gt;」や「&lt;a href=&#34;http://vanamco.com/ghostlab/&#34;&gt;Ghostlab&lt;/a&gt;」があり、いずれも有償ですが、GUIクライアントじゃないとできませんって方はそちらを試してみるとよいかと。&lt;/p&gt;
+
+&lt;h2 id=&#34;インストール:96a570374bf145f63375a31c469c98b5&#34;&gt;インストール&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm i(install) grunt-browser-sync -D(--save-dev)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これだけ。&lt;/p&gt;
+
+&lt;h2 id=&#34;gruntfile:96a570374bf145f63375a31c469c98b5&#34;&gt;Gruntfile&lt;/h2&gt;
+
+&lt;p&gt;以下サンプル。その他各種オプションについては、&lt;a href=&#34;https://github.com/shakyShane/grunt-browser-sync&#34;&gt;README&lt;/a&gt;を参照。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&#39;use strict&#39;
+
+module.exports = (grunt) -&amp;gt;
+
+	grunt.initConfig
+		browser_sync:
+			files:
+				src: [
+					&#39;index.html&#39;,
+					&#39;assets/css/*.css&#39;
+				]
+			options:
+				server:
+					index: &#39;index.html&#39;
+				ghostMode:
+					scroll: true
+					links: true
+					forms: true
+
+	require(&#39;load-grunt-tasks&#39;)(grunt)
+
+	grunt.registerTask &#39;default&#39;, [&#39;browser_sync&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;実行:96a570374bf145f63375a31c469c98b5&#34;&gt;実行&lt;/h2&gt;
+
+&lt;p&gt;これで&lt;code&gt;grunt&lt;/code&gt;を叩くと規定のブラウザで&lt;code&gt;index.html&lt;/code&gt;が開きます。&lt;br&gt;
+立ち上がったサーバアドレスを他のブラウザで開けば、同ネットワーク内にあるiPhoneやAndroidなどからのアクセスも含めて全ブラウザを同期できるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ grunt
+Running &amp;quot;browser_sync:files&amp;quot; (browser_sync) task
+	 info  - socket.io started
+
+OK, Server running at http://192.168.0.3:3001
+Serving files from:  c:\hoge
+
+Load a browser &amp;amp; check back here. If you set up everything correctly, you&#39;ll see
+ a &#39;Browser Connected&#39;  message
+
+Watching the following:
+index.html
+assets/css/all.css
+
+Browser Connected! (Chrome, version: 31.0.1650.63)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここで&lt;code&gt;index.html&lt;/code&gt;を更新してみると、接続しているすべてのブラウザにライブリロードが走ります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;File Changed: c:\hoge\index.html
+Reloading all connected browsers...
+Browser Connected! (IE, version: 8.0)
+Browser Connected! (Firefox, version: 26.0)
+Browser Connected! (Chrome, version: 31.0.1650.63)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;他にも、&lt;code&gt;watchTask&lt;/code&gt;オプションにより&lt;code&gt;grunt-contrib-watch&lt;/code&gt;と組み合わせて、CSSプリなんとかファイルの更新からコンパイルして全ブラウザにバックグラウンドで反映、みたいなこともできちゃいます。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:96a570374bf145f63375a31c469c98b5&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;最近のWeb制作環境では、PCだけでなくモバイルやタブレットなど各種スマートデバイスでの確認が必須になってきていますので、そんなときこれを使えば確認作業が劇的に楽になるはずです。&lt;/p&gt;
+
+&lt;p&gt;発注サイドの人間からは以上です。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GitHubトレーニングチームから学ぶ GitとGitHubの基礎 に参加してきました</title>
+      <link>http://re-dzine.net/2013/11/github-training-at-osaka/</link>
+      <pubDate>Fri, 22 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2013/11/github-training-at-osaka/</guid>
+      <description>&lt;p&gt;&lt;sup&gt;11&lt;/sup&gt;&amp;frasl;&lt;sub&gt;21&lt;/sub&gt;(木)に行われた「&lt;a href=&#34;http://connpass.com/event/3965/&#34;&gt;GitHubトレーニングチームから学ぶ GitとGitHubの基礎&lt;/a&gt;」に参加しましたので簡単にレポートします。逐一メモってないので、大体の流れ（うろ覚え）と気になったポイントだけ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://re-dzine.net/img/2013/11/octcat.gif&#34; alt=&#34;octcat&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;スピーカーは&lt;a href=&#34;http://training.github.com/trainers/&#34;&gt;GitHubトレーニングチーム&lt;/a&gt;のMatthewさん（&lt;a href=&#34;https://twitter.com/matthewmccull&#34;&gt;@matthewmccul&lt;/a&gt;）とJohnさん（&lt;a href=&#34;https://twitter.com/johndbritton&#34;&gt;@johndbritton&lt;/a&gt;）。外かなり寒いのにお二人とも半袖Tシャツ。あと声が割りと高い。（関係ない&lt;/p&gt;
+
+&lt;p&gt;まずはMatthewさんからGitについてと&lt;code&gt;git init&lt;/code&gt;からファイル作ってコミットしてログを見るっていう基本的な流れを簡単に説明。ちなみにスピーカーからの話は当然英語。で、一言話すごとに部屋の後ろにいる日本人の方が通訳してしゃべってくれるんだけど、gitだとかcommitだとか英単語部分の発音だけがやたらナチュラルでなんかかっこよかったです。（小並感&lt;/p&gt;
+
+&lt;p&gt;そのあとはGitの論理構造の話。構造を買い物に例えて、「ステージング・エリアはショッピングカートのようなもの」だと言っていたのには目から鱗。この例えは今まで聞いた論理構造の説明で一番分かりやすい気がする。&lt;/p&gt;
+
+&lt;p&gt;次にGitHubをブラウザからみんな実際に操作して、練習用のリポジトリから各自のアカウントにフォークして、ファイルを作ってコミットしてプルリクエストする流れ。Git（GitHubも）は複数人でやってこそ面白いってのを痛感。あと、コメント欄とかで使える&lt;a href=&#34;http://www.emoji-cheat-sheet.com/&#34;&gt;絵文字&lt;/a&gt;が楽しい。お寿司とかいつ使うねんっていう。&lt;/p&gt;
+
+&lt;p&gt;こんな感じで前半終了。後半はJohnさんからGitHub社の理念についてのお話からスタートし、GitHubが開発したツール「&lt;a href=&#34;http://boxen.github.com/&#34;&gt;Boxen&lt;/a&gt;」と「&lt;a href=&#34;http://hubot.github.com/&#34;&gt;Hubot&lt;/a&gt;」の説明がありました。中身は、&lt;a href=&#34;http://www.publickey1.jp/blog/13/githubdevopsboxenhubotdevops_day_tokyo_2013.html&#34;&gt;Publickeyによる「DevOps Day Tokyo 2013」でJohnさんがセッションした内容のレポート&lt;/a&gt;とほぼ同じなので興味がある方はそっちを読むといいです。&lt;/p&gt;
+
+&lt;p&gt;個人的には、コマンド一つでMacに開発環境が一気に構築できる「Boxen」が気になりました。ChromeやSkypeなどソフトウェアのインストールやOS X自体の環境（例えばDockの設定とか）も含めて一発でできるので、新しくMacを買った時やOSをクリーンインストールしてイチから環境を作る時なんかでは、むちゃくちゃ便利だなと。ってかWindowsェ…。&lt;/p&gt;
+
+&lt;p&gt;レポートは以上です。&lt;br&gt;
+本当の初心者や上級者にとっては物足りなかったかもしれませんが、ぼくみたいな中途半端な知識の人にとってはすごく分かりやすい内容でした。&lt;/p&gt;
+
+&lt;p&gt;ターミナルなど環境的なことも含めてGitのことをもっと勉強したいと思います。あと、できるだけ英語を聞き取ろうとしてみたものの、全然分かりませんでしたので英語もなんとかしたいです。。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MarkupCafe Tokyo Vol.2のお題について考えてみた</title>
+      <link>http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/</link>
+      <pubDate>Thu, 07 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2013/11/markupcafe-tokyo-vol2-my-idea/</guid>
+      <description>
+
+&lt;p&gt;&lt;sup&gt;10&lt;/sup&gt;&amp;frasl;&lt;sub&gt;19&lt;/sub&gt;(土)にて東京で行われたイベント「&lt;a href=&#34;http://atnd.org/events/43774&#34;&gt;MarkupCafe Tokyo Vol.2&lt;/a&gt;」で出されたお題について、自分ならどうマークアップするかを考えてみました。&lt;br&gt;
+当日参加された方々のコードは、以下のページから参照できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://u-note.me/note/47486651&#34;&gt;「あなたは、これらを美しくマークアップできるかな？」#Markup CafeTokyo【CodeIQ提供】#html5j | U-NOTE【ユーノート】&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;お題1-ページネーション:584efd4f0b5fcf43694f0c4af4b21903&#34;&gt;お題1 「ページネーション」&lt;/h2&gt;
+
+&lt;p&gt;&lt;script src=&#34;http://jsdo.it/blogparts/3Kun/js&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;http://jsdo.it/_konitter/3Kun&#34;&gt;MarkupCafe Tokyo Vol.2 お題1 「ページネーション」 #html5j - jsdo.it&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このお題は、他の2つと比べても特に人によってマークアップの違いが出やすいUIの一つな気がします。マークアップするうえでのポイントを挙げてみます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;UI自体を何の要素でくくるか
+
+&lt;ul&gt;
+&lt;li&gt;上記レポートにもある&lt;code&gt;nav&lt;/code&gt;を使うという意見については、確かにメインコンテンツにより近い「主要な」ナビゲーション（となるケースが多い）とも取れるので、それもアリな気もするけど、まだ自分の中で消化しきれてない&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;リンクの羅列はリストか
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ul&lt;/code&gt;ではなく&lt;code&gt;ol&lt;/code&gt;、というパターンについては1つの長い記事などを複数のページに分けるような場合だと、そのページの順番に意味があるので、それもアリだと思う&lt;/li&gt;
+&lt;li&gt;ただし、ブログのインデックスとかただの記事一覧みたいな場合だと、ページ順にそれほど意味があるとは思えないので、その場合&lt;code&gt;ol&lt;/code&gt;がふさわしいとは思えない&lt;/li&gt;
+&lt;li&gt;あと、「&amp;hellip;」で間をとばすような感じのパターンの場合、&lt;code&gt;ol&lt;/code&gt;だとハマらない気がする&lt;/li&gt;
+&lt;li&gt;また、リストではなく&lt;code&gt;span&lt;/code&gt;を並べるってのもありそうだけど、個人的にナシ。単純に好き嫌いの範疇かも。パンくずリストのマークアップみたいな&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;「前へ」「次へ」なリンクを分離するかどうか
+
+&lt;ul&gt;
+&lt;li&gt;ページ番号のリンクと分けて別の要素にするという人もいるようだけど、別の要素を使うこと自体にメリットは感じられない&lt;/li&gt;
+&lt;li&gt;ただ、「次へ」をコード上で最後ではなく「前へ」のすぐ後ろに持ってくるについては、正直言ってわからない。音声読み上げの支援技術ユーザーへの配慮だと思うんだけど、実際そうしてくれた方が嬉しい、とかいう意見があるのかな。あるならそうした方がいいんかも&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;他にも、1ページ目の時の「前へ」と最後のページの時の「次へ」をどうするか、カレントページの番号をどうするか（どんなクラス名を付けるか）などなどありますが、長くなりそうなのでこの辺で。&lt;/p&gt;
+
+&lt;h2 id=&#34;お題2-予約フォーム:584efd4f0b5fcf43694f0c4af4b21903&#34;&gt;お題2 「予約フォーム」&lt;/h2&gt;
+
+&lt;p&gt;&lt;script src=&#34;http://jsdo.it/blogparts/mjYQ/js&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;http://jsdo.it/_konitter/mjYQ&#34;&gt;MarkupCafe Tokyo Vol.2 お題2 「予約フォーム」 #html5j - jsdo.it&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このお題に限らずですが、フォームのマークアップは、どこまでセマンティックに（マシンリーダブルな形で）表現するかってところで違いが出てくる内容だと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;フォーム部分のレイアウト
+
+&lt;ul&gt;
+&lt;li&gt;このお題画像の見た目で時間制限がある中では、素直に&lt;code&gt;table&lt;/code&gt;を使うでいい&lt;/li&gt;
+&lt;li&gt;実際の案件でマルチデバイス云々みたいな場合だと、無理ではないけれども&lt;code&gt;table&lt;/code&gt;じゃない方がやりやすいってのはあると思う。状況によりけりで&lt;/li&gt;
+&lt;li&gt;あと、ラベルとフォーム要素は上下に配置した方が視線の移動が少なくなって良い、みたいな話もあるけど、全てのフォームがそうできるわけじゃないので、それも状況によりけりでいいと思う&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;必須のアスタリスク
+
+&lt;ul&gt;
+&lt;li&gt;フォームのデザインにおいて「必須」を表すのにアスタリスク（もしくは米印などのマーク）を使うこと、また必須であることをフォーム要素の後ろで表すのは(・A・)ｲｸﾅｲ!!ので、そもそもお題として相応しいかどうか&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;必須項目の表現方法
+
+&lt;ul&gt;
+&lt;li&gt;音声読み上げのことを考慮すると、アスタリスクだけではダメなので、&lt;code&gt;aria-label&lt;/code&gt;と&lt;code&gt;required&lt;/code&gt;、&lt;code&gt;required&lt;/code&gt;に対応していない環境に配慮して&lt;code&gt;aria-required=&amp;quot;true&amp;quot;&lt;/code&gt;を付けた&lt;/li&gt;
+&lt;li&gt;音声読み上げ周りの最新の情報として要・不要なものがあるかもだけど、その辺の話はよくわからない。ぜひそっち系に詳しい方のマークアップが見てみたい&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（半角英字）みたいな注釈的なものがフォーム要素の上とか下にあった場合、フォーム要素に単位が付いている場合、あと最近では多くなってきているラベルをプレースホルダーとして使うとか、他にもパターンは色々ありますけど、フォームのマークアップというのは経験がものをいう部分だとも言えると思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;お題3-財務諸表:584efd4f0b5fcf43694f0c4af4b21903&#34;&gt;お題3 「財務諸表」&lt;/h2&gt;
+
+&lt;p&gt;&lt;script src=&#34;http://jsdo.it/blogparts/8WT9/js&#34;&gt;&lt;/script&gt;
+&lt;a href=&#34;http://jsdo.it/_konitter/8WT9&#34;&gt;MarkupCafe Tokyo Vol.2 お題3 「財務諸表」 #html5j - jsdo.it&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このお題ならもう見たままコーディングで問題ないはず。当のイベントでは各チーム似たような感じだったのも当然といえば当然。これといったポイントもナシで。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;table&lt;/code&gt;なんか使わない、&lt;code&gt;table&lt;/code&gt;が許されるのは小学生までだよねって人もいるかもしれないけど、そんなの十分変態だし通報レベルなので注意が必要です。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:584efd4f0b5fcf43694f0c4af4b21903&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;ざっと調べたところ、このイベントやお題に対して意見を表明している人がいなさそうなのですが、この辺のマークアップなネタについては一家言ある、という人が自分の周りにはたくさんいるので、そういった方々がどう書くか非常に興味があります。|дﾟ)ﾁﾗｯ&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ブログをWordPressからMiddlemanに移行してGitHub Pagesで運用するようにしてみた</title>
+      <link>http://re-dzine.net/2013/10/wordpress-to-middleman/</link>
+      <pubDate>Wed, 30 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2013/10/wordpress-to-middleman/</guid>
+      <description>
+
+&lt;p&gt;来月で今契約しているレンタルサーバの期限が切れるということもあって、今回Middleman + GitHub Pagesで作りなおしてみました。いわゆる静的サイトジェネレータでブログを静的ファイルにしちゃえば、GitHub Pagesでホスティングできるので固定費も節約できていいかなと。&lt;/p&gt;
+
+&lt;h2 id=&#34;ジェネレータ選び:b1799a79775e9a6befc915a0c0224ac7&#34;&gt;ジェネレータ選び&lt;/h2&gt;
+
+&lt;p&gt;Middlemanに限らず静的サイトジェネレータは他にもいくつかありますが、ジェネレータ選びで重要視したポイントは、なんといってもまずはWordPressからの移行がしやすいこと、そして記事のパーマリンクを移行前と同じ状態にできること。あとは、GitHub Pagesへのデプロイがしやすい機能があればなおよしって感じ。&lt;/p&gt;
+
+&lt;p&gt;Node.js製のものも含めていろいろ触ってみた結果、これらのポイントを満たしていて、かつ今やるならアツそうなジェネレータということで、今回「Middleman」を選びました。といっても、Rubyとの相性がどうとかあるらしいけど、Windowsだと何かとエラるので環境づくりにはかなり苦労しました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://middlemanapp.com/&#34;&gt;Middleman: Hand-crafted frontend development&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;wordpressからの移行準備:b1799a79775e9a6befc915a0c0224ac7&#34;&gt;WordPressからの移行準備&lt;/h2&gt;
+
+&lt;p&gt;移行で一番めんどいのが、記事データのマークダウン化。で、調べてみると、WordPressからエクスポートしたXMLファイルから、Middlemanで使えるフォーマットにしたマークダウンファイルにコンバートしてくれるRubyスクリプトを見つけた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/salmansqadeer/wordpress-to-middleman&#34;&gt;salmansqadeer/wordpress-to-middleman - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;「Getting Started」のとおりに準備して、&lt;code&gt;ruby wordpress_to_middleman.rb&lt;/code&gt;を叩けば、記事ごとにマークダウンファイル化してくれる。とはいっても完璧ではないので、もろもろ調整は必要です。&lt;/p&gt;
+
+&lt;h2 id=&#34;middleman-blogでコーディング:b1799a79775e9a6befc915a0c0224ac7&#34;&gt;middleman-blogでコーディング&lt;/h2&gt;
+
+&lt;p&gt;Middlemanにはブログを作るための環境が簡単に作れる「middleman-blog」というエクステンションが用意されていて、基本的にはこれを使うといい感じ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://middlemanapp.com/blogging/&#34;&gt;Middleman: Blogging&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとは求める環境に応じて&lt;code&gt;config.rb&lt;/code&gt;で設定を書いたり、テンプレートなど必要なファイルを用意する。&lt;/p&gt;
+
+&lt;h2 id=&#34;github-pagesへのホスティング:b1799a79775e9a6befc915a0c0224ac7&#34;&gt;GitHub Pagesへのホスティング&lt;/h2&gt;
+
+&lt;p&gt;GitHub Pagesへのデプロイ・ホスティング、および独自ドメインの設定まわりは、以下のページが参考になりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://camuro.org/blog/2013/09/renewal.html&#34;&gt;WordPressからmiddlemanに移行してGithub Pagesで運用する方法 - CAMURO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.coiney.com/2013/06/21/host-middleman-blog-on-github/&#34;&gt;middleman-blogをgithubでホストする - Coiney Developer Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;まとめ:b1799a79775e9a6befc915a0c0224ac7&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;こんな感じで静的サイト化しておけば、他によさそうなジェネレータが出てきたときに、浮気しやすくなっていいかなと。&lt;br&gt;
+あ、あと、今回の移行にともなって、RSSフィードのURLが変わってますので、このブログをRSSで読んでるっていう奇特な方は、URLの変更をお願いします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://re-dzine.net/feed.xml&#34;&gt;http://re-dzine.net/feed.xml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Emmet LiveStyleで爆速HTML/CSSコーディングの境地へ</title>
+      <link>http://re-dzine.net/2013/08/emmet-livestyle/</link>
+      <pubDate>Tue, 06 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2013/08/emmet-livestyle/</guid>
+      <description>&lt;p&gt;簡単な記述でHTML/CSSが爆速でコーディングできるという神プラグイン「&lt;a href=&#34;http://emmet.io/&#34;&gt;Emmet&lt;/a&gt;」。フロントエンドな人ならほとんどの方が使っているんじゃないかと思います。この度そのEmmetから「Emmet LiveStyle」なるものが出ました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://livestyle.emmet.io/&#34;&gt;Emmet LiveStyle — live bi-directional CSS edit of new generation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;簡単に言うと、エディタとブラウザ双方向でCSSがリアルタイムに編集できるプラグインで、現在のところ、Google Chrome、Safari、Sublime Textで動作するとのこと。&lt;/p&gt;
+
+&lt;p&gt;といってもよくわからないと思いますので、まずは以下のスクリーンキャストをご覧ください。一瞬でも「あ、これヤバイわ」って思ったなら試してみる価値は十分にあると思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe width=&#34;520&#34; height=&#34;390&#34; src=&#34;//www.youtube.com/embed/iQLhGbkupS4?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+&lt;p&gt;「Emmet LiveStyle」は以下の手順で簡単に始められます。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Sublime TextのPackage Controlから「LiveStyle」をインストール&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/diebikgmpmeppiilkaijjbdgciafajmg&#34;&gt;Google Chromeの専用エクステンション&lt;/a&gt;をインストール&lt;/li&gt;
+&lt;li&gt;編集したいページを開く&lt;/li&gt;
+&lt;li&gt;Sublime TextでCSSファイルを開く&lt;/li&gt;
+&lt;li&gt;Google ChromeのDevToolsから「LiveStyle」パネルを開く&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;より詳しい使用方法は「&lt;a href=&#34;http://livestyle.emmet.io/usage/&#34;&gt;How to use&lt;/a&gt;」のページを参照。&lt;/p&gt;
+
+&lt;p&gt;個人的にもまだガッツリと触れてませんが、これからのHTML/CSSコーディングでは必須のツールとなりそうです。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap3でLESS/JSのコンパイル方法が変更に</title>
+      <link>http://re-dzine.net/2013/08/compile-in-bootstrap3/</link>
+      <pubDate>Fri, 02 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2013/08/compile-in-bootstrap3/</guid>
+      <description>&lt;p&gt;先日7/27に&lt;a href=&#34;http://getbootstrap.com/&#34;&gt;Bootstrap 3 RC1&lt;/a&gt;がリリースされました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://getbootstrap.com/&#34;&gt;&lt;img src=&#34;http://re-dzine.net/img/2013/08/bs3.png&#34; alt=&#34;Bootstrap3&#34; width=&#34;640&#34; height=&#34;500&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;フラットなデザインになっていたり、モバイルファーストなコードになっていたりと色々と変わっています。詳しくは、&lt;a href=&#34;https://github.com/twbs/bootstrap/pull/6342&#34;&gt;公式の情報&lt;/a&gt;等々を見てもらうとして、個人的に興味をそそられたのが、LESS/JSファイルのコンパイル方法がこれまでのバージョン2系から変わっているということです。&lt;/p&gt;
+
+&lt;p&gt;この部分をちゃんと理解しておかないと、これから案件でBootstrap3を使うかもという人はしんどいんじゃないかと思います。&lt;/p&gt;
+
+&lt;p&gt;では何がどう変わったのか。その辺を簡単にまとめます。&lt;/p&gt;
+
+&lt;h2&gt;Bootstrap2系でのコンパイル方法&lt;/h2&gt;
+
+&lt;p&gt;これまでのBootstrap2系では、&lt;a href=&#34;http://bower.io/&#34;&gt;Bower&lt;/a&gt;経由などでGitHubからファイル群を落とすとファイルの中に&lt;code&gt;Makefile&lt;/code&gt;が含まれていました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.github.com/twbs/bootstrap/master/Makefile&#34;&gt;bootstrap/Makefile at master&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この&lt;code&gt;Makefile&lt;/code&gt;を使って、&lt;code&gt;make&lt;/code&gt;コマンドを叩くことで、LESS/JSファイルをコンパイルしてきました。以下公式のドキュメント。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/twbs/bootstrap/tree/master#compiling-css-and-javascript&#34;&gt;Compiling CSS and JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;LESSファイルなら、以下のコマンドで&lt;code&gt;recess&lt;/code&gt;というnpmモジュールを使ってのLESSファイルのコンパイル・圧縮版の作成。&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code&gt;$ make bootstrap-css&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;JSファイルなら、以下のコマンドで各種JSファイルの結合・&lt;code&gt;uglifyjs&lt;/code&gt;を使っての圧縮版の作成。といった具合。&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code&gt;$ make bootstrap-js&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;h2&gt;Bootstrap3でのコンパイル方法&lt;/h2&gt;
+
+&lt;p&gt;現在、Bower等でBootstrap3をGitHubから落とすと、これまであった&lt;code&gt;Makefile&lt;/code&gt;はありません。よく見ると代わりに&lt;code&gt;Gruntfile.js&lt;/code&gt;があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.github.com/twbs/bootstrap/3.0.0-wip/Gruntfile.js&#34;&gt;bootstrap/Gruntfile.js at 3.0.0-wip&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;つまりバージョン3では、&lt;code&gt;make&lt;/code&gt;ではなく&lt;a href=&#34;http://gruntjs.com/&#34;&gt;Grunt&lt;/a&gt;というNode.jsベースのビルドツールを使ってコンパイルすることになります。以下公式のドキュメント。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/twbs/bootstrap#compiling-css-and-javascript&#34;&gt;Compiling CSS and JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;説明すると長くなるので、Gruntについての詳しくは以下の記事を見ていただくか、ググるなりしてもらえればと。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://kojika17.com/2013/03/grunt.js-memo.html&#34;&gt;Web制作で面倒な作業を自動化するビルドツール、Grunt v0.4 入門｜Web Design KOJIKA17&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;必要な環境を整えたうえで以下のコマンドを叩くだけで、&lt;code&gt;jshint&lt;/code&gt;での構文チェック、&lt;code&gt;qunit&lt;/code&gt;でのテスト、&lt;code&gt;recess&lt;/code&gt;でのLESSファイルのコンパイル・圧縮、JSファイルの結合・&lt;code&gt;uglify&lt;/code&gt;での圧縮が走ります。&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code&gt;$ grunt&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;LESSだけなら&lt;code&gt;$ grunt dist-css&lt;/code&gt;、JSだけなら&lt;code&gt;$ grunt dist-js&lt;/code&gt;、てな感じでこれまで通り個別にタスクを走らせることも可能。当然、&lt;code&gt;$ grunt watch&lt;/code&gt;でファイルの監視もできる。&lt;/p&gt;
+
+&lt;h2&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;今回のコンパイル方法以外にも、ローカルでBootstrapのドキュメントを見るには、&lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;といういわゆる静的サイトジェネレータを使うようになっています。&lt;/p&gt;
+
+&lt;p&gt;もう何がなんだか訳がわからないよママン！っていう方もいらっしゃるかもしれませんが、もうそういう時代なんですよねー（遠い目）。
+でもこの辺のツールが扱えるようになると開発効率は格段に上がりますし何かと幸せになれるかもしれません。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>第14回リクリセミナー｢Web制作の未来、あなたの未来｣に参加してきました</title>
+      <link>http://re-dzine.net/2013/07/resem14/</link>
+      <pubDate>Wed, 31 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://re-dzine.net/2013/07/resem14/</guid>
+      <description>&lt;p&gt;7/27(土)に行われた&lt;a href=&#34;http://recreators.doorkeeper.jp/events/4128&#34;&gt;第14回リクリセミナー「Web制作の未来、あなたの未来」&lt;/a&gt;に参加してきました。リクリセミナー自体も参加するのはなんだかんだで初めて。のはず。その辺意外とあいまい。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://recreators.doorkeeper.jp/events/4128&#34;&gt;&lt;img src=&#34;http://re-dzine.net/img/2013/07/resem14.png&#34; alt=&#34;resem14&#34; width=&#34;160&#34; height=&#34;160&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回メインセッションとして、こもりまさあきさんからWeb制作の未来のお話、そして今キテるフロントエンドからバックエンドにかかるツール・開発手法の紹介まで150分のまさにメガ盛りメニュー。お腹いっぱい。&lt;/p&gt;
+
+&lt;p&gt;昨年12月にこもりさん直々に黒い画面やツール周りについて教えていただいてから、英語の情報しかなくてもその辺の情報を積極的に収集したり、また自分でも実際に動かしてみたりしてきたので、取り立てて新しい情報はありませんでしたが、自分の向いている方向がブレていないことがわかって個人的には大満足でした。&lt;/p&gt;
+
+&lt;p&gt;初めてこもりさんのセッションを聞いたりスライドを見たという人にとっては、後半の怒涛のツール紹介は、何がなんだかわからず頭が全然追いつかないような状態だったかもしれません。&lt;/p&gt;
+
+&lt;p&gt;大事なのは、紹介されたツールがすべて触れなきゃいけないんだ！というふうに思わないこと。海外を中心にどんどん新しいツールが開発され、今回紹介されたツールも明日には古くなるというような状態です。日々の忙しい中、全部できるようになるなんて簡単なことではありません。&lt;/p&gt;
+
+&lt;p&gt;こもりさんのお話の本質は、Web制作におけるあらゆる手法をいかに効率化して、ムダな時間を無くし、プライベートだったり別の仕事だったりに時間を充てることができるかにあります。その部分を見失わずやっていければ、どんな未来が来ようとも柔軟に対応できる（つまり食いっぱぐれない）のではと思います。&lt;/p&gt;
+
+&lt;p&gt;細かくは書きませんが、6名の方からのライトニングトークもどれもしっかりしたすばらしい内容でした。スライドも見やすいし、喋りも上手だし、みなさんやはり場慣れしてるだけあります。&lt;/p&gt;
+
+&lt;p&gt;少し間が空いてしまうようですが、次回のリクリセミナーも個人的にはかなり気になる感じですので、ぜひ参加したいと思います。
+関係者のみなさん、すばらしい会を本当にありがとうございました。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

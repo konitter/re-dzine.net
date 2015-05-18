@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>こんな時だからこそロールオーバー効果について今一度考えてみる | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="こんな時だからこそロールオーバー効果について今一度考えてみる">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2011/03/for-rollover-effects/">
+	<meta property="og:image" content="http://re-dzine.net/img/ogp_square.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2011/03/for-rollover-effects/">
+	<meta name="twitter:title" content="こんな時だからこそロールオーバー効果について今一度考えてみる">
+	<meta name="twitter:image" content="http://re-dzine.net/img/ogp_square.png">
+	<link rel="canonical" href="http://re-dzine.net/2011/03/for-rollover-effects/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>こんな時だからこそロールオーバー効果について今一度考えてみる</h1>
+		<div class="meta"><time datetime="2011-03-22">2011-03-22</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		<p>今では様々な手法の考案とともに、当たり前のように使うようになってきた画像のロールオーバー。今回はこのロールオーバーについて、どのような考えのもとにあるものなのか、どのような手法が最適なのかを今一度考えてみます。</p>
+
+<p>※ここでいう「ロールオーバー効果」（以下、ロールオーバー）とは、リンクなどが設定されクリックできるようになっている部品（画像など）にポインタを乗せたときに、表示が切り替わる事を言います。</p>
+
+<h3>ロールオーバーって何のためのもの？</h3>
+
+<p>ポインタを載せた対象がクリックできるものであるとユーザーに分かってもらうため？、クライアントにやれって言われるから？、ロールオーバーがあった方がないよりクリックされるから？、付加的なアニメーション？、みなさん色々な考えがあると思います。ぼくはと言うと恥ずかしながら、正直言って深く考えた事は無く、単純にその方が良いだろくらいにしか思ってませんでした。</p>
+
+<p>ある時、果たしてそれらはロールオーバーが必要な理由になりえるのか？、もしかしたらロールオーバーって要らないんじゃないか？という疑問が沸々と湧き出てきて、<a href="http://twitter.com/#!/vanillate">@vanillate</a>さんがやっているUST番組「<a href="http://vanitalk.net/">vanitalk</a>」に出演した時にそんな事を言うと結構反響があってびっくりしたことが今回のエントリーに繋がっています。</p>
+
+<p>で結局のところ、「機能することがデザイン」というものの観点から言えば、ロールオーバーが有ろうと無かろうと、対象がクリックできると見ただけで分かることがまず大前提なんですよね。</p>
+
+<p>つまり、ポインタを乗せてみないとクリックできるかどうか分からない、というデザインがあったとしたら、それをロールオーバーで機能を補完するのではなく、デザイン自体を見直す必要があるわけです。</p>
+
+<p>今のところ個人的には、ロールオーバーとはクリックできると分かるデザインが担保された上でのプラスアルファのエフェクトであると考えています。</p>
+
+<p>じゃあロールオーバーは要るのか要らないのか。要は使い分けなんだと思います。</p>
+
+<p>ポインタを乗せる前と乗せた後で対象が与える情報（画像内のテキストなど）を変える必要があれば、当然ロールオーバーは必要だし、前後で情報は変わらない、ただ背景などの色を変える・全体の色を少し薄くする程度であれば、必要ないし、どうしても欲しいなら、カーソルを指マークにするだけで本来は十分なはずなのです。</p>
+
+<h3>ロールオーバーをやるなら実装の最適な手段は？</h3>
+
+<p>絶対CSSでやる、いやJavaScriptでやる、いやいやケースバイケースで使い分ける、などこれも人それぞれで、「絶対にこの方法でやるべき」というものはありません。</p>
+
+<p>ただ、前述したようにロールオーバーがプラスアルファのエフェクトだと考えるならば、JavaScriptで実装する、ということになるでしょう。</p>
+
+<p>なぜなら、ロールオーバーでは、ポインタを乗せた時にエフェクトを加える、つまり「動作」を制御することになるので、それはスタイルを制御するCSSが担うことではなく、JavaScriptがやることだと思うからです。</p>
+
+<p>とは言いつつも、CSS3の登場でこの考えはもう破綻しているわけで、正直この部分については明確な答えが出せていません。</p>
+
+<p>まあ考え方・実装方法ともに正解の無い話ではあるのですが、みなさんはどのように考えていますか？この記事が何かを考えるきっかけになってくれれば嬉しいです。</p>
+
+<p>さいごに。</p>
+
+<p>遅くなりましたが、このたびの東北地方太平洋沖地震により被害を受けられた皆様には、心よりお見舞い申し上げます。被災地の1日も早い復興をお祈りいたします。</p>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2011/03/jsshakyo-vol1/">「JavaScript写経」写経壱に参加してきた</a></div></li>
+	<li>Newer Entry: <div><a href="/2011/03/beginning-of-clearfix/">意外とみんな知らないclearfixの始まりについて調べてみた</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+

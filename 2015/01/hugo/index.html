@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>MiddlemanからHugoへ移行した | REFLECTDESIGN</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:title" content="MiddlemanからHugoへ移行した">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="REFLECTDESIGN">
+	<meta property="og:url" content="http://re-dzine.net/2015/01/hugo/">
+	<meta property="og:image" content="http://re-dzine.net/img/2015/01/hugo.png">
+	<meta property="fb:admins" content="100000698495270">
+	<meta property="fb:app_id" content="231858050163702">
+	<meta name="twitter:site" content="@konitter">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="http://re-dzine.net/2015/01/hugo/">
+	<meta name="twitter:title" content="MiddlemanからHugoへ移行した">
+	<meta name="twitter:image" content="http://re-dzine.net/img/2015/01/hugo.png">
+	<link rel="canonical" href="http://re-dzine.net/2015/01/hugo/">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="REFLECTDESIGN">
+</head>
+<body>
+<header id="header">
+	<a href="/" id="logo"><img src="/img/r.png" alt="REFLECTDESIGN"></a>
+</header>
+<main role="main">
+<article>
+	<header>
+		<h1>MiddlemanからHugoへ移行した</h1>
+		<div class="meta"><time datetime="2015-01-21">2015-01-21</time> - by <a href="/about/">konitter</a></div>
+	</header>
+	<div class="entry">
+		
+
+<p>Middlemanが許されるのは小学生までらしいので、Golang製のジェネレータ「<a href="http://gohugo.io/">Hugo</a>」に乗り換えた。<a href="http://deeeet.com/writing/2014/12/25/hugo/">OctopressからHugoへ移行したという記事</a>を見たのがきっかけ。もともとMiddlemanのビルドの遅さとRuby（と各種モジュール）のバージョン管理がウザくて仕方なかったし、<a href="http://t32k.me/mol/log/frontend-weekly/">Frontend Weekly Vol.0</a>っていう鬼ヤバいメールマガジンでも紹介されてたし（宣伝）っていうので。</p>
+
+<p><img src="/img/2015/01/hugo.png" alt="Hugo" />
+</p>
+
+<h2 id="ビルド速い:32ab7241d48fcc174c877413a917f8cf">ビルド速い</h2>
+
+<p>まあ速い遅いって言っても全部で60数記事くらいしかないので、偉そうには言えないんだけど、Hugoでビルドしたら0.1秒もかからない。一瞬。コーヒーを一口飲む間もない。一度体感してしまうとRuby製はもとよりNodeJS製のものには戻れない感ある。それくらい速い。</p>
+
+<pre><code>$ time hugo
+0 draft content
+0 future content
+66 pages created
+0 tags created
+0 categories created
+in 85 ms
+hugo  0.19s user 0.06s system 173% cpu 0.143 total
+</code></pre>
+
+<h2 id="インストール:32ab7241d48fcc174c877413a917f8cf">インストール</h2>
+
+<p>Goの環境があるなら<code>go get</code>すればいいし、無くてもMacなら<code>brew install hugo</code>でOK。Winなら<a href="https://github.com/spf13/hugo/releases">ここから</a>バイナリをダウンロードして適当なディレクトリにファイルを置いて環境変数のPATHを通すだけ。</p>
+
+<pre><code>$ go get -v github.com/spf13/hugo
+</code></pre>
+
+<p><a href="http://gohugo.io/overview/introduction">公式のドキュメント</a>が割と充実してる。機能の使う使わない関係なくまずは頭からざっと目を通すとよさげ。とはいえ、細かいところでどうしたらいいかわかんないところは出てくるので、デザインテーマも合わせて見るとよい。以下で<code>git clone</code>して実際にテーマを当てて動かしてみるとわかるはず。</p>
+
+<pre><code>$ git clone --recursive https://github.com/spf13/hugoThemes themes
+</code></pre>
+
+<h2 id="移行方法:32ab7241d48fcc174c877413a917f8cf">移行方法</h2>
+
+<p>Middlemanでは記事をマークダウンで書いていたので、基本的にそのままファイルを持ってくれば動く。2年前に<a href="/2013/10/wordpress-to-middleman/">WordPressからMiddlemanへ移行したときの記事</a>でも書いたけど、一度記事をマークダウン化しておけばジェネレータの乗り換えも簡単に済ませられる。</p>
+
+<p><code>layouts</code>配下に置くテンプレートもファイルやディレクトリ構成などは決まりがあるのでそこを把握する必要があるが、これもちゃんとドキュメントに書いてあるので読めばよい。テンプレートの記法もSlim, Haml, Erb, Jade, Mustache, Handlebarsなどといったテンプレートエンジンを触った経験があればすぐに理解できるはずだ。</p>
+
+<h2 id="ビルドとデプロイを自動化:32ab7241d48fcc174c877413a917f8cf">ビルドとデプロイを自動化</h2>
+
+<p><code>hugo</code>でビルドして<code>public</code>ディレクトリ内のファイルをGitHubにpushしてもいいんだけど、今回<a href="http://wercker.com/">wercker</a>というサービスを使ってビルドとデプロイを自動化するようにした。その場合の方法も公式のドキュメントに書いてある。</p>
+
+<ul>
+<li><a href="http://gohugo.io/tutorials/automated-deployments/">Automated deployments with Wercker</a></li>
+</ul>
+
+<p>ソースファイルをGitHubのmasterにpushしたらwerckerがそれを検知してhugoでビルドし、ファイルをgh-pagesブランチにデプロイしてくれる。超楽。</p>
+
+<h2 id="まとめ:32ab7241d48fcc174c877413a917f8cf">まとめ</h2>
+
+<p>歴史のあるジェネレータに比べると機能面や拡張性でいえばまだまだ。テンプレートもHTMLなものに加えてHamlっぽく書ける<a href="https://github.com/eknkc/amber">Amber</a>というのも使える。が、それほど旨味はない。<a href="https://github.com/spf13/hugo/blob/master/docs/content/meta/roadmap.md">ロードマップ</a>を見る限りこれからに期待というところではあるが、シンプルなブログや静的サイト程度であれば今のままでも十分。今さらMiddlemanやJekyllとかにするくらいならHugoオススメです。</p>
+
+<ul>
+<li><a href="https://github.com/konitter/re-dzine.net">konitter/re-dzine.net</a></li>
+</ul>
+
+	</div>
+</article>
+<aside class="share">
+	<ul>
+		<li><div class="fb-like" data-layout="button_count" data-width="auto" data-action="like" data-show-faces="false" data-share="true"></div><div id="fb-root"></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=231858050163702&version=v2.0";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></li>
+		<li><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="konitter" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script></li>
+	</ul>
+</aside>
+<aside>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" data-ad-client="ca-pub-7404181054845479" data-ad-format="auto" data-ad-slot="7069588949" style="display:block"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</aside>
+<ul class="post-pager">
+	<li>Older Entry: <div><a href="/2015/03/relationship-with-gulp-and-npm-run-script/">gulpあるいはビルドツールとnpm run-scriptとの関係性</a></div></li>
+	<li>Newer Entry: <div><a href="/2014/12/st3-settings-and-tips/">Sublime Text 3 Settings and Tips</a></div></li>
+</ul>
+</main>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-10906036-1','auto');ga('send','pageview');</script>
+</body>
+</html>
+
